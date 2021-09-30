@@ -14,12 +14,10 @@ class CreateCuisinesTable extends Migration
     public function up()
     {
         Schema::create('cuisines', function (Blueprint $table) {
-            $table->id();
-            
+            $table->id();   
             $table->string('name', 50);
             $table->string('slug')->unique();
             $table->text('img');
-
             $table->timestamps();
         });
     }
