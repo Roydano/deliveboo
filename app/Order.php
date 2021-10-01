@@ -12,7 +12,8 @@ class Order extends Model
         'name',
         'address',
         'phone',
-        'notes'
+        'notes',
+        'total'
     ];
 
     public function plates() {
