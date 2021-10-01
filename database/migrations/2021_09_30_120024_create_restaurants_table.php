@@ -17,16 +17,15 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->UnsignedBigInteger('user_id');
-            $table->string('name', 30);
+            $table->string('name', 100);
             $table->string('address', 60);
-            $table->string('phone', 13);
+            $table->string('phone', 30);
             $table->string('p_iva', 11)->unique();
             $table->string('slug')->unique();
-            $table->text('img');
-
+            $table->text('img')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
