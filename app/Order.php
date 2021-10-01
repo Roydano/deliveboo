@@ -17,6 +17,6 @@ class Order extends Model
     ];
 
     public function plates() {
-        return $this->belongsToMany('App\Plate', 'order_id', 'plate_id', 'quantity');
+        return $this->belongsToMany('App\Plate');
     }
 }

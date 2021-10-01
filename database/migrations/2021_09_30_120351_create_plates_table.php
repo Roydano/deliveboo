@@ -16,7 +16,7 @@ class CreatePlatesTable extends Migration
         Schema::create('plates', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
-            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('course_id')->nullable();
             $table->string('name', 50);
             $table->string('slug')->unique();
             $table->float('price',  4,2);
@@ -41,6 +41,11 @@ class CreatePlatesTable extends Migration
      */
     public function down()
     {
+        
+
         Schema::dropIfExists('plates');
+
+        $table->dropForeign('course_id');
+
     }
 }
