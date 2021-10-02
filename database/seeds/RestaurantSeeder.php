@@ -32,5 +32,5 @@ class RestaurantSeeder extends Seeder
 
              $newRestaurant->save();
         }
-    }
+
 }

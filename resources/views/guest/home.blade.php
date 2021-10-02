@@ -13,6 +13,8 @@
 </style>
 
 <body>
-    
+    <div>guest/main page</div>
+
+    <div>/register to create new user/restaurant</div>
 </body>
 </html>

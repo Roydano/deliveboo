@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="restName" class="col-md-4 col-form-label text-md-right">{{ __('Ragione Sociale') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="restName" type="text" class="form-control @error('restName') is-invalid @enderror" name="restName" value="{{ old('restName') }}" required autocomplete="restName" autofocus>
+
+                                @error('restName')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
                             <div class="col-md-6">
