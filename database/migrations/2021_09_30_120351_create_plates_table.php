@@ -21,11 +21,15 @@ class CreatePlatesTable extends Migration
             $table->string('slug')->unique();
             $table->float('price',  4,2);
             $table->text('description');
+            $table->text('ingredients');
             $table->text('img');
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
 
-            $table->foreign('restaurant_id')->references('id')->on('restaurants');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
+
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+           
             
         });
     }
