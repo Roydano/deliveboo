@@ -55,6 +55,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'restName' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'phone' => ['required', 'numeric', 'min:11'],
+            'p_iva' => ['required', 'numeric'], //add validation giusto
+            'img' => ['string']
         ]);
     }
 
@@ -65,18 +70,15 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
-        /* $request->except(["contact_address"]) */
+    {   
+        // create user
         $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        $data['user_id'] = $newUser->id;
-
-        $newRestaurant = new Restaurant();
-
+        
+        // generate slug based on restaurant name
         $slug = Str::slug($data['restName'],'-');
         $slugBase = $slug;
         $slugPresent = Restaurant::where('slug', $slug)->first();
@@ -86,12 +88,27 @@ class RegisterController extends Controller
             $slug = $slugBase . '-' .$count;
             $slugPresent = Restaurant::where('slug', $slug)->first();
             $count++;
-        }
+        };
 
-        $newRestaurant->slug = $slug;
-        $newRestaurant->name = $data['restName'];
+        // create restaurant with foreign key user_id
+        $newUser->restaurant()->create([
+            'name' => $data['restName'], 
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'slug' => $slug,
+            'p_iva' => $data['p_iva']
+        ]);
+
+        return $newUser;
+        
+
+       /*  $data['user_id'] = $newUser->id;
+
+        $newRestaurant = new Restaurant(); */
+
+        /* $newRestaurant->name = $data['restName'];
         $newRestaurant->fill($data);
-        $newRestaurant->save();
+        $newRestaurant->save(); */
 
         /* $newRestaurant = Restaurant::create([
             'user_id' => $data['user_id'],
