@@ -18,6 +18,10 @@ class Plate extends Model
         'resteurant_id'
     ];
 
+    public function restaurant() {
+        return $this->belongsTo('App\Restaurant');
+    }
+
     public function course() {
         return $this->belongsTo('App\Course');
     }

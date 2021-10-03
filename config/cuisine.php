@@ -1,5 +1,5 @@
 <?php
-    $cuisines = [
+    return [
         'Americana',
         'Cinese',
         'Giapponese',

@@ -12,19 +12,35 @@ class CuisineSeeder extends Seeder
      */
     public function run()
     {
-        $cuisines = config('cuisine');
+        /* $cuisines = Config::get('cuisine');
+        dd($cuisines); */ 
+        // GIVES NULL
 
+        $cuisines =  [
+            'Americana',
+            'Cinese',
+            'Giapponese',
+            'Greca',
+            'Indiana',
+            'Italiana',
+            'Libanese',
+            'Messicana',
+            'Pizza',
+            'Thailandese',
+            'Vegetariana',
+            'Vegana'
+        ];
         
 
-        foreach($cuisines as $cuisine){
+        foreach($cuisines as $cuisine) {
 
-            $newCuisines = new Cuisine();
+            $newCuisine = new Cuisine();
 
             $newCuisine->name = $cuisine;
             $newCuisine->img = 'immagine da inserire';
+            $newCuisine->slug = Str::slug($newCuisine->name, '-');
 
             $newCuisine->save();
-
         }
         
     }

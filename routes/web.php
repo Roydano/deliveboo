@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('guest.home');
 });
 
+Route::resource('/restaurants','RestaurantController');
+
+
+
+
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')

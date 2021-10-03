@@ -20,11 +20,12 @@ class RestaurantSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         
+        //attenzione a id: in relazione con user in seed -> cambia indice per farlo corrispondere
         for ( $i = 0; $i <= 6; $i++ ) {
              $newRestaurant = new Restaurant();
              $newRestaurant->user_id = $i+1;
              $newRestaurant->name = 'Ristorante ' . $faker->name();
-             $newRestaurant->address = $faker->address();
+             $newRestaurant->address = $faker->streetAddress();
              $newRestaurant->phone = $faker->phoneNumber();
              $newRestaurant->p_iva = $faker->randomNumber(5, true);
              $newRestaurant->slug = Str::slug($newRestaurant->name, '-');
@@ -32,5 +33,5 @@ class RestaurantSeeder extends Seeder
 
              $newRestaurant->save();
         }
-
+    }
 }
