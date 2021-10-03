@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     protected $fillable = [
-
-        'id',
+        'user_id',
         'name',
         'address',
         'phone',
@@ -25,7 +24,7 @@ class Restaurant extends Model
     {
         return $this->hasMany('App\Plate');
     }
-    
+
     public function cuisine()
     {
         return $this->belongsToMany('App\Cuisine');

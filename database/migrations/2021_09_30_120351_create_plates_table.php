@@ -28,8 +28,8 @@ class CreatePlatesTable extends Migration
 
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
 
-            //PROBLEMA
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('set null');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+           
             
         });
     }

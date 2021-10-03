@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Cuisine;
 
 class CuisineSeeder extends Seeder
 {
@@ -11,6 +12,20 @@ class CuisineSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $cuisines = config('cuisine');
+
+        
+
+        foreach($cuisines as $cuisine){
+
+            $newCuisines = new Cuisine();
+
+            $newCuisine->name = $cuisine;
+            $newCuisine->img = 'immagine da inserire';
+
+            $newCuisine->save();
+
+        }
+        
     }
 }

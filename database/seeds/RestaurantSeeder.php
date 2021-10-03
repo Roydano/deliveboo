@@ -46,7 +46,6 @@ class RestaurantSeeder extends Seeder
 
 
         }
-
-
     }
+
 }
