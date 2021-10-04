@@ -19,7 +19,9 @@
                 <div class="card-body">
                     <div>{{ $restaurant->name  }}</div>
                     <div>{{ $restaurant->address  }}</div>
-                    <a href="">vedi i tuoi piatti</a>
+                    <div>{{ $restaurant->id  }} questo è l'id del risotrante</div>
+                    
+                    <a href="{{ route('plates.index', ['restaurants'=>$restaurant->id]) }}">vedi i tuoi piatti</a>
 
                    
                 </div>

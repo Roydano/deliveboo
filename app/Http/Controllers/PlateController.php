@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Plate;
 
 class PlateController extends Controller
@@ -12,9 +14,13 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $plates = Plate::where('restaurant_id', Auth::user()->id)->all();
+    
+        // da questo errore ArgumentCountError
+        // Too few arguments to function App\Http\Controllers\PlateController::index(), 0 passed in D:\PROGETTI GRAFICA\BOOLEAN\CORSO BOOLEAN\LAVORI\MAMP\deliveboo\vendor\laravel\framework\src\Illuminate\Routing\Controller.php on line 54 and exactly 1 expected 
+        $plates = Plate::all()->where('restaurant_id', $id);
+        
 
         return view('plateRestaurant', compact('plates'));
     }

@@ -18,9 +18,11 @@ Route::get('/', function () {
 });
 
 Route::resource('/restaurants','RestaurantController');
+Route::resource('/plates', 'PlateController');
 
 
 Route::get('/register/{id}', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/plates/{id}, PlateController@index');
 
 Auth::routes();
 
