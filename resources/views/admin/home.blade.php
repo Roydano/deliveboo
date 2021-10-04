@@ -18,10 +18,6 @@
                 </div>
             </div>
         </div>
-        <button><a href="{{ route('admin.restaurant.index') }}">vai all'index</a></button>
     </div>
 </div>
 @endsection
-
-
-

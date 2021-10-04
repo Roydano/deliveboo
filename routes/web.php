@@ -17,12 +17,16 @@ Route::get('/', function () {
     return view('guest.home');
 });
 
+Route::resource('/restaurants','RestaurantController');
+
+
+
+
 Auth::routes();
 
 Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
 ->group(function() {
 // pagina di atterraggio dopo il login (con il prefisso, l'url è '/admin')
-    Route::get('/', 'UserController@index')->name('index');
-    Route::resource('/restaurant', 'RestaurantController');
+    Route::get('/', 'HomeController@index')->name('index');
 }); 
 

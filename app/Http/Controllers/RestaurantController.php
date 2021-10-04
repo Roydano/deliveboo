@@ -19,7 +19,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all;
+        $restaurants = Restaurant::all();
         return view ('index' , compact('restaurants'));
     }
 
@@ -81,16 +81,32 @@ class RestaurantController extends Controller
         //sezione update restaurant: update info user in controller differente
 
         $request->validate([
-            'restName' => 'required|string',
-            'address' => 'required|string'],
-            /* 'phone' => ['required', 'numeric', 'min:11'],
-            'p_iva' => ['required', 'numeric'], //add validation giusto
-            'img' => ['string'] */
+            'name' => 'required|string',
+            'address' => 'required|string',
+            'phone' => 'required|numeric|min:11',
+            'p_iva' => 'required|numeric', //add validation giusto
+            'img' => 'string'
         ]);
 
         $data = $request->all();
 
-        if($data['title'] != $post->title){
+        if($data['name'] != $restaurant->name){
+            $slug = Str::slug($data['name'],'-');
+            $slugBase = $slug;
+            $slugPresent = Restaurant::where('slug', $slug)->first();
+        
+            $count = 1;
+            while($slugPresent){
+                $slug = $slug_base . '-' . $count;
+                $slugPresent = Restaurnt::where('slug', $slug)->first();
+                $count++;
+            }
+            $data['slug'] = $slug;
+        } 
+
+        $resturant->update($data);
+
+        return redirect()->route('admin.home')->with('updated', 'Restaurant successfully updated');
         
     }
 
