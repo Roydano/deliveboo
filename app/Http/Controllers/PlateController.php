@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Plate;
 
 class PlateController extends Controller
 {
@@ -13,7 +14,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = Plate::where('restaurant_id', Auth::user()->id)->all();
+
+        return view('plateRestaurant', compact('plates'));
     }
 
     /**

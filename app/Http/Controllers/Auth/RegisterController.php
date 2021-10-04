@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Restaurant;
+use App\Cuisine;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -101,21 +102,12 @@ class RegisterController extends Controller
 
         return $newUser;
         
+    }
 
-       /*  $data['user_id'] = $newUser->id;
-
-        $newRestaurant = new Restaurant(); */
-
-        /* $newRestaurant->name = $data['restName'];
-        $newRestaurant->fill($data);
-        $newRestaurant->save(); */
-
-        /* $newRestaurant = Restaurant::create([
-            'user_id' => $data['user_id'],
-            'name' => $data['name'], 
-            'address' => $data['address'],
-            'phone' => $data['phone'],
-            'p_iva' => $data['p_iva']
-        ]); */
+    public function showRegistrationForm()     
+    {         
+        $cuisines = Cuisine::all();
+        return view('auth.register', compact('cuisines'));     
+        
     }
 }

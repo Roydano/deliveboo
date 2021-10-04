@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::resource('/restaurants','RestaurantController');
 
 
-
+Route::get('/register/{id}', 'Auth\RegisterController@showRegistrationForm');
 
 Auth::routes();
 

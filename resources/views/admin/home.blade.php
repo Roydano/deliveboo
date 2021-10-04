@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div>{{ $restaurant->name  }}</div>
                     <div>{{ $restaurant->address  }}</div>
-                    <a href="#">vedi i tuoi piatti</a>
+                    <a href="">vedi i tuoi piatti</a>
 
                    
                 </div>
