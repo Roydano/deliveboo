@@ -3,13 +3,14 @@
 @section('content')
 <div class="container">
 
-    <h2>Aggiungi un piatto</h2>
+    <h2>Stai modificando il piatto</h2>
 
-    <form action="{{route('admin.plates.store')}}" method="POST" class="">
+    <form action="{{ route('admin.plates.update', $plate->id)}}" method="POST" enctype=”multipart/form-data”>
         @csrf
+        @method('PUT')
 
         <div class="form-group">
-          <input type="" class="form-control" id="name" name="name" placeholder="Nome piatto">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
         </div>
         
         <div class="form-group">
@@ -22,15 +23,15 @@
         </div>
 
         <div class="form-group">
-          <textarea class="form-control" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti"></textarea>
+          <textarea class="form-control" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti">{{ $plate->ingredients }}</textarea>
         </div>
 
         <div class="form-group">
-            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descrizione"></textarea>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descrizione">{{ $plate->description }}</textarea>
         </div>
 
         <div class="form-group">
-            <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Prezzo">
+            <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
         </div>
 
         <div class="form-check">
@@ -38,7 +39,7 @@
             <label class="form-check-label" for="visible">Visibile</label>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Aggiungi piatto</button>
+        <button type="submit" class="btn btn-primary mt-3">Modifica piatto</button>
 
       </form>
 

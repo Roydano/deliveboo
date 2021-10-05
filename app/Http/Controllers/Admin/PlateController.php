@@ -103,9 +103,14 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $plate = Plate::where('slug', $slug)->first();
+        $courses = Course::all();
+
+        // dd($plate);
+        
+        return view('admin.editPlate', compact('plate', 'courses'));
     }
 
     /**
@@ -115,9 +120,40 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Plate $plate)
     {
-        //
+        
+
+        $request->validate([
+            'name' => 'required|max:100',
+            'price' => 'required|numeric',
+            'description' => 'nullable|max:250',
+            'ingredients' => 'max:250',
+            'visible' => 'required',
+            'img' => 'nullable|image'
+        ]);
+
+        $data = $request->all();
+        $slug = Str::slug($data['name'], '-');
+
+        if($data['name'] != $plate->name){
+            $data['slug'] = Str::slug($data['name'], '-');
+            $slugBase = $data['slug'];
+            $slugPresent = Plate::where('slug', $data['slug'])->first();
+            $count = 1;
+
+            while($slugPresent){
+                $slug = $slugBase. '-' . $count;
+                $slugPresent = Plate::where('slug', $slug)->first();
+                $count++;
+            }
+
+            $data['slug'] = $slug;
+        }
+
+        $plate->update($data);
+
+        return redirect()->route('admin.plates.index')->with('edit', 'il piatto ' . $plate->name . ' è stato modificato con successo!');
     }
 
     /**
