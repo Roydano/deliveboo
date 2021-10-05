@@ -21,7 +21,7 @@
                     <div>{{ $restaurant->address  }}</div>
                     <div>{{ $restaurant->id  }} questo è l'id del risotrante</div>
                     
-                    <a href="{{ route('plates.index', ['restaurants'=>$restaurant->id]) }}">vedi i tuoi piatti</a>
+                    <a href="{{ route('admin.plates')}}">vedi i tuoi piatti</a>
 
                    
                 </div>

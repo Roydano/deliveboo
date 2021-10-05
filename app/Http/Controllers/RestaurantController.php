@@ -55,61 +55,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('slug', $slug)->first();
         return view ('showRestaurant', compact('restaurant'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($slug)
-    {
-        $restaurant = Restaurant::where('slug', $slug)->first();
-        //add cuisine
-        return view ('admin.editRestaurant', compact('restaurant'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //sezione update restaurant: update info user in controller differente
-
-        $request->validate([
-            'name' => 'required|string',
-            'address' => 'required|string',
-            'phone' => 'required|numeric|min:11',
-            'p_iva' => 'required|numeric', //add validation giusto
-            'img' => 'string'
-        ]);
-
-        $data = $request->all();
-
-        if($data['name'] != $restaurant->name){
-            $slug = Str::slug($data['name'],'-');
-            $slugBase = $slug;
-            $slugPresent = Restaurant::where('slug', $slug)->first();
-        
-            $count = 1;
-            while($slugPresent){
-                $slug = $slug_base . '-' . $count;
-                $slugPresent = Restaurnt::where('slug', $slug)->first();
-                $count++;
-            }
-            $data['slug'] = $slug;
-        } 
-
-        $resturant->update($data);
-
-        return redirect()->route('admin.home')->with('updated', 'Restaurant successfully updated');
-        
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *

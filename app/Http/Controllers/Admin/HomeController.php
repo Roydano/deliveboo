@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Restaurant;
 
+
 class HomeController extends Controller
 {
     /**

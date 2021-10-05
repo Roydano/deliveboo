@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h3>Edit restaurant</h3>
+    <h2>Aggiungi un piatto</h2>
 </div>
 @endsection
