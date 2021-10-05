@@ -27,7 +27,6 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
 ->group(function() {
 // pagina di atterraggio dopo il login (con il prefisso, l'url è '/admin')
     Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/plates', 'PlateController@index')->name('plates');
-    Route::resource('admin.plates', 'PlateController');
+    Route::resource('plates', 'PlateController');
 }); 
 

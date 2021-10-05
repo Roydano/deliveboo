@@ -5,11 +5,12 @@
     <h2>pagina dei piatti</h2>
     @foreach($plates as $plate)
 
-    <div class="mb-5">
-        <h3>{{$plate->name}} id Restaurant {{$plate->restaurant_id}}</h3>
-        <span>{{$plate->ingredients}}</span>
-        <span class="mx-3">{{$plate->price}}€</span>
-    </div>
+    <a href="{{route('admin.plates.show', $plate->slug)}}">
+        <div class="mb-5">
+            <span>{{$plate->name}}</span>
+            <span class="mx-3">{{$plate->price}}€</span>
+        </div>
+    </a>
     @endforeach
 
     <div class="btn"><a href="{{route('admin.plates.create')}}">Aggiungi un piatto</a></div>

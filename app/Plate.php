@@ -14,6 +14,7 @@ class Plate extends Model
         'price',
         'img',
         'description',
+        'ingredients',
         'visible',
         'resteurant_id'
     ];

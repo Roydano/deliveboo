@@ -7,37 +7,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Plate;
 use App\Restaurant;
+use App\Course;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
-
-    /* public function showPlates() {
-        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        $plates = Plate::where('restaurant_id', $restaurant->id);
-        return $plates;
-    } */
-    
-    
-    
-    /* public function showPlates($id){
-        $plates = Plate::where('restaurant_id', $id);
-        
-
-        return view('admin.plateRestaurant', compact('plates'));
-    } */
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // da questo errore ArgumentCountError
-        // Too few arguments to function App\Http\Controllers\PlateController::index(), 0 passed in D:\PROGETTI GRAFICA\BOOLEAN\CORSO BOOLEAN\LAVORI\MAMP\deliveboo\vendor\laravel\framework\src\Illuminate\Routing\Controller.php on line 54 and exactly 1 expected 
-        // $restaurant = Restaurant::where('user_id', Auth::user()->id);
-    //     $plates = Plate::where('restaurant_id', $id);
-        
+    {        
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
         $plates = $restaurant->plates()->get();
         return view('admin.plateRestaurant', compact('plates'));
@@ -50,7 +33,8 @@ class PlateController extends Controller
      */
     public function create()
     {
-        return view('admin.addPlate');
+        $courses = Course::all();
+        return view('admin.addPlate', compact('courses'));
     }
 
     /**
@@ -61,7 +45,44 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+
+        $request->validate([
+            'name' => 'required|max:100',
+            'price' => 'required|numeric',
+            'description' => 'nullable|max:250',
+            'ingredients' => 'max:250',
+            'visible' => 'required',
+            'img' => 'nullable|image'
+        ]);
+
+        $data = $request->all();
+
+        $newPlate = new Plate();
+
+        $slug = Str::slug($data['name'],'-');
+        $slugBase = $slug;
+        $slugPresent = Plate::where('slug', $slug)->first();
+
+        $count = 1;
+        while($slugPresent){
+            $slug = $slugBase . '-' .$count;
+            $slugPresent = Plate::where('slug', $slug)->first();
+            $count++;
+        }
+
+        $newPlate->slug =  $slug;
+
+        /* if(array_key_exists('image', $data)) {
+            $img_path = Storage::put('images', $data['image']);
+            $data['image'] = $img_path;
+        } */
+
+        $newPlate->restaurant_id = $restaurant->id;
+        $newPlate->fill($data);
+        $newPlate->save();
+        
+        return redirect()->route('admin.plates.index');
     }
 
     /**
@@ -70,9 +91,10 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $plate = Plate::where('slug', $slug)->first();
+        return view('admin.showPlate', compact('plate'));
     }
 
     /**
