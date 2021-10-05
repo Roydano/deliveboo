@@ -16,5 +16,7 @@
     <div>guest/main page</div>
 
     <div>/register to create new user/restaurant</div>
+
+    <a href="{{ route('restaurants.index') }}"> vai alla home con tutti i ristoranti</a>
 </body>
 </html>

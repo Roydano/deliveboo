@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Restaurant;
+
 
 class HomeController extends Controller
 {
@@ -13,9 +16,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-        return view('admin.home');
+    {   
+
+        $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        return view('admin.home', compact('restaurant'));
     }
 
 }

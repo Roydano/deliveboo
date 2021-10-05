@@ -11,8 +11,9 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                        <!-- start full name -->
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ragione Sociale') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome e Cognome') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -24,9 +25,11 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end full name -->
 
+                        <!-- start restaurant name -->
                         <div class="form-group row">
-                            <label for="restName" class="col-md-4 col-form-label text-md-right">{{ __('Ragione Sociale') }}</label>
+                            <label for="restName" class="col-md-4 col-form-label text-md-right">{{ __('Nome ristorante') }}</label>
 
                             <div class="col-md-6">
                                 <input id="restName" type="text" class="form-control @error('restName') is-invalid @enderror" name="restName" value="{{ old('restName') }}" required autocomplete="restName" autofocus>
@@ -38,7 +41,24 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end restaurant name -->
 
+                        <!-- start cuisine -->
+                        <div class="form-group row">
+                            <label for="cuisine" class="col-md-4 col-form-label text-md-right">{{ __('Tipi di Cucina') }}</label>
+
+                            <div class="col-md-6">
+                                @foreach($cuisines as $cuisine)
+                               
+                                <input type="checkbox" class="btn-check"  name="{{$cuisine->name}}" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="{{$cuisine->name}}" >{{$cuisine->name}}</label>
+                                
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- end cuisine -->
+
+                        <!-- start address -->
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo') }}</label>
 
@@ -52,7 +72,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end address -->
 
+                        <!-- start phone -->
                         <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Numero di telefono') }}</label>
 
@@ -66,7 +88,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end phone -->
 
+                        <!-- start p.iva -->
                         <div class="form-group row">
                             <label for="p_iva" class="col-md-4 col-form-label text-md-right">{{ __('Partita IVA') }}</label>
 
@@ -80,7 +104,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end p.iva -->
 
+                        <!-- start email -->
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -94,7 +120,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end email -->
 
+                        <!-- start password-->
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -108,7 +136,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <!-- end password -->
 
+                        <!-- start confirm password -->
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -116,7 +146,9 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <!-- end confirm password -->
 
+                        <!-- start button register -->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -124,6 +156,8 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- end button register -->
+
                     </form>
                 </div>
             </div>
