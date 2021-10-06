@@ -132,11 +132,15 @@ class PlateController extends Controller
             'price' => 'required|numeric',
             'description' => 'nullable|max:250',
             'ingredients' => 'required|max:250',
-            'visible' => 'required',
             'img' => 'nullable|image'
         ]);
 
         $data = $request->all();
+
+        if (!array_key_exists('visible', $data)) {
+            $data['visible'] = 0;
+        }
+
         $slug = Str::slug($data['name'], '-');
 
         if($data['name'] != $plate->name){
