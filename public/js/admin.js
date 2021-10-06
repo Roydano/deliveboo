@@ -115,8 +115,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\angel\Desktop\Boolean\mamp_public\deliveboo\resources\js\admin.js */"./resources/js/admin.js");
-module.exports = __webpack_require__(/*! C:\Users\angel\Desktop\Boolean\mamp_public\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\PROGETTI GRAFICA\BOOLEAN\CORSO BOOLEAN\LAVORI\MAMP\deliveboo\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! D:\PROGETTI GRAFICA\BOOLEAN\CORSO BOOLEAN\LAVORI\MAMP\deliveboo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
