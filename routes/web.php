@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-});
-
-Route::resource('/restaurants','RestaurantController');
-
 Route::get('/register/{id}', 'Auth\RegisterController@showRegistrationForm');
 
 Auth::routes();
@@ -30,3 +24,4 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
     Route::resource('plates', 'PlateController');
 }); 
 
+Route::get('/{any?}', 'HomeController@index')->where('any', '.*');
