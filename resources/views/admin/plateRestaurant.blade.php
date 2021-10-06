@@ -12,6 +12,14 @@
         @endif
     </p>
 
+    <p>
+        @if(session('delete'))
+        <div class="alert alert-danger">
+            {{session('delete')}}
+        </div>
+        @endif
+    </p>
+
     <table class="table">
         <thead>
             <tr>
@@ -27,7 +35,7 @@
             @foreach($plates as $plate)
             <tr>
                 <th scope="row">{{ $plate->name }}</th>
-                <td>{{ $plate->ingedients }}</td>
+                <td>{{ $plate->ingredients }}</td>
                 <td>{{ $plate->description }}</td>
                 <td>{{ $plate->price }}€</td>
                 <td>
@@ -40,7 +48,11 @@
                 <td>
                     <a href="{{ route('admin.plates.show', $plate->slug) }}" type="button" class="btn btn-primary">Vedi Piatto</a>
                     <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn btn-warning">Modifica Piatto</a>
-                    <a href="" type="button" class="btn btn-danger">Cancella Piatto</a>
+                    <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Cancella Piatto" class="btn btn-danger">
+                    </form>
                 </td>
             </tr>
             @endforeach
