@@ -14,12 +14,12 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Ti sei loggato con successo!') }}
                 </div>
                 <div class="card-body">
                     <div>{{ $restaurant->name  }}</div>
                     <div>{{ $restaurant->address  }}</div>
-                    <div>{{ $restaurant->id  }} questo è l'id del risotrante</div>
+                    <div> id del ristorante : {{ $restaurant->id  }} </div>
                     
                     <a href="{{ route('admin.plates.index')}}">vedi i tuoi piatti</a>
 

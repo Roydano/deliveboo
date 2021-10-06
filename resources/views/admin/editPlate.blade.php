@@ -10,32 +10,44 @@
         @method('PUT')
 
         <div class="form-group">
-          <input type="text" class="form-control" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
+          @error('name')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
         
         <div class="form-group">
           <label for="courses">Seleziona una portata</label>
           <select class="form-control" id="courses" name="course_id">
               @foreach ($courses as $course)
-                  <option value="{{$course->id}}">{{$course->name}}</option>
+                  <option value="{{$course->id}}" @if($course->id == old('course_id', $plate->course_id)) selected @endif>{{$course->name}}</option>
               @endforeach
           </select>
         </div>
 
         <div class="form-group">
-          <textarea class="form-control" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti">{{ $plate->ingredients }}</textarea>
+          <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti">{{ $plate->ingredients }}</textarea>
+          @error('ingredients')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
         </div>
 
         <div class="form-group">
-            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descrizione">{{ $plate->description }}</textarea>
+            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Descrizione">{{ $plate->description }}</textarea>
+            @error('description')
+              <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
-            <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
+            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
+            @error('price')
+              <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="visible" value="1" name="visible" checked>
+            <input class="form-check-input" type="checkbox" id="visible" value="1" name="visible" @if($plate->visible) checked @endif >
             <label class="form-check-label" for="visible">Visibile</label>
         </div>
 

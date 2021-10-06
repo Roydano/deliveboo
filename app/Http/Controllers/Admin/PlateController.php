@@ -50,15 +50,18 @@ class PlateController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             'price' => 'required|numeric',
-            'description' => 'nullable|max:250',
-            'ingredients' => 'max:250',
-            'visible' => 'required',
+            'description' => 'required|max:250',
+            'ingredients' => 'required|max:250',
             'img' => 'nullable|image'
         ]);
 
         $data = $request->all();
 
         $newPlate = new Plate();
+        
+        if (!array_key_exists('visible', $data)) {
+            $newPlate->visible = 0;
+        }
 
         $slug = Str::slug($data['name'],'-');
         $slugBase = $slug;
@@ -82,7 +85,7 @@ class PlateController extends Controller
         $newPlate->fill($data);
         $newPlate->save();
         
-        return redirect()->route('admin.plates.index');
+        return redirect()->route('admin.plates.index')->with('create', 'Il piatto ' . $newPlate->name . ' è stato aggiunto con successo!');
     }
 
     /**
@@ -128,7 +131,7 @@ class PlateController extends Controller
             'name' => 'required|max:100',
             'price' => 'required|numeric',
             'description' => 'nullable|max:250',
-            'ingredients' => 'max:250',
+            'ingredients' => 'required|max:250',
             'visible' => 'required',
             'img' => 'nullable|image'
         ]);

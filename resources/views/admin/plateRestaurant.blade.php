@@ -20,6 +20,14 @@
         @endif
     </p>
 
+    <p>
+        @if(session('create'))
+        <div class="alert alert-success">
+            {{session('create')}}
+        </div>
+        @endif
+    </p>
+
     <table class="table">
         <thead>
             <tr>
