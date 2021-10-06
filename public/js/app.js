@@ -2252,9 +2252,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
-  data: function data() {}
+  data: function data() {
+    return {
+      apiCall: 'http://localhost:8000/api/cuisines',
+      cuisines: []
+    };
+  },
+  created: function created() {
+    this.getCuisines();
+    console.log(this.$route.params.slug);
+  },
+  methods: {
+    getCuisines: function getCuisines() {
+      var _this = this;
+
+      axios.get('/api/cuisines/' + this.$route.params.slug).then(function (response) {
+        _this.cuisines = response.data.results;
+        console.log(_this.$route.params.slug);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    truncate: function truncate(text, maxlength) {
+      if (text.length > maxlength) {
+        return text.substr(0, maxlength) + '...';
+      }
+
+      return text;
+    }
+  }
 });
 
 /***/ }),
@@ -38010,8 +38052,36 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm._v(
-      "\n    HOME\n    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, eveniet! Natus dolorem, nisi vero ipsa iste cum molestias quasi, exercitationem accusamus recusandae debitis sunt provident, culpa quo fugit non quisquam.\n"
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.cuisines, function(cuisine) {
+        return _c(
+          "div",
+          { key: cuisine.id, staticClass: "col-sm-6 col-md-4 col-lg-3" },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  to: { name: "cuisine", params: { slug: cuisine.slug } }
+                }
+              },
+              [
+                _c("div", { staticClass: "card mt-3" }, [
+                  _c("div", { staticClass: "card-body text-center" }, [
+                    _c("h5", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(cuisine.name))
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ],
+          1
+        )
+      }),
+      0
     )
   ])
 }

@@ -1,18 +1,59 @@
 <template>
-    <div class="container">
-        HOME
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, eveniet! Natus dolorem, nisi vero ipsa iste cum molestias quasi, exercitationem accusamus recusandae debitis sunt provident, culpa quo fugit non quisquam.
-    </div>
+    
+     <div class="container"> 
+
+            <div class="row">
+                
+                    <div class="col-sm-6 col-md-4 col-lg-3" v-for="cuisine in cuisines" :key="cuisine.id">
+                        <router-link :to="{name: 'cuisine', params: {slug: cuisine.slug}}">
+                            <div class="card mt-3">
+                                <div class="card-body text-center">
+                                    <h5 class="card-text">{{ cuisine.name }}</h5>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+                
+            </div>
+
+        </div>
 </template>
 
 <script>
 export default {
     name: "Home",
     data() {
+        return {
+            apiCall: 'http://localhost:8000/api/cuisines',
+            cuisines: []
+        }
+    },
+    created(){
+        this.getCuisines();
+        console.log(this.$route.params.slug);
+    },
+    methods: {
+        getCuisines() {
+            axios.get('/api/cuisines/'+ this.$route.params.slug)
+                .then( response => {
+                    this.cuisines = response.data.results;
+                    console.log(this.$route.params.slug);
+
+                } )
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+
+        truncate(text, maxlength){
+            if(text.length > maxlength) {
+               return text.substr(0, maxlength) + '...';
+            }
+            return text;
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
