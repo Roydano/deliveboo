@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Plate;
 use App\Restaurant;
 use App\Course;
+use App\Cuisine;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class PlateController extends Controller
 {
@@ -82,6 +84,16 @@ class PlateController extends Controller
         } */
 
         $newPlate->restaurant_id = $restaurant->id;
+
+        if(array_key_exists('img', $data)){
+
+            // dd($data);
+
+            $coverPath = Storage::put('img', $data['img']);
+
+            $data['img'] = $coverPath;
+        }
+
         $newPlate->fill($data);
         $newPlate->save();
         
@@ -138,8 +150,9 @@ class PlateController extends Controller
         $data = $request->all();
 
         if (!array_key_exists('visible', $data)) {
-            $data['visible'] = 0;
+            $plate->visible = 0;
         }
+
 
         $slug = Str::slug($data['name'], '-');
 
@@ -158,6 +171,24 @@ class PlateController extends Controller
             $data['slug'] = $slug;
         }
 
+        if(isset($data['img'])){
+            //salviamo la nostra immagine e recuperiamo il path
+            // dd($data);
+
+            $coverPath = Storage::put('img', $data['img']);
+
+
+            Storage::delete($plate->img);
+            //salviamo nella colonna della tabella posts l'immagine con il suo percorso
+            $data['img'] = $coverPath;
+        }
+        else{
+
+            $data['img'] = $plate->img;
+        }
+
+
+
         $plate->update($data);
 
         return redirect()->route('admin.plates.index')->with('edit', 'il piatto ' . $plate->name . ' è stato modificato con successo!');
@@ -171,6 +202,7 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
+        Storage::delete($plate->img);
         $plate->delete();
 
         return redirect()->route('admin.plates.index')->with('delete', 'il piatto ' . $plate->name . ' è stato cancellato correttamente!');

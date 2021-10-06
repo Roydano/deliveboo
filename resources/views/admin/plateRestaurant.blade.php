@@ -68,8 +68,12 @@
         </tbody>
     </table>
     
-
-    <div class="btn"><a href="{{route('admin.plates.create')}}">Aggiungi un piatto</a></div>
+    <div class="card bor_none">
+        <div class="card-body">
+            <a href="{{route('admin.plates.create')}}" class="btn btn-success">Aggiungi un piatto</a>
+            <a href="{{route('admin.index')}}" class="btn btn-info">Torna alla tua Dashboard</a>
+        </div>
+    </div>
 </div>
 @endsection
 
