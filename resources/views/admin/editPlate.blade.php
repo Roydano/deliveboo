@@ -5,7 +5,7 @@
 
     <h2>Stai modificando il piatto</h2>
 
-    <form action="{{ route('admin.plates.update', $plate->id)}}" method="POST" enctype=”multipart/form-data”>
+    <form action="{{ route('admin.plates.update', $plate->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -39,16 +39,31 @@
             @enderror
         </div>
 
+        <div class="my-3">
+          @if($plate->img)
+            <img src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
+          @endif
+        </div>
+        <div class="mb-3">
+          <input type="file" id="img" name="img" class="form-control-file @error('img') is-invalid @enderror">
+          @error('img')
+            <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+        </div>
+
         <div class="form-group">
-            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
+            <input type="number" step="0.01" min=0 class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
             @error('price')
               <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="visible" value="1" name="visible" @if($plate->visible) checked @endif >
+            <input class="form-check-input @error('visible') is-invalid @enderror" type="checkbox" id="visible" value="1" name="visible" @if($plate->visible) checked @endif >
             <label class="form-check-label" for="visible">Visibile</label>
+            @error('visible')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">Modifica piatto</button>

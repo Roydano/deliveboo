@@ -16,7 +16,7 @@ class Plate extends Model
         'description',
         'ingredients',
         'visible',
-        'resteurant_id'
+        'restaurant_id'
     ];
 
     public function restaurant() {
