@@ -5,10 +5,8 @@
             <div class="row">
                     <div class="col-sm-6 col-md-4 col-lg-3" v-for="cuisine in cuisines" :key="cuisine.id">
                         <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}">
-                            <div class="card mt-3">
-                                <div class="card-body text-center">
-                                    <h5 class="card-text">{{ cuisine.name}}</h5>
-                                </div>
+                            <div class="card text-center mt-3 bg" :style="{'background-image': 'url(' + cuisine.img + ')' }">
+                                <div class="title">{{ cuisine.name}}</div>
                             </div>
                         </router-link>
                     </div>
@@ -23,7 +21,7 @@ export default {
     name: "Home",
     data() {
         return {
-            apiCall: 'http://localhost:8000/api/cuisines',
+            apiCall: 'http://localhost:8000/api/cuisine',
             cuisines: []
         }
     },
@@ -34,7 +32,6 @@ export default {
         getCuisines() {
             axios.get(this.apiCall)
                 .then( response => {
-                    // console.log(response.data.results);
                     this.cuisines = response.data.results;
                     
 
@@ -55,4 +52,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .title {
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        color: black;
+        text-decoration: none;
+    }
+    .card {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+
+    }
 </style>

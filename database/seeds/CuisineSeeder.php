@@ -12,9 +12,7 @@ class CuisineSeeder extends Seeder
      */
     public function run()
     {
-        /* $cuisines = Config::get('cuisine');
-        dd($cuisines); */ 
-        // GIVES NULL
+        DB::table('cuisines')->delete();
 
         $cuisines =  [
             'Americana',
@@ -25,7 +23,6 @@ class CuisineSeeder extends Seeder
             'Italiana',
             'Libanese',
             'Messicana',
-            'Pizza',
             'Thailandese',
             'Vegetariana',
             'Vegana'
@@ -37,7 +34,7 @@ class CuisineSeeder extends Seeder
             $newCuisine = new Cuisine();
 
             $newCuisine->name = $cuisine;
-            $newCuisine->img = 'immagine da inserire';
+            $newCuisine->img = 'img/' . strtolower($cuisine) . ".jpg";
             $newCuisine->slug = Str::slug($newCuisine->name, '-');
 
             $newCuisine->save();

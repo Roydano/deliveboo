@@ -13,7 +13,7 @@
             }
         },
         mounted() {
-            axios.get('/api/cuisines/' + this.$route.params.slug)
+            axios.get('/api/cuisine/' + this.$route.params.slug)
                 .then( response => {
                     this.cuisine = response.data.results;
                 });

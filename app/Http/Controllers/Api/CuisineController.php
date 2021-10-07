@@ -17,6 +17,9 @@ class CuisineController extends Controller
     public function index()
     {
         $cuisines = Cuisine::all();
+        foreach($cuisines as $cuisine) {
+            $cuisine->img = url('storage/' . $cuisine->img);
+        }
 
         return response()->json([
             'success' => true,
