@@ -1,30 +1,26 @@
 <template>
-  <div>
-
-  </div>
+    <div class="container">
+        <h3>{{ cuisine.name }}</h3>
+    </div>
 </template>
 
 <script>
-export default {
-    name: 'Cuisine',
-    data(){
-        return{
-            plates:[]
+    export default {
+        name: 'Cuisine',
+        data() {
+            return {
+                cuisine: []
+            }
+        },
+        mounted() {
+            axios.get('/api/cuisines/' + this.$route.params.slug)
+                .then( response => {
+                    this.cuisine = response.data.results;
+                });
         }
-    },
-
-    mounted(){
-        axios.get('/api/cuisines/' + this.$route.params.slug)
-            .then( response => {
-                console.log(response.data.results);
-                // this.plates = response.data.result;
-            })
-            .catch();
     }
-
-}
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

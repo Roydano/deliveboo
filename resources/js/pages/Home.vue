@@ -4,10 +4,10 @@
 
             <div class="row">
                     <div class="col-sm-6 col-md-4 col-lg-3" v-for="cuisine in cuisines" :key="cuisine.id">
-                        <router-link :to="{name: 'cuisine', params: {slug: cuisine.slug}}">
+                        <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}">
                             <div class="card mt-3">
                                 <div class="card-body text-center">
-                                    <h5 class="card-text">{{ cuisine.name }}</h5>
+                                    <h5 class="card-text">{{ cuisine.name}}</h5>
                                 </div>
                             </div>
                         </router-link>
