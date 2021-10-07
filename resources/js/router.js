@@ -16,9 +16,10 @@ const router = new VueRouter({
         },
         {
         path: '/home/:slug',
-        name: 'cuisine',
+        name: 'cuisine', 
         component: Cuisine
         }
+
     ]
 });
 

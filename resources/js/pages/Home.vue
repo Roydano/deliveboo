@@ -3,7 +3,6 @@
      <div class="container"> 
 
             <div class="row">
-                
                     <div class="col-sm-6 col-md-4 col-lg-3" v-for="cuisine in cuisines" :key="cuisine.id">
                         <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}">
                             <div class="card mt-3">
@@ -30,14 +29,14 @@ export default {
     },
     created(){
         this.getCuisines();
-        console.log(this.$route);
     },
     methods: {
         getCuisines() {
-            axios.get('/api/cuisines/')
+            axios.get(this.apiCall)
                 .then( response => {
+                    // console.log(response.data.results);
                     this.cuisines = response.data.results;
-                    console.log(this.$route.params.slug);
+                    
 
                 } )
                 .catch(error => {
