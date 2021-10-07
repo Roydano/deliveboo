@@ -41,7 +41,7 @@
 
         <div class="my-3">
           @if($plate->img)
-            <img src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
+            <img class="img-thumbnail" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
           @endif
         </div>
         <div class="mb-3">

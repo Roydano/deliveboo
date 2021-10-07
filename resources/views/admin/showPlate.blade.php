@@ -11,10 +11,11 @@
       @endif
 
       <div class="card-body">
-        <h5 class="card-title"><b>Nome Piatto:</b> {{ $plate->name }} ({{$plate->course->name}})</h5>
-        <p class="card-text"><b>Ingredienti:</b> {{ $plate->ingredients }}</p>
-        <p class="card-text"><b>Descrizione:</b> {{ $plate->description }}</p>
-        <p class="card-text"><b>Prezzo:</b> {{ $plate->price }}€</p>
+        <h5 class="card-title"><b>Nome Piatto:</b> {{ $plate->name }}</h5>
+        <h5 class="card-text"><b>Portata:</b> {{ $plate->course->name }}</h5>
+        <h5 class="card-text"><b>Ingredienti:</b> {{ $plate->ingredients }}</h5>
+        <h5 class="card-text"><b>Descrizione:</b> {{ $plate->description }}</h5>
+        <h5 class="card-text mb-4"><b>Prezzo:</b> {{ $plate->price }}€</h5>
         <a href="{{ route('admin.plates.edit', $plate->slug) }}" class="btn btn-warning">Modifica il piatto</a>
       </div>
     </div>

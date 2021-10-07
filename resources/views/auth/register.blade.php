@@ -49,9 +49,9 @@
 
                             <div class="col-md-6">
                                 @foreach($cuisines as $cuisine)
-                               
                                 <input type="checkbox" class="btn-check"  name="{{$cuisine->name}}" autocomplete="off">
                                 <label class="btn btn-outline-primary" for="{{$cuisine->name}}" >{{$cuisine->name}}</label>
+                                <br>
                                 
                                 @endforeach
                             </div>

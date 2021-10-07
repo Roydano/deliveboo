@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {   
+        
         for ($i = 0; $i < 10; $i++) {
             DB::table('users')->insert([
                 'name' => Str::random(10),
@@ -21,5 +22,13 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]);
         }
+        $this->call([
+            UserSeeder::class,
+            RestaurantSeeder::class,
+            PlateSeeder::class,
+            CusineSeeder::class,
+            CourseSeeder::class,
+            OrderSeeder::class
+        ]);
     }
 }
