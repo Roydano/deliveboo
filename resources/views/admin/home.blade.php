@@ -476,7 +476,7 @@
    #check:checked ~ .sidebar a
    {
      
-     margin-left:175px;
+     margin-left:170px;
      width:80px;
      
    }
@@ -485,7 +485,14 @@
 
     font-size:10px;
     max-width:50px;
+    margin-left:-9px;
     
+   }
+   .sidebar i{
+       font-size:18px;
+   }
+   .sidebar span{
+       font-size:18px;
    }
    #check:checked ~ .sidebar i{
     
