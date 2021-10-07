@@ -82,12 +82,16 @@
 
      <!-- header menu start -->
 
+     <input type="checkbox" id="check">
+
      <div class="header">
+         <label for="check">
+                 <i class="fas fa-bars" id="sidebar_btn"></i>
+                
+         </label>
          <div class="header-menu">
              <div class="title">Wanna Eat</div>
-             <div class="sidebar-btn">
-                
-             </div>
+           
 
              <ul>
 
@@ -127,12 +131,12 @@
 
                <li class="item" id="profile">
                    <a href="#profile" class="menu-btn">
-                      <i class="fas fa-user-circle"></i><span>Piatti  <i class="fas fa-chevron-down drop-down"></i></span>
+                      <i class="fas fa-utensils"></i><span>Piatti  <i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
 
                         <div class="sub-menu">
-                            <a href="{{ route('admin.plates.index')}}"><i class="fas-fa-image"></i><span>Mostra piatti </span></a>
-                            <a href="{{ route('admin.plates.create') }}"><i class="fas-fa-address-card"></i><span>Aggiungi un piatto</span></a>
+                            <a href="{{ route('admin.plates.index')}}"><i class="fas-fa-image"></i><p>Mostra </p></a>
+                            <a href="{{ route('admin.plates.create') }}"><i class="fas-fa-address-card"></i><p>Aggiungi</p></a>
                            
 
                         </div>
@@ -144,8 +148,8 @@
                     </a>
 
                         <div class="sub-menu">
-                            <a href=""><i class="fas-fa-envelope"></i><span>Ordini ricevuti</span></a>
-                            <a href=""><i class="fas-fa-envelope-square"></i><span></span>Statistiche ordini</a>
+                            <a href=""><i class="fas-fa-envelope"></i><p>Ricevuti</p></a>
+                            <a href=""><i class="fas-fa-envelope-square"></i><p>Statistiche</p></a>
                             
 
                         </div>
@@ -316,10 +320,16 @@
        top:70px;
        width:250px;
        height: calc(100% - 9%);
-       transition: 0.3s;
-       transition-property: width;
+       /* transition: 0.3s;
+       transition-property: width; */
        overflow-y: auto;
+       
 
+
+   }
+   .sidebar{
+       transition:0.5s;
+       transition-property:left;
 
    }
 
@@ -358,6 +368,7 @@
 
    .wrapper .sidebar .sidebar-menu .item .menu-btn:hover{
         color: #4CCEE8;
+        text-decoration:none;
 
    }
 
@@ -431,6 +442,59 @@
        margin-left:30%;
    }
 
+   /* tendina */
+
+
+   label #sidebar_btn{
+       z-index:1;
+       color:#fff;
+       position:fixed;
+       cursor:pointer;
+       left:200px;
+       font-size:20px;
+       margin:25px 0;
+       transition: 0.5s;
+       transition-property: color;
+
+
+
+   }
+
+   label #sidebar_btn:hover{
+       color: #19B3D3;
+
+   }
+   #check:checked ~ .sidebar{
+       left: -175px;
+   }
+
+   #check:checked ~ .sidebar a span{
+       display:none;
+
+   }
+
+   #check:checked ~ .sidebar a
+   {
+     
+     margin-left:175px;
+     width:80px;
+     
+   }
+
+   #check:checked ~ .sidebar a p{
+
+    font-size:10px;
+    max-width:50px;
+    
+   }
+   #check:checked ~ .sidebar i{
+    
+     
+       width:80px;
+      font-size:25px;
+      margin-left:5px;
+      
+   }
  
 
 
