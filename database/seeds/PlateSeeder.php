@@ -10,6 +10,7 @@ use App\Plate;
 class PlateSeeder extends Seeder
 {
     /**
+     * 
      * Run the database seeds.
      *
      * @return void
