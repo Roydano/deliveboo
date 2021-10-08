@@ -11297,7 +11297,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".title[data-v-b3c5cf30] {\n  font-size: 2.2rem;\n  text-transform: uppercase;\n  color: black;\n  text-decoration: none;\n}\n.card[data-v-b3c5cf30] {\n  height: 150px;\n  background-size: cover;\n  background-position: center;\n}", ""]);
+exports.push([module.i, ".title[data-v-b3c5cf30] {\n  font-size: 2.2rem;\n  text-transform: uppercase;\n  color: black;\n  text-decoration: none;\n}\n.card[data-v-b3c5cf30] {\n  height: 180px;\n  background-size: cover;\n  background-position: center;\n}\n.cuisinePic[data-v-b3c5cf30] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -43235,7 +43235,7 @@ var render = function() {
       _vm._l(_vm.cuisines, function(cuisine) {
         return _c(
           "div",
-          { key: cuisine.id, staticClass: "col-sm-6 col-md-4 col-lg-3" },
+          { key: cuisine.id, staticClass: "col-sm-6 col-md-5 col-lg-4" },
           [
             _c(
               "router-link",

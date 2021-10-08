@@ -3,7 +3,7 @@
      <div class="container"> 
 
             <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-3" v-for="cuisine in cuisines" :key="cuisine.id">
+                    <div class="col-sm-6 col-md-5 col-lg-4" v-for="cuisine in cuisines" :key="cuisine.id">
                         <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}">
                             <div class="card text-center mt-3 bg" :style="{'background-image': 'url(' + cuisine.img + ')' }">
                                 <div class="title">{{ cuisine.name}}</div>
@@ -59,9 +59,12 @@ export default {
         text-decoration: none;
     }
     .card {
-        height: 150px;
+        height: 180px;
         background-size: cover;
         background-position: center;
+    }
 
+    .cuisinePic {
+        width: 100%;
     }
 </style>
