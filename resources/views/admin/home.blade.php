@@ -118,7 +118,7 @@
 
 
      <div class="main-container">
-     <div class="card mb-3" style="max-width: 540px;">
+     <!-- <div class="card mb-3" style="max-width: 540px;">
             
             <div class="row g-0">
                 <div class="col-md-4">
@@ -133,10 +133,60 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <!-- inizio card -->
+
+
+        <div class="card-dash">
+            <div class="card-image"></div>
+            <div class="card-text">
+                <span class="date">Ristorante: {{ $restaurant->name }}</span>
+                <p> <b>Indirizzo:</b>{{ $restaurant->address}}</p>
+                <p>Numero di telefono:</b> {{ $restaurant->phone}}</p>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <a href="{{ route('admin.plates.index')}}"><div class="value">Piatti </div></a>
+                    
+                    <div class="type"><i class="fas fa-utensils"></i></div>
+                </div>
+                <div class="stat border">
+                <a href=""><div class="value">Ordini </div></a>
+                    <div class="type"><i class="fas fa-envelope"></i></div>
+                </div>
+                <div class="stat">
+                <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                       <div class="value">Logout </div></a> 
+                                        <div class="type"><i class="fas fa-power-off"></i></div> 
+                                       
+                                    
+                                    
+                </div>
+
+                 <!-- <a href="{{ route('logout') }}"><div class="value">Logout </div></a>  -->
+                    
+                    <!-- <div class="type"><i class="fas fa-power-off"></i></div> -->
+                </div>
+            </div>
+
+          
+
+      
        
 
      </div>
+    
+
+          
+
+      
+       
+
+     </div>
+       <!-- fine card -->
 
      <!-- main container end -->
 

@@ -15557,7 +15557,7 @@ a.text-dark:focus {
 }
 
 .body {
-  background: #fff;
+  overflow: hidden;
 }
 
 h5 {
@@ -15733,28 +15733,9 @@ h5 {
   max-height: 500px;
 }
 
-/* .wrapper .main-container{
-    width (100% - 250px);
-
-    margin-left:250px;
-
-
-
-    height: 100vh;
-    transition:0.3s;
-
-
-}
- .main-container .immagine{
- background: url(./img/forch.jpg)no-repeat;
- height:100vh;
- width:100%;
- background-size:cover;
-
-} */
-
 .main-container {
-  margin-left: 30%;
+  margin-left: 35%;
+  margin-top: 4%;
 }
 
 /* tendina */
@@ -15806,5 +15787,113 @@ label #sidebar_btn:hover {
   width: 80px;
   font-size: 25px;
   margin-left: 5px;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-dash {
+  margin-right: 150px;
+  display: grid;
+  grid-template-columns: 500px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "image" "text" "stats";
+  font-family: roboto;
+  border-radius: 18px;
+  background: #22242A;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.card-dash .date {
+  font-size: 35px;
+  color: red;
+}
+
+.card-image {
+  grid-area: image;
+  background: url(/images/frutta.jpg?4b7027234baa6253c0855775327620fa);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;
+}
+
+.card-text {
+  grid-area: text;
+  margin: 25px;
+}
+
+.card-text p {
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.card-text h2 {
+  margin-top: 0px;
+  font-size: 28px;
+}
+
+.card-text .date {
+  color: #3498DB;
+  font-size: 21px;
+}
+
+.card-stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #3498DB;
+}
+
+.card-stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  color: white;
+}
+
+.card-stats .type {
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.card-stats .value {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.card-stats a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-stats a:hover {
+  color: #22242A;
+}
+
+.card-stats .border {
+  border-left: 1px solid #3498DB;
+  border-right: 1px solid #3498DB;
+}
+
+.cars-stats .value sup {
+  font-size: 12px;
+}
+
+.card-dash:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
