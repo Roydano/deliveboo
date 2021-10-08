@@ -13,6 +13,14 @@
     </p>
 
     <p>
+        @if(session('autorizzazione'))
+        <div class="alert alert-danger">
+            {{session('autorizzazione')}}
+        </div>
+        @endif
+    </p>
+
+    <p>
         @if(session('delete'))
         <div class="alert alert-danger">
             {{session('delete')}}

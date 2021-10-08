@@ -23,8 +23,9 @@ class PlateController extends Controller
      */
     public function index()
     {        
+        
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
-        $plates = $restaurant->plates()->get();
+        $plates = $restaurant->plates()->orderBy('name', 'ASC')->get();
         return view('admin.plateRestaurant', compact('plates'));
     }
 
@@ -108,8 +109,24 @@ class PlateController extends Controller
      */
     public function show($slug)
     {
+
+
+        
+
         $plate = Plate::where('slug', $slug)->first();
+        $authorize = $plate->restaurant->user->id;
+
+       
+
+        if($authorize !== Auth::user()->id){
+            return redirect()->route('admin.plates.index')->with('autorizzazione', 'Non hai i permessi per vedere questo piatto!');
+        }
+
         return view('admin.showPlate', compact('plate'));
+
+        
+
+        
     }
 
     /**
@@ -123,7 +140,16 @@ class PlateController extends Controller
         $plate = Plate::where('slug', $slug)->first();
         $courses = Course::all();
 
-        // dd($plate);
+        
+        $authorize = $plate->restaurant->user->id;
+
+       
+
+        if($authorize !== Auth::user()->id){
+            return redirect()->route('admin.plates.index')->with('autorizzazione', 'Non hai i permessi per modifcare questo piatto!');
+        }
+        
+
         
         return view('admin.editPlate', compact('plate', 'courses'));
     }
@@ -137,6 +163,7 @@ class PlateController extends Controller
      */
     public function update(Request $request, Plate $plate)
     {
+        
         
 
         $request->validate([
@@ -202,6 +229,8 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
+        
+
         Storage::delete($plate->img);
         $plate->delete();
 
