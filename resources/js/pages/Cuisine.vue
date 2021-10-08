@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h3>{{ cuisine.name }}</h3>
+        <h3>{{ cuisine }}</h3>
     </div>
 </template>
 

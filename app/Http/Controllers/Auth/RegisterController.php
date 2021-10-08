@@ -73,6 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
+        var_dump($data);
         // create user
         $newUser = User::create([
             'name' => $data['name'],
@@ -92,14 +93,33 @@ class RegisterController extends Controller
             $count++;
         };
 
+        if(array_key_exists('img', $data)) {
+            $img_path = Storage::put('images', $data['img']);
+            $data['img'] = $img_path;
+        } else {
+            $data['img'] = 'img/default.jpg';
+        }
+        
         // create restaurant with foreign key user_id
         $newUser->restaurant()->create([
             'name' => $data['restName'], 
             'address' => $data['address'],
             'phone' => $data['phone'],
             'slug' => $slug,
-            'p_iva' => $data['p_iva']
+            'p_iva' => $data['p_iva'],
+            'img' => $data['img']
         ]);
+
+        if(array_key_exists('cuisine', $data)) {
+            var_dump($data['cuisine']);
+            foreach($data['cuisine'] as $id) {
+                $cuisine = Cuisine::find($id);
+                $restaurants = Restaurant::where('user_id', $newUser->id)->first();
+                
+                $cuisine->cuisineRestaurants()->attach($restaurants);
+            }
+                
+        }
 
         return $newUser;
         
