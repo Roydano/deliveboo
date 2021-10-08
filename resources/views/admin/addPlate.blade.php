@@ -5,7 +5,7 @@
 
     <h2>Aggiungi un piatto</h2>
 
-    <form action="{{route('admin.plates.store')}}" method="POST">
+    <form action="{{route('admin.plates.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -39,7 +39,14 @@
         </div>
 
         <div class="form-group">
-            <input type="number" step="0.01" class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ old('price')}}">
+          <input class="form-control @error('img') is-invalid @enderror" type="file" id="img" name="img">
+          @error('img')
+          <div class="alert alert-danger">{{ $message }}</div>
+          @enderror
+        </div>
+
+        <div class="form-group">
+            <input type="number" step="0.01" min=0 class="form-control  @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ old('price')}}">
             @error('price')
               <div class="alert alert-danger">{{ $message }}</div>
             @enderror

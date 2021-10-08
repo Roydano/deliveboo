@@ -56,7 +56,7 @@
                 <td>
                     <a href="{{ route('admin.plates.show', $plate->slug) }}" type="button" class="btn btn-primary">Vedi Piatto</a>
                     <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn btn-warning">Modifica Piatto</a>
-                    <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block">
+                    <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="Cancella Piatto" class="btn btn-danger">
@@ -68,8 +68,12 @@
         </tbody>
     </table>
     
-
-    <div class="btn"><a href="{{route('admin.plates.create')}}">Aggiungi un piatto</a></div>
+    <div class="card bor_none">
+        <div class="card-body">
+            <a href="{{route('admin.plates.create')}}" class="btn btn-success">Aggiungi un piatto</a>
+            <a href="{{route('admin.index')}}" class="btn btn-info">Torna alla tua Dashboard</a>
+        </div>
+    </div>
 </div>
 @endsection
 
