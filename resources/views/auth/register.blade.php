@@ -35,7 +35,7 @@
                                 <input id="restName" type="text" class="form-control @error('restName') is-invalid @enderror" name="restName" value="{{ old('restName') }}" required autocomplete="restName" autofocus>
 
                                 @error('restName')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="alert alert-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -49,11 +49,17 @@
 
                             <div class="col-md-6">
                                 @foreach($cuisines as $cuisine)
-                               
-                                <input type="checkbox" class="btn-check"  name="{{$cuisine->name}}" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="{{$cuisine->name}}" >{{$cuisine->name}}</label>
+
+                                <input type="checkbox" class="btn-check @error('cuisine') is-invalid @enderror" value="{{ $cuisine->id }}" name="cuisine[]" id="{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
+                                <label class="btn btn-outline-primary">{{$cuisine->name}}</label>
                                 
                                 @endforeach
+
+                                @error('cuisine')
+                                    <span class="alert alert-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
                         <!-- end cuisine -->
