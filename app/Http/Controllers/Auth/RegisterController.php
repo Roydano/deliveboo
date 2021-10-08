@@ -58,9 +58,10 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'restName' => ['required', 'string'],
             'address' => ['required', 'string'],
-            'phone' => ['required', 'numeric', 'min:11'],
-            'p_iva' => ['required', 'numeric'], //add validation giusto
-            'img' => ['string']
+            'phone' => ['required', 'numeric', 'digits_between:4,11'],
+            'p_iva' => ['required', 'numeric', 'digits:11', 'unique:restaurants'], //add validation giusto
+            'img' => ['string'],
+            'cuisine' => ['required']
         ]);
     }
 
