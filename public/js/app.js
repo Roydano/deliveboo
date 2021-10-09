@@ -6741,6 +6741,8 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/api/cuisine/' + this.$route.params.slug).then(function (response) {
       _this.cuisine = response.data.results;
+    })["catch"](function (error) {
+      console.log(error);
     });
   }
 });
