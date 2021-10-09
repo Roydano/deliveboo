@@ -5,19 +5,25 @@ Vue.use(VueRouter);
 
 import Home from './pages/Home';
 import Cuisine from './pages/Cuisine';
+import Cuisines from './pages/Cuisines';
 
 const router = new VueRouter({
     mode: 'history', 
     routes: [ 
         {
-        path: '/',
-        name: 'home', 
-        component: Home
+            path: '/',
+            name: 'home', 
+            component: Home
         },
         {
-        path: '/home/:slug',
-        name: 'cuisine', 
-        component: Cuisine
+            path: '/cuisines',
+            name: 'cuisines', 
+            component: Cuisines
+        },
+        {
+            path: '/cuisines/:slug',
+            name: 'cuisine', 
+            component: Cuisine
         }
 
     ]
