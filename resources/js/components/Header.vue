@@ -1,13 +1,5 @@
 <template>
-    <header class="my-3">
-        <!-- <ul class="nav justify-content-center">
-            <li class="nav-item mx-5" v-for="(link, index) in nav" :key="index">
-              <router-link :to="{name: link.routeName}">
-                {{link.label}}
-              </router-link>
-            </li>
-        </ul> -->
-        prova header
+    <header>
     </header>
 </template>
 
