@@ -1,17 +1,71 @@
 <template>
     
-     <div class="container"> 
+     <div> 
 
-            <div class="row">
-                    <div class="col-sm-6 col-md-5 col-lg-4" v-for="cuisine in cuisines" :key="cuisine.id">
-                        <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}">
-                            <div class="card text-center mt-3 bg" :style="{'background-image': 'url(' + cuisine.img + ')' }">
-                                <div class="title">{{ cuisine.name}}</div>
-                            </div>
-                        </router-link>
-                    </div>
-                
+        <div class="wrapper">
+
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>WannaEat</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Dummy Heading</p>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"         class="dropdown-toggle">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"         class="dropdown-toggle">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+        </ul>
+
+    </nav>
+    <!-- Page Content -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
             </div>
+        </nav>
+    </div>
+</div>
 
         </div>
 </template>
@@ -19,52 +73,8 @@
 <script>
 export default {
     name: "Home",
-    data() {
-        return {
-            apiCall: 'http://localhost:8000/api/cuisine',
-            cuisines: []
-        }
-    },
-    created(){
-        this.getCuisines();
-    },
-    methods: {
-        getCuisines() {
-            axios.get(this.apiCall)
-                .then( response => {
-                    this.cuisines = response.data.results;
-                    
-
-                } )
-                .catch(error => {
-                    console.log(error);
-                });
-        },
-
-        truncate(text, maxlength){
-            if(text.length > maxlength) {
-               return text.substr(0, maxlength) + '...';
-            }
-            return text;
-        }
-    }
 }
 </script>
 
 <style lang="scss" scoped>
-    .title {
-        font-size: 2.2rem;
-        text-transform: uppercase;
-        color: black;
-        text-decoration: none;
-    }
-    .card {
-        height: 180px;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .cuisinePic {
-        width: 100%;
-    }
 </style>

@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Cuisine;
 use App\Restaurant;
+use App\Cuisine;
+use App\Plate;
 
-class CuisineController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +17,11 @@ class CuisineController extends Controller
      */
     public function index()
     {
-        $cuisines = Cuisine::all();
-        foreach($cuisines as $cuisine) {
-            $cuisine->img = url('storage/' . $cuisine->img);
-        }
-
+        $resturants = Restaurant::all();
+        
         return response()->json([
             'success' => true,
-            'results' => $cuisines
+            'results' => $resturants
         ]);
     }
 
@@ -49,24 +47,15 @@ class CuisineController extends Controller
     }
 
     /**
-     * Display the restaurants that belongs to a given cuisine(id)
+     * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $cuisine = Cuisine::where('slug', $slug)->first();
-        $restaurants = $cuisine->cuisineRestaurants;
-
-        $cuisine->img = url('storage/' . $cuisine->img);
-            
-        return response()->json([
-            'success' => true,
-            'results' => $restaurants
-        ]);
-}
-
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
