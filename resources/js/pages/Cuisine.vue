@@ -8,25 +8,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-    export default {
-        name: 'Cuisine',
-        data() {
-            return {
-                cuisine: [],
-            }
-        },
-        mounted() {
-            axios.get('/api/cuisine/' + this.$route.params.slug)
-                .then( response => {
-                    this.cuisine = response.data.results;
-                })
-                .catch(error=> {
-                    console.log(error);
-                })
-        }
-    }
-=======
 export default {
   name: "Cuisine",
   data() {
@@ -41,7 +22,6 @@ export default {
     });
   },
 };
->>>>>>> 93c35c679e0e8bcbb5c8243aaca3fc4f457af3d1
 </script>
 
 <style lang="scss" scoped>
