@@ -76,9 +76,8 @@ class RestaurantController extends Controller
      */
     public function showCuisines($slug)
     {
-        $restaurant = Restaurant::where('slug', $slug)->first();
-
-        $cuisines = $restaurant->cuisineRestaurant();
+        $restaurant = Restaurant::where('slug', $slug)->with('cuisines')->first();
+        $cuisines = $restaurant->cuisines;
             
         return response()->json([
             'success' => true,
@@ -95,7 +94,7 @@ class RestaurantController extends Controller
     public function showMenu($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
-        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
+        $plates = Plate::where('restaurant_id', $restaurant->id)->get();
 
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
