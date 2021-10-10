@@ -27,6 +27,6 @@ class Restaurant extends Model
 
     public function cuisineRestaurants()
     {
-        return $this->belongsToMany('App\Cuisine', 'cuisine_id', 'restaurant_id');
+        return $this->belongsToMany('App\Cuisine', 'cuisine_restaurant', 'cuisine_id', 'restaurant_id');
     }
 }
