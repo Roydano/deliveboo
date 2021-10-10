@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'restName' => ['required', 'string'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'numeric', 'digits_between:4,11'],
-            'p_iva' => ['required', 'numeric', 'digits:11', 'unique:restaurants'], //add validation giusto
+            'p_iva' => ['required', 'numeric', 'digits:11', 'unique:restaurants'],
             'img' => ['string'],
             'cuisine' => ['required']
         ]);
@@ -88,7 +88,7 @@ class RegisterController extends Controller
 
         $count = 1;
         while($slugPresent){
-            $slug = $slugBase . '-' .$count;
+            $slug = $slugBase . '-' . $count;
             $slugPresent = Restaurant::where('slug', $slug)->first();
             $count++;
         };

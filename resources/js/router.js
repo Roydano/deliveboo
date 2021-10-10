@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Cuisine from './pages/Cuisine';
 import Cuisines from './pages/Cuisines';
 import Cart from './pages/Cart';
+import Restaurants from './pages/Restaurants';
+import Restaurant from './pages/Restaurant';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -30,7 +32,18 @@ const router = new VueRouter({
             path: '/cart',
             name: 'cart', 
             component: Cart
+        },
+        {
+            path: '/restaurants',
+            name: 'restaurants', 
+            component: Restaurants
+        },
+        {
+            path: '/restaurants/:slug',
+            name: 'restaurant', 
+            component: Restaurant
         }
+        
 
     ]
 });

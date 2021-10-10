@@ -112,9 +112,10 @@
         <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
         <ul>
             @guest
-                <li class="d-inline-block">
-                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
+            <li class="d-inline-block dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    Sei un ristorante?
+                </a>
 
                 @if (Route::has('register'))
                     <li class="d-inline-block">

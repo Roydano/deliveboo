@@ -1,8 +1,7 @@
 <template>
     
     <div> 
-        <Jumbo/>  
-        Home
+        <Jumbo/>
     </div>
 </template>
 
