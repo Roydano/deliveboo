@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import Home from './pages/Home';
 import Cuisine from './pages/Cuisine';
 import Cuisines from './pages/Cuisines';
+import Cart from './pages/Cart';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -24,6 +25,11 @@ const router = new VueRouter({
             path: '/cuisines/:slug',
             name: 'cuisine', 
             component: Cuisine
+        },
+        {
+            path: '/cart',
+            name: 'cart', 
+            component: Cart
         }
 
     ]
