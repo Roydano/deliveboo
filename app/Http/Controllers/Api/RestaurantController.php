@@ -17,11 +17,15 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $resturants = Restaurant::all();
+        $restaurants = Restaurant::all();
+
+        foreach($restaurants as $restaurant) {
+            $restaurant->img = url('storage/' . $restaurant->img);
+        }
         
         return response()->json([
             'success' => true,
-            'results' => $resturants
+            'results' => $restaurants
         ]);
     }
 
@@ -52,11 +56,57 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        $restaurant->img = url('storage/' . $restaurant->img);
+            
+        return response()->json([
+            'success' => true,
+            'results' => $restaurant
+        ]);
     }
 
+    /**
+     * Display the restaurant's cuisines.
+     *
+     * @param  int  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function showCuisines($slug)
+    {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        $cuisines = $restaurant->cuisineRestaurant();
+            
+        return response()->json([
+            'success' => true,
+            'results' => $cuisines
+        ]);
+    }
+
+    /**
+     * Display restaurant's plates
+     *
+     * @param  int  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function showMenu($slug)
+    {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
+
+        foreach($plates as $plate) {
+            $plate->img = url('storage/' . $plate->img);
+        }
+        
+            
+        return response()->json([
+            'success' => true,
+            'results' => $plates
+        ]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
