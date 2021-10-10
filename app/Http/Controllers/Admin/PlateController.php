@@ -236,4 +236,7 @@ class PlateController extends Controller
 
         return redirect()->route('admin.plates.index')->with('delete', 'il piatto ' . $plate->name . ' è stato cancellato correttamente!');
     }
+
+    
+
 }
