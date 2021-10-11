@@ -38789,5 +38789,37 @@ label #sidebar_btn:hover {
   border-radius: 20px;
   margin: auto;
   margin-top: 20px;
+  -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+  box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.edit-plate {
+  background-color: black;
+  color: white;
+  padding: 100px;
+}
+
+.edit-plate input {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.edit-plate select {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.edit-plate textarea {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1d;
+  cursor: pointer;
 }
 

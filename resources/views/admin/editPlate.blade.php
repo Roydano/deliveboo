@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container text-center">
+
+<div class="edit-plate">
+  <div class="container text-center info-plate">
 
     <h2>Stai modificando il piatto</h2>
 
@@ -47,14 +49,15 @@
           @endif
         </div>
         <div class="mb-3">
-          <input type="file" id="img" name="img" class="form-control-file @error('img') is-invalid @enderror">
+          <input type="file" id="img" name="img" style="cursor: pointer; border: 0;" class="text-center form-control-file @error('img') is-invalid @enderror">
           @error('img')
             <div class="alert alert-danger">{{ $message }}</div>
           @enderror
         </div>
 
         <div class="form-group">
-            <input type="number" step="0.01" min=0 class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
+            <label for="courses">Prezzo</label>
+            <input type="number" step="0.01" min=0  class="form-control text-center @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
             @error('price')
               <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -73,4 +76,6 @@
       </form>
 
 </div>
+</div>
+
 @endsection
