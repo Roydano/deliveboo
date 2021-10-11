@@ -50,8 +50,10 @@
                             <div class="col-md-6">
                                 @foreach($cuisines as $cuisine)
 
-                                <input type="checkbox" class="btn-check @error('cuisine') is-invalid @enderror" value="{{ $cuisine->id }}" name="cuisine[]" id="{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
-                                <label class="btn btn-outline-primary">{{$cuisine->name}}</label>
+                                <span style="display: inline-block; width: 180px;" class="cuisine">
+                                    <input type="checkbox" class="btn-check @error('cuisine') is-invalid @enderror" value="{{ $cuisine->id }}" name="cuisine[]" id="{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
+                                    <label class="btn btn-outline-primary">{{$cuisine->name}}</label>
+                                </span>
                                 
                                 @endforeach
 
