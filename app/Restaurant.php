@@ -12,7 +12,8 @@ class Restaurant extends Model
         'address',
         'phone',
         'p_iva',
-        'img'
+        'img',
+        'slug'
     ];
 
     public function user()
@@ -25,8 +26,8 @@ class Restaurant extends Model
         return $this->hasMany('App\Plate');
     }
 
-    public function cuisine()
+    public function cuisineRestaurants()
     {
-        return $this->belongsToMany('App\Cuisine');
+        return $this->belongsToMany('App\Cuisine', 'cuisine_restaurant', 'cuisine_id', 'restaurant_id');
     }
 }

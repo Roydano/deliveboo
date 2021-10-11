@@ -13,8 +13,8 @@ class Cuisine extends Model
         'img'
     ];
 
-    public function restaurant() {
-        return $this->belongsToMany('App\Restaurant', 'cuisine_id', 'restaurant_id',);
+    public function cuisineRestaurants() {
+        return $this->belongsToMany('App\Restaurant', 'cuisine_restaurant', 'cuisine_id', 'restaurant_id');
     }
 }
 

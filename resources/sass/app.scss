@@ -4,8 +4,16 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// CSS Frameworks
+@import '~bootstrap/scss/bootstrap';
+@import '~bulma/css/bulma.css';
+@import "~vuetify/dist/vuetify.min.css";
+
 // Variables
 @import 'variables';
+@import 'commons';
+@import 'partials/jumbo';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
