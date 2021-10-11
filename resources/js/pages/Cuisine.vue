@@ -16,9 +16,9 @@ export default {
     };
   },
   mounted() {
-    axios.get("/api/cuisines/" + this.$route.params.slug).then((response) => {
+    axios.get("/api/cuisines/" + this.$route.params.slug)
+    .then((response) => {
       this.restaurants = response.data.results;
-      console.log(this.restaurants);
     });
   },
 };
