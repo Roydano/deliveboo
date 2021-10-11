@@ -71,11 +71,11 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Modifica piatto</button>
+        <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-pencil-alt"></i></button>
 
       </form>
 
-</div>
+  </div>
 </div>
 
 @endsection

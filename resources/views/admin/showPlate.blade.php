@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="edit-plate">
+  <div class="container">
 
-    <div class="card d-flex text-center">
+    <div class="card d-flex text-center show-plate">
       @if($plate->img && $plate->img != 'https://source.unsplash.com/featured/?food')
       <img class="img-fluid img-show-plate" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name}}">
       @else
@@ -19,10 +20,9 @@
         <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
       </div>
     </div>
-    
-    
-    <a href="{{ route('admin.plates.index') }}" class="btn btn-primary mt-5"><i class="fas fa-arrow-alt-circle-left"></i></a>
-    
+    <a href="{{ route('admin.plates.index') }}" class="btn btn-primary mt-5"><i class="fas fa-arrow-alt-circle-left"></i></a> 
+  </div>
 </div>
+
 @endsection
 
