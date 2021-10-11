@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+     <img src="" alt="">
+    <title>Wanna Eat</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md  nav-reg shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class=" wanna" href="{{ url('/') }}">
+                    Wanna Eat
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,10 +41,10 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item scritta">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
@@ -76,5 +76,32 @@
             @yield('content')
         </main>
     </div>
+
+
+    
 </body>
+
+<style>
+   .nav-reg{
+       background-color:black;
+       height:100px;
+       opacity:0.6;
+       
+       
+       
+   }
+   .container a{
+       color:white;
+       font-size: 22px;
+       text-decoration:none;
+   }
+   .container a:hover{
+    color: #8BC34A;
+    transition:0.3s;
+    transform:scale(1.2);
+   }
+   
+
+</style>
 </html>
+
