@@ -1,38 +1,86 @@
 .plates-restaurant {
-    border: 2px solid lightgrey;
+    background-image: url(https://i.pinimg.com/originals/94/ce/e3/94cee3f9af5607c6c7da01498f415c1c.jpg);
+    background-size: 100%;
+    background-repeat: repeat;
 }
 
-.plates-restaurant a {
-    width: 200px;
-    height: 50px;
+.plates-restaurant h2 {
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.bg-psy {
+    background: rgba(255, 255, 255, 0.356);
+}
+
+.btn-plates i:hover {
+    color: rgb(255,251, 2);
+}
+
+.plates-restaurant .table {
+    background-color: rgba(0, 0, 0, 0.911);
+    color: white;
+    border: 2px solid grey;
+}
+
+.btn-plates i {
+    color: black;
+    position: relative;
+    top: 10px;
+    font-size: 25px;
+}
+
+.btn-plates i:hover {
+    scale: 1.2;
+    position: relative;
+    top: 10px;
+}
+
+// grandezza  img pLATE RESTAURANT
+.img-plate {
+    height: 200px;
+    margin: auto;
+    width: 600px;
+}
+
+.btn-plates a {
+    width: 62px;
+    height: 62px;
     margin-bottom: 5px;
     font-size: 20px;
-    -webkit-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    -moz-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
 }
 
-.plates-restaurant form input {
-    width: 200px;
+.btn-plates form input {
+    width: 62px;
     font-size: 20px;
-    height: 50px;
-    -webkit-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    -moz-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
-    box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    height: 62px;
 }
 
-.plates-restaurant form input:hover {
+.btn-plates form input:hover {
     scale: 1.2;
 }
 
 
 .plates-restaurant th {
     font-size: 19px;
+    color: wheat;
     font-weight: 600;
 }
 
 .plates-restaurant td {
+    color: wheat;
     font-size: 17px;
+}
+
+
+
+// SHOW PLATE
+
+.img-show-plate {
+    height: 320px;
+    width: 450px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px;
 }
