@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Cuisine;
+use App\Course;
 use App\Plate;
 
 class RestaurantController extends Controller
@@ -76,15 +77,15 @@ class RestaurantController extends Controller
      */
     public function showCuisines($slug)
     {
-        $restaurant = Restaurant::where('slug', $slug)->first();
-
-        $cuisines = $restaurant->cuisineRestaurant();
+        $restaurant = Restaurant::where('slug', $slug)->with('cuisines')->first();
+        $cuisines = $restaurant->cuisines;
             
         return response()->json([
             'success' => true,
             'results' => $cuisines
         ]);
     }
+    
 
     /**
      * Display restaurant's plates
@@ -95,7 +96,7 @@ class RestaurantController extends Controller
     public function showMenu($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
-        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
+        $plates = Plate::where('restaurant_id', $restaurant->id)->get();
 
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
@@ -107,6 +108,7 @@ class RestaurantController extends Controller
             'results' => $plates
         ]);
     }
+    
     /**
      * Show the form for editing the specified resource.
      *
