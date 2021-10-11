@@ -61,7 +61,7 @@ class RegisterController extends Controller
             'phone' => ['required', 'numeric', 'digits_between:4,11'],
             'p_iva' => ['required', 'numeric', 'digits:11', 'unique:restaurants'],
             'img' => ['string'],
-            'cuisine' => ['required']
+            'cuisine' => ['required'],
         ]);
     }
 
@@ -73,7 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
-        var_dump($data);
+        
         // create user
         $newUser = User::create([
             'name' => $data['name'],
@@ -82,6 +82,7 @@ class RegisterController extends Controller
         ]);
         
         // generate slug based on restaurant name
+
         $slug = Str::slug($data['restName'],'-');
         $slugBase = $slug;
         $slugPresent = Restaurant::where('slug', $slug)->first();
@@ -92,6 +93,7 @@ class RegisterController extends Controller
             $slugPresent = Restaurant::where('slug', $slug)->first();
             $count++;
         };
+
 
         if(array_key_exists('img', $data)) {
             $img_path = Storage::put('images', $data['img']);

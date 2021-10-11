@@ -1,4 +1,5 @@
 import Vue from 'vue'; 
+import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -6,6 +7,7 @@ Vue.use(VueRouter);
 import Home from './pages/Home';
 import Cuisine from './pages/Cuisine';
 import Cuisines from './pages/Cuisines';
+import Cart from './pages/Cart';
 import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
 
@@ -26,6 +28,11 @@ const router = new VueRouter({
             path: '/cuisines/:slug',
             name: 'cuisine', 
             component: Cuisine
+        },
+        {
+            path: '/cart',
+            name: 'cart', 
+            component: Cart
         },
         {
             path: '/restaurants',
