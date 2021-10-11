@@ -262,8 +262,8 @@
 <!-- nome e cognome -->
 
   <label for="name"  >
-    <p class="label-txt">{{ __('Nome e Cognome') }}</p>
-    <input type="text" class="input  @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <p class="label-txt ">{{ __('Nome e Cognome') }}</p>
+    <input type="text" class="input mt-2  @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
     @error('name')
         <span class="invalid-feedback" role="alert">
              <strong>{{ $message }}</strong>
@@ -279,7 +279,7 @@
 
   <label for="restName"  >
     <p class="label-txt">{{ __('Nome ristorante') }}</p>
-    <input  class="input" id="restName" type="text" class="form-control @error('restName') is-invalid @enderror" name="restName" value="{{ old('restName') }}" required autocomplete="restName" autofocus>
+    <input  class="input mt-2" id="restName" type="text" class="form-control @error('restName') is-invalid @enderror" name="restName" value="{{ old('restName') }}" required autocomplete="restName" autofocus>
     @error('restName')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -300,7 +300,7 @@
 
        
       <div class="form-check form-check-inline mt-4 mb-4 ">
-         <input  class="form-check-input @error('cuisine') is-invalid @enderror" type="checkbox"   value="{{ $cuisine->id }}" name="cuisine[]" id=" cuisine-{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
+         <input  class="form-check-input mt-2 @error('cuisine') is-invalid @enderror" type="checkbox"   value="{{ $cuisine->id }}" name="cuisine[]" id=" cuisine-{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
 
         
          <div class="btn cucine form-check-label " for="cuisine-{{$cuisine->id}}">{{$cuisine->name}}</div>
@@ -328,7 +328,7 @@
 
   <label for="address"  >
     <p class="label-txt">{{ __('Indirizzo') }}</p>
-    <input  class="input" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+    <input  class="input mt-2" id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
     @error('address')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -343,7 +343,7 @@
 
   <label for="phone"  >
     <p class="label-txt">{{ __('Numero di telefono') }}</p>
-    <input  class="input" id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+    <input  class="input mt-2" id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
     @error('phone')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -359,7 +359,7 @@
   
   <label for="p_iva"  >
     <p class="label-txt">{{ __('Partita Iva') }}</p>
-    <input  class="input" id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
+    <input  class="input mt-2" id="p_iva" type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
     @error('p_iva')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -375,7 +375,7 @@
 
   <label for="email"  >
     <p class="label-txt">{{ __('Indirizzo email') }}</p>
-    <input  class="input" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
+    <input  class="input mt-2" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
     @error('email')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -391,7 +391,7 @@
 
   <label for="password"  >
     <p class="label-txt">{{ __('Password') }}</p>
-    <input  class="input" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" >
+    <input  class="input mt-2" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" >
     @error('password')
        <span class="alert alert-danger" role="alert">
          <strong>{{ $message }}</strong>
@@ -406,7 +406,7 @@
 
   <label for="password-confirm"  >
     <p class="label-txt">{{ __('Conferma password') }}</p>
-    <input  class="input " id="password-confirm" type="password" class="form-control " name="password_confirmation" required autocomplete="new-password" >
+    <input  class="input mt-2 " id="password-confirm" type="password" class="form-control " name="password_confirmation" required autocomplete="new-password" >
   
     <div class="line-box">
       <div class="line "></div>
@@ -425,6 +425,9 @@
 body {
   background: url('../img/food-sfondo.jpg');
   background-size:cover;
+}
+p{
+  margin-bottom:20px;
 }
 
 
