@@ -30,7 +30,7 @@ class PlateSeeder extends Seeder
             $newPlate->ingredients =$faker->dairyName() . ' ' . $faker->vegetableName() . ' ' . $faker->meatName() . ' ' . $faker->sauceName();
             $newPlate->img = 'piatto.jpg';
             $newPlate->slug = Str::slug($newPlate->name, '-') . $i;
-            $newPlate->restaurant_id = $faker->numberBetween(6, 13);
+            $newPlate->restaurant_id = 18;
             $newPlate->course_id = $faker->numberBetween(1, 5);
             $newPlate->price = $faker->randomFloat(2, 5, 30); //da seedare courses
 
