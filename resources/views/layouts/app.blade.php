@@ -6,8 +6,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+     <img src="" alt="">
+    <title>Wanna Eat</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
@@ -22,7 +22,7 @@
 <body>
     <header>
         {{-- rendere questa nav un'icona con sei un ristorante? --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm">
+        <nav class="navbar nav-reg navbar-expand-md  bg-info ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <span id="logo">WannaEat</span>
@@ -44,10 +44,10 @@
                         {{-- aggiungere: sei un ristorante? un po' più discreto --}}
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item scritta">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
@@ -78,4 +78,28 @@
 
     @yield('content')
 </body>
+
+<style>
+   .nav-reg{
+       background-color:black;
+       height:100px;
+       opacity:0.6;
+       
+       
+       
+   }
+   .container a{
+       color:white;
+       font-size: 22px;
+       text-decoration:none;
+   }
+   .container a:hover{
+    color: #8BC34A;
+    transition:0.3s;
+    transform:scale(1.2);
+   }
+   
+
+</style>
 </html>
+
