@@ -173,3 +173,12 @@
     </div>
 </div>
 @endsection
+
+
+<style scoped>
+    span input{
+        position: relative;
+        bottom: 3px;
+        cursor: pointer;
+    }
+</style>
