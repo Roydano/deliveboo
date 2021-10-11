@@ -28,6 +28,7 @@
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart 
                             @if(count((array) session('cart')) > 0)
                             <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                            @endif
 
                         </button>
 
@@ -113,7 +114,7 @@
         <ul>
             @guest
             <li class="d-inline-block dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a class="nav-link" href="{{ route('login') }}">
                     Sei un ristorante?
                 </a>
 

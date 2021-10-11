@@ -27365,8 +27365,6 @@ a.text-dark:focus {
   }
 }
 
-<<<<<<< HEAD
-=======
 body {
   font-family: "Montserrat", serif;
   scroll-behavior: smooth;
@@ -27403,13 +27401,10 @@ a::visited {
   background: rgba(100, 100, 100, 0.6);
 }
 
->>>>>>> 199535f34599fbb6d942550b315bcc130da7d9b1
 #jumbo {
   color: black;
   text-transform: uppercase;
   z-index: 99 !important;
-<<<<<<< HEAD
-=======
   font-size: 12px;
 }
 
@@ -27436,6 +27431,5 @@ a::visited {
   color: #bbb8b8;
   transform: scale(1.1);
   background-color: black;
->>>>>>> 199535f34599fbb6d942550b315bcc130da7d9b1
 }
 

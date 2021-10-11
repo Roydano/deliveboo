@@ -40,6 +40,7 @@ export default {
         background-color: black;
         height: 100vh;
         overflow: hidden;
+        justify-content: flex-end;
     }
 
     video {
