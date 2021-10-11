@@ -1,0 +1,38 @@
+.plates-restaurant {
+    border: 2px solid lightgrey;
+}
+
+.plates-restaurant a {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 5px;
+    font-size: 20px;
+    -webkit-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    -moz-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+}
+
+.plates-restaurant form input {
+    width: 200px;
+    font-size: 20px;
+    height: 50px;
+    -webkit-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    -moz-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+    box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
+}
+
+.plates-restaurant form input:hover {
+    scale: 1.2;
+}
+
+
+.plates-restaurant th {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.plates-restaurant td {
+    font-size: 17px;
+}

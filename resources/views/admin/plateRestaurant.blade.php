@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container plates-restaurant">
     <h2>I Tuoi Piatti</h2>
 
     <p>
