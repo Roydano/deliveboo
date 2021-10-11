@@ -23,7 +23,6 @@
                 <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> -->
 
             </div>
-
         </div>
     </div>
 </template>
@@ -41,6 +40,7 @@ export default {
         background-color: black;
         height: 100vh;
         overflow: hidden;
+        justify-content: flex-end;
     }
 
     video {
