@@ -22,7 +22,7 @@
 <body>
     <header>
         {{-- rendere questa nav un'icona con sei un ristorante? --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm">
+        <nav class="navbar nav-reg navbar-expand-md  bg-info ">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <span id="logo">WannaEat</span>
