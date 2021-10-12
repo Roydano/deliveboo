@@ -75,7 +75,7 @@
                     <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
-                        <a type="submit" class="btn bg-psy"><i class="fas fa-trash-alt"></i></a>
+                        <a  type="submit" class="btn bg-psy"><i class="fas fa-trash-alt"></i></a>
                     </form>
                     
                 </td>

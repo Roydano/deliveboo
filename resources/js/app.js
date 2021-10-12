@@ -13,22 +13,21 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-import Vuetify from 'vuetify';
+
 
 
 import App from './views/App';
 import router from './router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
-AOS.init();
 
-Vue.use(Vuetify);
+
+
+
 
 const app = new Vue({
     el: '#root',
     render: h => h(App),
     router,
-    vuetify: new Vuetify(),
+    
 });
 
