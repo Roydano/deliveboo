@@ -10,11 +10,14 @@
   }
  
 
-  .body{
+//   .body{
       
       
-      overflow:hidden;
+//       overflow:hidden;
 
+//   }
+  .scritta{
+      color:white;
   }
   .tendina{
       color:white;
@@ -26,7 +29,7 @@
       background:#22242A;
       position:fixed;
       width:calc(100% - 0%);
-      height:70px;
+      height:100px;
       display:flex;
       top:0;
 
@@ -234,7 +237,7 @@
      cursor:pointer;
      left:200px;
      font-size:20px;
-     margin:25px 0;
+     margin:41px 0;
      transition: 0.5s;
      transition-property: color;
 

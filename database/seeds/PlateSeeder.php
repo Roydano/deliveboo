@@ -35,8 +35,6 @@ class PlateSeeder extends Seeder
             $newPlate->price = $faker->randomFloat(2, 5, 30); //da seedare courses
 
             $newPlate->save();
-
-
         }
     }
 }
