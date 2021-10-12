@@ -375,20 +375,26 @@
 body {
   background: url('../img/food-sfondo.jpg');
   background-size:cover;
+  height: 100%;
+  padding-bottom: 60px;
 }
 p{
   margin-bottom:20px;
 }
 
+header {
+  margin-bottom: 30px;
+}
 
 form {
   width: 60%;
-  margin: 60px auto;
+  margin: 0 auto;
   background: #efefef;
   padding: 60px 120px 80px 120px;
   text-align: center;
   -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
   box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 20px;
 }
 label {
   display: block;
