@@ -12,6 +12,7 @@
         @method('PUT')
 
         <div class="form-group">
+          <label class="form-check-label" for="name">Inserisci il nome del ristorante</label>
           <input type="text" class="form-control text-center  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
           @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -28,7 +29,7 @@
         </div>
 
         <div class="form-group">
-          <label for="courses">Scrivi gli ingredienti</label>
+          <label for="ingredients">Scrivi gli ingredienti</label>
           <textarea class="text-center form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti">{{ $plate->ingredients }}</textarea>
           @error('ingredients')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -36,16 +37,17 @@
         </div>
 
         <div class="form-group">
-          <label for="courses">Descrivi il piatto</label>
+          <label for="description">Descrivi il piatto</label>
             <textarea class="text-center form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Descrizione">{{ $plate->description }}</textarea>
             @error('description')
               <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
+        <label for="img">Scegli l'immagine</label>
         <div class="mb-3">
           @if($plate->img)
-            <img class="img-show-plate" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
+          <img class="img-show-plate" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
           @endif
         </div>
         <div class="mb-3">
@@ -56,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            <label for="courses">Prezzo</label>
+            <label for="price">Prezzo</label>
             <input type="number" step="0.01" min=0  class="form-control text-center @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
             @error('price')
               <div class="alert alert-danger">{{ $message }}</div>

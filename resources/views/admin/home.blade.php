@@ -48,7 +48,7 @@
                <center class="profile">
 
                   <img src="./img/frutta.jpg" alt="">
-                  <h5 class="card-title"> {{ $restaurant->name }}</h5>
+                  <h5 class="card-title scritta"> {{ $restaurant->name }}</h5>
 
 
                </center>

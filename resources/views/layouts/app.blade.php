@@ -6,8 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-     <img src="" alt="">
-    <title>Wanna Eat</title>
+   
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
@@ -22,8 +21,8 @@
 <body>
     <header>
         {{-- rendere questa nav un'icona con sei un ristorante? --}}
-        <nav class="navbar nav-reg navbar-expand-md  bg-info ">
-            <div class="container">
+        <nav class="nav-reg navbar-expand-md    ">
+            <div class="container d-flex">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <span id="logo">WannaEat</span>
                 </a>
@@ -52,20 +51,24 @@
                                 </li>
                             @endif
                         @else
+                       
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                                
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item log-out" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"> 
+                                        {{ __('Logout') }} 
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
+
+                                    
+                                       
                                     </form>
                                 </div>
                             </li>
@@ -82,14 +85,18 @@
 <style>
    .nav-reg{
        background-color:black;
-       height:100px;
+       height:60px;
        opacity:0.6;
        
        
        
    }
+
+   .log-out{
+       color:black;
+   }
    .container a{
-       color:white;
+       
        font-size: 22px;
        text-decoration:none;
    }
