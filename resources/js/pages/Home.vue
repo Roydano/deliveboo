@@ -2,17 +2,20 @@
     
     <div> 
         <Jumbo/>
+        <ShowcaseRestaurant/>
     </div>
 </template>
 
 <script>
 
 import Jumbo from '../components/Jumbo';
+import ShowcaseRestaurant from '../components/ShowcaseRestaurant';
 
 export default {
     name: "Home",
     components: {
-        Jumbo
+        Jumbo,
+        ShowcaseRestaurant
     }
 }
 </script>

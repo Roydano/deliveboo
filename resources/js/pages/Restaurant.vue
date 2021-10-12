@@ -33,6 +33,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
+                    // console.log('ciao belli');
                 } )
                 .catch(error => {
                     console.log(error);
@@ -51,7 +52,6 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/menu')
                 .then( response => {
                     this.menu = response.data.results;
-                    console.log(response);
                 } )
                 .catch(error => {
                     console.log(error);

@@ -77,6 +77,7 @@ export default {
     }
 
     .card {
+
         padding: 0 !important;
         transition: all .2s linear;
         &:hover {
