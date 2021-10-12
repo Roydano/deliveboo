@@ -57,7 +57,7 @@ class CuisineController extends Controller
     public function show($slug)
     {
         $cuisine = Cuisine::where('slug', $slug)->first();
-        $restaurants = $cuisine->cuisineRestaurants;
+        $restaurants = $cuisine->restaurants;
 
         $cuisine->img = url('storage/' . $cuisine->img);
             

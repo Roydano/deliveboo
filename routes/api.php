@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\CuisineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->group(function(){
     Route::get('/cuisines', 'CuisineController@index');
     Route::get('/cuisines/{slug}', 'CuisineController@show');
+    
     Route::get('/restaurants', 'RestaurantController@index');
     Route::get('/restaurants/{slug}', 'RestaurantController@show');
     Route::get('/restaurants/{slug}/cuisines', 'RestaurantController@showCuisines');

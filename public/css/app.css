@@ -12502,7 +12502,6 @@ button.bg-dark:focus {
   .align-self-md-stretch {
     align-self: stretch !important;
   }
-}
 
 @media (min-width: 992px) {
   .flex-lg-row {
@@ -12640,7 +12639,6 @@ button.bg-dark:focus {
   .align-self-lg-stretch {
     align-self: stretch !important;
   }
-}
 
 @media (min-width: 1200px) {
   .flex-xl-row {
@@ -12778,7 +12776,6 @@ button.bg-dark:focus {
   .align-self-xl-stretch {
     align-self: stretch !important;
   }
-}
 
 .float-left {
   float: left !important;
@@ -14321,7 +14318,6 @@ button.bg-dark:focus {
   .mx-md-auto {
     margin-left: auto !important;
   }
-}
 
 @media (min-width: 992px) {
   .m-lg-0 {
@@ -26556,8 +26552,8 @@ a.text-dark:focus {
   font-family: "Roboto", sans-serif;
 }
 
-.scritta {
-  color: white;
+.body {
+  overflow: hidden;
 }
 
 .tendina {
@@ -26568,14 +26564,14 @@ a.text-dark:focus {
   z-index: 1;
   background: #22242A;
   position: fixed;
-  width: 100%;
-  height: 100px;
+  width: calc(100% - 0%);
+  height: 70px;
   display: flex;
   top: 0;
 }
 
 .wrapper .header .header-menu {
-  width: 100%;
+  width: calc(100% - 0%);
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -26639,7 +26635,7 @@ a.text-dark:focus {
   position: fixed;
   top: 70px;
   width: 250px;
-  height: 91%;
+  height: calc(100% - 9%);
   /* transition: 0.3s;
   transition-property: width; */
   overflow-y: auto;
