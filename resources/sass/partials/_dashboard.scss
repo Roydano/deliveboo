@@ -42,6 +42,7 @@
       justify-content:space-between;
       align-items:center;
       padding: 0 20px;
+      z-index: 1;
 
 
   }
@@ -52,6 +53,17 @@
       text-transform: uppercase;
       font-weight: 900;
   }
+
+  a.no-style{
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  a.no-style:hover{
+    color: #4CCEE8;
+  }
+
+
   .wrapper .header .header-menu .title span{
       color:#4CCEE8;
 
@@ -98,10 +110,8 @@
 
 
  .wrapper .sidebar{
-     z-index: 1;
      background: #2F323A;
      position:fixed;
-     top:70px;
      width:250px;
      height: calc(100% - 9%);
      /* transition: 0.3s;
