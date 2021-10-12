@@ -78,7 +78,7 @@ class RestaurantController extends Controller
     public function showCuisines($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->with('cuisines')->first();
-        $cuisines = $restaurant->cuisines;
+        $cuisines = $restaurant->cuisines();
             
         return response()->json([
             'success' => true,
