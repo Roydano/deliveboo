@@ -413,7 +413,7 @@ label {
   outline: none;
 }
 .input-cus{
-    width: 3%;
+  width: 3%;
   padding: 10px;
   background: transparent;
   border: none;

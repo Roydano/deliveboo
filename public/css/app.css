@@ -38730,6 +38730,13 @@ label #sidebar_btn:hover {
   color: #fffb02;
 }
 
+.btn-plates .trash {
+  position: relative;
+  right: 43px;
+  bottom: 20px;
+  cursor: pointer;
+}
+
 .plates-restaurant .table {
   background-color: rgba(0, 0, 0, 0.911);
   color: white;
@@ -38760,10 +38767,6 @@ label #sidebar_btn:hover {
   height: 62px;
   margin-bottom: 5px;
   font-size: 20px;
-}
-
-.info-plate {
-  width: 50%;
 }
 
 .info-plate label {

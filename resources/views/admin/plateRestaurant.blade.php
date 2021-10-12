@@ -72,10 +72,10 @@
                 <td class="btn-plates">
                     <a href="{{ route('admin.plates.show', $plate->slug) }}" type="button" class="btn bg-psy"><i class="fas fa-eye"></i></a>
                     <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn bg-psy"><i class="fas fa-pencil-alt"></i></a>
-                    <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
+                    <form id=" {{ $plate->id }} " action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
-                        <a type="submit" class="btn bg-psy"><i class="fas fa-trash-alt"></i></a>
+                        <input type="submit" value="" class="btn bg-psy"><i class="fas fa-trash-alt trash"></i></input>
                     </form>
                     
                 </td>
@@ -85,10 +85,10 @@
         </tbody>
     </table>
     
-    <div class="card bor_none" style="background-color: transparent">
+    <div class="card bor_none btn-plates" style="background-color: transparent">
         <div class="card-body">
-            <a href="{{route('admin.plates.create')}}" class="btn bg-psy">Aggiungi un piatto</a>
-            <a href="{{route('admin.index')}}" class="btn bg-psy">Torna alla tua Dashboard</a>
+            <a href="{{route('admin.index')}}" class="btn bg-psy"><i class="fas fa-arrow-circle-left"></i></a>
+            <a href="{{route('admin.plates.create')}}" class="btn bg-psy"><i class="fas fa-plus"></i></a>
         </div>
     </div>
 </div>
