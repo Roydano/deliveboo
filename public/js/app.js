@@ -44249,7 +44249,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Antipasto")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Antipasto")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44263,7 +44263,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Primo")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Primo")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44277,7 +44277,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Secondo")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Secondo")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44291,7 +44291,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Contorno")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Contorno")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44305,7 +44305,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Snack")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Snack")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44319,7 +44319,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("h5", [_vm._v("Dolce")]),
+      _c("h5", { staticClass: "mt-3" }, [_vm._v("Dolce")]),
       _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
         return _c("div", { key: plate.id }, [
@@ -44333,7 +44333,7 @@ var render = function() {
         ])
       }),
       _vm._v(" "),
-      _c("button", [
+      _c("div", { staticClass: "btn btn-success mt-3" }, [
         _c(
           "a",
           {
