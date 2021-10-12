@@ -1,13 +1,15 @@
 <template>
 
-    <div class="container">
+    <div id="back">
+        <div class="container">
 
-        <h1>{{restaurant.name}}</h1>
+            <h1>{{restaurant.name}}</h1>
 
-        <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
-        
-        <div v-for="plate in menu" :key="plate.id">{{plate.name}}</div>
+            <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
+            <div v-for="plate in menu" :key="plate.id">{{plate.name}}</div>
+
+        </div>
     </div>
 </template>
 
@@ -60,6 +62,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    #back {
+        min-height: 100vh;
+        background-image: url('https://source.unsplash.com/EWDvHNNfUmQ/1600x900');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     
 </style>

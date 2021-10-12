@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    cuisine
+    <h2>Cucina {{name}}</h2>
     <div v-for="restaurant in restaurants" :key="restaurant.id">
       <h4>{{ restaurant.name }}</h4>
     </div>
@@ -13,12 +13,14 @@ export default {
   data() {
     return {
       restaurants: [],
+      name: "",
     };
   },
   mounted() {
-    axios.get("/api/cuisines/" + this.$route.params.slug).then((response) => {
+    axios.get("/api/cuisines/" + this.$route.params.slug)
+    .then((response) => {
       this.restaurants = response.data.results;
-      console.log(this.restaurants);
+      this.name = this.$route.params.name;
     });
   },
 };
