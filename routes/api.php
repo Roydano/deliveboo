@@ -24,6 +24,7 @@ Route::namespace('Api')->group(function(){
     Route::get('/restaurants/{slug}', 'RestaurantController@show');
     Route::get('/restaurants/{slug}/cuisines', 'RestaurantController@showCuisines');
     Route::get('/restaurants/{slug}/menu', 'RestaurantController@showMenu');
+
     
     /* Route::post('/contact-us', 'CuisineController@store'); */
 });

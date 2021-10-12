@@ -15,7 +15,7 @@
           <label class="form-check-label" for="name">Inserisci il nome del piatto</label>
           <input type="text" class="form-control text-center  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
           @error('name')
-            <div class="alert alert-danger">{{ 'Il nome del piatto è obbligatorio!'' }}</div>
+            <div class="alert alert-danger">{{ 'Il nome del piatto è obbligatorio!' }}</div>
           @enderror
         </div>
         

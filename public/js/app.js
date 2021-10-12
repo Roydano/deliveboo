@@ -6694,6 +6694,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardRestaurant',
   props: ['cuisineSelect', 'restaurants']
@@ -7134,6 +7139,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurant',
   data: function data() {
@@ -7153,7 +7209,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug).then(function (response) {
-        _this.restaurant = response.data.results; // console.log('ciao belli');
+        _this.restaurant = response.data.results;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7163,6 +7219,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/cuisines').then(function (response) {
         _this2.cuisines = response.data.results;
+        console.log(_this2.cuisines);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -43693,29 +43750,44 @@ var render = function() {
             "div",
             { staticClass: "row d-flex" },
             _vm._l(_vm.restaurants, function(restaurant) {
-              return _c("div", { key: restaurant.id, staticClass: "col" }, [
-                _c(
-                  "div",
-                  { staticClass: "card", staticStyle: { width: "18rem" } },
-                  [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(restaurant.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(restaurant.address))
-                      ]),
-                      _vm._v(" "),
+              return _c(
+                "div",
+                { key: restaurant.id, staticClass: "col" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "restaurant",
+                          params: { slug: restaurant.slug }
+                        }
+                      }
+                    },
+                    [
                       _c(
-                        "a",
-                        { staticClass: "btn btn-danger", attrs: { href: "#" } },
-                        [_vm._v("Vai al ristorante")]
+                        "div",
+                        {
+                          staticClass: "card",
+                          staticStyle: { width: "18rem" }
+                        },
+                        [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(restaurant.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(restaurant.address))
+                            ])
+                          ])
+                        ]
                       )
-                    ])
-                  ]
-                )
-              ])
+                    ]
+                  )
+                ],
+                1
+              )
             }),
             0
           )
@@ -44169,13 +44241,111 @@ var render = function() {
     [
       _c("h1", [_vm._v(_vm._s(_vm.restaurant.name))]),
       _vm._v(" "),
+      _c("span", [_vm._v("Ristorante di cucina")]),
+      _vm._v(" "),
       _vm._l(_vm.cuisines, function(cuisine) {
-        return _c("div", { key: cuisine.id }, [_vm._v(_vm._s(cuisine.name))])
+        return _c("span", { key: cuisine.id, staticClass: "mx-3" }, [
+          _vm._v(_vm._s(cuisine.name))
+        ])
       }),
       _vm._v(" "),
+      _c("h5", [_vm._v("Antipasto")]),
+      _vm._v(" "),
       _vm._l(_vm.menu, function(plate) {
-        return _c("div", { key: plate.id }, [_vm._v(_vm._s(plate.name))])
-      })
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 1
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Primo")]),
+      _vm._v(" "),
+      _vm._l(_vm.menu, function(plate) {
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 2
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Secondo")]),
+      _vm._v(" "),
+      _vm._l(_vm.menu, function(plate) {
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 3
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Contorno")]),
+      _vm._v(" "),
+      _vm._l(_vm.menu, function(plate) {
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 4
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Snack")]),
+      _vm._v(" "),
+      _vm._l(_vm.menu, function(plate) {
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 5
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Dolce")]),
+      _vm._v(" "),
+      _vm._l(_vm.menu, function(plate) {
+        return _c("div", { key: plate.id }, [
+          plate.course_id == 6
+            ? _c("div", [
+                _c("span", [_vm._v(_vm._s(plate.name))]),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(plate.price) + "€")])
+              ])
+            : _vm._e()
+        ])
+      }),
+      _vm._v(" "),
+      _c("button", [
+        _c(
+          "a",
+          {
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("Back")]
+        )
+      ])
     ],
     2
   )
