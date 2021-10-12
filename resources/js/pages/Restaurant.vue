@@ -4,8 +4,9 @@
 
         <h1>{{restaurant.name}}</h1>
 
-        {{cuisines}}
-        {{menu}}
+        <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
+        
+        <div v-for="plate in menu" :key="plate.id">{{plate.name}}</div>
 
     </div>
 </template>
@@ -39,7 +40,6 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/cuisines')
                 .then( response => {
                     this.cuisines = response.data.results;
-                    console.log(this.cuisines);
                 } )
                 .catch(error => {
                     console.log(error);
@@ -49,6 +49,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/menu')
                 .then( response => {
                     this.menu = response.data.results;
+                    console.log(response);
                 } )
                 .catch(error => {
                     console.log(error);
