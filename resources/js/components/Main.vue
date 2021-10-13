@@ -3,10 +3,11 @@
         <router-view></router-view>
         {{route}}
 
+
    <!-- provo a fare le cucine  -->
       
-       <div class="body">
-           <div class="swrapper">>
+       <!-- <div class="body">
+           <div class="swrapper">
 
                <header>Cucine</header>
                <input type="radio" name="slider" id="home" checked>
@@ -37,7 +38,7 @@
                    <label for="vegetariana" class="vegetariana">Vegetariana</label>
                    <label for="vegana" class="vegana">Vegana</label>
 
-                   <div class="slider"></div>
+                   
                    
                
                    
@@ -49,8 +50,7 @@
                </div>
 
                 <div class="content content-2">
-                   <div class="title">Italiana
-                   </div>
+                   <div class="title">Italiana </div>
                    <p>ciao</p>
                </div>
 
@@ -105,13 +105,25 @@
 
 
               
-           </div>
+           </div> -->
 
-       </div>
+       <!-- </div> -->
+
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+
 
 
         
-
+  
        
     </div>
 </template>
@@ -242,7 +254,8 @@ input[type="radio"]{
     position:absolute;
     height:100%;
     width:7%;
-    background-color:#17a2b8; 
+    background-color:black;
+    opacity:0.9;
     border-radius:5px;
     z-index: 0;
     left: 0;

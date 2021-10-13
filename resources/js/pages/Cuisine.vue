@@ -1,4 +1,6 @@
 <template>
+
+<!-- cuisine.vue -->
   <div class="container">
     cuisine
     <div v-for="restaurant in restaurants" :key="restaurant.id">
