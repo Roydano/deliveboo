@@ -1,5 +1,5 @@
 <template>
-
+    <div id="back">
     <div class="container">
         <h1>Scopri i nostri ristoranti</h1>
 
@@ -21,6 +21,7 @@
                 
             </div>
 
+    </div>
     </div>
 </template>
 
@@ -53,6 +54,12 @@ export default {
 
 <style lang="scss" scoped>
 
+    #back {
+        height: 100vh;
+        background-image: url('https://source.unsplash.com/EWDvHNNfUmQ/1600x900');
+        background-size:cover;
+        background-position: fixed;
+    }
     .container {
         overflow-y: hidden;
     }
@@ -70,6 +77,7 @@ export default {
     }
 
     .card {
+
         padding: 0 !important;
         transition: all .2s linear;
         &:hover {

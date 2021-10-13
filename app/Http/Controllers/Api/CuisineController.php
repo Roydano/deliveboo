@@ -49,7 +49,7 @@ class CuisineController extends Controller
     }
 
     /**
-     * Display the restaurants that belongs to a given cuisine(id)
+     * Display the restaurants that belongs to a given cuisine()
      *
      * @param  string  $slug
      * @return \Illuminate\Http\Response
@@ -57,7 +57,7 @@ class CuisineController extends Controller
     public function show($slug)
     {
         $cuisine = Cuisine::where('slug', $slug)->first();
-        $restaurants = $cuisine->restaurants();
+        $restaurants = $cuisine->restaurants;
 
         $cuisine->img = url('storage/' . $cuisine->img);
             

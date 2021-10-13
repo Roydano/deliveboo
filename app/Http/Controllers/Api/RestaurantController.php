@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Cuisine;
+use App\Course;
 use App\Plate;
 
 class RestaurantController extends Controller
@@ -85,6 +86,9 @@ class RestaurantController extends Controller
         ]);
     }
 
+    
+    
+
     /**
      * Display restaurant's plates
      *
@@ -106,6 +110,7 @@ class RestaurantController extends Controller
             'results' => $plates
         ]);
     }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -139,4 +144,7 @@ class RestaurantController extends Controller
     {
         //
     }
+
+
+    // inserito da danilo come prova
 }

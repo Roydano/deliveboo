@@ -6,28 +6,14 @@
 
 // CSS Frameworks
 @import '~bootstrap/scss/bootstrap';
-@import '~bulma/css/bulma.css';
-@import "~vuetify/dist/vuetify.min.css";
 
 // Variables
 @import 'variables';
 @import 'commons';
 @import 'partials/jumbo';
+@import 'partials/dashboard';
+@import 'partials/register';
+@import 'partials/showplate.scss';
 
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-// dashboard
-
-@import 'partials/_dashboard.scss';
-
-// pagina register
-
-@import 'partials/_register.scss';
-
-// pagina Show Plate
-
-@import 'partials/_showplate.scss';
 
 
