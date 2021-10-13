@@ -110,6 +110,32 @@ class RestaurantController extends Controller
             'results' => $plates
         ]);
     }
+
+    /**
+     * Display restaurant's plates filtered by course
+     *
+     * @param  int  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function showCourses($slug)
+    {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $plates = $restaurant->plates;
+        $courseIds = [];
+        
+        foreach($plates as $plate) {
+            $courseIds[] = $plate->course_id;
+        }
+
+        
+
+        $courses = Course::select('*')->whereIn('id', $courseIds)->get();
+            
+        return response()->json([
+            'success' => true,
+            'results' => $courses
+        ]);
+    }
     
     /**
      * Show the form for editing the specified resource.

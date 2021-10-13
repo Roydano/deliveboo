@@ -7,7 +7,7 @@
             <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
             <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
-                <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">
+                <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" >
                     <span>{{course.name}}</span>
                 </router-link>
             </div>
@@ -23,12 +23,15 @@
 <script>
 
 export default {
+
+
     name: 'Restaurant',
     data() {
         return {
             restaurant: [],
             cuisines: [],
             courses: [],
+            active: []
         }
     },
     created(){
@@ -56,7 +59,7 @@ export default {
                 });
         },
         getCourses() {
-            axios.get('http://localhost:8000/api/courses')
+            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses')
                 .then( response => {
                     this.courses = response.data.results;
                 } );
@@ -88,6 +91,17 @@ export default {
             color: black;
             text-decoration: none;
         }
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+
+    .fade-enter-from,
+    .fade-leave-to {
+         opacity: 0;
     }
     
 </style>

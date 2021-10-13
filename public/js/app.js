@@ -6694,6 +6694,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardRestaurant',
   props: ['cuisineSelect', 'restaurants']
@@ -7135,6 +7137,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MenuCourse',
   data: function data() {
@@ -7164,19 +7169,6 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-
-    /* getPlates() {
-        axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse)
-            .then( response => {
-                this.plates = response.data.results;
-                console.log(this.plates);
-                
-            } )
-            .catch(error => {
-                console.log(error);
-                console.log(this.$route.params.slug + this.$route.params.slugCourse);
-            });
-    } */
     getPlates: function getPlates() {
       var _this2 = this;
 
@@ -7185,7 +7177,6 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this2.plates);
       })["catch"](function (error) {
         console.log(error);
-        console.log(_this2.$route.params.slug + _this2.$route.params.slugCourse);
       });
     }
   }
@@ -7230,7 +7221,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       restaurant: [],
       cuisines: [],
-      courses: []
+      courses: [],
+      active: []
     };
   },
   created: function created() {
@@ -7260,7 +7252,7 @@ __webpack_require__.r(__webpack_exports__);
     getCourses: function getCourses() {
       var _this3 = this;
 
-      axios.get('http://localhost:8000/api/courses').then(function (response) {
+      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses').then(function (response) {
         _this3.courses = response.data.results;
       });
     }
@@ -11861,7 +11853,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".plateImg[data-v-593b98ba] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".plateImg[data-v-593b98ba] {\n  width: 100%;\n}\n.fade-enter-active[data-v-593b98ba],\n.fade-leave-active[data-v-593b98ba] {\n  transition: opacity 0.5s ease;\n}\n.fade-enter-from[data-v-593b98ba],\n.fade-leave-to[data-v-593b98ba] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -11880,7 +11872,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: 100vh;\n  background-image: url(\"https://source.unsplash.com/EWDvHNNfUmQ/1600x900\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n.courseName[data-v-25de3706] {\n  font-size: 25px;\n  color: black;\n  text-transform: uppercase;\n  font-weight: bold;\n  transition: all 0.3s ease-in-out;\n}\n.courseName[data-v-25de3706]:hover {\n  transform: scale(1.1);\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: 100vh;\n  background-image: url(\"https://source.unsplash.com/EWDvHNNfUmQ/1600x900\");\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n.courseName[data-v-25de3706] {\n  font-size: 25px;\n  color: black;\n  text-transform: uppercase;\n  font-weight: bold;\n  transition: all 0.3s ease-in-out;\n}\n.courseName[data-v-25de3706]:hover {\n  transform: scale(1.1);\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n}\n.fade-enter-active[data-v-25de3706],\n.fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.5s ease;\n}\n.fade-enter-from[data-v-25de3706],\n.fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -43880,29 +43872,44 @@ var render = function() {
             "div",
             { staticClass: "row d-flex" },
             _vm._l(_vm.restaurants, function(restaurant) {
-              return _c("div", { key: restaurant.id, staticClass: "col" }, [
-                _c(
-                  "div",
-                  { staticClass: "card", staticStyle: { width: "18rem" } },
-                  [
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
-                        _vm._v(_vm._s(restaurant.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(restaurant.address))
-                      ]),
-                      _vm._v(" "),
+              return _c(
+                "div",
+                { key: restaurant.id, staticClass: "col" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "restaurant",
+                          params: { slug: restaurant.slug }
+                        }
+                      }
+                    },
+                    [
                       _c(
-                        "a",
-                        { staticClass: "btn btn-danger", attrs: { href: "#" } },
-                        [_vm._v("Vai al ristorante")]
+                        "div",
+                        {
+                          staticClass: "card",
+                          staticStyle: { width: "18rem" }
+                        },
+                        [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(restaurant.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v(_vm._s(restaurant.address))
+                            ])
+                          ])
+                        ]
                       )
-                    ])
-                  ]
-                )
-              ])
+                    ]
+                  )
+                ],
+                1
+              )
             }),
             0
           )
@@ -44354,24 +44361,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "row row-cols-1 row-cols-md-3 row-cols-lg-4" },
-      _vm._l(_vm.plates, function(plate) {
-        return _c("div", { key: plate.id, staticClass: "col" }, [
-          _c("div", { staticClass: "d-flex flex-column align-items-center" }, [
-            _c("img", {
-              staticClass: "plateImg",
-              attrs: { src: plate.img, alt: plate.id }
-            }),
-            _vm._v("\n                " + _vm._s(plate.name) + "\n            ")
-          ])
-        ])
-      }),
-      0
-    )
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
+        _c(
+          "div",
+          { staticClass: "row row-cols-1 row-cols-md-3 row-cols-lg-4" },
+          _vm._l(_vm.plates, function(plate) {
+            return _c("div", { key: plate.id, staticClass: "col" }, [
+              _c(
+                "div",
+                { staticClass: "d-flex flex-column align-items-center" },
+                [
+                  _c("img", {
+                    staticClass: "plateImg",
+                    attrs: { src: plate.img, alt: plate.id }
+                  }),
+                  _vm._v(
+                    "\n                " + _vm._s(plate.name) + "\n            "
+                  )
+                ]
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
