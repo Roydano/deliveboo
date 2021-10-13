@@ -22,6 +22,8 @@
                 <p>Scegli tra una vasta selezione di cucine, esplora i ristoranti e ordina i piatti con un semplice click. <br> Dal ristorante, direttamente a casa tua.</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> -->
 
+                
+
             </div>
         </div>
     </div>

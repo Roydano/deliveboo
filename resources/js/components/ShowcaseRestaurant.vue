@@ -10,7 +10,7 @@
 
         <div class="row">
            
-                <CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/>
+                <!-- <CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/> -->
             
         </div>
         
