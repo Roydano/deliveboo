@@ -7303,8 +7303,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
   data: function data() {
@@ -11899,7 +11897,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-ccd76a46] {\n  height: 100vh;\n  background-image: url(\"https://source.unsplash.com/EWDvHNNfUmQ/1600x900\");\n  background-size: cover;\n  background-position: fixed;\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  position: fixed;\n  top: 0;\n  z-index: 9;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\n.card[data-v-ccd76a46] {\n  padding: 0 !important;\n  transition: all 0.2s linear;\n}\n.card[data-v-ccd76a46]:hover {\n  transform: translateY(5px);\n}", ""]);
+exports.push([module.i, "#back[data-v-ccd76a46] {\n  height: 100vh;\n  background-image: url(\"https://source.unsplash.com/EWDvHNNfUmQ/1600x900\");\n  background-size: cover;\n  background-position: fixed;\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  margin: 10px;\n  text-align: center;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\n.card[data-v-ccd76a46] {\n  width: 400px;\n  padding: 0 !important;\n  transition: all 0.2s linear;\n  background-color: rgba(0, 0, 0, 0.856);\n  border-radius: 20px;\n  padding: 10px;\n}\n.card[data-v-ccd76a46]:hover {\n  transform: translateY(5px);\n}", ""]);
 
 // exports
 

@@ -15972,6 +15972,7 @@ label #sidebar_btn:hover {
   color: white;
   font-weight: 700;
   text-transform: uppercase;
+  padding-top: 30px;
 }
 
 .plates-restaurant .table {

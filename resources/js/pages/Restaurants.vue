@@ -1,7 +1,7 @@
 <template>
     <div id="back">
-    <div class="container">
-        <h1>Scopri i nostri ristoranti</h1>
+        <div class="container">
+            <h1>Scopri i nostri ristoranti</h1>
 
             <div class="row justify-content-around rests">
 
@@ -9,7 +9,7 @@
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
                             <img class="cover" :src="restaurant.img" :alt="restaurant.name">
-                             <div class="card-body">
+                            <div class="card-body">
                                 <h5 class="card-title">{{restaurant.name}}</h5>
                                     <p class="card-text">
                                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
@@ -18,10 +18,8 @@
                         </div>
                     </router-link>
                 </div>
-                
             </div>
-
-    </div>
+        </div>
     </div>
 </template>
 
@@ -60,14 +58,14 @@ export default {
         background-size:cover;
         background-position: fixed;
     }
+
     .container {
         overflow-y: hidden;
     }
 
     h1 {
-        position: fixed;
-        top: 0;
-        z-index: 9;
+        margin: 10px;
+        text-align: center;
     }
 
     .rests {
@@ -77,9 +75,12 @@ export default {
     }
 
     .card {
-
+        width: 400px;
         padding: 0 !important;
         transition: all .2s linear;
+        background-color: rgba(0, 0, 0, 0.856);
+        border-radius: 20px;
+        padding: 10px;
         &:hover {
             transform: translateY(5px);
         }
