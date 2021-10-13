@@ -85,6 +85,8 @@ class RestaurantController extends Controller
             'results' => $cuisines
         ]);
     }
+
+    
     
 
     /**
@@ -142,4 +144,7 @@ class RestaurantController extends Controller
     {
         //
     }
+
+
+    // inserito da danilo come prova
 }

@@ -1,83 +1,40 @@
 <template>
 
-    <div class="container">
+    <div id="back">
+        <div class="container">
 
-        <h1>{{restaurant.name}}</h1>
+            <h1 class="text-center py-3">{{restaurant.name}}</h1>
+            <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
-        <span>Ristorante di cucina</span>
-        <span class="mx-3" v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
-        
-        <!-- fatto spartano per vedere il menu...da sistemare-->
-        <h5 class="mt-3">Antipasto</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 1">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
+                <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">
+                    <span>{{course.name}}</span>
+                </router-link>
             </div>
+
+            <transition> 
+                <router-view></router-view>
+            </transition>
+
         </div>
-
-        <h5 class="mt-3">Primo</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 2">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
-            </div>
-        </div>
-
-        <h5 class="mt-3">Secondo</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 3">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
-            </div>
-        </div>
-
-        <h5 class="mt-3">Contorno</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 4">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
-            </div>
-        </div>
-
-        <h5 class="mt-3">Snack</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 5">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
-            </div>
-        </div>
-
-        <h5 class="mt-3">Dolce</h5>
-        <div v-for="plate in menu" :key="plate.id">
-            <div v-if="plate.course_id == 6">
-                <span>{{plate.name}}</span>
-                <span>{{plate.price}}€</span>
-            </div>
-        </div>
-        
-
-        <div class="btn btn-success mt-3"><a @click="$router.go(-1)">Back</a></div>
-
-
-
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'Restaurant',
     data() {
         return {
             restaurant: [],
             cuisines: [],
-            menu: []
+            courses: [],
         }
     },
     created(){
         this.getRestaurant();
         this.getCuisines();
-        this.getMenu();
+        this.getCourses();
     },
     methods: {
         getRestaurant() {
@@ -100,20 +57,39 @@ export default {
                     console.log(error);
                 });
         },
-        getMenu() {
-            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/menu')
+        getCourses() {
+            axios.get('http://localhost:8000/api/courses')
                 .then( response => {
-                    this.menu = response.data.results;
-                } )
-                .catch(error => {
-                    console.log(error);
-                });
-        }
+                    this.courses = response.data.results;
+                } );
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    #back {
+        min-height: 100vh;
+        background-image: url('https://source.unsplash.com/EWDvHNNfUmQ/1600x900');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
+    .courseName {
+        font-size: 25px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all .3s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    }
     
 </style>

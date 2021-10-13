@@ -49,7 +49,6 @@
 
                                 <input class="btn-check type="checkbox"  @error('cuisine') is-invalid @enderror" value="{{ $cuisine->id }}" name="cuisine[]" id="{{ $cuisine->id }}" autocomplete="off" @if(in_array($cuisine->id, old('cuisine', []))) checked @endif>
                                 <label class="btn btn-outline-primary">{{$cuisine->name}}</label>
-                                
                                 @endforeach
 
                                 @error('cuisine')

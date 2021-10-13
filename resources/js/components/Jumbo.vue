@@ -61,10 +61,10 @@ export default {
             color: whitesmoke;
             transition: all .3s linear;
 
-            /* &:hover {
+            &:hover {
                 color: rgb(187, 184, 184);
                 transform: scale(1.1);
-            } */
+            }
         }
     }
 
