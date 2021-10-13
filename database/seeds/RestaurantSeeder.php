@@ -18,7 +18,9 @@ class RestaurantSeeder extends Seeder
     public function run()
 
     {
-        $faker = Faker\Factory::create();
+        
+
+        /* $faker = Faker\Factory::create();
         
         //attenzione a id: in relazione con user in seed -> cambia indice per farlo corrispondere
         for ( $i = 0; $i <= 6; $i++ ) {
@@ -32,6 +34,12 @@ class RestaurantSeeder extends Seeder
              // check default img
 
              $newRestaurant->save();
+        } */
+
+        $rests = Restaurant::all();
+        foreach($rests as $rest) {
+            $rest->img = 'img/default.jpg';
+            $rest->save();
         }
     }
 }

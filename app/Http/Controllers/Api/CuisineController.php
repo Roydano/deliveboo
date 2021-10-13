@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cuisine;
-
+use App\Restaurant;
 
 class CuisineController extends Controller
 {
@@ -49,20 +49,21 @@ class CuisineController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the restaurants that belongs to a given cuisine()
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
         $cuisine = Cuisine::where('slug', $slug)->first();
+        $restaurants = $cuisine->restaurants;
 
         $cuisine->img = url('storage/' . $cuisine->img);
             
         return response()->json([
             'success' => true,
-            'results' => $cuisine
+            'results' => $restaurants
         ]);
 }
 
