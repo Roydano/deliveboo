@@ -5,7 +5,7 @@
                     <div class="col-sm-6 col-md-5 col-lg-4" v-for="cuisine in cuisines" :key="cuisine.id">
                         <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug, name: cuisine.name}}">
                             <div class="card text-center mt-3 bg" :style="{'background-image': 'url(' + cuisine.img + ')' }">
-                                <div class="title">{{ cuisine.name}}</div>
+                                <div class="title cus">{{ cuisine.name}}</div>
                             </div>
                         </router-link>
                     </div> 
@@ -70,4 +70,16 @@ export default {
     .cuisinePic {
         width: 100%;
     }
+
+    .cus{
+        color:white;
+    }
+
+    .cus:hover{
+          transition: 0.5s;
+          transition-property: color;
+          color: #19B3D3;
+
+    }
+    
 </style>

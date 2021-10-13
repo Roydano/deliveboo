@@ -6912,15 +6912,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main'
 });
@@ -6937,6 +6928,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardRestaurant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CardRestaurant */ "./resources/js/components/CardRestaurant.vue");
+//
 //
 //
 //
@@ -12026,7 +12018,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-0a197b18] {\n  text-decoration: none;\n}\nh5[data-v-0a197b18] {\n  color: black;\n  text-decoration: none;\n  margin-top: 25px;\n  text-transform: uppercase;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\nh5[data-v-0a197b18]:hover {\n  text-decoration: none;\n  border: none;\n  color: #19B3D3;\n  transition: 0.2s;\n}\n#h5[data-v-0a197b18] {\n  transition-timing-function: ease-out;\n}", ""]);
+exports.push([module.i, "*[data-v-0a197b18] {\n  text-decoration: none;\n}\nh5[data-v-0a197b18] {\n  color: white;\n  text-decoration: none;\n  margin-top: 25px;\n  text-transform: uppercase;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\nh5[data-v-0a197b18]:hover {\n  text-decoration: none;\n  border: none;\n  color: #19B3D3;\n  transition: 0.2s;\n}\n#h5[data-v-0a197b18] {\n  transition-timing-function: ease-out;\n}", ""]);
 
 // exports
 
@@ -12084,7 +12076,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sfondo[data-v-43983775] {\n  height: 100vh;\n}\nh2[data-v-43983775] {\n  margin-top: 50px;\n  margin-left: 30px;\n}\n.container-fluid[data-v-43983775] {\n  margin-top: 50px;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: black;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: white;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\na[data-v-43983775] {\n  color: black;\n  text-decoration: none;\n}\n.card-cucina[data-v-43983775] {\n  margin-left: 50px;\n}", ""]);
+exports.push([module.i, ".sfondo[data-v-43983775] {\n  height: 100vh;\n  background: lightgray;\n}\nh2[data-v-43983775] {\n  padding-top: 15px;\n  margin-left: 30px;\n}\n.container-fluid[data-v-43983775] {\n  margin-top: 50px;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: black;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: white;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\n.card-title p[data-v-43983775] {\n  color: white;\n  text-decoration: none;\n}\n.card-cucina[data-v-43983775] {\n  margin-left: 50px;\n  background: url(\"/img/black-food.jpg\");\n  background-size: cover;\n}", ""]);
 
 // exports
 
@@ -12103,7 +12095,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".title[data-v-7848d6b8] {\n  font-size: 2.2rem;\n  text-transform: uppercase;\n  color: black;\n  text-decoration: none;\n}\n.card[data-v-7848d6b8] {\n  height: 180px;\n  background-size: cover;\n  background-position: center;\n}\n.cuisinePic[data-v-7848d6b8] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".title[data-v-7848d6b8] {\n  font-size: 2.2rem;\n  text-transform: uppercase;\n  color: black;\n  text-decoration: none;\n}\n.card[data-v-7848d6b8] {\n  height: 180px;\n  background-size: cover;\n  background-position: center;\n}\n.cuisinePic[data-v-7848d6b8] {\n  width: 100%;\n}\n.cus[data-v-7848d6b8] {\n  color: white;\n}\n.cus[data-v-7848d6b8]:hover {\n  transition: 0.5s;\n  transition-property: color;\n  color: #19B3D3;\n}", ""]);
 
 // exports
 
@@ -44224,7 +44216,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.cuisineSelect != ""
-      ? _c("div", [
+      ? _c("div", { staticClass: "sfondo" }, [
           _c("h3", [_vm._v("Cucina " + _vm._s(_vm.cuisineSelect))]),
           _vm._v(" "),
           _c(
@@ -44370,30 +44362,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c("router-view"),
-      _vm._v("\n     " + _vm._s(_vm.route) + "\n\n\n"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br")
-    ],
+    [_c("router-view"), _vm._v("\n     " + _vm._s(_vm.route) + "\n\n\n")],
     1
   )
 }
@@ -44683,7 +44652,7 @@ var render = function() {
                     style: { "background-image": "url(" + cuisine.img + ")" }
                   },
                   [
-                    _c("div", { staticClass: "title" }, [
+                    _c("div", { staticClass: "title cus" }, [
                       _vm._v(_vm._s(cuisine.name))
                     ])
                   ]

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div  v-if="cuisineSelect != '' " >
+        <div class="sfondo"  v-if="cuisineSelect != '' " >
 
             <h3>Cucina {{ cuisineSelect }}</h3>
 
@@ -12,7 +12,7 @@
                         <div  style="width: 18rem;">
                             <div >
                                 <h5>{{ restaurant.name }}</h5>
-                                <!-- <p >{{ restaurant.address}}</p> -->
+                                
                         
                             </div>
                         </div>
@@ -48,7 +48,7 @@ export default {
     text-decoration:none;
 }
 h5{
-    color:black;
+    color:white;
     text-decoration:none;
     margin-top:25px;
     text-transform:uppercase;
@@ -67,5 +67,8 @@ h5:hover{
 }
 
 #h5 {transition-timing-function: ease-out;}
+
+
+
 
 </style>

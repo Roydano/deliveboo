@@ -18,6 +18,7 @@
                   <div class="card card-cucina" style="width: 28rem;"      >
                     
                       <div class="card-body">
+                         
                         
                          <div class="card-title">
                             <p class="card-text"  ><CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"    /></p> 
@@ -143,11 +144,12 @@ export default {
 <style lang="scss" scoped>
 
 .sfondo{
-    // background: url('../img/food-sfondo.jpg');
+    //  background: url('img/food-sfondo.jpg');
     height:100vh;
+    background:lightgray;
 }
 h2{
-    margin-top:50px;
+    padding-top:15px;
    margin-left:30px;
 }
 
@@ -174,38 +176,21 @@ h2{
     
 
 }
-a{
-    color:black;
+.card-title p{
+    color:white;
     text-decoration: none;
 }
 
 
 .card-cucina{
     margin-left:50px;
+    background: url('/img/black-food.jpg');
+    background-size: cover;
+    
+    
     
 }
 
-// p{
-   
-   
-    
-    
-// };
-// .slider{
-//     position:absolute;
-//     height:100%;
-    
-//     background-color:lightblue;
-//     opacity:0.9;
-//     border-radius:5px;
-//     z-index: 0;
-//     left: 0;
-//     bottom: 0;
-//     transition: all 0.3s ease;
-    
-
-
-// }
 
 
 
