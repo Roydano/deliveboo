@@ -49,7 +49,7 @@ class CuisineController extends Controller
     }
 
     /**
-     * Display the restaurants that belongs to a given cuisine(id)
+     * Display the restaurants that belongs to a given cuisine()
      *
      * @param  string  $slug
      * @return \Illuminate\Http\Response

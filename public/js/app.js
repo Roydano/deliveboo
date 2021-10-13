@@ -7124,6 +7124,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MenuCourse',
   data: function data() {
@@ -7134,16 +7141,47 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getPlates();
+    console.log(this.plates);
+    this.getCourse();
+  },
+  watch: {
+    $route: function $route() {
+      this.getPlates();
+      this.getCourse();
+    }
   },
   methods: {
-    getPlates: function getPlates() {
+    getCourse: function getCourse() {
       var _this = this;
 
-      axios.get('http://localhost:8000/api/restaurants' + this.$route.params.slug + '/' + this.$route.params.slugCourse).then(function (response) {
-        _this.plates = response.data.results.plates;
-        _this.course = response.data.results.course;
+      axios.get('http://localhost:8000/api/courses/' + this.$route.params.slugCourse).then(function (response) {
+        _this.course = response.data.results;
       })["catch"](function (error) {
         console.log(error);
+      });
+    },
+
+    /* getPlates() {
+        axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse)
+            .then( response => {
+                this.plates = response.data.results;
+                console.log(this.plates);
+                
+            } )
+            .catch(error => {
+                console.log(error);
+                console.log(this.$route.params.slug + this.$route.params.slugCourse);
+            });
+    } */
+    getPlates: function getPlates() {
+      var _this2 = this;
+
+      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse).then(function (response) {
+        _this2.plates = response.data.results;
+        console.log(_this2.plates);
+      })["catch"](function (error) {
+        console.log(error);
+        console.log(_this2.$route.params.slug + _this2.$route.params.slugCourse);
       });
     }
   }
@@ -7160,8 +7198,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -7217,7 +7253,7 @@ __webpack_require__.r(__webpack_exports__);
     getCourses: function getCourses() {
       var _this3 = this;
 
-      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses').then(function (response) {
+      axios.get('http://localhost:8000/api/courses').then(function (response) {
         _this3.courses = response.data.results;
       });
     }
@@ -44262,7 +44298,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v(_vm._s(_vm.course))])
+  return _c(
+    "div",
+    [
+      _vm._v("\n    " + _vm._s(_vm.course.name) + "\n\n    "),
+      _vm._l(_vm.plates, function(plate) {
+        return _c("div", { key: plate.id }, [_vm._v(_vm._s(plate.name))])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44302,23 +44347,27 @@ var render = function() {
             "div",
             { key: course.id, staticClass: "col" },
             [
-              _vm._v("\n            " + _vm._s(course) + "\n\n            "),
-              _c("router-view", {
-                attrs: {
-                  to: {
-                    name: "showMenu",
-                    params: {
-                      slug: _vm.restaurant.slug,
-                      slugCourse: course.slug
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: {
+                      name: "showMenu",
+                      params: {
+                        slug: _vm.restaurant.slug,
+                        slugCourse: course.slug
+                      }
                     }
                   }
-                }
-              }),
-              _vm._v(_vm._s(_vm.route) + "\n        ")
+                },
+                [_vm._v(_vm._s(course.name))]
+              )
             ],
             1
           )
-        })
+        }),
+        _vm._v(" "),
+        _c("router-view")
       ],
       2
     )
@@ -62140,11 +62189,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   }, {
     path: '/restaurants/:slug',
     name: 'restaurant',
-    component: _pages_Restaurant__WEBPACK_IMPORTED_MODULE_8__["default"]
-  }, {
-    path: '/restaurants/:slug/:slugCourse',
-    name: 'showMenu',
-    component: _pages_MenuCourse__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _pages_Restaurant__WEBPACK_IMPORTED_MODULE_8__["default"],
+    children: [{
+      path: ':slugCourse',
+      name: 'showMenu',
+      component: _pages_MenuCourse__WEBPACK_IMPORTED_MODULE_9__["default"]
+    }]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

@@ -8,12 +8,10 @@
             <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
             <div class="col" v-for="course in courses" :key="course.id" >
-                {{course}}
-
-                <router-view :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}"></router-view>{{route}}
+                <router-link :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">{{course.name}}</router-link>
             </div>
 
-            
+            <router-view></router-view>
 
         </div>
     </div>
@@ -55,7 +53,7 @@ export default {
                 });
         },
         getCourses() {
-            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses')
+            axios.get('http://localhost:8000/api/courses')
                 .then( response => {
                     this.courses = response.data.results;
                 } );

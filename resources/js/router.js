@@ -43,12 +43,14 @@ const router = new VueRouter({
         {
             path: '/restaurants/:slug',
             name: 'restaurant', 
-            component: Restaurant
-        },
-        {
-            path: '/restaurants/:slug/:slugCourse',
-            name: 'showMenu', 
-            component: MenuCourse
+            component: Restaurant,
+            children: [
+                {
+                    path: ':slugCourse',
+                    name: 'showMenu',
+                    component: MenuCourse
+                }
+            ]
         }
         
 

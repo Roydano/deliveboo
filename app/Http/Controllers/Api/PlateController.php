@@ -18,11 +18,13 @@ class PlateController extends Controller
      */
     public function showByRestCourse($slug, $slugCourse)
     {
-        var_dump($slug . $slugCourse);
+        
         $restaurant = Restaurant::where('slug', $slug)->first();
         $course = Course::where('slug', $slugCourse)->first();
-        var_dump($course);
-        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
+        $plates = Plate::select('*')
+                        ->where('restaurant_id', '=', $restaurant->id)
+                        ->where('course_id', '=', $course->id)
+                        ->get();
 
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
@@ -31,7 +33,7 @@ class PlateController extends Controller
             
         return response()->json([
             'success' => true,
-            'results' => array($plates, $course)
+            'results' => $plates
         ]);
     }
 
@@ -42,7 +44,11 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = Plate::all();
+        return response()->json([
+            'success' => true,
+            'results' => $plates
+        ]);
     }
 
     /**

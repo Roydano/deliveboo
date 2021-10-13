@@ -78,7 +78,7 @@ class RestaurantController extends Controller
     public function showCuisines($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->with('cuisines')->first();
-        $cuisines = $restaurant->cuisines();
+        $cuisines = $restaurant->cuisines;
             
         return response()->json([
             'success' => true,
@@ -98,28 +98,6 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::where('slug', $slug)->first();
         $plates = Plate::where('restaurant_id', $restaurant->id)->get();
 
-        foreach($plates as $plate) {
-            $plate->img = url('storage/' . $plate->img);
-        }
-        
-            
-        return response()->json([
-            'success' => true,
-            'results' => $plates
-        ]);
-    }
-
-    /**
-     * Display restaurant's plates
-     *
-     * @param  int  $slug
-     * @return \Illuminate\Http\Response
-     */
-    public function showCourses($slug)
-    {
-        $restaurant = Restaurant::where('slug', $slug)->first();
-        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
-        
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
@@ -164,4 +142,7 @@ class RestaurantController extends Controller
     {
         //
     }
+
+
+    // inserito da danilo come prova
 }
