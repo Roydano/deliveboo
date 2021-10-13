@@ -82,4 +82,32 @@
 
     @yield('content')
 </body>
+
+<style>
+   .nav-reg{
+       background-color:black;
+       height:60px;
+       opacity:0.6;
+       
+       
+       
+   }
+
+   .log-out{
+       color:black;
+   }
+   .container a{
+       
+       font-size: 22px;
+       text-decoration:none;
+   }
+   .container a:hover{
+    color: #8BC34A;
+    transition:0.3s;
+    transform:scale(1.2);
+   }
+   
+
+</style>
 </html>
+

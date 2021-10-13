@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <router-view></router-view>
         {{route}}
 
@@ -120,6 +121,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'Main',
 }

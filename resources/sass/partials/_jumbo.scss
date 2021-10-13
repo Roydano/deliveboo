@@ -1,10 +1,9 @@
 #jumbo {
     color: black;
     text-transform: uppercase;
-    z-index: 99 !important;
     font-size: 12px;
     #navbarDropdown {
-        color: whitesmoke;
+        color: black;
         :hover {
             color: whitesmoke;
         }
@@ -21,5 +20,12 @@
             transform: scale(1.1);
             background-color: black;
         }
+    }
+    .logo{
+        width: 100px;
+        img{
+            width: 100%;
+        }
+        
     }
 }

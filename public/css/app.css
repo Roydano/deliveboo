@@ -15587,12 +15587,11 @@ a::visited {
 #jumbo {
   color: black;
   text-transform: uppercase;
-  z-index: 99 !important;
   font-size: 12px;
 }
 
 #jumbo #navbarDropdown {
-  color: whitesmoke;
+  color: black;
 }
 
 #jumbo #navbarDropdown :hover {
@@ -15614,6 +15613,14 @@ a::visited {
   color: #bbb8b8;
   transform: scale(1.1);
   background-color: black;
+}
+
+#jumbo .logo {
+  width: 100px;
+}
+
+#jumbo .logo img {
+  width: 100%;
 }
 
 * {
