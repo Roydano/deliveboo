@@ -7401,9 +7401,75 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Restaurant.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\resources\\js\\pages\\Restaurant.vue: Unexpected token (103:0)\n\n\u001b[0m \u001b[90m 101 |\u001b[39m                 \u001b[33m.\u001b[39mthen( response \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 102 |\u001b[39m                     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mrestaurant \u001b[33m=\u001b[39m response\u001b[33m.\u001b[39mdata\u001b[33m.\u001b[39mresults\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 103 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 104 |\u001b[39m                     \u001b[0m\n\u001b[0m \u001b[90m 105 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 106 |\u001b[39m \u001b[33m>>>\u001b[39m\u001b[33m>>>\u001b[39m\u001b[33m>\u001b[39m \u001b[35m9\u001b[39md95ef6c011de25dc4f2b82df41e29987fc306d4\u001b[0m\n    at Parser._raise (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:510:17)\n    at Parser.raiseWithData (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:503:17)\n    at Parser.raise (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:464:17)\n    at Parser.unexpected (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:3368:16)\n    at Parser.parseExprAtom (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11648:20)\n    at Parser.parseExprSubscripts (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11217:23)\n    at Parser.parseUpdate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11197:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11172:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10986:59)\n    at Parser.parseExprOps (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10993:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10963:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10926:21)\n    at Parser.parseExpressionBase (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10866:23)\n    at C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10860:39\n    at Parser.allowInAnd (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12720:12)\n    at Parser.parseExpression (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10860:17)\n    at Parser.parseStatementContent (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:13064:23)\n    at Parser.parseStatement (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12931:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:13520:25)\n    at Parser.parseBlockBody (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:13511:10)\n    at Parser.parseBlock (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:13495:10)\n    at Parser.parseFunctionBody (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12372:24)\n    at Parser.parseArrowExpression (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12344:10)\n    at Parser.parseExprAtom (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11507:25)\n    at Parser.parseExprSubscripts (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11217:23)\n    at Parser.parseUpdate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11197:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11172:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10986:59)\n    at Parser.parseExprOps (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10993:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10963:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10926:21)\n    at C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:39\n    at Parser.allowInAnd (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12720:12)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:17)\n    at Parser.parseExprListItem (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12459:18)\n    at Parser.parseCallExpressionArguments (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11424:22)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Restaurant',
+  data: function data() {
+    return {
+      restaurant: [],
+      cuisines: [],
+      courses: []
+    };
+  },
+  created: function created() {
+    this.getRestaurant();
+    this.getCuisines();
+    this.getCourses();
+  },
+  methods: {
+    getRestaurant: function getRestaurant() {
+      var _this = this;
+
+      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug).then(function (response) {
+        _this.restaurant = response.data.results;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getCuisines: function getCuisines() {
+      var _this2 = this;
+
+      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/cuisines').then(function (response) {
+        _this2.cuisines = response.data.results;
+        console.log(_this2.cuisines);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getCourses: function getCourses() {
+      var _this3 = this;
+
+      axios.get('http://localhost:8000/api/courses').then(function (response) {
+        _this3.courses = response.data.results;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -44724,115 +44790,6 @@ var render = function() {
       "div",
       { staticClass: "container" },
       [
-        _vm._v("\n\n<<<<<<< HEAD\n        "),
-        _c("h1", [_vm._v(_vm._s(_vm.restaurant.name))]),
-        _vm._v(" "),
-        _c("span", [_vm._v("Ristorante di cucina")]),
-        _vm._v(" "),
-        _vm._l(_vm.cuisines, function(cuisine) {
-          return _c("span", { key: cuisine.id, staticClass: "mx-3" }, [
-            _vm._v(_vm._s(cuisine.name))
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Antipasto")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 1
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Primo")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 2
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Secondo")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 3
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Contorno")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 4
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Snack")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 5
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("h5", { staticClass: "mt-3" }, [_vm._v("Dolce")]),
-        _vm._v(" "),
-        _vm._l(_vm.menu, function(plate) {
-          return _c("div", { key: plate.id }, [
-            plate.course_id == 6
-              ? _c("div", [
-                  _c("span", [_vm._v(_vm._s(plate.name))]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(plate.price) + "€")])
-                ])
-              : _vm._e()
-          ])
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "btn btn-success mt-3" }, [
-          _c(
-            "a",
-            {
-              on: {
-                click: function($event) {
-                  return _vm.$router.go(-1)
-                }
-              }
-            },
-            [_vm._v("Back")]
-          )
-        ]),
-        _vm._v("\n=======\n            "),
         _c("h1", { staticClass: "text-center py-3" }, [
           _vm._v(_vm._s(_vm.restaurant.name))
         ]),
@@ -44840,9 +44797,7 @@ var render = function() {
         _vm._l(_vm.cuisines, function(cuisine) {
           return _c("div", { key: cuisine.id }, [_vm._v(_vm._s(cuisine.name))])
         }),
-        _vm._v(
-          "\n>>>>>>> 9d95ef6c011de25dc4f2b82df41e29987fc306d4\n\n            "
-        ),
+        _vm._v(" "),
         _c(
           "div",
           {
