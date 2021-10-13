@@ -15974,6 +15974,10 @@ label #sidebar_btn:hover {
   text-transform: uppercase;
 }
 
+.plates-restaurant .table {
+  width: 110%;
+}
+
 .bg-psy {
   background: rgba(255, 255, 255, 0.356);
 }
