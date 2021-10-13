@@ -33,10 +33,6 @@
 export default {
     name: 'CardRestaurant',
     props:['cuisineSelect', 'restaurants'],
-
-    
-    
-
 }
 </script>
 

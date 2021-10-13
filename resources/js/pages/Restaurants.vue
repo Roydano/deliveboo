@@ -1,11 +1,12 @@
 <template>
     <div id="back">
     <div class="container">
+
         <h1>Scopri i nostri ristoranti</h1>
+        
+        <div class="row justify-content-around rests">
 
-            <div class="row justify-content-around rests">
-
-                <div class="col-12 col-md-5 col-lg-3 m-2" v-for="restaurant in restaurants" :key="restaurant.id">
+                <div class="col-12 col-md-5 col-lg-3 m-2 rest" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
                             <img class="cover" :src="restaurant.img" :alt="restaurant.name">
@@ -19,13 +20,21 @@
                     </router-link>
                 </div>
                 
-            </div>
+        </div>
 
     </div>
     </div>
+
+    
 </template>
 
 <script>
+import ScrollReveal from 'scrollreveal';
+window.sr = new ScrollReveal();
+window.sr = ScrollReveal({ reset: true });
+
+// Customizing a reveal set
+sr.reveal('div', {opacity: 0.9,duration:3000});
 export default {
     name: 'Restaurants',
     data() {
@@ -53,27 +62,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    html.sr .load-hidden {
+        visibility: hidden;
+    }
     #back {
-        height: 100vh;
-        background-image: url('https://source.unsplash.com/EWDvHNNfUmQ/1600x900');
-        background-size:cover;
-        background-position: fixed;
+        padding-top: 80px;
+        min-height: calc(100vh - 80px);
+        background: url('https://source.unsplash.com/GXXYkSwndP4/1600x900');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
     }
     .container {
         overflow-y: hidden;
     }
 
     h1 {
+        background-color: white;
         position: fixed;
-        top: 0;
+        top: 80px;
         z-index: 9;
     }
 
     .rests {
-        margin-top: 50px;
+        margin-top: 50px;/* 
         overflow-y: auto;
-        max-height: calc(100vh - 70px);
+        max-height: calc(100vh - 70px); */
     }
 
     .card {
