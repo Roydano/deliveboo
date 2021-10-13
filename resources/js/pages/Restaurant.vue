@@ -3,15 +3,18 @@
     <div id="back">
         <div class="container">
 
-            <h1>{{restaurant.name}}</h1>
-
+            <h1 class="text-center py-3">{{restaurant.name}}</h1>
             <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
-            <div class="col" v-for="course in courses" :key="course.id" >
-                <router-link :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">{{course.name}}</router-link>
+            <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
+                <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">
+                    <span>{{course.name}}</span>
+                </router-link>
             </div>
 
-            <router-view></router-view>
+            <transition> 
+                <router-view></router-view>
+            </transition>
 
         </div>
     </div>
@@ -25,7 +28,7 @@ export default {
         return {
             restaurant: [],
             cuisines: [],
-            courses: []
+            courses: [],
         }
     },
     created(){
@@ -57,7 +60,7 @@ export default {
                 .then( response => {
                     this.courses = response.data.results;
                 } );
-        }
+        },
     }
 }
 </script>
@@ -70,6 +73,21 @@ export default {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    .courseName {
+        font-size: 25px;
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all .3s ease-in-out;
+        &:hover {
+            transform: scale(1.1);
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
     }
     
 </style>

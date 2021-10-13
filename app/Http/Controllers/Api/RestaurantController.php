@@ -85,6 +85,8 @@ class RestaurantController extends Controller
             'results' => $cuisines
         ]);
     }
+
+    
     
 
     /**

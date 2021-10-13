@@ -26,10 +26,12 @@ class PlateController extends Controller
                         ->where('course_id', '=', $course->id)
                         ->get();
 
-        foreach($plates as $plate) {
+        /* foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
-        
+         */
+
+        /* cambiare seed con url default img a una in storage public img */
             
         return response()->json([
             'success' => true,

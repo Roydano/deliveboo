@@ -1,10 +1,14 @@
 <template>
-    <div>
-        {{course.name}}
-
-        <div v-for="plate in plates" :key="plate.id">{{plate.name}}</div>
-
-
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
+        <div v-for="plate in plates" :key="plate.id" class="col">
+            <div class="d-flex flex-column align-items-center">
+                <img :src="plate.img" :alt="plate.id" class="plateImg">
+                {{plate.name}}
+            </div>
+            
+        </div>
+</div>
     </div>
     
 </template>
@@ -69,5 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.plateImg {
+    width: 100%;
+}
 </style>
