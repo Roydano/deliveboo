@@ -41,6 +41,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
+                    
                 } )
                 .catch(error => {
                     console.log(error);
@@ -50,6 +51,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/cuisines')
                 .then( response => {
                     this.cuisines = response.data.results;
+                    console.log(this.cuisines);
                 } )
                 .catch(error => {
                     console.log(error);

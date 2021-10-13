@@ -41,7 +41,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
 
-                        {{-- aggiungere: sei un ristorante? un po' più discreto --}}
+                        <!-- {{-- aggiungere: sei un ristorante? un po' più discreto --}} -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -66,11 +66,11 @@
                                         {{ __('Logout') }} 
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        
                                         @csrf
-
-                                    
                                        
                                     </form>
+                                 
                                 </div>
                             </li>
                         @endguest

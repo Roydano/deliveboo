@@ -13,137 +13,46 @@
 </head>
 <body>
     
-    <div id="jumbo" class="fixed-top text-uppercase text-right">
+    <div id="jumbo" class="text-uppercase text-right">
 
-        {{-- <div class="container">
-
-            <div class="row">
-
-                <div class="col-lg-12 col-sm-12 col-12 main-section">
-
-                    <div class="dropdown">
-
-                        <button type="button" class="btn btn-info" data-toggle="dropdown">
-
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart 
-                            @if(count((array) session('cart')) > 0)
-                            <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
-                            @endif
-
-                        </button>
-
-                        <div class="dropdown-menu">
-
-                            <div class="row total-header-section">
-
-                                <div class="col-lg-6 col-sm-6 col-6">
-
-                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
-
-                                </div>
-
-                                @php $total = 0 @endphp
-
-                                @foreach((array) session('cart') as $id => $details)
-
-                                    @php $total += $details['price'] * $details['quantity'] @endphp
-
-                                @endforeach
-
-                                <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
-
-                                    <p>Total: <span class="text-info">$ {{ $total }}</span></p>
-
-                                </div>
-
-                            </div>
-
-                            @if(session('cart'))
-
-                                @foreach(session('cart') as $id => $details)
-
-                                    <div class="row cart-detail">
-
-                                        <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-
-                                            <img src="{{ $details['image'] }}" />
-
-                                        </div>
-
-                                        <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
-
-                                            <p>{{ $details['name'] }}</p>
-
-                                            <span class="price text-info"> ${{ $details['price'] }}</span> <span class="count"> Quantity:{{ $details['quantity'] }}</span>
-
-                                        </div>
-
-                                    </div>
-
-                                @endforeach
-
-                            @endif
-
-                            @if((array) session('cart'))
-                            <div class="row">
-
-                                <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-
-                                    <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
-                                    <a href="#" class="btn btn-success btn-block">Checkout</a>
-
-                                </div>
-
-                            </div>
-                            @endif
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="container d-flex justify-content-between">
+            <div class="logo mt-2">
+                <img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat">
             </div>
 
-        </div> --}}
-
-        
-
-
-        <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
-        <ul>
-            @guest
-            <li class="d-inline-block dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    Sei un ristorante?
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                    @if (Route::has('register'))
-                        <a class="dropdown-item" href="{{ route('register') }}">{{('Register') }}</a>
-                    @endif
-                </div>
-            </li>
-            @endguest
-                
-            @auth
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->restaurant->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+            <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
+            <ul>
+                @guest
+                <li class="d-inline-block dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Sei un ristorante?
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            @endauth
+
+                    <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                @else
+                    <li class="d-inline-block dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->restaurant->name }}
+                        </a>
+
+                        
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            <a class="dropdown-item" href="{{ route('admin.index') }}">la tua area</a>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
                 
     </div>
     
