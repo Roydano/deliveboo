@@ -118,7 +118,7 @@ class RegisterController extends Controller
                 $cuisine = Cuisine::find($id);
                 $restaurants = Restaurant::where('user_id', $newUser->id)->first();
                 
-                $cuisine->cuisineRestaurants()->attach($restaurants);
+                $cuisine->restaurants()->attach($restaurants);
             }
                 
         }

@@ -12,10 +12,10 @@
         @method('PUT')
 
         <div class="form-group">
-          <label class="form-check-label" for="name">Inserisci il nome del ristorante</label>
+          <label class="form-check-label" for="name">Inserisci il nome del piatto</label>
           <input type="text" class="form-control text-center  @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nome piatto" value="{{ $plate->name }}">
           @error('name')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div class="alert alert-danger">{{ 'Il nome del piatto è obbligatorio!' }}</div>
           @enderror
         </div>
         
@@ -32,7 +32,7 @@
           <label for="ingredients">Scrivi gli ingredienti</label>
           <textarea class="text-center form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="3" placeholder="Ingredienti">{{ $plate->ingredients }}</textarea>
           @error('ingredients')
-            <div class="alert alert-danger">{{ $message }}</div>
+            <div class="alert alert-danger">{{ 'Devi inserire gli ingredienti' }}</div>
           @enderror
         </div>
 
@@ -40,7 +40,7 @@
           <label for="description">Descrivi il piatto</label>
             <textarea class="text-center form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" placeholder="Descrizione">{{ $plate->description }}</textarea>
             @error('description')
-              <div class="alert alert-danger">{{ $message }}</div>
+              <div class="alert alert-danger">{{ 'Desvi inserire una descrizione del piatto' }}</div>
             @enderror
         </div>
 
@@ -61,7 +61,7 @@
             <label for="price">Prezzo</label>
             <input type="number" step="0.01" min=0  class="form-control text-center @error('price') is-invalid @enderror" id="price" name="price" placeholder="Prezzo" value="{{ $plate->price }}">
             @error('price')
-              <div class="alert alert-danger">{{ $message }}</div>
+              <div class="alert alert-danger">{{ 'Devi inserire il prezzo del piatto' }}</div>
             @enderror
         </div>
 

@@ -26556,6 +26556,10 @@ a.text-dark:focus {
   font-family: "Roboto", sans-serif;
 }
 
+.scritta {
+  color: white;
+}
+
 .tendina {
   color: white;
 }
@@ -26577,6 +26581,7 @@ a.text-dark:focus {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  z-index: 1;
 }
 
 .wrapper .header .header-menu .title {
@@ -26584,6 +26589,16 @@ a.text-dark:focus {
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 900;
+}
+
+a.no-style {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a.no-style:hover {
+  color: #4CCEE8;
 }
 
 .wrapper .header .header-menu .title span {
@@ -26630,10 +26645,8 @@ a.text-dark:focus {
 }
 
 .wrapper .sidebar {
-  z-index: 1;
   background: #2F323A;
   position: fixed;
-  top: 70px;
   width: 250px;
   height: 91%;
   /* transition: 0.3s;
@@ -26890,7 +26903,7 @@ label #sidebar_btn:hover {
 }
 
 .plates-restaurant {
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(https://i.pinimg.com/originals/94/ce/e3/94cee3f9af5607c6c7da01498f415c1c.jpg);
   background-size: 100%;
   background-repeat: repeat;
