@@ -7,15 +7,17 @@
             <div class="row d-flex">
                 <div v-for="restaurant in restaurants" :key="restaurant.id" class="col">
 
-                    <div  class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ restaurant.name }}</h5>
-                            <p class="card-text">{{ restaurant.address}}</p>
-                       
-                                <a href="#" class="btn btn-danger">Vai al ristorante</a>
-                    
+                    <router-link :to="{name: 'restaurant', params:{slug: restaurant.slug}}">
+
+                        <div  class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ restaurant.name }}</h5>
+                                <p class="card-text">{{ restaurant.address}}</p>
+                        
+                            </div>
                         </div>
-                    </div>
+
+                    </router-link>
 
                 </div>
             </div>
@@ -31,10 +33,6 @@
 export default {
     name: 'CardRestaurant',
     props:['cuisineSelect', 'restaurants'],
-
-    
-    
-
 }
 </script>
 

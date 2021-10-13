@@ -3,18 +3,30 @@
     <div id="back">
         <div class="container">
 
-            <h1 class="text-center py-3">{{restaurant.name}}</h1>
-            <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
+            <h3 class="text-center pt-4 text-white">{{restaurant.name}}</h3>
 
-            <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
-                <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}">
-                    <span>{{course.name}}</span>
-                </router-link>
+            <div class="cuisine">
+                <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
             </div>
+        </div>
+            
+        <div class="black py-3 my-4">
+            <div class="container">
+                <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
+                    <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" >
+                        <span>{{course.name}}</span>
+                    </router-link>
+                </div>
+            </div>
+        </div>
 
-            <transition> 
-                <router-view></router-view>
+             <transition name='fade' mode='out-in'>
+                <router-view v-slot="{Component}" :key="$route.fullPath">
+                        <component :is="Component"/>
+                </router-view>
             </transition>
+            
+            
 
         </div>
     </div>
@@ -23,12 +35,15 @@
 <script>
 
 export default {
+
+
     name: 'Restaurant',
     data() {
         return {
             restaurant: [],
             cuisines: [],
             courses: [],
+            active: []
         }
     },
     created(){
@@ -56,7 +71,7 @@ export default {
                 });
         },
         getCourses() {
-            axios.get('http://localhost:8000/api/courses')
+            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses')
                 .then( response => {
                     this.courses = response.data.results;
                 } );
@@ -67,19 +82,23 @@ export default {
 
 <style lang="scss" scoped>
     #back {
-        min-height: 100vh;
-        background-image: url('https://source.unsplash.com/EWDvHNNfUmQ/1600x900');
+        min-height: calc(100vh - 80px);
+        background: url('https://source.unsplash.com/GXXYkSwndP4/1600x900');
         background-attachment: fixed;
-        background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover; 
+        box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
+    }
+
+    .black {
+        background-color: black;
     }
 
     .courseName {
-        font-size: 25px;
-        color: black;
+        font-size: 20px;
+        color: white;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 100;
         transition: all .3s ease-in-out;
         &:hover {
             transform: scale(1.1);
@@ -88,6 +107,34 @@ export default {
             color: black;
             text-decoration: none;
         }
+        a.router-link-active {
+        border-bottom: 2px solid white;
+        transform: scale(1.1);
+    }
+    }
+
+    
+
+    .cuisine {
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    .fade-enter-active {
+        transition: opacity 4s ease-in-out;
+    }
+
+    .fade-enter-to {
+        opacity: 1;
+    }
+    .fade-leave-active {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+
+    .fade-enter-from,
+    .fade-leave-to {
+         opacity: 0 !important;
     }
     
 </style>
