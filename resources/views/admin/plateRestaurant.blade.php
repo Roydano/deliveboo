@@ -87,8 +87,10 @@
     
     <div class="card bor_none" style="background-color: transparent">
         <div class="card-body">
-            <a href="{{route('admin.plates.create')}}" class="btn bg-psy">Aggiungi un piatto</a>
-            <a href="{{route('admin.index')}}" class="btn bg-psy">Torna alla tua Dashboard</a>
+            <a href="{{route('admin.plates.create')}}" class="btn bg-psy mx-5">Aggiungi un piatto</a>
+            <a href="{{route('admin.index')}}" class="btn bg-psy mx-5">Torna alla tua Dashboard</a>
+            <a href="{{ url( '/restaurants', $plate->restaurant->slug ) }}" class="btn bg-psy mx-5">Vedi il tuo menù</a>
+
         </div>
     </div>
 </div>
