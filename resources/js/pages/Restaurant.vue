@@ -7,33 +7,39 @@
 
             <div v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</div>
 
-            <div v-for="plate in menu" :key="plate.id">{{plate.name}}</div>
+            <div class="col" v-for="course in courses" :key="course.id" >
+                {{course}}
+
+                <router-view :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}"></router-view>{{route}}
+            </div>
+
+            
 
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'Restaurant',
     data() {
         return {
             restaurant: [],
             cuisines: [],
-            menu: []
+            courses: []
         }
     },
     created(){
         this.getRestaurant();
         this.getCuisines();
-        this.getMenu();
+        this.getCourses();
     },
     methods: {
         getRestaurant() {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
-                    // console.log('ciao belli');
                 } )
                 .catch(error => {
                     console.log(error);
@@ -48,14 +54,11 @@ export default {
                     console.log(error);
                 });
         },
-        getMenu() {
-            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/menu')
+        getCourses() {
+            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses')
                 .then( response => {
-                    this.menu = response.data.results;
-                } )
-                .catch(error => {
-                    console.log(error);
-                });
+                    this.courses = response.data.results;
+                } );
         }
     }
 }

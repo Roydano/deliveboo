@@ -108,6 +108,28 @@ class RestaurantController extends Controller
             'results' => $plates
         ]);
     }
+
+    /**
+     * Display restaurant's plates
+     *
+     * @param  int  $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function showCourses($slug)
+    {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
+        
+        foreach($plates as $plate) {
+            $plate->img = url('storage/' . $plate->img);
+        }
+        
+            
+        return response()->json([
+            'success' => true,
+            'results' => $plates
+        ]);
+    }
     
     /**
      * Show the form for editing the specified resource.

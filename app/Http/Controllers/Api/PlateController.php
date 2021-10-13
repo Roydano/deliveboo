@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Plate;
 use App\Cuisine;
+use App\Restaurant;
+use App\Course;
 
 class PlateController extends Controller
 {
@@ -14,10 +16,13 @@ class PlateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showByCourse($slug)
+    public function showByRestCourse($slug, $slugCourse)
     {
-        $course = Course::where('slug', $slug)->first();
-        $plates = Plate::where('course_id', $course->id)->get();
+        var_dump($slug . $slugCourse);
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $course = Course::where('slug', $slugCourse)->first();
+        var_dump($course);
+        $plates = Plate::where('restaurant_id', $restaurant->id)->all();
 
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
@@ -26,7 +31,7 @@ class PlateController extends Controller
             
         return response()->json([
             'success' => true,
-            'results' => $plates
+            'results' => array($plates, $course)
         ]);
     }
 

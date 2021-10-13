@@ -10,6 +10,7 @@ import Cuisines from './pages/Cuisines';
 import Cart from './pages/Cart';
 import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
+import MenuCourse from './pages/MenuCourse';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -43,6 +44,11 @@ const router = new VueRouter({
             path: '/restaurants/:slug',
             name: 'restaurant', 
             component: Restaurant
+        },
+        {
+            path: '/restaurants/:slug/:slugCourse',
+            name: 'showMenu', 
+            component: MenuCourse
         }
         
 
