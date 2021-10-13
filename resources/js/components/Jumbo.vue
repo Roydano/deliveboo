@@ -4,6 +4,8 @@
 
         
 
+        
+
         <video autoplay muted loop>    
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
         </video>
@@ -12,6 +14,8 @@
 
             <router-link to="/restaurants" class="links">Restaurants</router-link>
             <router-link to="/cuisines" class="links">Cuisines</router-link>
+
+            <!-- <Cart/> -->
 
             <div class="mb-5">
               
@@ -29,9 +33,14 @@
 </template>
 
 <script>
+// import Cart from '../components/Cart';
 export default {
     name: 'Jumbo',
+    // components: {
+    //     Cart,
+    // }
 }
+
 </script>
 
 <style lang="scss" scoped>
