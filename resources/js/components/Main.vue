@@ -1,7 +1,10 @@
 <template>
     <div>
-        <router-view></router-view>
-        {{route}}
+        <transition name='fade' mode="in-out">
+                <router-view >
+                        <component :is="Component"/>
+                </router-view>
+            </transition>
     </div>
 </template>
 
@@ -12,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    * {
+        overflow-x: hidden;
+    }
 </style>
