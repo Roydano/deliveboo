@@ -9,18 +9,15 @@
 
                     <router-link :to="{name: 'restaurant', params:{slug: restaurant.slug}}">
 
-                        <div  style="width: 18rem;">
-                            <div >
-                                <h5>{{ restaurant.name }}</h5>
-                                
+                        <div  class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ restaurant.name }}</h5>
+                                <p class="card-text">{{ restaurant.address}}</p>
                         
                             </div>
                         </div>
 
                     </router-link>
-
-
-                   
 
                 </div>
             </div>
@@ -36,10 +33,6 @@
 export default {
     name: 'CardRestaurant',
     props:['cuisineSelect', 'restaurants'],
-
-    
-    
-
 }
 </script>
 

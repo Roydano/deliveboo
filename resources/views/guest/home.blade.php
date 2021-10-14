@@ -20,12 +20,39 @@
                 <img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat">
             </div>
 
-            <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
-            <ul>
-                @guest
-                <li class="d-inline-block dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Sei un ristorante?
+        </div> --}}
+
+        
+
+
+        <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
+        <ul class="d-inline">
+            @guest
+            <li class="d-inline-block dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    Sei un ristorante?
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                    @if (Route::has('register'))
+                        <a class="dropdown-item" href="{{ route('register') }}">{{('Register') }}</a>
+                    @endif
+                </div>
+            </li>
+            @endguest
+                
+            @auth
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->restaurant->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">

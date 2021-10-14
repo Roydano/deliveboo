@@ -1,21 +1,25 @@
 <template>
     <div class="container">
+
+        
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
-            <div v-for="plate in plates" :key="plate.id" class="col">
-                <div class="d-flex flex-column align-items-center">
-                    <img :src="plate.img" :alt="plate.name" class="plateImg">
-                    <div>{{plate.name}}</div>
-                    <div>Prezzo: {{ plate.price }} €</div>
-                    <div>{{ plate.description }}</div>
-                    <hr>
-                    <div class="add-to-cart-container"><button class="button-a"  @click="addPlateToCart(plate)">Aggiungi al carrello</button></div>
+
+        <div v-for="plate in plates" :key="plate.id" class="col p-3">
+            <div class="card_plate text-white">
+                <div class="cover_cont">
+                    <img :src="plate.img" :alt="plate.id" class="plateImg">
+                    <i class="fas fa-cart-plus cart"></i>
+                </div>
+                <div class="infos">
+                    <div class="text-uppercase name">{{plate.name}}</div>
+                    <div class="descr m-3">{{plate.description}}</div>
+                    <div class="price">{{plate.price}}€</div>
                 </div>
                 
             </div>
-
-           
         </div>
-        <div class="btn btn-success mt-3"><a @click="$router.go(-1)">Back</a></div>
+        
+</div>
     </div>
     
 </template>
@@ -34,7 +38,6 @@ export default {
     },
     created() {
         this.getPlates();
-        console.log(this.plates);
         this.getCourse();
         this.fetchData();
     },
@@ -46,6 +49,12 @@ export default {
     },
 
     methods: {
+        truncate(text, maxlength){
+            if(text.length > maxlength) {
+               return text.substr(0, maxlength) + '...';
+            }
+            return text;
+        },
         getCourse() {
             axios.get('http://localhost:8000/api/courses/' + this.$route.params.slugCourse)
                 .then( response => {
@@ -55,66 +64,81 @@ export default {
                     console.log(error);
                 });
         },
-        /* getPlates() {
-            axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse)
-                .then( response => {
-                    this.plates = response.data.results;
-                    console.log(this.plates);
-                    
-                } )
-                .catch(error => {
-                    console.log(error);
-                    console.log(this.$route.params.slug + this.$route.params.slugCourse);
-                });
-        } */
         getPlates() {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse)
                 .then( response => {
                     this.plates = response.data.results;
-                    console.log(this.plates);
+                    this.plates.forEach(elem => {
+                        elem.description = this.truncate(elem.description, 60);
+                    });
                     
                 } )
                 .catch(error => {
                     console.log(error);
-                    console.log(this.$route.params.slug + this.$route.params.slugCourse);
                 });
         },
-
-        // metodi per il carrello
-        fetchData() {
-
-            this.error = this.plates = null;
-
-            this.loading = true;
-
-            axios // Implementa una Promise
-
-                .get('/api/plates')
-
-                .then(response => {
-
-                    this.loading = true;
-                    this.plates = response.data.results;
-
-                }).catch(error => { // Nel caso di errori in arrivo
-
-                    this.loading = false;
-
-                    this.error = error.response.data.message || error.message;
-
-                });
-
-        },
-         addPlateToCart(plate) {
-            this.$store.commit('addToCart', plate); // Qui invece chiamiamo il metodo dello Storagein store.js
-        }
+        
 
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.plateImg {
-    width: 100%;
-}
+    * {
+        font-family: 'Montserrat';
+    }
+
+    .card_plate {
+        padding: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+    .card_plate:hover .cart {
+        display: inline;
+    }
+    .plateImg {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+    }
+    .cover_cont {
+        position: relative;
+        .cart {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            cursor: pointer;
+        }
+    }
+    .infos {
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .name {
+            font-size: 20px;
+        }
+        .descr {
+            font-style: italic;
+            font-size: 14px;
+            text-align: center
+        }
+        .price {
+            font-weight: bold;
+
+        }
+    }
+
+
 </style>
