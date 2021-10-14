@@ -20,7 +20,8 @@
             </div>
         </div>
 
-             <transition name='fade' mode='out-in'>
+             <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
+            <transition name='fade'>
                 <router-view v-slot="{Component}" :key="$route.fullPath">
                         <component :is="Component"/>
                 </router-view>
@@ -120,7 +121,7 @@ export default {
         font-style: italic;
     }
 
-    .fade-enter-active {
+   /*  .fade-enter-active {
         transition: opacity 4s ease-in-out;
     }
 
@@ -135,6 +136,12 @@ export default {
     .fade-enter-from,
     .fade-leave-to {
          opacity: 0 !important;
-    }
+    } */
     
+    .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

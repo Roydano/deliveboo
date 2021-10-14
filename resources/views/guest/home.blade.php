@@ -111,7 +111,7 @@
 
 
         <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
-        <ul>
+        <ul class="d-inline">
             @guest
             <li class="d-inline-block dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

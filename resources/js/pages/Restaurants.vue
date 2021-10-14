@@ -7,11 +7,12 @@
         <div class="row justify-content-around rests">
 
                 <div class="col-12 col-md-5 col-lg-3 m-2 rest" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
+
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
                             <img class="cover" :src="restaurant.img" :alt="restaurant.name">
                              <div class="card-body">
-                                <h5 class="card-title">{{restaurant.name}}</h5>
+                                <h5 class="card-title text-center">{{restaurant.name}}</h5>
                                     <p class="card-text">
                                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                                     </p>
@@ -62,9 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    html.sr .load-hidden {
-        visibility: hidden;
-    }
     #back {
         padding-top: 80px;
         min-height: calc(100vh - 80px);
@@ -86,13 +84,12 @@ export default {
     }
 
     .rests {
-        margin-top: 50px;/* 
+        margin-top: 50px;
         overflow-y: auto;
-        max-height: calc(100vh - 70px); */
+        max-height: calc(100vh - 70px);
     }
 
     .card {
-
         padding: 0 !important;
         transition: all .2s linear;
         &:hover {

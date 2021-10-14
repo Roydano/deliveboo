@@ -6,11 +6,14 @@
 
         <div v-for="plate in plates" :key="plate.id" class="col p-3">
             <div class="card_plate text-white">
-                <img :src="plate.img" :alt="plate.id" class="plateImg">
+                <div class="cover_cont">
+                    <img :src="plate.img" :alt="plate.id" class="plateImg">
+                    <i class="fas fa-cart-plus cart"></i>
+                </div>
                 <div class="infos">
-                    <div class="text-uppercase">{{plate.name}}</div>
-                    <div class="descr">{{plate.description}}</div>
-                    <div>{{plate.price}}</div>
+                    <div class="text-uppercase name">{{plate.name}}</div>
+                    <div class="descr m-3">{{plate.description}}</div>
+                    <div class="price">{{plate.price}}€</div>
                 </div>
                 
             </div>
@@ -32,7 +35,6 @@ export default {
     },
     created() {
         this.getPlates();
-        console.log(this.plates);
         this.getCourse();
     },
     watch: {
@@ -42,6 +44,12 @@ export default {
         }
     },
     methods: {
+        truncate(text, maxlength){
+            if(text.length > maxlength) {
+               return text.substr(0, maxlength) + '...';
+            }
+            return text;
+        },
         getCourse() {
             axios.get('http://localhost:8000/api/courses/' + this.$route.params.slugCourse)
                 .then( response => {
@@ -55,19 +63,26 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse)
                 .then( response => {
                     this.plates = response.data.results;
-                    console.log(this.plates);
+                    this.plates.forEach(elem => {
+                        elem.description = this.truncate(elem.description, 60);
+                    });
                     
                 } )
                 .catch(error => {
                     console.log(error);
                 });
-        }
+        },
+        
 
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    * {
+        font-family: 'Montserrat';
+    }
+
     .card_plate {
         padding: 0;
         border-radius: 20px;
@@ -78,29 +93,47 @@ export default {
             transform: translateY(-5px);
         }
     }
+    .card_plate:hover .cart {
+        display: inline;
+    }
     .plateImg {
         width: 100%;
-        max-height: 250px;
+        max-height: 200px;
+        object-fit: cover;
+    }
+    .cover_cont {
+        position: relative;
+        .cart {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            cursor: pointer;
+        }
     }
     .infos {
         background-color: rgba($color: #000000, $alpha: 0.8);
+        padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
+        .name {
+            font-size: 20px;
+        }
         .descr {
             font-style: italic;
+            font-size: 14px;
+            text-align: center
+        }
+        .price {
+            font-weight: bold;
+
         }
     }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>

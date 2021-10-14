@@ -15548,9 +15548,13 @@ a.text-dark:focus {
   }
 }
 
-body {
-  font-family: "Montserrat", serif;
+* {
+  font-family: "Montserrat", serif !important;
   scroll-behavior: smooth;
+}
+
+#nav_inline {
+  display: inline;
 }
 
 a,
@@ -15582,6 +15586,16 @@ a::visited {
 
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(100, 100, 100, 0.6);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 #jumbo {

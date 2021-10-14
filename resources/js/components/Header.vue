@@ -26,6 +26,7 @@ export default {
 
 <style lang="scss" scoped>
   header {
+    z-index: 100;
     background-color: rgb(3, 3, 3);
     display: flex;
     justify-content: center;
