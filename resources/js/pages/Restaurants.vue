@@ -1,7 +1,6 @@
 <template>
     <div id="back">
-    <div class="container">
-        <h1>Scopri i nostri ristoranti</h1>
+        <div class="container">
 
             <div class="row justify-content-around rests">
 
@@ -9,7 +8,7 @@
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
                             <img class="cover" :src="restaurant.img" :alt="restaurant.name">
-                             <div class="card-body">
+                                <div class="card-body">
                                 <h5 class="card-title">{{restaurant.name}}</h5>
                                     <p class="card-text">
                                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
@@ -21,7 +20,31 @@
                 
             </div>
 
-    </div>
+            <hr>
+            
+            <p class="text-center">Pag. {{currentPage}}</p>
+
+            <div class="row justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item" :class="{'disabled' : currentPage == 1}">
+                            <a class="page-link" href="#" aria-label="Previous" @click="getRestaurants(currentPage - 1)">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item" v-for="i in lastPage" :key="i"><a class="page-link" href="#" @click="getRestaurants(i)">{{i}}</a></li>
+
+                        <li class="page-item" :class="{'disabled' : currentPage == lastPage}">
+                            <a class="page-link" href="#" aria-label="Next" @click="getRestaurants(currentPage + 1)">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
     </div>
 </template>
 
@@ -32,17 +55,26 @@ export default {
         return {
             apiCall: 'http://localhost:8000/api/restaurants',
             restaurants: [],
-            cuisines: []
+            cuisines: [],
+            currentPage: [],
+            lastPage: []
         }
     },
     created(){
-        this.getRestaurants();
+        this.getRestaurants(1);
     },
     methods: {
-        getRestaurants() {
-            axios.get(this.apiCall)
+        getRestaurants(pageRest) {
+            axios.get(this.apiCall, {
+                params:{
+                    page: pageRest
+                }
+            })
                 .then( response => {
-                    this.restaurants = response.data.results;
+                    console.log(response.data.results);
+                    this.restaurants = response.data.results.data;
+                    this.currentPage = response.data.results.current_page;
+                    this.lastPage = response.data.results.last_page;
                 } )
                 .catch(error => {
                     console.log(error);

@@ -7402,24 +7402,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
   data: function data() {
     return {
       apiCall: 'http://localhost:8000/api/restaurants',
       restaurants: [],
-      cuisines: []
+      cuisines: [],
+      currentPage: [],
+      lastPage: []
     };
   },
   created: function created() {
-    this.getRestaurants();
+    this.getRestaurants(1);
   },
   methods: {
-    getRestaurants: function getRestaurants() {
+    getRestaurants: function getRestaurants(pageRest) {
       var _this = this;
 
-      axios.get(this.apiCall).then(function (response) {
-        _this.restaurants = response.data.results;
+      axios.get(this.apiCall, {
+        params: {
+          page: pageRest
+        }
+      }).then(function (response) {
+        console.log(response.data.results);
+        _this.restaurants = response.data.results.data;
+        _this.currentPage = response.data.results.current_page;
+        _this.lastPage = response.data.results.last_page;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -44522,6 +44554,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "checkout-cart-button-container" }, [
+      _vm._v("\n       z "),
       _c("button", { staticClass: "button-b" }, [_vm._v("Checkout diretto")])
     ])
   }
@@ -44851,8 +44884,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "back" } }, [
     _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Scopri i nostri ristoranti")]),
-      _vm._v(" "),
       _c(
         "div",
         { staticClass: "row justify-content-around rests" },
@@ -44902,7 +44933,96 @@ var render = function() {
           )
         }),
         0
-      )
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center" }, [
+        _vm._v("Pag. " + _vm._s(_vm.currentPage))
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _c(
+                "li",
+                {
+                  staticClass: "page-item",
+                  class: { disabled: _vm.currentPage == 1 }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#", "aria-label": "Previous" },
+                      on: {
+                        click: function($event) {
+                          return _vm.getRestaurants(_vm.currentPage - 1)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("«")
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.lastPage, function(i) {
+                return _c("li", { key: i, staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.getRestaurants(i)
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(i))]
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _c(
+                "li",
+                {
+                  staticClass: "page-item",
+                  class: { disabled: _vm.currentPage == _vm.lastPage }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#", "aria-label": "Next" },
+                      on: {
+                        click: function($event) {
+                          return _vm.getRestaurants(_vm.currentPage + 1)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("»")
+                      ])
+                    ]
+                  )
+                ]
+              )
+            ],
+            2
+          )
+        ])
+      ])
     ])
   ])
 }

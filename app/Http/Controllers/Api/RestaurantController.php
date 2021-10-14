@@ -18,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::paginate(9);
 
         foreach($restaurants as $restaurant) {
             $restaurant->img = url('storage/' . $restaurant->img);
