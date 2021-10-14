@@ -19,9 +19,6 @@
 
                     </router-link>
 
-
-                   
-
                 </div>
             </div>
 
@@ -36,10 +33,6 @@
 export default {
     name: 'CardRestaurant',
     props:['cuisineSelect', 'restaurants'],
-
-    
-    
-
 }
 </script>
 

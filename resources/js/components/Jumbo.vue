@@ -10,10 +10,7 @@
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
         </video>
 
-        <div class="jumbo text-white text-center ">
-
-            <router-link to="/restaurants" class="links">Restaurants</router-link>
-            <router-link to="/cuisines" class="links">Cuisines</router-link>
+        <div class="jumbo text-white text-center">
 
             <!-- <Cart/> -->
 

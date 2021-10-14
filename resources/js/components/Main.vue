@@ -1,8 +1,10 @@
 <template>
     <div>
-        
-        <router-view></router-view>
-        {{route}}
+        <transition name='fade' mode="out-in">
+                <router-view v-slot="{Component}" :key="$route.fullPath">
+                        <component :is="Component"/>
+                </router-view>
+            </transition>
     </div>
 </template>
 

@@ -15624,6 +15624,88 @@ a.text-dark:focus {
 }
 
 * {
+  font-family: "Montserrat", serif !important;
+  scroll-behavior: smooth;
+}
+
+#nav_inline {
+  display: inline;
+}
+
+a,
+a:hover,
+a::visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* width */
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+*::-webkit-scrollbar-track {
+  background: #797979;
+}
+
+/* Handle */
+
+*::-webkit-scrollbar-thumb {
+  background: #252525;
+}
+
+/* Handle on hover */
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.6);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+#jumbo {
+  color: black;
+  text-transform: uppercase;
+  z-index: 99 !important;
+  font-size: 12px;
+}
+
+#jumbo #navbarDropdown {
+  color: whitesmoke;
+}
+
+#jumbo #navbarDropdown :hover {
+  color: whitesmoke;
+}
+
+#jumbo .dropdown-menu {
+  background-color: black !important;
+}
+
+#jumbo .dropdown-item {
+  font-size: 11px;
+  color: whitesmoke;
+  transition: all 0.3s linear;
+}
+
+#jumbo .dropdown-item:hover,
+#jumbo .dropdown-item:focus {
+  color: #bbb8b8;
+  transform: scale(1.1);
+  background-color: black;
+}
+
+* {
   margin: 0;
   padding: 0;
   list-style: none;

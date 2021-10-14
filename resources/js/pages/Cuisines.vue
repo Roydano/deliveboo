@@ -39,13 +39,6 @@ export default {
                     console.log(error);
                 });
         },
-
-        truncate(text, maxlength){
-            if(text.length > maxlength) {
-               return text.substr(0, maxlength) + '...';
-            }
-            return text;
-        }
     }
 }
 </script>
