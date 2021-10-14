@@ -17,7 +17,7 @@ class PlateSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $faker = \Faker\Factory::create();
+        /* $faker = \Faker\Factory::create();
         $faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
 
         for( $i = 0; $i < 50; $i++){
@@ -37,6 +37,11 @@ class PlateSeeder extends Seeder
             $newPlate->save();
 
 
+        } */
+        $plates = Plate::all();
+        foreach($plates as $plate) {
+            $plate -> img = 'img/piatto.jpg';
+            $plate->save();
         }
     }
 }

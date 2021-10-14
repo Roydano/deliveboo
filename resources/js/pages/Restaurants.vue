@@ -4,7 +4,7 @@
 
         <h1>Scopri i nostri ristoranti</h1>
         
-        <div class="row justify-content-around rests">
+        <div class="row justify-content-around rests" v-scroll-reveal.reset>
 
                 <div class="col-12 col-md-5 col-lg-3 m-2 rest" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
 
@@ -30,12 +30,7 @@
 </template>
 
 <script>
-import ScrollReveal from 'scrollreveal';
-window.sr = new ScrollReveal();
-window.sr = ScrollReveal({ reset: true });
 
-// Customizing a reveal set
-sr.reveal('div', {opacity: 0.9,duration:3000});
 export default {
     name: 'Restaurants',
     data() {

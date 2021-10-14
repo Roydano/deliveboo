@@ -3,7 +3,7 @@
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-        <div v-for="plate in plates" :key="plate.id" class="col p-3">
+        <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
             <div class="card_plate text-white">
                 <div class="cover_cont">
                     <img :src="plate.img" :alt="plate.id" class="plateImg">
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
     name: 'MenuCourse',
     data() {

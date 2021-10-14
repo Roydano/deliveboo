@@ -7245,6 +7245,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurant',
   linkExactActiveClass: 'is-active',
@@ -7252,7 +7253,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       restaurant: [],
       cuisines: [],
-      courses: []
+      courses: [],
+      slugRest: "",
+      loaded: false
     };
   },
   created: function created() {
@@ -7260,12 +7263,19 @@ __webpack_require__.r(__webpack_exports__);
     this.getCuisines();
     this.getCourses();
   },
+  watch: {
+    loaded: function loaded() {
+      console.log(this.courses);
+      this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
+    }
+  },
   methods: {
     getRestaurant: function getRestaurant() {
       var _this = this;
 
       axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug).then(function (response) {
         _this.restaurant = response.data.results;
+        _this.slugRest = _this.$route.params.slug;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7284,6 +7294,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses').then(function (response) {
         _this3.courses = response.data.results;
+        _this3.loaded = true;
       });
     }
   }
@@ -7300,7 +7311,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var scrollreveal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! scrollreveal */ "./node_modules/scrollreveal/dist/scrollreveal.es.js");
 //
 //
 //
@@ -7332,16 +7342,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-window.sr = new scrollreveal__WEBPACK_IMPORTED_MODULE_0__["default"]();
-window.sr = Object(scrollreveal__WEBPACK_IMPORTED_MODULE_0__["default"])({
-  reset: true
-}); // Customizing a reveal set
-
-sr.reveal('div', {
-  opacity: 0.9,
-  duration: 3000
-});
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
   data: function data() {
@@ -11955,7 +11955,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.showPlates[data-v-25de3706] {\n  max-height: 65vh;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.black[data-v-25de3706] {\n  background-color: black;\n  display: inline;\n}\n.restName[data-v-25de3706] {\n  font-weight: 300;\n}\n.courseName[data-v-25de3706] {\n  font-size: 20px;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.3s ease-in-out;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n  padding-bottom: 5px;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 24px;\n  text-decoration: none;\n}\n.courseName.router-link-active[data-v-25de3706], .courseName.router-link-exact-active[data-v-25de3706] {\n  font-size: 24px;\n  border-bottom: 2px solid white;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 13px;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.5s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
+exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.showPlates[data-v-25de3706] {\n  max-height: 65vh;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: end;\n  justify-content: center;\n}\n.black[data-v-25de3706] {\n  background-color: rgba(0, 0, 0, 0.6);\n  display: inline;\n}\n.restName[data-v-25de3706] {\n  font-size: 30px;\n  font-weight: 300;\n}\n.courseName[data-v-25de3706] {\n  font-size: 20px;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.3s ease-in-out;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.3s ease-in-out;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n  padding-bottom: 5px;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 24px;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 24px;\n  border-bottom: 1px solid white;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 13px;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.5s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -46388,7 +46388,7 @@ var render = function() {
       "div",
       { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3" },
       _vm._l(_vm.plates, function(plate) {
-        return _c("div", { key: plate.id, staticClass: "col p-3" }, [
+        return _c("div", { key: plate.id, staticClass: "col p-3 plate" }, [
           _c("div", { staticClass: "card_plate text-white" }, [
             _c("div", { staticClass: "cover_cont" }, [
               _c("img", {
@@ -46442,80 +46442,84 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "back" } }, [
-    _c("div", { staticClass: "container" }, [
-      _c("section", { staticClass: "head" }, [
-        _c("h3", { staticClass: "text-center py-4 text-white restName" }, [
-          _vm._v(_vm._s(_vm.restaurant.name))
-        ]),
-        _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "my-4 text-center courses col-lg-2" }, [
         _c(
           "div",
-          { staticClass: "cuisine" },
-          _vm._l(_vm.cuisines, function(cuisine) {
-            return _c("span", { key: cuisine.id }, [
-              _vm._v(_vm._s(cuisine.name))
-            ])
-          }),
-          0
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "row" },
-      [
-        _c("div", { staticClass: "my-4 text-center courses col-lg-3" }, [
-          _c(
-            "div",
-            { staticClass: "d-flex flex-column justify-content-lg-around " },
-            _vm._l(_vm.courses, function(course) {
-              return _c(
-                "router-link",
-                {
-                  key: course.id,
-                  staticClass: "courseName black py-3",
-                  attrs: {
-                    to: {
-                      name: "showMenu",
-                      params: {
-                        slug: _vm.restaurant.slug,
-                        slugCourse: course.slug
-                      }
-                    },
-                    exact: ""
-                  }
-                },
-                [_c("span", [_vm._v(_vm._s(course.name))])]
-              )
-            }),
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "transition",
-          { attrs: { name: "fade", mode: "out-in" } },
-          [
-            _c("router-view", {
-              key: _vm.$route.fullPath,
-              staticClass: "showPlates col-lg-9",
-              scopedSlots: _vm._u([
-                {
-                  key: "default",
-                  fn: function(ref) {
-                    var Component = ref.Component
-                    return [_c(Component, { tag: "component" })]
-                  }
+          { staticClass: "d-flex flex-column justify-content-lg-around " },
+          _vm._l(_vm.courses, function(course) {
+            return _c(
+              "router-link",
+              {
+                key: course.id,
+                staticClass: "courseName",
+                attrs: {
+                  to: {
+                    name: "showMenu",
+                    params: {
+                      slug: _vm.restaurant.slug,
+                      slugCourse: course.slug
+                    }
+                  },
+                  exact: ""
                 }
-              ])
-            })
-          ],
+              },
+              [
+                _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                  _vm._v(_vm._s(course.name))
+                ])
+              ]
+            )
+          }),
           1
         )
-      ],
-      1
-    )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-lg-10" },
+        [
+          _c("section", { staticClass: "container head" }, [
+            _c("h3", { staticClass: "text-center py-4 text-white restName" }, [
+              _vm._v(_vm._s(_vm.restaurant.name))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cuisine" },
+              _vm._l(_vm.cuisines, function(cuisine) {
+                return _c("span", { key: cuisine.id }, [
+                  _vm._v(_vm._s(cuisine.name))
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "transition",
+            { attrs: { name: "fade", mode: "out-in" } },
+            [
+              _c("router-view", {
+                key: _vm.$route.fullPath,
+                staticClass: "showPlates",
+                scopedSlots: _vm._u([
+                  {
+                    key: "default",
+                    fn: function(ref) {
+                      var Component = ref.Component
+                      return [_c(Component, { tag: "component" })]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -46546,7 +46550,16 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row justify-content-around rests" },
+        {
+          directives: [
+            {
+              name: "scroll-reveal",
+              rawName: "v-scroll-reveal.reset",
+              modifiers: { reset: true }
+            }
+          ],
+          staticClass: "row justify-content-around rests"
+        },
         _vm._l(_vm.restaurants, function(restaurant) {
           return _c(
             "div",
@@ -49901,6 +49914,93 @@ if (inBrowser && window.Vue) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var sr = __webpack_require__(/*! scrollreveal */ "./node_modules/scrollreveal/dist/scrollreveal.es.js").default();
+
+function generateOptions(defaultOptions, bindingValue, bindingModifiers) {
+  var options = _extends({}, defaultOptions, bindingValue);
+
+  if (bindingModifiers) {
+    if (bindingModifiers.reset) {
+      options.reset = true;
+    }
+
+    if (bindingModifiers.nomobile) {
+      options.mobile = false;
+    }
+
+    if (bindingModifiers.nodesktop) {
+      options.desktop = false;
+    }
+  }
+
+  return options;
+}
+
+var VueScrollReveal = {
+  install: function install(Vue, defaultOptions) {
+    Vue.directive('scroll-reveal', {
+      inserted: function inserted(el, binding) {
+        var options = generateOptions(defaultOptions, binding.value, binding.modifiers);
+
+        if (typeof options.class === 'string') {
+          el.classList.add(options.class);
+          delete options.class;
+        }
+
+        sr.reveal(el, options);
+      },
+      update: function update(el, binding) {
+        if (binding.value != binding.oldValue) {
+          var options = generateOptions(defaultOptions, binding.value, binding.modifiers);
+
+          sr.reveal(el, options);
+        }
+      }
+    });
+
+    var $sr = {
+      isSupported: function isSupported() {
+        return sr.isSupported();
+      },
+      sync: function sync() {
+        sr.sync();
+      },
+      reveal: function reveal(target, config, interval, sync) {
+        var options = generateOptions(defaultOptions, config);
+
+        sr.reveal(target, config, interval, sync);
+      }
+    };
+
+    Object.defineProperty(Vue.prototype, '$sr', {
+      get: function get() {
+        return $sr;
+      }
+    });
+  }
+};
+
+exports.default = VueScrollReveal;
 
 
 /***/ }),
@@ -63280,6 +63380,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_2__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -63291,10 +63393,13 @@ __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modul
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.VueScrollReveal = __webpack_require__(/*! vue-scroll-reveal */ "./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(VueScrollReveal);
 
 
-var app = new Vue({
+
+var app = new vue__WEBPACK_IMPORTED_MODULE_2___default.a({
   el: '#root',
   render: function render(h) {
     return h(_views_App__WEBPACK_IMPORTED_MODULE_0__["default"]);
