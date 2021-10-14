@@ -1,8 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container cont">
 
-        
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
         <div v-for="plate in plates" :key="plate.id" class="col p-3">
             <div class="card_plate text-white">
@@ -83,6 +82,7 @@ export default {
         font-family: 'Montserrat';
     }
 
+    
     .card_plate {
         padding: 0;
         border-radius: 20px;
@@ -96,10 +96,16 @@ export default {
     .card_plate:hover .cart {
         display: inline;
     }
+    .card_plate:hover .plateImg {
+        filter: blur(1px);
+        filter: brightness(120%);
+    }
     .plateImg {
         width: 100%;
-        max-height: 200px;
+        max-height: 180px;
         object-fit: cover;
+        object-position: center;
+        transition: all 0.2s linear;
     }
     .cover_cont {
         position: relative;
@@ -109,8 +115,9 @@ export default {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 50px;
+            font-size: 60px;
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
         }
     }
     .infos {
