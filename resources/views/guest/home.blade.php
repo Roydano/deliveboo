@@ -1,91 +1,208 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
+@extends('layouts.app')
 
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    
-    <div id="jumbo" class="text-uppercase text-right">
+@section('content')
 
-        <div class="container d-flex justify-content-between">
-            <div class="logo mt-2">
-                <img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat">
-            </div>
 
-        </div> --}}
 
+<!-- qui modificare dashboard -->
+
+
+<div class="body">
+
+<!-- wrapper start -->
+
+   <div class="wrapper">
+
+     <!-- header menu start -->
+
+     <input type="checkbox" id="check">
+
+     <div class="header">
+        <label for="check">
+
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+            
+        </label>
+
+        <div class="header-menu">
+        <div class="title"><a class="no-style" href="{{ url('/') }}">Wanna Eat</a></div>
         
 
+            <ul>
 
-        <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
-        <ul class="d-inline">
-            @guest
-            <li class="d-inline-block dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    Sei un ristorante?
+            <li><a href=""><i class="fas fa-bell"></i></a></li>
+            <li>
+                <a href="{{ url('/') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    <i class="fas fa-power-off"></i>
                 </a>
-
-                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                    @if (Route::has('register'))
-                        <a class="dropdown-item" href="{{ route('register') }}">{{('Register') }}</a>
-                    @endif
-                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </li>
-            @endguest
-                
-            @auth
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->restaurant->name }}
-                </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+            </ul>
+
+
+        </div>
+
+     </div>
+
+
+     <!-- header menu end -->
+
+     <!-- sidebar start -->
+
+       <div class="sidebar">
+           <div class="sidebar-menu">
+               <center class="profile pt-3">
+
+                  <img src="./img/frutta.jpg" alt="">
+                  <h5 class="card-title scritta"> {{ $restaurant->name }}</h5>
+
+
+               </center>
+
+               <li class="item">
+                   <a href="{{ route('admin.index') }}" class="menu-btn">
+                      <i class="fas fa-desktop"></i><span>Dashboard</span>
+
+
+
+                   </a>
+               </li>
+
+               <li class="item" id="profile">
+                   <a href="#profile" class="menu-btn">
+                      <i class="fas fa-utensils"></i><span>Piatti  <i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <div class="sub-menu">
+                            <a href="{{ route('admin.plates.index')}}"><i class="fas-fa-image"></i><p>Mostra </p></a>
+                            <a href="{{ route('admin.plates.create') }}"><i class="fas-fa-address-card"></i><p>Aggiungi</p></a>
+                           
 
-                @else
-                    <li class="d-inline-block dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->restaurant->name }}
-                        </a>
-
-                        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            <a class="dropdown-item" href="{{ route('admin.index') }}">la tua area</a>
                         </div>
-                    </li>
-                @endguest
-            </ul>
-        </div>
+                </li>
                 
-    </div>
+               <li class="item" id="messages">
+                   <a href="#messages" class="menu-btn">
+                      <i class="fas fa-envelope"></i><span>Ordini  <i class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+
+                        <div class="sub-menu">
+                            <a href=""><i class="fas-fa-envelope"></i><p>Ricevuti</p></a>
+                            <a href=""><i class="fas-fa-envelope-square"></i><p>Statistiche</p></a>
+                            
+
+                        </div>
+                </li>
+                
+               <!-- <li class="item" id="settings">
+                   <a href="#settings" class="menu-btn">
+                      <i class="fas fa-user-circle"></i><span>Settings  <i class="fas fa-chevron-down drop-down"></i></span>
+                    </a>
+                        <div class="sub-menu">
+                            <a href=""><i class="fas-fa-lock"></i><span>Password</span></a>
+                            <a href=""><i class="fas-fa-language"></i><span>Language</span></a>
+                        </div>
+                </li> -->
+
+               <li class="item">
+                 <a href="#" class="menu-btn">
+                   <i class="fas fa-info-circle"></i><span>Info</span>
+                 </a>
+              
+                </li>
+           </div>
+
+       </div>
+
+
+     <!-- sidebar end -->
+
+     <!-- main container start -->
+
+
+     <div class="main-container">
+     <!-- <div class="card mb-3" style="max-width: 540px;">
+            
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" class="img-fluid rounded-start" alt="{{ $restaurant->name }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Ristorante: {{ $restaurant->name }}</h5>
+                        <p class="card-text"><b>Indirizzo:</b> {{ $restaurant->address}}</p>
+                        <p class="card-text"><b>Numero di telefono:</b> {{ $restaurant->phone}}</p>
+                        <p class="card-text"><b>P.IVA:</b> {{ $restaurant->p_iva}}</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- inizio card -->
+
+
+        <div class="card-dash">
+            <div class="card-image"></div>
+            <div class="card-text">
+                <span class="date">Ristorante: {{ $restaurant->name }}</span>
+                <p> <b>Indirizzo:</b>{{ $restaurant->address}}</p>
+                <p>Numero di telefono:</b> {{ $restaurant->phone}}</p>
+            </div>
+            <div class="card-stats">
+                <div class="stat">
+                    <a href="{{ route('admin.plates.index')}}"><div class="value">Piatti </div></a>
+                    
+                    <div class="type"><i class="fas fa-utensils"></i></div>
+                </div>
+                <div class="stat border">
+                <a href=""><div class="value">Ordini </div></a>
+                    <div class="type"><i class="fas fa-envelope"></i></div>
+                </div>
+                <div class="stat">
+                <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                       <div class="value">Logout </div></a> 
+                                        <div class="type"><i class="fas fa-power-off"></i></div> 
+                                       
+                                    
+                                    
+                </div>
+
+                 <!-- <a href="{{ route('logout') }}"><div class="value">Logout </div></a>  -->
+                    
+                    <!-- <div class="type"><i class="fas fa-power-off"></i></div> -->
+                </div>
+            </div>
+
+          
+
+      
+       
+
+     </div>
     
-    <div id="root">
-    </div>
-    
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+
+          
+
+      
+       
+
+     </div>
+       <!-- fine card -->
+
+     <!-- main container end -->
+
+
+   </div>
+
+<!-- wrapper end -->
+
+
+</div>
+@endsection

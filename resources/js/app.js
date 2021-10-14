@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import App from './views/App';
+ import App from './views/App';
 import store from './store.js';
 import router from './router';
 
