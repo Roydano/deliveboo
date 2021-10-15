@@ -1,24 +1,42 @@
 <template>
     <div class="container cont">
-
+        <router-view v-slot="{Plate}" :key="$route.params.slugPlate" class="showPlate">
+                    <component :is="Plate"/>
+            </router-view>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
         <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
             <div class="card_plate text-white">
                 <div class="cover_cont">
+
                     <img :src="plate.img" :alt="plate.id" class="plateImg">
-                    <i class="fas fa-cart-plus cart"></i>
+
+                    <div class="icons">
+                        <i class="fas fa-eye show"></i>
+                    </div>
+                    
                 </div>
+
                 <div class="infos">
+
                     <div class="text-uppercase name">{{plate.name}}</div>
+
                     <div class="descr m-3">{{plate.description}}</div>
-                    <div class="price">{{plate.price}}€</div>
+
+                    <div class="price d-flex justify-content-around">
+                        <span>{{plate.price}}€</span>
+                        <i class="fas fa-cart-plus"></i>
+                        <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}"><i class="fas fa-eye"></i></router-link>
+                        
+                    </div>
                 </div>
                 
             </div>
         </div>
+        </div>
+
         
-</div>
+
     </div>
     
 </template>
@@ -37,13 +55,8 @@ export default {
         this.getPlates();
         this.getCourse();
     },
-    watch: {
-        $route () {
-        this.getPlates();
-        this.getCourse();
-        }
-    },
     methods: {
+        
         truncate(text, maxlength){
             if(text.length > maxlength) {
                return text.substr(0, maxlength) + '...';
@@ -94,11 +107,10 @@ export default {
             transform: translateY(-5px);
         }
     }
-    .card_plate:hover .cart {
+    .card_plate:hover .icons {
         display: inline;
     }
     .card_plate:hover .plateImg {
-        filter: blur(1px);
         filter: brightness(120%);
     }
     .plateImg {
@@ -110,7 +122,7 @@ export default {
     }
     .cover_cont {
         position: relative;
-        .cart {
+        .icons {
             display: none;
             position: absolute;
             top: 50%;
@@ -143,5 +155,14 @@ export default {
         }
     }
 
+    .showPlate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        
+    }
+
+    
 
 </style>

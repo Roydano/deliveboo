@@ -1,10 +1,9 @@
 <template>
     <div>
-        <transition name='fade' mode="in-out">
+        
                 <router-view >
-                        <component :is="Component"/>
+                        
                 </router-view>
-            </transition>
     </div>
 </template>
 

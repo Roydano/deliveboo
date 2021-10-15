@@ -6795,7 +6795,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Main'
 });
@@ -7143,6 +7142,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MenuCourse',
   data: function data() {
@@ -7154,12 +7171,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getPlates();
     this.getCourse();
-  },
-  watch: {
-    $route: function $route() {
-      this.getPlates();
-      this.getCourse();
-    }
   },
   methods: {
     truncate: function truncate(text, maxlength) {
@@ -7187,6 +7198,67 @@ __webpack_require__.r(__webpack_exports__);
         _this2.plates.forEach(function (elem) {
           elem.description = _this2.truncate(elem.description, 60);
         });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Plate.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Plate',
+  data: function data() {
+    return {
+      plate: [],
+      open: false
+    };
+  },
+  mounted: function mounted() {
+    this.getPlate();
+    this.wait();
+  },
+  methods: {
+    wait: function wait() {
+      var _this = this;
+
+      console.log('wait');
+      setTimeout(function () {
+        _this.open = true;
+      }, 1000);
+    },
+    onClickOutside: function onClickOutside() {
+      console.log(this.open);
+
+      if (this.open) {
+        this.$router.back();
+      }
+    },
+    getPlate: function getPlate() {
+      var _this2 = this;
+
+      axios.get('http://localhost:8000/api/plates/' + this.$route.params.slugPlate).then(function (response) {
+        _this2.plate = response.data.results;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7245,7 +7317,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurant',
   linkExactActiveClass: 'is-active',
@@ -7264,10 +7335,11 @@ __webpack_require__.r(__webpack_exports__);
     this.getCourses();
   },
   watch: {
-    loaded: function loaded() {
-      console.log(this.courses);
-      this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
-    }
+    /* ora mostra antipasto, fare pagina atterraggio */
+
+    /* loaded: function() {
+        this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
+    } */
   },
   methods: {
     getRestaurant: function getRestaurant() {
@@ -11847,6 +11919,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/click-outside-vue3/dist/v-click-outside.umd.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/click-outside-vue3/dist/v-click-outside.umd.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,n){ true?module.exports=n():undefined}(this,function(){var e="__v-click-outside",n="undefined"!=typeof window,t="undefined"!=typeof navigator,r=n&&("ontouchstart"in window||t&&navigator.msMaxTouchPoints>0)?["touchstart"]:["click"],i=function(e){var n=e.event,t=e.handler;(0,e.middleware)(n)&&t(n)},a=function(n,t){var a=function(e){var n="function"==typeof e;if(!n&&"object"!=typeof e)throw new Error("v-click-outside: Binding value must be a function or an object");return{handler:n?e:e.handler,middleware:e.middleware||function(e){return e},events:e.events||r,isActive:!(!1===e.isActive),detectIframe:!(!1===e.detectIframe),capture:Boolean(e.capture)}}(t.value),o=a.handler,d=a.middleware,c=a.detectIframe,u=a.capture;if(a.isActive){if(n[e]=a.events.map(function(e){return{event:e,srcTarget:document.documentElement,handler:function(e){return function(e){var n=e.el,t=e.event,r=e.handler,a=e.middleware,o=t.path||t.composedPath&&t.composedPath();(o?o.indexOf(n)<0:!n.contains(t.target))&&i({event:t,handler:r,middleware:a})}({el:n,event:e,handler:o,middleware:d})},capture:u}}),c){var l={event:"blur",srcTarget:window,handler:function(e){return function(e){var n=e.el,t=e.event,r=e.handler,a=e.middleware;setTimeout(function(){var e=document.activeElement;e&&"IFRAME"===e.tagName&&!n.contains(e)&&i({event:t,handler:r,middleware:a})},0)}({el:n,event:e,handler:o,middleware:d})},capture:u};n[e]=[].concat(n[e],[l])}n[e].forEach(function(t){var r=t.event,i=t.srcTarget,a=t.handler;return setTimeout(function(){n[e]&&i.addEventListener(r,a,u)},0)})}},o=function(n){(n[e]||[]).forEach(function(e){return e.srcTarget.removeEventListener(e.event,e.handler,e.capture)}),delete n[e]},d=n?{beforeMount:a,updated:function(e,n){var t=n.value,r=n.oldValue;JSON.stringify(t)!==JSON.stringify(r)&&(o(e),a(e,{value:t}))},unmounted:o}:{};return{install:function(e){e.directive("click-outside",d)},directive:d}});
+//# sourceMappingURL=v-click-outside.umd.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=style&index=0&id=1f42fb90&lang=scss&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Header.vue?vue&type=style&index=0&id=1f42fb90&lang=scss&scoped=true& ***!
@@ -11936,7 +12021,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .cart[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: blur(1px);\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .cart[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 60px;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n}\n.infos[data-v-593b98ba] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos .name[data-v-593b98ba] {\n  font-size: 20px;\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 14px;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  font-weight: bold;\n}", ""]);
+exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 60px;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n}\n.infos[data-v-593b98ba] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos .name[data-v-593b98ba] {\n  font-size: 20px;\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 14px;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  font-weight: bold;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".cont[data-v-29ba285d] {\n  background-color: rgba(0, 0, 0, 0.6);\n  width: 100vw;\n  height: 100vh;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.plate-cont[data-v-29ba285d] {\n  width: 50vw;\n  height: 60vh;\n  background-size: cover;\n  background-position: center;\n  border-radius: 20px;\n  box-shadow: inset 0 0 0 50vw rgba(255, 255, 255, 0.6);\n}", ""]);
 
 // exports
 
@@ -12064,105 +12168,6 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/is-dom-node-list/dist/is-dom-node-list.es.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/is-dom-node-list/dist/is-dom-node-list.es.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var is_dom_node__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! is-dom-node */ "./node_modules/is-dom-node/dist/is-dom-node.es.js");
-/*! @license is-dom-node-list v1.2.1
-
-	Copyright 2018 Fisssion LLC.
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-
-*/
-
-
-function isDomNodeList(x) {
-	var prototypeToString = Object.prototype.toString.call(x);
-	var regex = /^\[object (HTMLCollection|NodeList|Object)\]$/;
-
-	return typeof window.NodeList === 'object'
-		? x instanceof window.NodeList
-		: x !== null &&
-				typeof x === 'object' &&
-				typeof x.length === 'number' &&
-				regex.test(prototypeToString) &&
-				(x.length === 0 || Object(is_dom_node__WEBPACK_IMPORTED_MODULE_0__["default"])(x[0]))
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (isDomNodeList);
-
-
-/***/ }),
-
-/***/ "./node_modules/is-dom-node/dist/is-dom-node.es.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/is-dom-node/dist/is-dom-node.es.js ***!
-  \*********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/*! @license is-dom-node v1.0.4
-
-	Copyright 2018 Fisssion LLC.
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-
-*/
-function isDomNode(x) {
-	return typeof window.Node === 'object'
-		? x instanceof window.Node
-		: x !== null &&
-				typeof x === 'object' &&
-				typeof x.nodeType === 'number' &&
-				typeof x.nodeName === 'string'
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (isDomNode);
 
 
 /***/ }),
@@ -40273,62 +40278,6 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/miniraf/dist/miniraf.es.js":
-/*!*************************************************!*\
-  !*** ./node_modules/miniraf/dist/miniraf.es.js ***!
-  \*************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/*! @license miniraf v1.0.0
-
-	Copyright 2018 Fisssion LLC.
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-
-*/
-var polyfill = (function () {
-	var clock = Date.now();
-
-	return function (callback) {
-		var currentTime = Date.now();
-		if (currentTime - clock > 16) {
-			clock = currentTime;
-			callback(currentTime);
-		} else {
-			setTimeout(function () { return polyfill(callback); }, 0);
-		}
-	}
-})();
-
-var index = window.requestAnimationFrame ||
-	window.webkitRequestAnimationFrame ||
-	window.mozRequestAnimationFrame ||
-	polyfill;
-
-/* harmony default export */ __webpack_exports__["default"] = (index);
-
-
-/***/ }),
-
 /***/ "./node_modules/popper.js/dist/esm/popper.js":
 /*!***************************************************!*\
   !*** ./node_modules/popper.js/dist/esm/popper.js ***!
@@ -42959,6 +42908,634 @@ Popper.Defaults = Defaults;
 
 /***/ }),
 
+/***/ "./node_modules/portal-vue/dist/portal-vue.common.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/portal-vue/dist/portal-vue.common.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+ /*! 
+  * portal-vue © Thorsten Lünborg, 2019 
+  * 
+  * Version: 2.1.7
+  * 
+  * LICENCE: MIT 
+  * 
+  * https://github.com/linusborg/portal-vue
+  * 
+ */
+
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var Vue = _interopDefault(__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"));
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+var inBrowser = typeof window !== 'undefined';
+function freeze(item) {
+  if (Array.isArray(item) || _typeof(item) === 'object') {
+    return Object.freeze(item);
+  }
+
+  return item;
+}
+function combinePassengers(transports) {
+  var slotProps = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  return transports.reduce(function (passengers, transport) {
+    var temp = transport.passengers[0];
+    var newPassengers = typeof temp === 'function' ? temp(slotProps) : transport.passengers;
+    return passengers.concat(newPassengers);
+  }, []);
+}
+function stableSort(array, compareFn) {
+  return array.map(function (v, idx) {
+    return [idx, v];
+  }).sort(function (a, b) {
+    return compareFn(a[1], b[1]) || a[0] - b[0];
+  }).map(function (c) {
+    return c[1];
+  });
+}
+function pick(obj, keys) {
+  return keys.reduce(function (acc, key) {
+    if (obj.hasOwnProperty(key)) {
+      acc[key] = obj[key];
+    }
+
+    return acc;
+  }, {});
+}
+
+var transports = {};
+var targets = {};
+var sources = {};
+var Wormhole = Vue.extend({
+  data: function data() {
+    return {
+      transports: transports,
+      targets: targets,
+      sources: sources,
+      trackInstances: inBrowser
+    };
+  },
+  methods: {
+    open: function open(transport) {
+      if (!inBrowser) return;
+      var to = transport.to,
+          from = transport.from,
+          passengers = transport.passengers,
+          _transport$order = transport.order,
+          order = _transport$order === void 0 ? Infinity : _transport$order;
+      if (!to || !from || !passengers) return;
+      var newTransport = {
+        to: to,
+        from: from,
+        passengers: freeze(passengers),
+        order: order
+      };
+      var keys = Object.keys(this.transports);
+
+      if (keys.indexOf(to) === -1) {
+        Vue.set(this.transports, to, []);
+      }
+
+      var currentIndex = this.$_getTransportIndex(newTransport); // Copying the array here so that the PortalTarget change event will actually contain two distinct arrays
+
+      var newTransports = this.transports[to].slice(0);
+
+      if (currentIndex === -1) {
+        newTransports.push(newTransport);
+      } else {
+        newTransports[currentIndex] = newTransport;
+      }
+
+      this.transports[to] = stableSort(newTransports, function (a, b) {
+        return a.order - b.order;
+      });
+    },
+    close: function close(transport) {
+      var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var to = transport.to,
+          from = transport.from;
+      if (!to || !from && force === false) return;
+
+      if (!this.transports[to]) {
+        return;
+      }
+
+      if (force) {
+        this.transports[to] = [];
+      } else {
+        var index = this.$_getTransportIndex(transport);
+
+        if (index >= 0) {
+          // Copying the array here so that the PortalTarget change event will actually contain two distinct arrays
+          var newTransports = this.transports[to].slice(0);
+          newTransports.splice(index, 1);
+          this.transports[to] = newTransports;
+        }
+      }
+    },
+    registerTarget: function registerTarget(target, vm, force) {
+      if (!inBrowser) return;
+
+      if (this.trackInstances && !force && this.targets[target]) {
+        console.warn("[portal-vue]: Target ".concat(target, " already exists"));
+      }
+
+      this.$set(this.targets, target, Object.freeze([vm]));
+    },
+    unregisterTarget: function unregisterTarget(target) {
+      this.$delete(this.targets, target);
+    },
+    registerSource: function registerSource(source, vm, force) {
+      if (!inBrowser) return;
+
+      if (this.trackInstances && !force && this.sources[source]) {
+        console.warn("[portal-vue]: source ".concat(source, " already exists"));
+      }
+
+      this.$set(this.sources, source, Object.freeze([vm]));
+    },
+    unregisterSource: function unregisterSource(source) {
+      this.$delete(this.sources, source);
+    },
+    hasTarget: function hasTarget(to) {
+      return !!(this.targets[to] && this.targets[to][0]);
+    },
+    hasSource: function hasSource(to) {
+      return !!(this.sources[to] && this.sources[to][0]);
+    },
+    hasContentFor: function hasContentFor(to) {
+      return !!this.transports[to] && !!this.transports[to].length;
+    },
+    // Internal
+    $_getTransportIndex: function $_getTransportIndex(_ref) {
+      var to = _ref.to,
+          from = _ref.from;
+
+      for (var i in this.transports[to]) {
+        if (this.transports[to][i].from === from) {
+          return +i;
+        }
+      }
+
+      return -1;
+    }
+  }
+});
+var wormhole = new Wormhole(transports);
+
+var _id = 1;
+var Portal = Vue.extend({
+  name: 'portal',
+  props: {
+    disabled: {
+      type: Boolean
+    },
+    name: {
+      type: String,
+      default: function _default() {
+        return String(_id++);
+      }
+    },
+    order: {
+      type: Number,
+      default: 0
+    },
+    slim: {
+      type: Boolean
+    },
+    slotProps: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    },
+    tag: {
+      type: String,
+      default: 'DIV'
+    },
+    to: {
+      type: String,
+      default: function _default() {
+        return String(Math.round(Math.random() * 10000000));
+      }
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      wormhole.registerSource(_this.name, _this);
+    });
+  },
+  mounted: function mounted() {
+    if (!this.disabled) {
+      this.sendUpdate();
+    }
+  },
+  updated: function updated() {
+    if (this.disabled) {
+      this.clear();
+    } else {
+      this.sendUpdate();
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    wormhole.unregisterSource(this.name);
+    this.clear();
+  },
+  watch: {
+    to: function to(newValue, oldValue) {
+      oldValue && oldValue !== newValue && this.clear(oldValue);
+      this.sendUpdate();
+    }
+  },
+  methods: {
+    clear: function clear(target) {
+      var closer = {
+        from: this.name,
+        to: target || this.to
+      };
+      wormhole.close(closer);
+    },
+    normalizeSlots: function normalizeSlots() {
+      return this.$scopedSlots.default ? [this.$scopedSlots.default] : this.$slots.default;
+    },
+    normalizeOwnChildren: function normalizeOwnChildren(children) {
+      return typeof children === 'function' ? children(this.slotProps) : children;
+    },
+    sendUpdate: function sendUpdate() {
+      var slotContent = this.normalizeSlots();
+
+      if (slotContent) {
+        var transport = {
+          from: this.name,
+          to: this.to,
+          passengers: _toConsumableArray(slotContent),
+          order: this.order
+        };
+        wormhole.open(transport);
+      } else {
+        this.clear();
+      }
+    }
+  },
+  render: function render(h) {
+    var children = this.$slots.default || this.$scopedSlots.default || [];
+    var Tag = this.tag;
+
+    if (children && this.disabled) {
+      return children.length <= 1 && this.slim ? this.normalizeOwnChildren(children)[0] : h(Tag, [this.normalizeOwnChildren(children)]);
+    } else {
+      return this.slim ? h() : h(Tag, {
+        class: {
+          'v-portal': true
+        },
+        style: {
+          display: 'none'
+        },
+        key: 'v-portal-placeholder'
+      });
+    }
+  }
+});
+
+var PortalTarget = Vue.extend({
+  name: 'portalTarget',
+  props: {
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    slim: {
+      type: Boolean,
+      default: false
+    },
+    slotProps: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    },
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    transition: {
+      type: [String, Object, Function]
+    }
+  },
+  data: function data() {
+    return {
+      transports: wormhole.transports,
+      firstRender: true
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      wormhole.registerTarget(_this.name, _this);
+    });
+  },
+  watch: {
+    ownTransports: function ownTransports() {
+      this.$emit('change', this.children().length > 0);
+    },
+    name: function name(newVal, oldVal) {
+      /**
+       * TODO
+       * This should warn as well ...
+       */
+      wormhole.unregisterTarget(oldVal);
+      wormhole.registerTarget(newVal, this);
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    if (this.transition) {
+      this.$nextTick(function () {
+        // only when we have a transition, because it causes a re-render
+        _this2.firstRender = false;
+      });
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    wormhole.unregisterTarget(this.name);
+  },
+  computed: {
+    ownTransports: function ownTransports() {
+      var transports = this.transports[this.name] || [];
+
+      if (this.multiple) {
+        return transports;
+      }
+
+      return transports.length === 0 ? [] : [transports[transports.length - 1]];
+    },
+    passengers: function passengers() {
+      return combinePassengers(this.ownTransports, this.slotProps);
+    }
+  },
+  methods: {
+    // can't be a computed prop because it has to "react" to $slot changes.
+    children: function children() {
+      return this.passengers.length !== 0 ? this.passengers : this.$scopedSlots.default ? this.$scopedSlots.default(this.slotProps) : this.$slots.default || [];
+    },
+    // can't be a computed prop because it has to "react" to this.children().
+    noWrapper: function noWrapper() {
+      var noWrapper = this.slim && !this.transition;
+
+      if (noWrapper && this.children().length > 1) {
+        console.warn('[portal-vue]: PortalTarget with `slim` option received more than one child element.');
+      }
+
+      return noWrapper;
+    }
+  },
+  render: function render(h) {
+    var noWrapper = this.noWrapper();
+    var children = this.children();
+    var Tag = this.transition || this.tag;
+    return noWrapper ? children[0] : this.slim && !Tag ? h() : h(Tag, {
+      props: {
+        // if we have a transition component, pass the tag if it exists
+        tag: this.transition && this.tag ? this.tag : undefined
+      },
+      class: {
+        'vue-portal-target': true
+      }
+    }, children);
+  }
+});
+
+var _id$1 = 0;
+var portalProps = ['disabled', 'name', 'order', 'slim', 'slotProps', 'tag', 'to'];
+var targetProps = ['multiple', 'transition'];
+var MountingPortal = Vue.extend({
+  name: 'MountingPortal',
+  inheritAttrs: false,
+  props: {
+    append: {
+      type: [Boolean, String]
+    },
+    bail: {
+      type: Boolean
+    },
+    mountTo: {
+      type: String,
+      required: true
+    },
+    // Portal
+    disabled: {
+      type: Boolean
+    },
+    // name for the portal
+    name: {
+      type: String,
+      default: function _default() {
+        return 'mounted_' + String(_id$1++);
+      }
+    },
+    order: {
+      type: Number,
+      default: 0
+    },
+    slim: {
+      type: Boolean
+    },
+    slotProps: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    },
+    tag: {
+      type: String,
+      default: 'DIV'
+    },
+    // name for the target
+    to: {
+      type: String,
+      default: function _default() {
+        return String(Math.round(Math.random() * 10000000));
+      }
+    },
+    // Target
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    targetSlim: {
+      type: Boolean
+    },
+    targetSlotProps: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    },
+    targetTag: {
+      type: String,
+      default: 'div'
+    },
+    transition: {
+      type: [String, Object, Function]
+    }
+  },
+  created: function created() {
+    if (typeof document === 'undefined') return;
+    var el = document.querySelector(this.mountTo);
+
+    if (!el) {
+      console.error("[portal-vue]: Mount Point '".concat(this.mountTo, "' not found in document"));
+      return;
+    }
+
+    var props = this.$props; // Target already exists
+
+    if (wormhole.targets[props.name]) {
+      if (props.bail) {
+        console.warn("[portal-vue]: Target ".concat(props.name, " is already mounted.\n        Aborting because 'bail: true' is set"));
+      } else {
+        this.portalTarget = wormhole.targets[props.name];
+      }
+
+      return;
+    }
+
+    var append = props.append;
+
+    if (append) {
+      var type = typeof append === 'string' ? append : 'DIV';
+      var mountEl = document.createElement(type);
+      el.appendChild(mountEl);
+      el = mountEl;
+    } // get props for target from $props
+    // we have to rename a few of them
+
+
+    var _props = pick(this.$props, targetProps);
+
+    _props.slim = this.targetSlim;
+    _props.tag = this.targetTag;
+    _props.slotProps = this.targetSlotProps;
+    _props.name = this.to;
+    this.portalTarget = new PortalTarget({
+      el: el,
+      parent: this.$parent || this,
+      propsData: _props
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    var target = this.portalTarget;
+
+    if (this.append) {
+      var el = target.$el;
+      el.parentNode.removeChild(el);
+    }
+
+    target.$destroy();
+  },
+  render: function render(h) {
+    if (!this.portalTarget) {
+      console.warn("[portal-vue] Target wasn't mounted");
+      return h();
+    } // if there's no "manual" scoped slot, so we create a <Portal> ourselves
+
+
+    if (!this.$scopedSlots.manual) {
+      var props = pick(this.$props, portalProps);
+      return h(Portal, {
+        props: props,
+        attrs: this.$attrs,
+        on: this.$listeners,
+        scopedSlots: this.$scopedSlots
+      }, this.$slots.default);
+    } // else, we render the scoped slot
+
+
+    var content = this.$scopedSlots.manual({
+      to: this.to
+    }); // if user used <template> for the scoped slot
+    // content will be an array
+
+    if (Array.isArray(content)) {
+      content = content[0];
+    }
+
+    if (!content) return h();
+    return content;
+  }
+});
+
+function install(Vue$$1) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  Vue$$1.component(options.portalName || 'Portal', Portal);
+  Vue$$1.component(options.portalTargetName || 'PortalTarget', PortalTarget);
+  Vue$$1.component(options.MountingPortalName || 'MountingPortal', MountingPortal);
+}
+
+var index = {
+  install: install
+};
+
+exports.default = index;
+exports.Portal = Portal;
+exports.PortalTarget = PortalTarget;
+exports.MountingPortal = MountingPortal;
+exports.Wormhole = wormhole;
+//# sourceMappingURL=portal-vue.common.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -43150,1664 +43727,6 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 process.umask = function() { return 0; };
-
-
-/***/ }),
-
-/***/ "./node_modules/rematrix/dist/rematrix.es.js":
-/*!***************************************************!*\
-  !*** ./node_modules/rematrix/dist/rematrix.es.js ***!
-  \***************************************************/
-/*! exports provided: format, identity, inverse, multiply, parse, rotate, rotateX, rotateY, rotateZ, scale, scaleX, scaleY, scaleZ, skew, skewX, skewY, toString, translate, translateX, translateY, translateZ */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "format", function() { return format; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "identity", function() { return identity; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "inverse", function() { return inverse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multiply", function() { return multiply; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parse", function() { return parse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rotate", function() { return rotate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rotateX", function() { return rotateX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rotateY", function() { return rotateY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rotateZ", function() { return rotateZ; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scale", function() { return scale; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scaleX", function() { return scaleX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scaleY", function() { return scaleY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scaleZ", function() { return scaleZ; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "skew", function() { return skew; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "skewX", function() { return skewX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "skewY", function() { return skewY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toString", function() { return toString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translate", function() { return translate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translateX", function() { return translateX; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translateY", function() { return translateY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translateZ", function() { return translateZ; });
-/*! @license Rematrix v0.3.0
-
-	Copyright 2018 Julian Lloyd.
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE.
-*/
-/**
- * @module Rematrix
- */
-
-/**
- * Transformation matrices in the browser come in two flavors:
- *
- *  - `matrix` using 6 values (short)
- *  - `matrix3d` using 16 values (long)
- *
- * This utility follows this [conversion guide](https://goo.gl/EJlUQ1)
- * to expand short form matrices to their equivalent long form.
- *
- * @param  {array} source - Accepts both short and long form matrices.
- * @return {array}
- */
-function format(source) {
-	if (source.constructor !== Array) {
-		throw new TypeError('Expected array.')
-	}
-	if (source.length === 16) {
-		return source
-	}
-	if (source.length === 6) {
-		var matrix = identity();
-		matrix[0] = source[0];
-		matrix[1] = source[1];
-		matrix[4] = source[2];
-		matrix[5] = source[3];
-		matrix[12] = source[4];
-		matrix[13] = source[5];
-		return matrix
-	}
-	throw new RangeError('Expected array with either 6 or 16 values.')
-}
-
-/**
- * Returns a matrix representing no transformation. The product of any matrix
- * multiplied by the identity matrix will be the original matrix.
- *
- * > **Tip:** Similar to how `5 * 1 === 5`, where `1` is the identity.
- *
- * @return {array}
- */
-function identity() {
-	var matrix = [];
-	for (var i = 0; i < 16; i++) {
-		i % 5 == 0 ? matrix.push(1) : matrix.push(0);
-	}
-	return matrix
-}
-
-/**
- * Returns a matrix describing the inverse transformation of the source
- * matrix. The product of any matrix multiplied by its inverse will be the
- * identity matrix.
- *
- * > **Tip:** Similar to how `5 * (1/5) === 1`, where `1/5` is the inverse.
- *
- * @param  {array} source - Accepts both short and long form matrices.
- * @return {array}
- */
-function inverse(source) {
-	var m = format(source);
-
-	var s0 = m[0] * m[5] - m[4] * m[1];
-	var s1 = m[0] * m[6] - m[4] * m[2];
-	var s2 = m[0] * m[7] - m[4] * m[3];
-	var s3 = m[1] * m[6] - m[5] * m[2];
-	var s4 = m[1] * m[7] - m[5] * m[3];
-	var s5 = m[2] * m[7] - m[6] * m[3];
-
-	var c5 = m[10] * m[15] - m[14] * m[11];
-	var c4 = m[9] * m[15] - m[13] * m[11];
-	var c3 = m[9] * m[14] - m[13] * m[10];
-	var c2 = m[8] * m[15] - m[12] * m[11];
-	var c1 = m[8] * m[14] - m[12] * m[10];
-	var c0 = m[8] * m[13] - m[12] * m[9];
-
-	var determinant = 1 / (s0 * c5 - s1 * c4 + s2 * c3 + s3 * c2 - s4 * c1 + s5 * c0);
-
-	if (isNaN(determinant) || determinant === Infinity) {
-		throw new Error('Inverse determinant attempted to divide by zero.')
-	}
-
-	return [
-		(m[5] * c5 - m[6] * c4 + m[7] * c3) * determinant,
-		(-m[1] * c5 + m[2] * c4 - m[3] * c3) * determinant,
-		(m[13] * s5 - m[14] * s4 + m[15] * s3) * determinant,
-		(-m[9] * s5 + m[10] * s4 - m[11] * s3) * determinant,
-
-		(-m[4] * c5 + m[6] * c2 - m[7] * c1) * determinant,
-		(m[0] * c5 - m[2] * c2 + m[3] * c1) * determinant,
-		(-m[12] * s5 + m[14] * s2 - m[15] * s1) * determinant,
-		(m[8] * s5 - m[10] * s2 + m[11] * s1) * determinant,
-
-		(m[4] * c4 - m[5] * c2 + m[7] * c0) * determinant,
-		(-m[0] * c4 + m[1] * c2 - m[3] * c0) * determinant,
-		(m[12] * s4 - m[13] * s2 + m[15] * s0) * determinant,
-		(-m[8] * s4 + m[9] * s2 - m[11] * s0) * determinant,
-
-		(-m[4] * c3 + m[5] * c1 - m[6] * c0) * determinant,
-		(m[0] * c3 - m[1] * c1 + m[2] * c0) * determinant,
-		(-m[12] * s3 + m[13] * s1 - m[14] * s0) * determinant,
-		(m[8] * s3 - m[9] * s1 + m[10] * s0) * determinant
-	]
-}
-
-/**
- * Returns a 4x4 matrix describing the combined transformations
- * of both arguments.
- *
- * > **Note:** Order is very important. For example, rotating 45°
- * along the Z-axis, followed by translating 500 pixels along the
- * Y-axis... is not the same as translating 500 pixels along the
- * Y-axis, followed by rotating 45° along on the Z-axis.
- *
- * @param  {array} m - Accepts both short and long form matrices.
- * @param  {array} x - Accepts both short and long form matrices.
- * @return {array}
- */
-function multiply(m, x) {
-	var fm = format(m);
-	var fx = format(x);
-	var product = [];
-
-	for (var i = 0; i < 4; i++) {
-		var row = [fm[i], fm[i + 4], fm[i + 8], fm[i + 12]];
-		for (var j = 0; j < 4; j++) {
-			var k = j * 4;
-			var col = [fx[k], fx[k + 1], fx[k + 2], fx[k + 3]];
-			var result =
-				row[0] * col[0] + row[1] * col[1] + row[2] * col[2] + row[3] * col[3];
-
-			product[i + k] = result;
-		}
-	}
-
-	return product
-}
-
-/**
- * Attempts to return a 4x4 matrix describing the CSS transform
- * matrix passed in, but will return the identity matrix as a
- * fallback.
- *
- * > **Tip:** This method is used to convert a CSS matrix (retrieved as a
- * `string` from computed styles) to its equivalent array format.
- *
- * @param  {string} source - `matrix` or `matrix3d` CSS Transform value.
- * @return {array}
- */
-function parse(source) {
-	if (typeof source === 'string') {
-		var match = source.match(/matrix(3d)?\(([^)]+)\)/);
-		if (match) {
-			var raw = match[2].split(', ').map(parseFloat);
-			return format(raw)
-		}
-	}
-	return identity()
-}
-
-/**
- * Returns a 4x4 matrix describing Z-axis rotation.
- *
- * > **Tip:** This is just an alias for `Rematrix.rotateZ` for parity with CSS
- *
- * @param  {number} angle - Measured in degrees.
- * @return {array}
- */
-function rotate(angle) {
-	return rotateZ(angle)
-}
-
-/**
- * Returns a 4x4 matrix describing X-axis rotation.
- *
- * @param  {number} angle - Measured in degrees.
- * @return {array}
- */
-function rotateX(angle) {
-	var theta = Math.PI / 180 * angle;
-	var matrix = identity();
-
-	matrix[5] = matrix[10] = Math.cos(theta);
-	matrix[6] = matrix[9] = Math.sin(theta);
-	matrix[9] *= -1;
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Y-axis rotation.
- *
- * @param  {number} angle - Measured in degrees.
- * @return {array}
- */
-function rotateY(angle) {
-	var theta = Math.PI / 180 * angle;
-	var matrix = identity();
-
-	matrix[0] = matrix[10] = Math.cos(theta);
-	matrix[2] = matrix[8] = Math.sin(theta);
-	matrix[2] *= -1;
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Z-axis rotation.
- *
- * @param  {number} angle - Measured in degrees.
- * @return {array}
- */
-function rotateZ(angle) {
-	var theta = Math.PI / 180 * angle;
-	var matrix = identity();
-
-	matrix[0] = matrix[5] = Math.cos(theta);
-	matrix[1] = matrix[4] = Math.sin(theta);
-	matrix[4] *= -1;
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing 2D scaling. The first argument
- * is used for both X and Y-axis scaling, unless an optional
- * second argument is provided to explicitly define Y-axis scaling.
- *
- * @param  {number} scalar    - Decimal multiplier.
- * @param  {number} [scalarY] - Decimal multiplier.
- * @return {array}
- */
-function scale(scalar, scalarY) {
-	var matrix = identity();
-
-	matrix[0] = scalar;
-	matrix[5] = typeof scalarY === 'number' ? scalarY : scalar;
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing X-axis scaling.
- *
- * @param  {number} scalar - Decimal multiplier.
- * @return {array}
- */
-function scaleX(scalar) {
-	var matrix = identity();
-	matrix[0] = scalar;
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Y-axis scaling.
- *
- * @param  {number} scalar - Decimal multiplier.
- * @return {array}
- */
-function scaleY(scalar) {
-	var matrix = identity();
-	matrix[5] = scalar;
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Z-axis scaling.
- *
- * @param  {number} scalar - Decimal multiplier.
- * @return {array}
- */
-function scaleZ(scalar) {
-	var matrix = identity();
-	matrix[10] = scalar;
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing shear. The first argument
- * defines X-axis shearing, and an optional second argument
- * defines Y-axis shearing.
- *
- * @param  {number} angleX   - Measured in degrees.
- * @param  {number} [angleY] - Measured in degrees.
- * @return {array}
- */
-function skew(angleX, angleY) {
-	var thetaX = Math.PI / 180 * angleX;
-	var matrix = identity();
-
-	matrix[4] = Math.tan(thetaX);
-
-	if (angleY) {
-		var thetaY = Math.PI / 180 * angleY;
-		matrix[1] = Math.tan(thetaY);
-	}
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing X-axis shear.
- *
- * @param  {number} angle - Measured in degrees.
- * @return {array}
- */
-function skewX(angle) {
-	var theta = Math.PI / 180 * angle;
-	var matrix = identity();
-
-	matrix[4] = Math.tan(theta);
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Y-axis shear.
- *
- * @param  {number} angle - Measured in degrees
- * @return {array}
- */
-function skewY(angle) {
-	var theta = Math.PI / 180 * angle;
-	var matrix = identity();
-
-	matrix[1] = Math.tan(theta);
-
-	return matrix
-}
-
-/**
- * Returns a CSS Transform property value equivalent to the source matrix.
- *
- * @param  {array} source - Accepts both short and long form matrices.
- * @return {string}
- */
-function toString(source) {
-	return ("matrix3d(" + (format(source).join(', ')) + ")")
-}
-
-/**
- * Returns a 4x4 matrix describing 2D translation. The first
- * argument defines X-axis translation, and an optional second
- * argument defines Y-axis translation.
- *
- * @param  {number} distanceX   - Measured in pixels.
- * @param  {number} [distanceY] - Measured in pixels.
- * @return {array}
- */
-function translate(distanceX, distanceY) {
-	var matrix = identity();
-	matrix[12] = distanceX;
-
-	if (distanceY) {
-		matrix[13] = distanceY;
-	}
-
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing X-axis translation.
- *
- * @param  {number} distance - Measured in pixels.
- * @return {array}
- */
-function translateX(distance) {
-	var matrix = identity();
-	matrix[12] = distance;
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Y-axis translation.
- *
- * @param  {number} distance - Measured in pixels.
- * @return {array}
- */
-function translateY(distance) {
-	var matrix = identity();
-	matrix[13] = distance;
-	return matrix
-}
-
-/**
- * Returns a 4x4 matrix describing Z-axis translation.
- *
- * @param  {number} distance - Measured in pixels.
- * @return {array}
- */
-function translateZ(distance) {
-	var matrix = identity();
-	matrix[14] = distance;
-	return matrix
-}
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/scrollreveal/dist/scrollreveal.es.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/scrollreveal/dist/scrollreveal.es.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tealight__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tealight */ "./node_modules/tealight/dist/tealight.es.js");
-/* harmony import */ var rematrix__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rematrix */ "./node_modules/rematrix/dist/rematrix.es.js");
-/* harmony import */ var miniraf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! miniraf */ "./node_modules/miniraf/dist/miniraf.es.js");
-/*! @license ScrollReveal v4.0.9
-
-	Copyright 2021 Fisssion LLC.
-
-	Licensed under the GNU General Public License 3.0 for
-	compatible open source projects and non-commercial use.
-
-	For commercial sites, themes, projects, and applications,
-	keep your source code private/proprietary by purchasing
-	a commercial license from https://scrollrevealjs.org/
-*/
-
-
-
-
-var defaults = {
-	delay: 0,
-	distance: '0',
-	duration: 600,
-	easing: 'cubic-bezier(0.5, 0, 0, 1)',
-	interval: 0,
-	opacity: 0,
-	origin: 'bottom',
-	rotate: {
-		x: 0,
-		y: 0,
-		z: 0
-	},
-	scale: 1,
-	cleanup: false,
-	container: document.documentElement,
-	desktop: true,
-	mobile: true,
-	reset: false,
-	useDelay: 'always',
-	viewFactor: 0.0,
-	viewOffset: {
-		top: 0,
-		right: 0,
-		bottom: 0,
-		left: 0
-	},
-	afterReset: function afterReset() {},
-	afterReveal: function afterReveal() {},
-	beforeReset: function beforeReset() {},
-	beforeReveal: function beforeReveal() {}
-};
-
-function failure() {
-	document.documentElement.classList.remove('sr');
-
-	return {
-		clean: function clean() {},
-		destroy: function destroy() {},
-		reveal: function reveal() {},
-		sync: function sync() {},
-		get noop() {
-			return true
-		}
-	}
-}
-
-function success() {
-	document.documentElement.classList.add('sr');
-
-	if (document.body) {
-		document.body.style.height = '100%';
-	} else {
-		document.addEventListener('DOMContentLoaded', function () {
-			document.body.style.height = '100%';
-		});
-	}
-}
-
-var mount = { success: success, failure: failure };
-
-function isObject(x) {
-	return (
-		x !== null &&
-		x instanceof Object &&
-		(x.constructor === Object ||
-			Object.prototype.toString.call(x) === '[object Object]')
-	)
-}
-
-function each(collection, callback) {
-	if (isObject(collection)) {
-		var keys = Object.keys(collection);
-		return keys.forEach(function (key) { return callback(collection[key], key, collection); })
-	}
-	if (collection instanceof Array) {
-		return collection.forEach(function (item, i) { return callback(item, i, collection); })
-	}
-	throw new TypeError('Expected either an array or object literal.')
-}
-
-function logger(message) {
-	var details = [], len = arguments.length - 1;
-	while ( len-- > 0 ) details[ len ] = arguments[ len + 1 ];
-
-	if (this.constructor.debug && console) {
-		var report = "%cScrollReveal: " + message;
-		details.forEach(function (detail) { return (report += "\n — " + detail); });
-		console.log(report, 'color: #ea654b;'); // eslint-disable-line no-console
-	}
-}
-
-function rinse() {
-	var this$1 = this;
-
-	var struct = function () { return ({
-		active: [],
-		stale: []
-	}); };
-
-	var elementIds = struct();
-	var sequenceIds = struct();
-	var containerIds = struct();
-
-	/**
-	 * Take stock of active element IDs.
-	 */
-	try {
-		each(Object(tealight__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-sr-id]'), function (node) {
-			var id = parseInt(node.getAttribute('data-sr-id'));
-			elementIds.active.push(id);
-		});
-	} catch (e) {
-		throw e
-	}
-	/**
-	 * Destroy stale elements.
-	 */
-	each(this.store.elements, function (element) {
-		if (elementIds.active.indexOf(element.id) === -1) {
-			elementIds.stale.push(element.id);
-		}
-	});
-
-	each(elementIds.stale, function (staleId) { return delete this$1.store.elements[staleId]; });
-
-	/**
-	 * Take stock of active container and sequence IDs.
-	 */
-	each(this.store.elements, function (element) {
-		if (containerIds.active.indexOf(element.containerId) === -1) {
-			containerIds.active.push(element.containerId);
-		}
-		if (element.hasOwnProperty('sequence')) {
-			if (sequenceIds.active.indexOf(element.sequence.id) === -1) {
-				sequenceIds.active.push(element.sequence.id);
-			}
-		}
-	});
-
-	/**
-	 * Destroy stale containers.
-	 */
-	each(this.store.containers, function (container) {
-		if (containerIds.active.indexOf(container.id) === -1) {
-			containerIds.stale.push(container.id);
-		}
-	});
-
-	each(containerIds.stale, function (staleId) {
-		var stale = this$1.store.containers[staleId].node;
-		stale.removeEventListener('scroll', this$1.delegate);
-		stale.removeEventListener('resize', this$1.delegate);
-		delete this$1.store.containers[staleId];
-	});
-
-	/**
-	 * Destroy stale sequences.
-	 */
-	each(this.store.sequences, function (sequence) {
-		if (sequenceIds.active.indexOf(sequence.id) === -1) {
-			sequenceIds.stale.push(sequence.id);
-		}
-	});
-
-	each(sequenceIds.stale, function (staleId) { return delete this$1.store.sequences[staleId]; });
-}
-
-var getPrefixedCssProp = (function () {
-	var properties = {};
-	var style = document.documentElement.style;
-
-	function getPrefixedCssProperty(name, source) {
-		if ( source === void 0 ) source = style;
-
-		if (name && typeof name === 'string') {
-			if (properties[name]) {
-				return properties[name]
-			}
-			if (typeof source[name] === 'string') {
-				return (properties[name] = name)
-			}
-			if (typeof source[("-webkit-" + name)] === 'string') {
-				return (properties[name] = "-webkit-" + name)
-			}
-			throw new RangeError(("Unable to find \"" + name + "\" style property."))
-		}
-		throw new TypeError('Expected a string.')
-	}
-
-	getPrefixedCssProperty.clearCache = function () { return (properties = {}); };
-
-	return getPrefixedCssProperty
-})();
-
-function style(element) {
-	var computed = window.getComputedStyle(element.node);
-	var position = computed.position;
-	var config = element.config;
-
-	/**
-	 * Generate inline styles
-	 */
-	var inline = {};
-	var inlineStyle = element.node.getAttribute('style') || '';
-	var inlineMatch = inlineStyle.match(/[\w-]+\s*:\s*[^;]+\s*/gi) || [];
-
-	inline.computed = inlineMatch ? inlineMatch.map(function (m) { return m.trim(); }).join('; ') + ';' : '';
-
-	inline.generated = inlineMatch.some(function (m) { return m.match(/visibility\s?:\s?visible/i); })
-		? inline.computed
-		: inlineMatch.concat( ['visibility: visible']).map(function (m) { return m.trim(); }).join('; ') + ';';
-
-	/**
-	 * Generate opacity styles
-	 */
-	var computedOpacity = parseFloat(computed.opacity);
-	var configOpacity = !isNaN(parseFloat(config.opacity))
-		? parseFloat(config.opacity)
-		: parseFloat(computed.opacity);
-
-	var opacity = {
-		computed: computedOpacity !== configOpacity ? ("opacity: " + computedOpacity + ";") : '',
-		generated: computedOpacity !== configOpacity ? ("opacity: " + configOpacity + ";") : ''
-	};
-
-	/**
-	 * Generate transformation styles
-	 */
-	var transformations = [];
-
-	if (parseFloat(config.distance)) {
-		var axis = config.origin === 'top' || config.origin === 'bottom' ? 'Y' : 'X';
-
-		/**
-		 * Let’s make sure our our pixel distances are negative for top and left.
-		 * e.g. { origin: 'top', distance: '25px' } starts at `top: -25px` in CSS.
-		 */
-		var distance = config.distance;
-		if (config.origin === 'top' || config.origin === 'left') {
-			distance = /^-/.test(distance) ? distance.substr(1) : ("-" + distance);
-		}
-
-		var ref = distance.match(/(^-?\d+\.?\d?)|(em$|px$|%$)/g);
-		var value = ref[0];
-		var unit = ref[1];
-
-		switch (unit) {
-			case 'em':
-				distance = parseInt(computed.fontSize) * value;
-				break
-			case 'px':
-				distance = value;
-				break
-			case '%':
-				/**
-				 * Here we use `getBoundingClientRect` instead of
-				 * the existing data attached to `element.geometry`
-				 * because only the former includes any transformations
-				 * current applied to the element.
-				 *
-				 * If that behavior ends up being unintuitive, this
-				 * logic could instead utilize `element.geometry.height`
-				 * and `element.geoemetry.width` for the distance calculation
-				 */
-				distance =
-					axis === 'Y'
-						? (element.node.getBoundingClientRect().height * value) / 100
-						: (element.node.getBoundingClientRect().width * value) / 100;
-				break
-			default:
-				throw new RangeError('Unrecognized or missing distance unit.')
-		}
-
-		if (axis === 'Y') {
-			transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["translateY"])(distance));
-		} else {
-			transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["translateX"])(distance));
-		}
-	}
-
-	if (config.rotate.x) { transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["rotateX"])(config.rotate.x)); }
-	if (config.rotate.y) { transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["rotateY"])(config.rotate.y)); }
-	if (config.rotate.z) { transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["rotateZ"])(config.rotate.z)); }
-	if (config.scale !== 1) {
-		if (config.scale === 0) {
-			/**
-			 * The CSS Transforms matrix interpolation specification
-			 * basically disallows transitions of non-invertible
-			 * matrixes, which means browsers won't transition
-			 * elements with zero scale.
-			 *
-			 * That’s inconvenient for the API and developer
-			 * experience, so we simply nudge their value
-			 * slightly above zero; this allows browsers
-			 * to transition our element as expected.
-			 *
-			 * `0.0002` was the smallest number
-			 * that performed across browsers.
-			 */
-			transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["scale"])(0.0002));
-		} else {
-			transformations.push(Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["scale"])(config.scale));
-		}
-	}
-
-	var transform = {};
-	if (transformations.length) {
-		transform.property = getPrefixedCssProp('transform');
-		/**
-		 * The default computed transform value should be one of:
-		 * undefined || 'none' || 'matrix()' || 'matrix3d()'
-		 */
-		transform.computed = {
-			raw: computed[transform.property],
-			matrix: Object(rematrix__WEBPACK_IMPORTED_MODULE_1__["parse"])(computed[transform.property])
-		};
-
-		transformations.unshift(transform.computed.matrix);
-		var product = transformations.reduce(rematrix__WEBPACK_IMPORTED_MODULE_1__["multiply"]);
-
-		transform.generated = {
-			initial: ((transform.property) + ": matrix3d(" + (product.join(', ')) + ");"),
-			final: ((transform.property) + ": matrix3d(" + (transform.computed.matrix.join(', ')) + ");")
-		};
-	} else {
-		transform.generated = {
-			initial: '',
-			final: ''
-		};
-	}
-
-	/**
-	 * Generate transition styles
-	 */
-	var transition = {};
-	if (opacity.generated || transform.generated.initial) {
-		transition.property = getPrefixedCssProp('transition');
-		transition.computed = computed[transition.property];
-		transition.fragments = [];
-
-		var delay = config.delay;
-		var duration = config.duration;
-		var easing = config.easing;
-
-		if (opacity.generated) {
-			transition.fragments.push({
-				delayed: ("opacity " + (duration / 1000) + "s " + easing + " " + (delay / 1000) + "s"),
-				instant: ("opacity " + (duration / 1000) + "s " + easing + " 0s")
-			});
-		}
-
-		if (transform.generated.initial) {
-			transition.fragments.push({
-				delayed: ((transform.property) + " " + (duration / 1000) + "s " + easing + " " + (delay / 1000) + "s"),
-				instant: ((transform.property) + " " + (duration / 1000) + "s " + easing + " 0s")
-			});
-		}
-
-		/**
-		 * The default computed transition property should be undefined, or one of:
-		 * '' || 'none 0s ease 0s' || 'all 0s ease 0s' || 'all 0s 0s cubic-bezier()'
-		 */
-		var hasCustomTransition =
-			transition.computed && !transition.computed.match(/all 0s|none 0s/);
-
-		if (hasCustomTransition) {
-			transition.fragments.unshift({
-				delayed: transition.computed,
-				instant: transition.computed
-			});
-		}
-
-		var composed = transition.fragments.reduce(
-			function (composition, fragment, i) {
-				composition.delayed += i === 0 ? fragment.delayed : (", " + (fragment.delayed));
-				composition.instant += i === 0 ? fragment.instant : (", " + (fragment.instant));
-				return composition
-			},
-			{
-				delayed: '',
-				instant: ''
-			}
-		);
-
-		transition.generated = {
-			delayed: ((transition.property) + ": " + (composed.delayed) + ";"),
-			instant: ((transition.property) + ": " + (composed.instant) + ";")
-		};
-	} else {
-		transition.generated = {
-			delayed: '',
-			instant: ''
-		};
-	}
-
-	return {
-		inline: inline,
-		opacity: opacity,
-		position: position,
-		transform: transform,
-		transition: transition
-	}
-}
-
-/**
- * apply a CSS string to an element using the CSSOM (element.style) rather
- * than setAttribute, which may violate the content security policy.
- *
- * @param {Node}   [el]  Element to receive styles.
- * @param {string} [declaration] Styles to apply.
- */
-function applyStyle (el, declaration) {
-	declaration.split(';').forEach(function (pair) {
-		var ref = pair.split(':');
-		var property = ref[0];
-		var value = ref.slice(1);
-		if (property && value) {
-			el.style[property.trim()] = value.join(':');
-		}
-	});
-}
-
-function clean(target) {
-	var this$1 = this;
-
-	var dirty;
-	try {
-		each(Object(tealight__WEBPACK_IMPORTED_MODULE_0__["default"])(target), function (node) {
-			var id = node.getAttribute('data-sr-id');
-			if (id !== null) {
-				dirty = true;
-				var element = this$1.store.elements[id];
-				if (element.callbackTimer) {
-					window.clearTimeout(element.callbackTimer.clock);
-				}
-				applyStyle(element.node, element.styles.inline.generated);
-				node.removeAttribute('data-sr-id');
-				delete this$1.store.elements[id];
-			}
-		});
-	} catch (e) {
-		return logger.call(this, 'Clean failed.', e.message)
-	}
-
-	if (dirty) {
-		try {
-			rinse.call(this);
-		} catch (e) {
-			return logger.call(this, 'Clean failed.', e.message)
-		}
-	}
-}
-
-function destroy() {
-	var this$1 = this;
-
-	/**
-	 * Remove all generated styles and element ids
-	 */
-	each(this.store.elements, function (element) {
-		applyStyle(element.node, element.styles.inline.generated);
-		element.node.removeAttribute('data-sr-id');
-	});
-
-	/**
-	 * Remove all event listeners.
-	 */
-	each(this.store.containers, function (container) {
-		var target =
-			container.node === document.documentElement ? window : container.node;
-		target.removeEventListener('scroll', this$1.delegate);
-		target.removeEventListener('resize', this$1.delegate);
-	});
-
-	/**
-	 * Clear all data from the store
-	 */
-	this.store = {
-		containers: {},
-		elements: {},
-		history: [],
-		sequences: {}
-	};
-}
-
-function deepAssign(target) {
-	var sources = [], len = arguments.length - 1;
-	while ( len-- > 0 ) sources[ len ] = arguments[ len + 1 ];
-
-	if (isObject(target)) {
-		each(sources, function (source) {
-			each(source, function (data, key) {
-				if (isObject(data)) {
-					if (!target[key] || !isObject(target[key])) {
-						target[key] = {};
-					}
-					deepAssign(target[key], data);
-				} else {
-					target[key] = data;
-				}
-			});
-		});
-		return target
-	} else {
-		throw new TypeError('Target must be an object literal.')
-	}
-}
-
-function isMobile(agent) {
-	if ( agent === void 0 ) agent = navigator.userAgent;
-
-	return /Android|iPhone|iPad|iPod/i.test(agent)
-}
-
-var nextUniqueId = (function () {
-	var uid = 0;
-	return function () { return uid++; }
-})();
-
-function initialize() {
-	var this$1 = this;
-
-	rinse.call(this);
-
-	each(this.store.elements, function (element) {
-		var styles = [element.styles.inline.generated];
-
-		if (element.visible) {
-			styles.push(element.styles.opacity.computed);
-			styles.push(element.styles.transform.generated.final);
-			element.revealed = true;
-		} else {
-			styles.push(element.styles.opacity.generated);
-			styles.push(element.styles.transform.generated.initial);
-			element.revealed = false;
-		}
-
-		applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
-	});
-
-	each(this.store.containers, function (container) {
-		var target =
-			container.node === document.documentElement ? window : container.node;
-		target.addEventListener('scroll', this$1.delegate);
-		target.addEventListener('resize', this$1.delegate);
-	});
-
-	/**
-	 * Manually invoke delegate once to capture
-	 * element and container dimensions, container
-	 * scroll position, and trigger any valid reveals
-	 */
-	this.delegate();
-
-	/**
-	 * Wipe any existing `setTimeout` now
-	 * that initialization has completed.
-	 */
-	this.initTimeout = null;
-}
-
-function animate(element, force) {
-	if ( force === void 0 ) force = {};
-
-	var pristine = force.pristine || this.pristine;
-	var delayed =
-		element.config.useDelay === 'always' ||
-		(element.config.useDelay === 'onload' && pristine) ||
-		(element.config.useDelay === 'once' && !element.seen);
-
-	var shouldReveal = element.visible && !element.revealed;
-	var shouldReset = !element.visible && element.revealed && element.config.reset;
-
-	if (force.reveal || shouldReveal) {
-		return triggerReveal.call(this, element, delayed)
-	}
-
-	if (force.reset || shouldReset) {
-		return triggerReset.call(this, element)
-	}
-}
-
-function triggerReveal(element, delayed) {
-	var styles = [
-		element.styles.inline.generated,
-		element.styles.opacity.computed,
-		element.styles.transform.generated.final
-	];
-	if (delayed) {
-		styles.push(element.styles.transition.generated.delayed);
-	} else {
-		styles.push(element.styles.transition.generated.instant);
-	}
-	element.revealed = element.seen = true;
-	applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
-	registerCallbacks.call(this, element, delayed);
-}
-
-function triggerReset(element) {
-	var styles = [
-		element.styles.inline.generated,
-		element.styles.opacity.generated,
-		element.styles.transform.generated.initial,
-		element.styles.transition.generated.instant
-	];
-	element.revealed = false;
-	applyStyle(element.node, styles.filter(function (s) { return s !== ''; }).join(' '));
-	registerCallbacks.call(this, element);
-}
-
-function registerCallbacks(element, isDelayed) {
-	var this$1 = this;
-
-	var duration = isDelayed
-		? element.config.duration + element.config.delay
-		: element.config.duration;
-
-	var beforeCallback = element.revealed
-		? element.config.beforeReveal
-		: element.config.beforeReset;
-
-	var afterCallback = element.revealed
-		? element.config.afterReveal
-		: element.config.afterReset;
-
-	var elapsed = 0;
-	if (element.callbackTimer) {
-		elapsed = Date.now() - element.callbackTimer.start;
-		window.clearTimeout(element.callbackTimer.clock);
-	}
-
-	beforeCallback(element.node);
-
-	element.callbackTimer = {
-		start: Date.now(),
-		clock: window.setTimeout(function () {
-			afterCallback(element.node);
-			element.callbackTimer = null;
-			if (element.revealed && !element.config.reset && element.config.cleanup) {
-				clean.call(this$1, element.node);
-			}
-		}, duration - elapsed)
-	};
-}
-
-function sequence(element, pristine) {
-	if ( pristine === void 0 ) pristine = this.pristine;
-
-	/**
-	 * We first check if the element should reset.
-	 */
-	if (!element.visible && element.revealed && element.config.reset) {
-		return animate.call(this, element, { reset: true })
-	}
-
-	var seq = this.store.sequences[element.sequence.id];
-	var i = element.sequence.index;
-
-	if (seq) {
-		var visible = new SequenceModel(seq, 'visible', this.store);
-		var revealed = new SequenceModel(seq, 'revealed', this.store);
-
-		seq.models = { visible: visible, revealed: revealed };
-
-		/**
-		 * If the sequence has no revealed members,
-		 * then we reveal the first visible element
-		 * within that sequence.
-		 *
-		 * The sequence then cues a recursive call
-		 * in both directions.
-		 */
-		if (!revealed.body.length) {
-			var nextId = seq.members[visible.body[0]];
-			var nextElement = this.store.elements[nextId];
-
-			if (nextElement) {
-				cue.call(this, seq, visible.body[0], -1, pristine);
-				cue.call(this, seq, visible.body[0], +1, pristine);
-				return animate.call(this, nextElement, { reveal: true, pristine: pristine })
-			}
-		}
-
-		/**
-		 * If our element isn’t resetting, we check the
-		 * element sequence index against the head, and
-		 * then the foot of the sequence.
-		 */
-		if (
-			!seq.blocked.head &&
-			i === [].concat( revealed.head ).pop() &&
-			i >= [].concat( visible.body ).shift()
-		) {
-			cue.call(this, seq, i, -1, pristine);
-			return animate.call(this, element, { reveal: true, pristine: pristine })
-		}
-
-		if (
-			!seq.blocked.foot &&
-			i === [].concat( revealed.foot ).shift() &&
-			i <= [].concat( visible.body ).pop()
-		) {
-			cue.call(this, seq, i, +1, pristine);
-			return animate.call(this, element, { reveal: true, pristine: pristine })
-		}
-	}
-}
-
-function Sequence(interval) {
-	var i = Math.abs(interval);
-	if (!isNaN(i)) {
-		this.id = nextUniqueId();
-		this.interval = Math.max(i, 16);
-		this.members = [];
-		this.models = {};
-		this.blocked = {
-			head: false,
-			foot: false
-		};
-	} else {
-		throw new RangeError('Invalid sequence interval.')
-	}
-}
-
-function SequenceModel(seq, prop, store) {
-	var this$1 = this;
-
-	this.head = [];
-	this.body = [];
-	this.foot = [];
-
-	each(seq.members, function (id, index) {
-		var element = store.elements[id];
-		if (element && element[prop]) {
-			this$1.body.push(index);
-		}
-	});
-
-	if (this.body.length) {
-		each(seq.members, function (id, index) {
-			var element = store.elements[id];
-			if (element && !element[prop]) {
-				if (index < this$1.body[0]) {
-					this$1.head.push(index);
-				} else {
-					this$1.foot.push(index);
-				}
-			}
-		});
-	}
-}
-
-function cue(seq, i, direction, pristine) {
-	var this$1 = this;
-
-	var blocked = ['head', null, 'foot'][1 + direction];
-	var nextId = seq.members[i + direction];
-	var nextElement = this.store.elements[nextId];
-
-	seq.blocked[blocked] = true;
-
-	setTimeout(function () {
-		seq.blocked[blocked] = false;
-		if (nextElement) {
-			sequence.call(this$1, nextElement, pristine);
-		}
-	}, seq.interval);
-}
-
-function reveal(target, options, syncing) {
-	var this$1 = this;
-	if ( options === void 0 ) options = {};
-	if ( syncing === void 0 ) syncing = false;
-
-	var containerBuffer = [];
-	var sequence$$1;
-	var interval = options.interval || defaults.interval;
-
-	try {
-		if (interval) {
-			sequence$$1 = new Sequence(interval);
-		}
-
-		var nodes = Object(tealight__WEBPACK_IMPORTED_MODULE_0__["default"])(target);
-		if (!nodes.length) {
-			throw new Error('Invalid reveal target.')
-		}
-
-		var elements = nodes.reduce(function (elementBuffer, elementNode) {
-			var element = {};
-			var existingId = elementNode.getAttribute('data-sr-id');
-
-			if (existingId) {
-				deepAssign(element, this$1.store.elements[existingId]);
-
-				/**
-				 * In order to prevent previously generated styles
-				 * from throwing off the new styles, the style tag
-				 * has to be reverted to its pre-reveal state.
-				 */
-				applyStyle(element.node, element.styles.inline.computed);
-			} else {
-				element.id = nextUniqueId();
-				element.node = elementNode;
-				element.seen = false;
-				element.revealed = false;
-				element.visible = false;
-			}
-
-			var config = deepAssign({}, element.config || this$1.defaults, options);
-
-			if ((!config.mobile && isMobile()) || (!config.desktop && !isMobile())) {
-				if (existingId) {
-					clean.call(this$1, element);
-				}
-				return elementBuffer // skip elements that are disabled
-			}
-
-			var containerNode = Object(tealight__WEBPACK_IMPORTED_MODULE_0__["default"])(config.container)[0];
-			if (!containerNode) {
-				throw new Error('Invalid container.')
-			}
-			if (!containerNode.contains(elementNode)) {
-				return elementBuffer // skip elements found outside the container
-			}
-
-			var containerId;
-			{
-				containerId = getContainerId(
-					containerNode,
-					containerBuffer,
-					this$1.store.containers
-				);
-				if (containerId === null) {
-					containerId = nextUniqueId();
-					containerBuffer.push({ id: containerId, node: containerNode });
-				}
-			}
-
-			element.config = config;
-			element.containerId = containerId;
-			element.styles = style(element);
-
-			if (sequence$$1) {
-				element.sequence = {
-					id: sequence$$1.id,
-					index: sequence$$1.members.length
-				};
-				sequence$$1.members.push(element.id);
-			}
-
-			elementBuffer.push(element);
-			return elementBuffer
-		}, []);
-
-		/**
-		 * Modifying the DOM via setAttribute needs to be handled
-		 * separately from reading computed styles in the map above
-		 * for the browser to batch DOM changes (limiting reflows)
-		 */
-		each(elements, function (element) {
-			this$1.store.elements[element.id] = element;
-			element.node.setAttribute('data-sr-id', element.id);
-		});
-	} catch (e) {
-		return logger.call(this, 'Reveal failed.', e.message)
-	}
-
-	/**
-	 * Now that element set-up is complete...
-	 * Let’s commit any container and sequence data we have to the store.
-	 */
-	each(containerBuffer, function (container) {
-		this$1.store.containers[container.id] = {
-			id: container.id,
-			node: container.node
-		};
-	});
-	if (sequence$$1) {
-		this.store.sequences[sequence$$1.id] = sequence$$1;
-	}
-
-	/**
-	 * If reveal wasn't invoked by sync, we want to
-	 * make sure to add this call to the history.
-	 */
-	if (syncing !== true) {
-		this.store.history.push({ target: target, options: options });
-
-		/**
-		 * Push initialization to the event queue, giving
-		 * multiple reveal calls time to be interpreted.
-		 */
-		if (this.initTimeout) {
-			window.clearTimeout(this.initTimeout);
-		}
-		this.initTimeout = window.setTimeout(initialize.bind(this), 0);
-	}
-}
-
-function getContainerId(node) {
-	var collections = [], len = arguments.length - 1;
-	while ( len-- > 0 ) collections[ len ] = arguments[ len + 1 ];
-
-	var id = null;
-	each(collections, function (collection) {
-		each(collection, function (container) {
-			if (id === null && container.node === node) {
-				id = container.id;
-			}
-		});
-	});
-	return id
-}
-
-/**
- * Re-runs the reveal method for each record stored in history,
- * for capturing new content asynchronously loaded into the DOM.
- */
-function sync() {
-	var this$1 = this;
-
-	each(this.store.history, function (record) {
-		reveal.call(this$1, record.target, record.options, true);
-	});
-
-	initialize.call(this);
-}
-
-var polyfill = function (x) { return (x > 0) - (x < 0) || +x; };
-var mathSign = Math.sign || polyfill;
-
-function getGeometry(target, isContainer) {
-	/**
-	 * We want to ignore padding and scrollbars for container elements.
-	 * More information here: https://goo.gl/vOZpbz
-	 */
-	var height = isContainer ? target.node.clientHeight : target.node.offsetHeight;
-	var width = isContainer ? target.node.clientWidth : target.node.offsetWidth;
-
-	var offsetTop = 0;
-	var offsetLeft = 0;
-	var node = target.node;
-
-	do {
-		if (!isNaN(node.offsetTop)) {
-			offsetTop += node.offsetTop;
-		}
-		if (!isNaN(node.offsetLeft)) {
-			offsetLeft += node.offsetLeft;
-		}
-		node = node.offsetParent;
-	} while (node)
-
-	return {
-		bounds: {
-			top: offsetTop,
-			right: offsetLeft + width,
-			bottom: offsetTop + height,
-			left: offsetLeft
-		},
-		height: height,
-		width: width
-	}
-}
-
-function getScrolled(container) {
-	var top, left;
-	if (container.node === document.documentElement) {
-		top = window.pageYOffset;
-		left = window.pageXOffset;
-	} else {
-		top = container.node.scrollTop;
-		left = container.node.scrollLeft;
-	}
-	return { top: top, left: left }
-}
-
-function isElementVisible(element) {
-	if ( element === void 0 ) element = {};
-
-	var container = this.store.containers[element.containerId];
-	if (!container) { return }
-
-	var viewFactor = Math.max(0, Math.min(1, element.config.viewFactor));
-	var viewOffset = element.config.viewOffset;
-
-	var elementBounds = {
-		top: element.geometry.bounds.top + element.geometry.height * viewFactor,
-		right: element.geometry.bounds.right - element.geometry.width * viewFactor,
-		bottom: element.geometry.bounds.bottom - element.geometry.height * viewFactor,
-		left: element.geometry.bounds.left + element.geometry.width * viewFactor
-	};
-
-	var containerBounds = {
-		top: container.geometry.bounds.top + container.scroll.top + viewOffset.top,
-		right: container.geometry.bounds.right + container.scroll.left - viewOffset.right,
-		bottom:
-			container.geometry.bounds.bottom + container.scroll.top - viewOffset.bottom,
-		left: container.geometry.bounds.left + container.scroll.left + viewOffset.left
-	};
-
-	return (
-		(elementBounds.top < containerBounds.bottom &&
-			elementBounds.right > containerBounds.left &&
-			elementBounds.bottom > containerBounds.top &&
-			elementBounds.left < containerBounds.right) ||
-		element.styles.position === 'fixed'
-	)
-}
-
-function delegate(
-	event,
-	elements
-) {
-	var this$1 = this;
-	if ( event === void 0 ) event = { type: 'init' };
-	if ( elements === void 0 ) elements = this.store.elements;
-
-	Object(miniraf__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
-		var stale = event.type === 'init' || event.type === 'resize';
-
-		each(this$1.store.containers, function (container) {
-			if (stale) {
-				container.geometry = getGeometry.call(this$1, container, true);
-			}
-			var scroll = getScrolled.call(this$1, container);
-			if (container.scroll) {
-				container.direction = {
-					x: mathSign(scroll.left - container.scroll.left),
-					y: mathSign(scroll.top - container.scroll.top)
-				};
-			}
-			container.scroll = scroll;
-		});
-
-		/**
-		 * Due to how the sequencer is implemented, it’s
-		 * important that we update the state of all
-		 * elements, before any animation logic is
-		 * evaluated (in the second loop below).
-		 */
-		each(elements, function (element) {
-			if (stale || element.geometry === undefined) {
-				element.geometry = getGeometry.call(this$1, element);
-			}
-			element.visible = isElementVisible.call(this$1, element);
-		});
-
-		each(elements, function (element) {
-			if (element.sequence) {
-				sequence.call(this$1, element);
-			} else {
-				animate.call(this$1, element);
-			}
-		});
-
-		this$1.pristine = false;
-	});
-}
-
-function isTransformSupported() {
-	var style = document.documentElement.style;
-	return 'transform' in style || 'WebkitTransform' in style
-}
-
-function isTransitionSupported() {
-	var style = document.documentElement.style;
-	return 'transition' in style || 'WebkitTransition' in style
-}
-
-var version = "4.0.9";
-
-var boundDelegate;
-var boundDestroy;
-var boundReveal;
-var boundClean;
-var boundSync;
-var config;
-var debug;
-var instance;
-
-function ScrollReveal(options) {
-	if ( options === void 0 ) options = {};
-
-	var invokedWithoutNew =
-		typeof this === 'undefined' ||
-		Object.getPrototypeOf(this) !== ScrollReveal.prototype;
-
-	if (invokedWithoutNew) {
-		return new ScrollReveal(options)
-	}
-
-	if (!ScrollReveal.isSupported()) {
-		logger.call(this, 'Instantiation failed.', 'This browser is not supported.');
-		return mount.failure()
-	}
-
-	var buffer;
-	try {
-		buffer = config
-			? deepAssign({}, config, options)
-			: deepAssign({}, defaults, options);
-	} catch (e) {
-		logger.call(this, 'Invalid configuration.', e.message);
-		return mount.failure()
-	}
-
-	try {
-		var container = Object(tealight__WEBPACK_IMPORTED_MODULE_0__["default"])(buffer.container)[0];
-		if (!container) {
-			throw new Error('Invalid container.')
-		}
-	} catch (e) {
-		logger.call(this, e.message);
-		return mount.failure()
-	}
-
-	config = buffer;
-
-	if ((!config.mobile && isMobile()) || (!config.desktop && !isMobile())) {
-		logger.call(
-			this,
-			'This device is disabled.',
-			("desktop: " + (config.desktop)),
-			("mobile: " + (config.mobile))
-		);
-		return mount.failure()
-	}
-
-	mount.success();
-
-	this.store = {
-		containers: {},
-		elements: {},
-		history: [],
-		sequences: {}
-	};
-
-	this.pristine = true;
-
-	boundDelegate = boundDelegate || delegate.bind(this);
-	boundDestroy = boundDestroy || destroy.bind(this);
-	boundReveal = boundReveal || reveal.bind(this);
-	boundClean = boundClean || clean.bind(this);
-	boundSync = boundSync || sync.bind(this);
-
-	Object.defineProperty(this, 'delegate', { get: function () { return boundDelegate; } });
-	Object.defineProperty(this, 'destroy', { get: function () { return boundDestroy; } });
-	Object.defineProperty(this, 'reveal', { get: function () { return boundReveal; } });
-	Object.defineProperty(this, 'clean', { get: function () { return boundClean; } });
-	Object.defineProperty(this, 'sync', { get: function () { return boundSync; } });
-
-	Object.defineProperty(this, 'defaults', { get: function () { return config; } });
-	Object.defineProperty(this, 'version', { get: function () { return version; } });
-	Object.defineProperty(this, 'noop', { get: function () { return false; } });
-
-	return instance ? instance : (instance = this)
-}
-
-ScrollReveal.isSupported = function () { return isTransformSupported() && isTransitionSupported(); };
-
-Object.defineProperty(ScrollReveal, 'debug', {
-	get: function () { return debug || false; },
-	set: function (value) { return (debug = typeof value === 'boolean' ? value : debug); }
-});
-
-ScrollReveal();
-
-/* harmony default export */ __webpack_exports__["default"] = (ScrollReveal);
 
 
 /***/ }),
@@ -45139,6 +44058,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./MenuCourse.vue?vue&type=style&index=0&id=593b98ba&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/MenuCourse.vue?vue&type=style&index=0&id=593b98ba&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -45729,65 +44678,6 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ "./node_modules/tealight/dist/tealight.es.js":
-/*!***************************************************!*\
-  !*** ./node_modules/tealight/dist/tealight.es.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var is_dom_node__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! is-dom-node */ "./node_modules/is-dom-node/dist/is-dom-node.es.js");
-/* harmony import */ var is_dom_node_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! is-dom-node-list */ "./node_modules/is-dom-node-list/dist/is-dom-node-list.es.js");
-/*! @license Tealight v0.3.6
-
-	Copyright 2018 Fisssion LLC.
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all
-	copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-	SOFTWARE.
-
-*/
-
-
-
-function tealight(target, context) {
-  if ( context === void 0 ) context = document;
-
-  if (target instanceof Array) { return target.filter(is_dom_node__WEBPACK_IMPORTED_MODULE_0__["default"]); }
-  if (Object(is_dom_node__WEBPACK_IMPORTED_MODULE_0__["default"])(target)) { return [target]; }
-  if (Object(is_dom_node_list__WEBPACK_IMPORTED_MODULE_1__["default"])(target)) { return Array.prototype.slice.call(target); }
-  if (typeof target === "string") {
-    try {
-      var query = context.querySelectorAll(target);
-      return Array.prototype.slice.call(query);
-    } catch (err) {
-      return [];
-    }
-  }
-  return [];
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (tealight);
-
-
-/***/ }),
-
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -45860,6 +44750,18 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (this && this.clearImmediate);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/vue-js-modal/dist/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue-js-modal/dist/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(window,function(){return i={},o.m=n=[function(t,e,n){var i=n(7);"string"==typeof i&&(i=[[t.i,i,""]]),i.locals&&(t.exports=i.locals);(0,n(4).default)("d763679c",i,!1,{})},function(t,e,n){var i=n(10);"string"==typeof i&&(i=[[t.i,i,""]]),i.locals&&(t.exports=i.locals);(0,n(4).default)("6b9cc0e0",i,!1,{})},function(t,e,n){var i=n(12);"string"==typeof i&&(i=[[t.i,i,""]]),i.locals&&(t.exports=i.locals);(0,n(4).default)("663c004e",i,!1,{})},function(t,e){t.exports=function(n){var s=[];return s.toString=function(){return this.map(function(t){var e=function(t,e){var n=t[1]||"",i=t[3];if(!i)return n;if(e&&"function"==typeof btoa){var o=function(t){return"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(t))))+" */"}(i),r=i.sources.map(function(t){return"/*# sourceURL="+i.sourceRoot+t+" */"});return[n].concat(r).concat([o]).join("\n")}return[n].join("\n")}(t,n);return t[2]?"@media "+t[2]+"{"+e+"}":e}).join("")},s.i=function(t,e){"string"==typeof t&&(t=[[null,t,""]]);for(var n={},i=0;i<this.length;i++){var o=this[i][0];"number"==typeof o&&(n[o]=!0)}for(i=0;i<t.length;i++){var r=t[i];"number"==typeof r[0]&&n[r[0]]||(e&&!r[2]?r[2]=e:e&&(r[2]="("+r[2]+") and ("+e+")"),s.push(r))}},s}},function(t,e,n){"use strict";function l(t,e){for(var n=[],i={},o=0;o<e.length;o++){var r=e[o],s=r[0],a={id:t+":"+o,css:r[1],media:r[2],sourceMap:r[3]};i[s]?i[s].parts.push(a):n.push(i[s]={id:s,parts:[a]})}return n}n.r(e),n.d(e,"default",function(){return v});var i="undefined"!=typeof document;if("undefined"!=typeof DEBUG&&DEBUG&&!i)throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");var u={},o=i&&(document.head||document.getElementsByTagName("head")[0]),r=null,s=0,c=!1,a=function(){},d=null,h="data-vue-ssr-id",f="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());function v(s,t,e,n){c=e,d=n||{};var a=l(s,t);return p(a),function(t){for(var e=[],n=0;n<a.length;n++){var i=a[n];(o=u[i.id]).refs--,e.push(o)}t?p(a=l(s,t)):a=[];for(n=0;n<e.length;n++){var o;if(0===(o=e[n]).refs){for(var r=0;r<o.parts.length;r++)o.parts[r]();delete u[o.id]}}}}function p(t){for(var e=0;e<t.length;e++){var n=t[e],i=u[n.id];if(i){i.refs++;for(var o=0;o<i.parts.length;o++)i.parts[o](n.parts[o]);for(;o<n.parts.length;o++)i.parts.push(b(n.parts[o]));i.parts.length>n.parts.length&&(i.parts.length=n.parts.length)}else{var r=[];for(o=0;o<n.parts.length;o++)r.push(b(n.parts[o]));u[n.id]={id:n.id,refs:1,parts:r}}}}function m(){var t=document.createElement("style");return t.type="text/css",o.appendChild(t),t}function b(e){var n,i,t=document.querySelector("style["+h+'~="'+e.id+'"]');if(t){if(c)return a;t.parentNode.removeChild(t)}if(f){var o=s++;t=r=r||m(),n=w.bind(null,t,o,!1),i=w.bind(null,t,o,!0)}else t=m(),n=function(t,e){var n=e.css,i=e.media,o=e.sourceMap;i&&t.setAttribute("media",i);d.ssrId&&t.setAttribute(h,e.id);o&&(n+="\n/*# sourceURL="+o.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(o))))+" */");if(t.styleSheet)t.styleSheet.cssText=n;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(n))}}.bind(null,t),i=function(){t.parentNode.removeChild(t)};return n(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;n(e=t)}else i()}}var g,y=(g=[],function(t,e){return g[t]=e,g.filter(Boolean).join("\n")});function w(t,e,n,i){var o=n?"":i.css;if(t.styleSheet)t.styleSheet.cssText=y(e,o);else{var r=document.createTextNode(o),s=t.childNodes;s[e]&&t.removeChild(s[e]),s.length?t.insertBefore(r,s[e]):t.appendChild(r)}}},function(t,z,e){"use strict";(function(t){var i=function(){if("undefined"!=typeof Map)return Map;function i(t,n){var i=-1;return t.some(function(t,e){return t[0]===n&&(i=e,!0)}),i}return Object.defineProperty(t.prototype,"size",{get:function(){return this.__entries__.length},enumerable:!0,configurable:!0}),t.prototype.get=function(t){var e=i(this.__entries__,t),n=this.__entries__[e];return n&&n[1]},t.prototype.set=function(t,e){var n=i(this.__entries__,t);~n?this.__entries__[n][1]=e:this.__entries__.push([t,e])},t.prototype.delete=function(t){var e=this.__entries__,n=i(e,t);~n&&e.splice(n,1)},t.prototype.has=function(t){return!!~i(this.__entries__,t)},t.prototype.clear=function(){this.__entries__.splice(0)},t.prototype.forEach=function(t,e){void 0===e&&(e=null);for(var n=0,i=this.__entries__;n<i.length;n++){var o=i[n];t.call(e,o[1],o[0])}},t;function t(){this.__entries__=[]}}(),n="undefined"!=typeof window&&"undefined"!=typeof document&&window.document===document,e=void 0!==t&&t.Math===Math?t:"undefined"!=typeof self&&self.Math===Math?self:"undefined"!=typeof window&&window.Math===Math?window:Function("return this")(),l="function"==typeof requestAnimationFrame?requestAnimationFrame.bind(e):function(t){return setTimeout(function(){return t(Date.now())},1e3/60)},u=2;var o=["top","right","bottom","left","width","height","size","weight"],r="undefined"!=typeof MutationObserver,s=(a.prototype.addObserver=function(t){~this.observers_.indexOf(t)||this.observers_.push(t),this.connected_||this.connect_()},a.prototype.removeObserver=function(t){var e=this.observers_,n=e.indexOf(t);~n&&e.splice(n,1),!e.length&&this.connected_&&this.disconnect_()},a.prototype.refresh=function(){this.updateObservers_()&&this.refresh()},a.prototype.updateObservers_=function(){var t=this.observers_.filter(function(t){return t.gatherActive(),t.hasActive()});return t.forEach(function(t){return t.broadcastActive()}),0<t.length},a.prototype.connect_=function(){n&&!this.connected_&&(document.addEventListener("transitionend",this.onTransitionEnd_),window.addEventListener("resize",this.refresh),r?(this.mutationsObserver_=new MutationObserver(this.refresh),this.mutationsObserver_.observe(document,{attributes:!0,childList:!0,characterData:!0,subtree:!0})):(document.addEventListener("DOMSubtreeModified",this.refresh),this.mutationEventsAdded_=!0),this.connected_=!0)},a.prototype.disconnect_=function(){n&&this.connected_&&(document.removeEventListener("transitionend",this.onTransitionEnd_),window.removeEventListener("resize",this.refresh),this.mutationsObserver_&&this.mutationsObserver_.disconnect(),this.mutationEventsAdded_&&document.removeEventListener("DOMSubtreeModified",this.refresh),this.mutationsObserver_=null,this.mutationEventsAdded_=!1,this.connected_=!1)},a.prototype.onTransitionEnd_=function(t){var e=t.propertyName,n=void 0===e?"":e;o.some(function(t){return!!~n.indexOf(t)})&&this.refresh()},a.getInstance=function(){return this.instance_||(this.instance_=new a),this.instance_},a.instance_=null,a);function a(){function t(){r&&(r=!1,i()),s&&n()}function e(){l(t)}function n(){var t=Date.now();if(r){if(t-a<u)return;s=!0}else s=!(r=!0),setTimeout(e,o);a=t}var i,o,r,s,a;this.connected_=!1,this.mutationEventsAdded_=!1,this.mutationsObserver_=null,this.observers_=[],this.onTransitionEnd_=this.onTransitionEnd_.bind(this),this.refresh=(i=this.refresh.bind(this),s=r=!(o=20),a=0,n)}var c=function(t,e){for(var n=0,i=Object.keys(e);n<i.length;n++){var o=i[n];Object.defineProperty(t,o,{value:e[o],enumerable:!1,writable:!1,configurable:!0})}return t},h=function(t){return t&&t.ownerDocument&&t.ownerDocument.defaultView||e},f=g(0,0,0,0);function v(t){return parseFloat(t)||0}function p(n){for(var t=[],e=1;e<arguments.length;e++)t[e-1]=arguments[e];return t.reduce(function(t,e){return t+v(n["border-"+e+"-width"])},0)}function d(t){var e=t.clientWidth,n=t.clientHeight;if(!e&&!n)return f;var i,o=h(t).getComputedStyle(t),r=function(t){for(var e={},n=0,i=["top","right","bottom","left"];n<i.length;n++){var o=i[n],r=t["padding-"+o];e[o]=v(r)}return e}(o),s=r.left+r.right,a=r.top+r.bottom,l=v(o.width),u=v(o.height);if("border-box"===o.boxSizing&&(Math.round(l+s)!==e&&(l-=p(o,"left","right")+s),Math.round(u+a)!==n&&(u-=p(o,"top","bottom")+a)),(i=t)!==h(i).document.documentElement){var c=Math.round(l+s)-e,d=Math.round(u+a)-n;1!==Math.abs(c)&&(l-=c),1!==Math.abs(d)&&(u-=d)}return g(r.left,r.top,l,u)}var m="undefined"!=typeof SVGGraphicsElement?function(t){return t instanceof h(t).SVGGraphicsElement}:function(t){return t instanceof h(t).SVGElement&&"function"==typeof t.getBBox};function b(t){return n?m(t)?g(0,0,(e=t.getBBox()).width,e.height):d(t):f;var e}function g(t,e,n,i){return{x:t,y:e,width:n,height:i}}var y=(w.prototype.isActive=function(){var t=b(this.target);return(this.contentRect_=t).width!==this.broadcastWidth||t.height!==this.broadcastHeight},w.prototype.broadcastRect=function(){var t=this.contentRect_;return this.broadcastWidth=t.width,this.broadcastHeight=t.height,t},w);function w(t){this.broadcastWidth=0,this.broadcastHeight=0,this.contentRect_=g(0,0,0,0),this.target=t}var _=function(t,e){var n,i,o,r,s,a,l,u=(i=(n=e).x,o=n.y,r=n.width,s=n.height,a="undefined"!=typeof DOMRectReadOnly?DOMRectReadOnly:Object,l=Object.create(a.prototype),c(l,{x:i,y:o,width:r,height:s,top:o,right:i+r,bottom:s+o,left:i}),l);c(this,{target:t,contentRect:u})},E=(x.prototype.observe=function(t){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(t instanceof h(t).Element))throw new TypeError('parameter 1 is not of type "Element".');var e=this.observations_;e.has(t)||(e.set(t,new y(t)),this.controller_.addObserver(this),this.controller_.refresh())}},x.prototype.unobserve=function(t){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(t instanceof h(t).Element))throw new TypeError('parameter 1 is not of type "Element".');var e=this.observations_;e.has(t)&&(e.delete(t),e.size||this.controller_.removeObserver(this))}},x.prototype.disconnect=function(){this.clearActive(),this.observations_.clear(),this.controller_.removeObserver(this)},x.prototype.gatherActive=function(){var e=this;this.clearActive(),this.observations_.forEach(function(t){t.isActive()&&e.activeObservations_.push(t)})},x.prototype.broadcastActive=function(){if(this.hasActive()){var t=this.callbackCtx_,e=this.activeObservations_.map(function(t){return new _(t.target,t.broadcastRect())});this.callback_.call(t,e,t),this.clearActive()}},x.prototype.clearActive=function(){this.activeObservations_.splice(0)},x.prototype.hasActive=function(){return 0<this.activeObservations_.length},x);function x(t,e,n){if(this.activeObservations_=[],this.observations_=new i,"function"!=typeof t)throw new TypeError("The callback provided as parameter 1 is not a function.");this.callback_=t,this.controller_=e,this.callbackCtx_=n}var T=new("undefined"!=typeof WeakMap?WeakMap:i),O=function t(e){if(!(this instanceof t))throw new TypeError("Cannot call a class as a function.");if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");var n=s.getInstance(),i=new E(e,n,this);T.set(this,i)};["observe","unobserve","disconnect"].forEach(function(e){O.prototype[e]=function(){var t;return(t=T.get(this))[e].apply(t,arguments)}});var S=void 0!==e.ResizeObserver?e.ResizeObserver:O;z.a=S}).call(this,e(8))},function(t,e,n){"use strict";var i=n(0);n.n(i).a},function(t,e,n){(t.exports=n(3)(!1)).push([t.i,"\n.vue-modal-top,\n.vue-modal-bottom,\n.vue-modal-left,\n.vue-modal-right,\n.vue-modal-topRight,\n.vue-modal-topLeft,\n.vue-modal-bottomLeft,\n.vue-modal-bottomRight {\n  display: block;\n  overflow: hidden;\n  position: absolute;\n  background: transparent;\n  z-index: 9999999;\n}\n.vue-modal-topRight,\n.vue-modal-topLeft,\n.vue-modal-bottomLeft,\n.vue-modal-bottomRight {\n  width: 12px;\n  height: 12px;\n}\n.vue-modal-top {\n  right: 12;\n  top: 0;\n  width: 100%;\n  height: 12px;\n  cursor: n-resize;\n}\n.vue-modal-bottom {\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 12px;\n  cursor: s-resize;\n}\n.vue-modal-left {\n  left: 0;\n  top: 0;\n  width: 12px;\n  height: 100%;\n  cursor: w-resize;\n}\n.vue-modal-right {\n  right: 0;\n  top: 0;\n  width: 12px;\n  height: 100%;\n  cursor: e-resize;\n}\n.vue-modal-topRight {\n  right: 0;\n  top: 0;\n  background: transparent;\n  cursor: ne-resize;\n}\n.vue-modal-topLeft {\n  left: 0;\n  top: 0;\n  cursor: nw-resize;\n}\n.vue-modal-bottomLeft {\n  left: 0;\n  bottom: 0;\n  cursor: sw-resize;\n}\n.vue-modal-bottomRight {\n  right: 0;\n  bottom: 0;\n  cursor: se-resize;\n}\n#vue-modal-triangle::after {\n  display: block;\n  position: absolute;\n  content: '';\n  background: transparent;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-bottom: 10px solid #ddd;\n  border-left: 10px solid transparent;\n}\n#vue-modal-triangle.clicked::after {\n  border-bottom: 10px solid #369be9;\n}\n",""])},function(t,e){var n;n=function(){return this}();try{n=n||new Function("return this")()}catch(t){"object"==typeof window&&(n=window)}t.exports=n},function(t,e,n){"use strict";var i=n(1);n.n(i).a},function(t,e,n){(t.exports=n(3)(!1)).push([t.i,"\n.vm--block-scroll {\n  overflow: hidden;\n  width: 100vw;\n}\n.vm--container {\n  position: fixed;\n  box-sizing: border-box;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100vh;\n  z-index: 999;\n}\n.vm--overlay {\n  position: fixed;\n  box-sizing: border-box;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100vh;\n  background: rgba(0, 0, 0, 0.2);\n  /* z-index: 999; */\n  opacity: 1;\n}\n.vm--container.scrollable {\n  height: 100%;\n  min-height: 100vh;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n}\n.vm--modal {\n  position: relative;\n  overflow: hidden;\n  box-sizing: border-box;\n\n  background-color: white;\n  border-radius: 3px;\n  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);\n}\n.vm--container.scrollable .vm--modal {\n  margin-bottom: 2px;\n}\n.vm--top-right-slot {\n  display: block;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n.vm-transition--overlay-enter-active,\n.vm-transition--overlay-leave-active {\n  transition: all 50ms;\n}\n.vm-transition--overlay-enter,\n.vm-transition--overlay-leave-active {\n  opacity: 0;\n}\n.vm-transition--modal-enter-active,\n.vm-transition--modal-leave-active {\n  transition: all 400ms;\n}\n.vm-transition--modal-enter,\n.vm-transition--modal-leave-active {\n  opacity: 0;\n  transform: translateY(-20px);\n}\n.vm-transition--default-enter-active,\n.vm-transition--default-leave-active {\n  transition: all 2ms;\n}\n.vm-transition--default-enter,\n.vm-transition--default-leave-active {\n  opacity: 0;\n}\n",""])},function(t,e,n){"use strict";var i=n(2);n.n(i).a},function(t,e,n){(t.exports=n(3)(!1)).push([t.i,"\n.vue-dialog {\n  font-size: 14px;\n}\n.vue-dialog div {\n  box-sizing: border-box;\n}\n.vue-dialog-content {\n  flex: 1 0 auto;\n  width: 100%;\n  padding: 14px;\n}\n.vue-dialog-content-title {\n  font-weight: 600;\n  padding-bottom: 14px;\n}\n.vue-dialog-buttons {\n  display: flex;\n  flex: 0 1 auto;\n  width: 100%;\n  border-top: 1px solid #eee;\n}\n.vue-dialog-buttons-none {\n  width: 100%;\n  padding-bottom: 14px;\n}\n.vue-dialog-button {\n  font-size: inherit;\n  background: transparent;\n  padding: 0;\n  margin: 0;\n  border: 0;\n  cursor: pointer;\n  box-sizing: border-box;\n  line-height: 40px;\n  height: 40px;\n  color: inherit;\n  font: inherit;\n  outline: none;\n}\n.vue-dialog-button:hover {\n  background: #f9f9f9;\n}\n.vue-dialog-button:active {\n  background: #f3f3f3;\n}\n.vue-dialog-button:not(:first-of-type) {\n  border-left: 1px solid #eee;\n}\n",""])},function(t,e,n){"use strict";n.r(e),n.d(e,"Modal",function(){return W}),n.d(e,"Dialog",function(){return X}),n.d(e,"version",function(){return J});function i(){var e=this,t=e.$createElement,n=e._self._c||t;return e.visible?n("div",{class:e.containerClass},[n("transition",{attrs:{name:e.guaranteedOverlayTransition},on:{"before-enter":e.beforeOverlayTransitionEnter,"after-enter":e.afterOverlayTransitionEnter,"before-leave":e.beforeOverlayTransitionLeave,"after-leave":e.afterOverlayTransitionLeave}},[e.visibility.overlay?n("div",{staticClass:"vm--overlay",attrs:{"data-modal":e.name,"aria-expanded":e.visibility.overlay.toString()},on:{click:function(t){return t.target!==t.currentTarget?null:(t.stopPropagation(),e.onOverlayClick(t))}}},[n("div",{staticClass:"vm--top-right-slot"},[e._t("top-right")],2)]):e._e()]),e._v(" "),n("transition",{attrs:{name:e.guaranteedModalTransition},on:{"before-enter":e.beforeModalTransitionEnter,"after-enter":e.afterModalTransitionEnter,"before-leave":e.beforeModalTransitionLeave,"after-leave":e.afterModalTransitionLeave}},[e.visibility.modal?n("div",{ref:"modal",class:e.modalClass,style:e.modalStyle,attrs:{"aria-expanded":e.visibility.modal.toString(),role:"dialog","aria-modal":"true"}},[e._t("default"),e._v(" "),e.resizable&&!e.isAutoHeight?n("resizer",{attrs:{"min-width":e.minWidth,"min-height":e.minHeight,"max-width":e.maxWidth,"max-height":e.maxHeight,"viewport-height":e.viewportHeight,"viewport-width":e.viewportWidth,"resize-indicator":e.resizeIndicator,"resize-edges":e.resizeEdges},on:{resize:e.onModalResize}}):e._e()],2):e._e()])],1):e._e()}function o(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",[this.resizeEdges.includes("t")?n("div",{staticClass:"vue-modal-top"}):t._e(),t._v(" "),this.resizeEdges.includes("b")?n("div",{staticClass:"vue-modal-bottom"}):t._e(),t._v(" "),this.resizeEdges.includes("l")?n("div",{staticClass:"vue-modal-left"}):t._e(),t._v(" "),this.resizeEdges.includes("r")?n("div",{staticClass:"vue-modal-right"}):t._e(),t._v(" "),this.resizeEdges.includes("tr")?n("div",{staticClass:"vue-modal-topRight"}):t._e(),t._v(" "),this.resizeEdges.includes("tl")?n("div",{staticClass:"vue-modal-topLeft"}):t._e(),t._v(" "),this.resizeEdges.includes("br")?n("div",{class:t.className,attrs:{id:t.getID}}):t._e(),t._v(" "),this.resizeEdges.includes("bl")?n("div",{staticClass:"vue-modal-bottomLeft"}):t._e()])}o._withStripped=i._withStripped=!0;function h(t,e,n){return n<t?t:e<n?e:n}function r(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}function s(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var n=[],i=!0,o=!1,r=void 0;try{for(var s,a=t[Symbol.iterator]();!(i=(s=a.next()).done)&&(n.push(s.value),!e||n.length!==e);i=!0);}catch(t){o=!0,r=t}finally{try{i||null==a.return||a.return()}finally{if(o)throw r}}return n}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}function u(){var t=window.innerWidth,e=document.documentElement.clientWidth;return t&&e?Math.min(t,e):e||t}function a(t){return t.split(";").map(function(t){return t.trim()}).filter(Boolean).map(function(t){return t.split(":")}).reduce(function(t,e){var n=s(e,2);return function(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},i=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(i=i.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),i.forEach(function(t){r(e,t,n[t])})}return e}({},t,r({},n[0],n[1]))},{})}function f(t){return t.touches&&0<t.touches.length?t.touches[0]:t}var v=["INPUT","TEXTAREA","SELECT"],c=function(t){var e=0<arguments.length&&void 0!==t?t:0;return function(){return(e++).toString()}}(),l={name:"VueJsModalResizer",props:{minHeight:{type:Number,default:0},minWidth:{type:Number,default:0},maxWidth:{type:Number,default:Number.MAX_SAFE_INTEGER},maxHeight:{type:Number,default:Number.MAX_SAFE_INTEGER},viewportWidth:{type:Number,required:!0},viewportHeight:{type:Number,required:!0},resizeIndicator:{type:Boolean,default:!0},resizeEdges:{type:Array,required:!0}},data:function(){return{clicked:!1,targetClass:"",size:{},initialX:0,initialY:0}},mounted:function(){this.$el.addEventListener("mousedown",this.start,!1)},computed:{className:function(){return["vue-modal-bottomRight",{clicked:this.clicked}]},getID:function(){return this.resizeIndicator?"vue-modal-triangle":""}},methods:{start:function(t){this.targetClass=t.target.className,this.clicked=!0,this.initialX=t.clientX,this.initialY=t.clientY,window.addEventListener("mousemove",this.mousemove,!1),window.addEventListener("mouseup",this.stop,!1),t.stopPropagation(),t.preventDefault()},stop:function(){this.clicked=!1,this.clicked=!1,this.targetClass="",this.initialX=0,this.initialY=0,window.removeEventListener("mousemove",this.mousemove,!1),window.removeEventListener("mouseup",this.stop,!1),this.$emit("resize-stop",{element:this.$el.parentElement,size:this.size})},mousemove:function(t){this.resize(t)},resize:function(t){var e=this.$el.parentElement,n=t.clientX,i=t.clientY,o=parseInt(e.style.width.replace("px","")),r=parseInt(e.style.height.replace("px",""));if(!(t.clientX>this.viewportWidth||t.clientX<0)&&!(t.clientY>this.viewportHeight||t.clientY<0)&&e){switch(this.targetClass){case"vue-modal-right":n-=e.offsetLeft,i=r;break;case"vue-modal-left":i=r,n=o+(this.initialX-t.clientX);break;case"vue-modal-top":n=o,i=r+(this.initialY-t.clientY);break;case"vue-modal-bottom":n=o,i-=e.offsetTop;break;case"vue-modal-bottomRight":n-=e.offsetLeft,i-=e.offsetTop;break;case"vue-modal-topRight":n-=e.offsetLeft,i=r+(this.initialY-t.clientY);break;case"vue-modal-bottomLeft":n=o+(this.initialX-t.clientX),i-=e.offsetTop;break;case"vue-modal-topLeft":n=o+(this.initialX-t.clientX),i=r+(this.initialY-t.clientY);break;default:console.error("Incorrrect/no resize direction.")}var s=Math.min(u(),this.maxWidth),a=Math.min(window.innerHeight,this.maxHeight);n=h(this.minWidth,s,n),i=h(this.minHeight,a,i),this.initialX=t.clientX,this.initialY=t.clientY,this.size={width:n,height:i};var l={width:n-o,height:i-r};e.style.width=n+"px",e.style.height=i+"px",this.$emit("resize",{element:e,size:this.size,direction:this.targetClass,dimGrowth:l})}}}};n(6);function d(t,e,n,i,o,r,s,a){var l,u="function"==typeof t?t.options:t;if(e&&(u.render=e,u.staticRenderFns=n,u._compiled=!0),i&&(u.functional=!0),r&&(u._scopeId="data-v-"+r),s?(l=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),o&&o.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(s)},u._ssrRegister=l):o&&(l=a?function(){o.call(this,this.$root.$options.shadowRoot)}:o),l)if(u.functional){u._injectStyles=l;var c=u.render;u.render=function(t,e){return l.call(e),c(t,e)}}else{var d=u.beforeCreate;u.beforeCreate=d?[].concat(d,l):[l]}return{exports:t,options:u}}var p=d(l,o,[],!1,null,null,null);p.options.__file="src/components/Resizer.vue";var m=p.exports;function b(t){return(b="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function g(t){switch(b(t)){case"number":return{type:"px",value:t};case"string":return function(e){if("auto"===e)return{type:e,value:0};var t=_.find(function(t){return t.regexp.test(e)});return t?{type:t.name,value:parseFloat(e)}:{type:"",value:e}}(t);default:return{type:"",value:t}}}function y(t){if("string"!=typeof t)return 0<=t;var e=g(t);return("%"===e.type||"px"===e.type)&&0<e.value}var w="[-+]?[0-9]*.?[0-9]+",_=[{name:"px",regexp:new RegExp("^".concat(w,"px$"))},{name:"%",regexp:new RegExp("^".concat(w,"%$"))},{name:"px",regexp:new RegExp("^".concat(w,"$"))}],E=n(5),x="undefined"!=typeof window&&window.ResizeObserver?ResizeObserver:E.a;function T(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function O(t){return function(t){if(Array.isArray(t)){for(var e=0,n=new Array(t.length);e<t.length;e++)n[e]=t[e];return n}}(t)||function(t){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t))return Array.from(t)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance")}()}function S(t){return e='button:not([disabled]), select:not([disabled]), a[href]:not([disabled]), area[href]:not([disabled]), [contentEditable=""]:not([disabled]), [contentEditable="true"]:not([disabled]), [contentEditable="TRUE"]:not([disabled]), textarea:not([disabled]), iframe:not([disabled]), input:not([disabled]), summary:not([disabled]), [tabindex]:not([tabindex="-1"])',O(t.querySelectorAll(e)||[]);var e}function z(t){return t==document.activeElement}var M=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t),this.root=null,this.elements=[],this.onKeyDown=this.onKeyDown.bind(this),this.enable=this.enable.bind(this),this.disable=this.disable.bind(this),this.firstElement=this.firstElement.bind(this),this.lastElement=this.lastElement.bind(this)}var e,n,i;return e=t,(n=[{key:"lastElement",value:function(){return this.elements[this.elements.length-1]||null}},{key:"firstElement",value:function(){return this.elements[0]||null}},{key:"onKeyDown",value:function(t){var e;if("Tab"===(e=t).key||9===e.keyCode)return t.shiftKey&&z(this.firstElement())?(this.lastElement().focus(),void t.preventDefault()):!document.activeElement||z(this.lastElement())?(this.firstElement().focus(),void t.preventDefault()):void 0}},{key:"enabled",value:function(){return!!this.root}},{key:"enable",value:function(t){if(t){this.root=t,this.elements=S(this.root);var e=this.firstElement();e&&e.focus(),this.root.addEventListener("keydown",this.onKeyDown)}}},{key:"disable",value:function(){this.root.removeEventListener("keydown",this.onKeyDown),this.root=null}}])&&T(e.prototype,n),i&&T(e,i),t}();function L(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}function k(t,e){return function(t){if(Array.isArray(t))return t}(t)||function(t,e){var n=[],i=!0,o=!1,r=void 0;try{for(var s,a=t[Symbol.iterator]();!(i=(s=a.next()).done)&&(n.push(s.value),!e||n.length!==e);i=!0);}catch(t){o=!0,r=t}finally{try{i||null==a.return||a.return()}finally{if(o)throw r}}return n}(t,e)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}()}var R="vm-transition--default",C="enter",$="entering",A="leave",j="leavng",H={name:"VueJsModal",props:{name:{required:!0,type:String},resizable:{type:Boolean,default:!1},resizeEdges:{default:function(){return["r","br","b","bl","l","tl","t","tr"]},validator:function(e){return["r","br","b","bl","l","tl","t","tr"].filter(function(t){return-1!==e.indexOf(t)}).length===e.length},type:Array},centerResize:{type:Boolean,default:!0},resizeIndicator:{type:Boolean,default:!0},adaptive:{type:Boolean,default:!1},draggable:{type:[Boolean,String],default:!1},scrollable:{type:Boolean,default:!1},focusTrap:{type:Boolean,default:!1},reset:{type:Boolean,default:!1},overlayTransition:{type:String,default:"vm-transition--overlay"},transition:{type:String,default:"vm-transition--modal"},clickToClose:{type:Boolean,default:!0},classes:{type:[String,Array],default:function(){return[]}},styles:{type:[String,Array,Object]},minWidth:{type:Number,default:0,validator:function(t){return 0<=t}},minHeight:{type:Number,default:0,validator:function(t){return 0<=t}},maxWidth:{type:Number,default:Number.MAX_SAFE_INTEGER},maxHeight:{type:Number,default:Number.MAX_SAFE_INTEGER},width:{type:[Number,String],default:600,validator:function(t){return"auto"===t||y(t)}},height:{type:[Number,String],default:300,validator:function(t){return"auto"===t||y(t)}},shiftX:{type:Number,default:.5,validator:function(t){return 0<=t&&t<=1}},shiftY:{type:Number,default:.5,validator:function(t){return 0<=t&&t<=1}}},components:{Resizer:m},data:function(){return{visible:!1,visibility:{modal:!1,overlay:!1},overlayTransitionState:null,modalTransitionState:null,shiftLeft:0,shiftTop:0,modal:{width:0,widthType:"px",height:0,heightType:"px",renderedHeight:0},viewportHeight:0,viewportWidth:0}},created:function(){this.setInitialSize()},beforeMount:function(){this.$modal.subscription.$on("toggle",this.onToggle),window.addEventListener("resize",this.onWindowResize),window.addEventListener("orientationchange",this.onWindowResize),this.onWindowResize(),this.scrollable&&!this.isAutoHeight&&console.warn('Modal "'.concat(this.name,'" has scrollable flag set to true ')+'but height is not "auto" ('.concat(this.height,")")),this.clickToClose&&window.addEventListener("keyup",this.onEscapeKeyUp)},mounted:function(){var n=this;this.resizeObserver=new x(function(t){if(0<t.length){var e=k(t,1)[0];n.modal.renderedHeight=e.contentRect.height}}),this.$focusTrap=new M},beforeDestroy:function(){this.$modal.subscription.$off("toggle",this.onToggle),window.removeEventListener("resize",this.onWindowResize),window.removeEventListener("orientationchange",this.onWindowResize),this.clickToClose&&window.removeEventListener("keyup",this.onEscapeKeyUp),document.body.classList.remove("vm--block-scroll")},computed:{guaranteedOverlayTransition:function(){return this.overlayTransition||R},guaranteedModalTransition:function(){return this.transition||R},isAutoHeight:function(){return"auto"===this.modal.heightType},position:function(){var t=this.viewportHeight,e=this.viewportWidth,n=this.shiftLeft,i=this.shiftTop,o=this.shiftX,r=this.shiftY,s=this.trueModalWidth,a=this.trueModalHeight,l=e-s,u=Math.max(t-a,0),c=i+r*u;return{left:parseInt(h(0,l,n+o*l)),top:!a&&this.isAutoHeight?void 0:parseInt(h(0,u,c))}},trueModalWidth:function(){var t=this.viewportWidth,e=this.modal,n=this.adaptive,i=this.minWidth,o=this.maxWidth,r="%"===e.widthType?t/100*e.width:e.width;if(n){var s=Math.max(i,Math.min(t,o));return h(i,s,r)}return r},trueModalHeight:function(){var t=this.viewportHeight,e=this.modal,n=this.isAutoHeight,i=this.adaptive,o=this.minHeight,r=this.maxHeight,s="%"===e.heightType?t/100*e.height:e.height;if(n)return this.modal.renderedHeight;if(i){var a=Math.max(o,Math.min(t,r));return h(o,a,s)}return s},autoHeight:function(){return this.adaptive&&this.modal.renderedHeight>=this.viewportHeight?Math.max(this.minHeight,this.viewportHeight)+"px":"auto"},containerClass:function(){return["vm--container",this.scrollable&&this.isAutoHeight&&"scrollable"]},modalClass:function(){return["vm--modal",this.classes]},stylesProp:function(){return"string"==typeof this.styles?a(this.styles):this.styles},modalStyle:function(){return[this.stylesProp,{top:this.position.top+"px",left:this.position.left+"px",width:this.trueModalWidth+"px",height:this.isAutoHeight?this.autoHeight:this.trueModalHeight+"px"}]},isComponentReadyToBeDestroyed:function(){return this.overlayTransitionState===A&&this.modalTransitionState===A}},watch:{isComponentReadyToBeDestroyed:function(t){t&&(this.visible=!1)}},methods:{startTransitionEnter:function(){this.visibility.overlay=!0,this.visibility.modal=!0},startTransitionLeave:function(){this.visibility.overlay=!1,this.visibility.modal=!1},beforeOverlayTransitionEnter:function(){this.overlayTransitionState=$},afterOverlayTransitionEnter:function(){this.overlayTransitionState=C},beforeOverlayTransitionLeave:function(){this.overlayTransitionState=j},afterOverlayTransitionLeave:function(){this.overlayTransitionState=A},beforeModalTransitionEnter:function(){var t=this;this.modalTransitionState=$,this.$nextTick(function(){t.resizeObserver.observe(t.$refs.modal)})},afterModalTransitionEnter:function(){this.modalTransitionState=C,this.draggable&&this.addDraggableListeners(),this.focusTrap&&this.$focusTrap.enable(this.$refs.modal);var t=this.createModalEvent({state:"opened"});this.$emit("opened",t)},beforeModalTransitionLeave:function(){this.modalTransitionState=j,this.resizeObserver.unobserve(this.$refs.modal),this.$focusTrap.enabled()&&this.$focusTrap.disable()},afterModalTransitionLeave:function(){this.modalTransitionState=A;var t=this.createModalEvent({state:"closed"});this.$emit("closed",t)},onToggle:function(t,e,n){if(this.name===t){var i=void 0===e?!this.visible:e;this.toggle(i,n)}},setInitialSize:function(){var t=g(this.width),e=g(this.height);this.modal.width=t.value,this.modal.widthType=t.type,this.modal.height=e.value,this.modal.heightType=e.type},onEscapeKeyUp:function(t){27===t.which&&this.visible&&this.$modal.hide(this.name)},onWindowResize:function(){this.viewportWidth=u(),this.viewportHeight=window.innerHeight,this.ensureShiftInWindowBounds()},createModalEvent:function(t){var e=0<arguments.length&&void 0!==t?t:{};return function(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},i=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(i=i.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),i.forEach(function(t){L(e,t,n[t])})}return e}({name:this.name,ref:this.$refs.modal||null},e)},onModalResize:function(t){this.modal.widthType="px",this.modal.width=t.size.width,this.modal.heightType="px",this.modal.height=t.size.height,this.centerResize||(this.shiftLeft=this.getResizedShiftLeft(t),this.shiftTop=this.getResizedShiftTop(t));var e=this.modal.size;this.$emit("resize",this.createModalEvent({size:e}))},getResizedShiftLeft:function(t){this.viewportHeight,this.viewportWidth,this.trueModalWidth,this.trueModalHeight;var e=this.shiftLeft;switch(t.direction){case"vue-modal-topRight":case"vue-modal-bottomRight":case"vue-modal-right":e+=.5*t.dimGrowth.width;break;case"vue-modal-bottomLeft":case"vue-modal-topLeft":case"vue-modal-left":e-=.5*t.dimGrowth.width;break;case"vue-modal-top":case"vue-modal-bottom":break;default:console.error("Could not Find Resize Direction In ShiftLeft")}return e},getResizedShiftTop:function(t){this.viewportHeight,this.viewportWidth,this.trueModalWidth,this.trueModalHeight;var e=this.shiftTop;switch(t.direction){case"vue-modal-bottom":case"vue-modal-bottomRight":case"vue-modal-bottomLeft":e+=.5*t.dimGrowth.height;break;case"vue-modal-top":case"vue-modal-topRight":case"vue-modal-topLeft":e-=.5*t.dimGrowth.height;break;case"vue-modal-left":case"vue-modal-right":break;default:console.error("Could not Find Resize Direction In ShiftTop")}return e},open:function(t){var e=this;this.reset&&(this.setInitialSize(),this.shiftLeft=0,this.shiftTop=0),this.scrollable&&document.body.classList.add("vm--block-scroll");var n=!1,i=this.createModalEvent({cancel:function(){n=!0},state:"before-open",params:t});this.$emit("before-open",i),n?this.scrollable&&document.body.classList.remove("vm--block-scroll"):("undefined"!=typeof document&&document.activeElement&&"BODY"!==document.activeElement.tagName&&document.activeElement.blur&&document.activeElement.blur(),this.visible=!0,this.$nextTick(function(){e.startTransitionEnter()}))},close:function(t){this.scrollable&&document.body.classList.remove("vm--block-scroll");var e=!1,n=this.createModalEvent({cancel:function(){e=!0},state:"before-close",params:t});this.$emit("before-close",n),e||this.startTransitionLeave()},toggle:function(t,e){this.visible!==t&&(t?this.open(e):this.close(e))},getDraggableElement:function(){return!0===this.draggable?this.$refs.modal:"string"==typeof this.draggable?this.$refs.modal.querySelector(this.draggable):null},onOverlayClick:function(){this.clickToClose&&this.toggle(!1)},addDraggableListeners:function(){var s=this,t=this.getDraggableElement();if(t){var a=0,l=0,u=0,c=0,e=function(t){var e=t.target;if(!(n=e)||-1===v.indexOf(n.nodeName)){var n,i=f(t),o=i.clientX,r=i.clientY;document.addEventListener("mousemove",d),document.addEventListener("touchmove",d),document.addEventListener("mouseup",h),document.addEventListener("touchend",h),a=o,l=r,u=s.shiftLeft,c=s.shiftTop}},d=function(t){var e=f(t),n=e.clientX,i=e.clientY;s.shiftLeft=u+n-a,s.shiftTop=c+i-l,t.preventDefault()},h=function t(e){s.ensureShiftInWindowBounds(),document.removeEventListener("mousemove",d),document.removeEventListener("touchmove",d),document.removeEventListener("mouseup",t),document.removeEventListener("touchend",t),e.preventDefault()};t.addEventListener("mousedown",e),t.addEventListener("touchstart",e)}},ensureShiftInWindowBounds:function(){var t=this.viewportHeight,e=this.viewportWidth,n=this.shiftLeft,i=this.shiftTop,o=this.shiftX,r=this.shiftY,s=this.trueModalWidth,a=this.trueModalHeight,l=e-s,u=Math.max(t-a,0),c=n+o*l,d=i+r*u;this.shiftLeft-=c-h(0,l,c),this.shiftTop-=d-h(0,u,d)}}},N=(n(9),d(H,i,[],!1,null,null,null));N.options.__file="src/components/Modal.vue";function D(){var n=this,t=n.$createElement,i=n._self._c||t;return i(n.$modal.context.componentName,{tag:"component",attrs:{name:"dialog",height:"auto",classes:["vue-dialog",this.params.class],width:n.width,"shift-y":.3,adaptive:!0,"focus-trap":!0,clickToClose:n.clickToClose,transition:n.transition},on:{"before-open":n.beforeOpened,"before-close":n.beforeClosed,opened:function(t){return n.$emit("opened",t)},closed:function(t){return n.$emit("closed",t)}}},[i("div",{staticClass:"vue-dialog-content"},[n.params.title?i("div",{staticClass:"vue-dialog-content-title",domProps:{innerHTML:n._s(n.params.title||"")}}):n._e(),n._v(" "),n.params.component?i(n.params.component,n._b({tag:"component"},"component",n.params.props,!1)):i("div",{domProps:{innerHTML:n._s(n.params.text||"")}})],1),n._v(" "),n.buttons?i("div",{staticClass:"vue-dialog-buttons"},n._l(n.buttons,function(t,e){return i("button",{key:e,class:t.class||"vue-dialog-button",style:n.buttonStyle,attrs:{type:"button",tabindex:"0"},domProps:{innerHTML:n._s(t.title)},on:{click:function(t){return t.stopPropagation(),n.click(e,t)}}},[n._v(n._s(t.title))])}),0):i("div",{staticClass:"vue-dialog-buttons-none"})])}var W=N.exports;D._withStripped=!0;var I={name:"VueJsDialog",props:{width:{type:[Number,String],default:400},clickToClose:{type:Boolean,default:!0},transition:{type:String}},data:function(){return{params:{}}},computed:{buttons:function(){return this.params.buttons||[]},buttonStyle:function(){return{flex:"1 1 ".concat(100/this.buttons.length,"%")}}},methods:{beforeOpened:function(t){this.params=t.params||{},this.$emit("before-opened",t)},beforeClosed:function(t){this.params={},this.$emit("before-closed",t)},click:function(t,e,n){var i=2<arguments.length&&void 0!==n?n:"click",o=this.buttons[t],r=null==o?void 0:o.handler;"function"==typeof r&&r(t,e,{source:i})}}},P=(n(11),d(I,D,[],!1,null,null,null));P.options.__file="src/components/Dialog.vue";function B(){var n=this,t=n.$createElement,i=n._self._c||t;return i("div",{attrs:{id:"modals-container"}},n._l(n.modals,function(e){return i("modal",n._g(n._b({key:e.id,on:{closed:function(t){return n.remove(e.id)}}},"modal",e.modalAttrs,!1),e.modalListeners),[i(e.component,n._g(n._b({tag:"component",on:{close:function(t){return n.$modal.hide(e.modalAttrs.name,t)}}},"component",e.componentAttrs,!1),n.$listeners))],1)}),1)}var X=P.exports;function Y(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}B._withStripped=!0;var G=d({data:function(){return{modals:[]}},created:function(){this.$root.__modalContainer=this},mounted:function(){var t=this;this.$modal.subscription.$on("hide-all",function(){t.modals=[]})},methods:{add:function(t,e,n,i){var o=this,r=1<arguments.length&&void 0!==e?e:{},s=2<arguments.length&&void 0!==n?n:{},a=3<arguments.length&&void 0!==i?i:{},l=c(),u=s.name||"dynamic_modal_"+l;this.modals.push({id:l,modalAttrs:function(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},i=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(i=i.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),i.forEach(function(t){Y(e,t,n[t])})}return e}({},s,{name:u}),modalListeners:a,component:t,componentAttrs:r}),this.$nextTick(function(){o.$modal.show(u)})},remove:function(e){var t=this.modals.findIndex(function(t){return t.id===e});-1!==t&&this.modals.splice(t,1)}}},B,[],!1,null,null,null);G.options.__file="src/components/ModalsContainer.vue";var U=G.exports;function F(t){return(F="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function q(t,e,n){return e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n,t}var V=function(i,t){function o(t,e,n,i){var o,r=2<arguments.length&&void 0!==n?n:{},s=3<arguments.length?i:void 0,a=null===(o=c.root)||void 0===o?void 0:o.__modalContainer,l=u.dynamicDefaults||{};null!=a&&a.add(t,e,function(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},i=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(i=i.concat(Object.getOwnPropertySymbols(n).filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable}))),i.forEach(function(t){q(e,t,n[t])})}return e}({},l,r),s)}var u=1<arguments.length&&void 0!==t?t:{},r=new i,c={root:null,componentName:u.componentName||"Modal"};return{context:c,subscription:r,show:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];var i=e[0];switch(F(i)){case"string":(function(t,e){r.$emit("toggle",t,!0,e)}).apply(void 0,e);break;case"object":case"function":o.apply(void 0,e);break;default:console.warn("[vue-js-modal] $modal() received an unsupported argument as a first argument.",i)}},hide:function(t,e){r.$emit("toggle",t,!1,e)},hideAll:function(){r.$emit("hide-all")},toggle:function(t,e){r.$emit("toggle",t,void 0,e)},setDynamicModalContainer:function(t){c.root=t;var e,n=(e=document.createElement("div"),document.body.appendChild(e),e);new i({parent:t,render:function(t){return t(U)}}).$mount(n)}}},K={install:function(e,t){var n=1<arguments.length&&void 0!==t?t:{};if(!e.prototype.$modal){var i=new V(e,n);if(Object.defineProperty(e.prototype,"$modal",{get:function(){if(this instanceof e){var t=this.$root;i.context.root||i.setDynamicModalContainer(t)}return i}}),e.component(i.context.componentName,W),n.dialog){var o=n.dialogComponentName||"VDialog";e.component(o,X)}}}},J="__VERSION__";e.default=K}],o.c=i,o.d=function(t,e,n){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)o.d(n,i,function(t){return e[t]}.bind(null,i));return n},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="/dist/",o(o.s=13);function o(t){if(i[t])return i[t].exports;var e=i[t]={i:t,l:!1,exports:{}};return n[t].call(e.exports,e,e.exports,o),e.l=!0,e.exports}var n,i});
+//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -46040,18 +44942,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "transition",
-        { attrs: { name: "fade", mode: "in-out" } },
-        [_c("router-view", [_c(_vm.Component, { tag: "component" })], 1)],
-        1
-      )
-    ],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -46383,39 +45274,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container cont" }, [
-    _c(
-      "div",
-      { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3" },
-      _vm._l(_vm.plates, function(plate) {
-        return _c("div", { key: plate.id, staticClass: "col p-3 plate" }, [
-          _c("div", { staticClass: "card_plate text-white" }, [
-            _c("div", { staticClass: "cover_cont" }, [
-              _c("img", {
-                staticClass: "plateImg",
-                attrs: { src: plate.img, alt: plate.id }
-              }),
-              _vm._v(" "),
-              _c("i", { staticClass: "fas fa-cart-plus cart" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "infos" }, [
-              _c("div", { staticClass: "text-uppercase name" }, [
-                _vm._v(_vm._s(plate.name))
+  return _c(
+    "div",
+    { staticClass: "container cont" },
+    [
+      _c("router-view", {
+        key: _vm.$route.params.slugPlate,
+        staticClass: "showPlate",
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var Plate = ref.Plate
+              return [_c(Plate, { tag: "component" })]
+            }
+          }
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3" },
+        _vm._l(_vm.plates, function(plate) {
+          return _c("div", { key: plate.id, staticClass: "col p-3 plate" }, [
+            _c("div", { staticClass: "card_plate text-white" }, [
+              _c("div", { staticClass: "cover_cont" }, [
+                _c("img", {
+                  staticClass: "plateImg",
+                  attrs: { src: plate.img, alt: plate.id }
+                }),
+                _vm._v(" "),
+                _vm._m(0, true)
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "descr m-3" }, [
-                _vm._v(_vm._s(plate.description))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "price" }, [
-                _vm._v(_vm._s(plate.price) + "€")
+              _c("div", { staticClass: "infos" }, [
+                _c("div", { staticClass: "text-uppercase name" }, [
+                  _vm._v(_vm._s(plate.name))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "descr m-3" }, [
+                  _vm._v(_vm._s(plate.description))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "price d-flex justify-content-around" },
+                  [
+                    _c("span", [_vm._v(_vm._s(plate.price) + "€")]),
+                    _vm._v(" "),
+                    _c("i", { staticClass: "fas fa-cart-plus" }),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "showPlate",
+                            params: { slugPlate: plate.slug }
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-eye" })]
+                    )
+                  ],
+                  1
+                )
               ])
             ])
           ])
-        ])
-      }),
-      0
+        }),
+        0
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icons" }, [
+      _c("i", { staticClass: "fas fa-eye show" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "cont" }, [
+    _c(
+      "div",
+      {
+        staticClass: "plate-cont",
+        style: { backgroundImage: "url(" + _vm.plate.img + ")" }
+      },
+      [
+        _c(
+          "h1",
+          {
+            directives: [
+              {
+                name: "click-outside",
+                rawName: "v-click-outside",
+                value: _vm.onClickOutside,
+                expression: "onClickOutside"
+              }
+            ],
+            staticClass: "text-white"
+          },
+          [_vm._v(_vm._s(_vm.plate.name))]
+        )
+      ]
     )
   ])
 }
@@ -46496,26 +45484,19 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c(
-            "transition",
-            { attrs: { name: "fade", mode: "out-in" } },
-            [
-              _c("router-view", {
-                key: _vm.$route.fullPath,
-                staticClass: "showPlates",
-                scopedSlots: _vm._u([
-                  {
-                    key: "default",
-                    fn: function(ref) {
-                      var Component = ref.Component
-                      return [_c(Component, { tag: "component" })]
-                    }
-                  }
-                ])
-              })
-            ],
-            1
-          )
+          _c("router-view", {
+            key: _vm.$route.params.slugCourse,
+            staticClass: "showPlates",
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var MenuCourse = ref.MenuCourse
+                  return [_c(MenuCourse, { tag: "component" })]
+                }
+              }
+            ])
+          })
         ],
         1
       )
@@ -49914,93 +48895,6 @@ if (inBrowser && window.Vue) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var sr = __webpack_require__(/*! scrollreveal */ "./node_modules/scrollreveal/dist/scrollreveal.es.js").default();
-
-function generateOptions(defaultOptions, bindingValue, bindingModifiers) {
-  var options = _extends({}, defaultOptions, bindingValue);
-
-  if (bindingModifiers) {
-    if (bindingModifiers.reset) {
-      options.reset = true;
-    }
-
-    if (bindingModifiers.nomobile) {
-      options.mobile = false;
-    }
-
-    if (bindingModifiers.nodesktop) {
-      options.desktop = false;
-    }
-  }
-
-  return options;
-}
-
-var VueScrollReveal = {
-  install: function install(Vue, defaultOptions) {
-    Vue.directive('scroll-reveal', {
-      inserted: function inserted(el, binding) {
-        var options = generateOptions(defaultOptions, binding.value, binding.modifiers);
-
-        if (typeof options.class === 'string') {
-          el.classList.add(options.class);
-          delete options.class;
-        }
-
-        sr.reveal(el, options);
-      },
-      update: function update(el, binding) {
-        if (binding.value != binding.oldValue) {
-          var options = generateOptions(defaultOptions, binding.value, binding.modifiers);
-
-          sr.reveal(el, options);
-        }
-      }
-    });
-
-    var $sr = {
-      isSupported: function isSupported() {
-        return sr.isSupported();
-      },
-      sync: function sync() {
-        sr.sync();
-      },
-      reveal: function reveal(target, config, interval, sync) {
-        var options = generateOptions(defaultOptions, config);
-
-        sr.reveal(target, config, interval, sync);
-      }
-    };
-
-    Object.defineProperty(Vue.prototype, '$sr', {
-      get: function get() {
-        return $sr;
-      }
-    });
-  }
-};
-
-exports.default = VueScrollReveal;
 
 
 /***/ }),
@@ -63382,6 +62276,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! portal-vue */ "./node_modules/portal-vue/dist/portal-vue.common.js");
+/* harmony import */ var portal_vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(portal_vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var click_outside_vue3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! click-outside-vue3 */ "./node_modules/click-outside-vue3/dist/v-click-outside.umd.js");
+/* harmony import */ var click_outside_vue3__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(click_outside_vue3__WEBPACK_IMPORTED_MODULE_5__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -63393,12 +62293,36 @@ __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modul
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.VueScrollReveal = __webpack_require__(/*! vue-scroll-reveal */ "./node_modules/vue-scroll-reveal/dist/vue-scroll-reveal.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(VueScrollReveal);
 
 
 
+
+
+
+/* import ScrollReveal from 'scrollreveal';
+    
+Vue.use(ScrollReveal); */
+
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_4___default.a);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.use(click_outside_vue3__WEBPACK_IMPORTED_MODULE_5___default.a);
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.directive('click-outside', {
+  bind: function bind(el, binding, vnode) {
+    el.clickOutsideEvent = function (event) {
+      // here I check that click was outside the el and his children
+      if (!(el == event.target || el.contains(event.target))) {
+        // and if it did, call method provided in attribute value
+        vnode.context[binding.expression](event);
+      }
+    };
+
+    document.body.addEventListener('click', el.clickOutsideEvent);
+  },
+  unbind: function unbind(el) {
+    document.body.removeEventListener('click', el.clickOutsideEvent);
+  }
+});
 var app = new vue__WEBPACK_IMPORTED_MODULE_2___default.a({
   el: '#root',
   render: function render(h) {
@@ -64267,6 +63191,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/Plate.vue":
+/*!**************************************!*\
+  !*** ./resources/js/pages/Plate.vue ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Plate.vue?vue&type=template&id=29ba285d&scoped=true& */ "./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true&");
+/* harmony import */ var _Plate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Plate.vue?vue&type=script&lang=js& */ "./resources/js/pages/Plate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& */ "./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Plate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "29ba285d",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Plate.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Plate.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/pages/Plate.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Plate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=style&index=0&id=29ba285d&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_style_index_0_id_29ba285d_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Plate.vue?vue&type=template&id=29ba285d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Plate.vue?vue&type=template&id=29ba285d&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Plate_vue_vue_type_template_id_29ba285d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/Restaurant.vue":
 /*!*******************************************!*\
   !*** ./resources/js/pages/Restaurant.vue ***!
@@ -64461,10 +63472,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Restaurants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Restaurants */ "./resources/js/pages/Restaurants.vue");
 /* harmony import */ var _pages_Restaurant__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Restaurant */ "./resources/js/pages/Restaurant.vue");
 /* harmony import */ var _pages_MenuCourse__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/MenuCourse */ "./resources/js/pages/MenuCourse.vue");
+/* harmony import */ var _pages_Plate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/Plate */ "./resources/js/pages/Plate.vue");
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
 
 
 
@@ -64501,7 +63514,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
     children: [{
       path: ':slugCourse',
       name: 'showMenu',
-      component: _pages_MenuCourse__WEBPACK_IMPORTED_MODULE_9__["default"]
+      component: _pages_MenuCourse__WEBPACK_IMPORTED_MODULE_9__["default"],
+      children: [{
+        path: ':slugPlate',
+        name: 'showPlate',
+        component: _pages_Plate__WEBPACK_IMPORTED_MODULE_10__["default"]
+      }]
     }]
   }]
 });

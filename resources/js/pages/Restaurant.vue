@@ -25,11 +25,10 @@
 
             </section>
 
-            <transition name="fade" mode="out-in">
-            <router-view v-slot="{Component}" :key="$route.fullPath" class="showPlates">
-                    <component :is="Component"/>
+            
+            <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
+                    <component :is="MenuCourse"/>
             </router-view>
-            </transition>
         
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
@@ -60,10 +59,11 @@ export default {
         
     },
     watch: {
-        loaded: function() {
-            console.log(this.courses);
+
+        /* ora mostra antipasto, fare pagina atterraggio */
+        /* loaded: function() {
             this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
-        }
+        } */
     },
     methods: {
         getRestaurant() {
