@@ -7160,6 +7160,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MenuCourse',
   data: function data() {
@@ -12021,7 +12024,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 60px;\n  cursor: pointer;\n  transition: all 0.3s ease-in-out;\n}\n.infos[data-v-593b98ba] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos .name[data-v-593b98ba] {\n  font-size: 20px;\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 14px;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  font-weight: bold;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n}", ""]);
+exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 14px;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 20px;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
 
 // exports
 
@@ -45298,46 +45301,79 @@ var render = function() {
         _vm._l(_vm.plates, function(plate) {
           return _c("div", { key: plate.id, staticClass: "col p-3 plate" }, [
             _c("div", { staticClass: "card_plate text-white" }, [
-              _c("div", { staticClass: "cover_cont" }, [
-                _c("img", {
-                  staticClass: "plateImg",
-                  attrs: { src: plate.img, alt: plate.id }
-                }),
-                _vm._v(" "),
-                _vm._m(0, true)
-              ]),
+              _c(
+                "div",
+                { staticClass: "cover_cont" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "showPlate",
+                          params: { slugPlate: plate.slug }
+                        }
+                      }
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "plateImg",
+                        attrs: { src: plate.img, alt: plate.id }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "icons" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "showPlate",
+                              params: { slugPlate: plate.slug }
+                            }
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-eye show" })]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-uppercase name" }, [
+                    _c("span", [_vm._v(_vm._s(plate.name))])
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "infos" }, [
-                _c("div", { staticClass: "text-uppercase name" }, [
-                  _vm._v(_vm._s(plate.name))
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "descr m-3" }, [
+                _c("div", { staticClass: "descr my-2 mx-3" }, [
                   _vm._v(_vm._s(plate.description))
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "price d-flex justify-content-around" },
+                  {
+                    staticClass:
+                      "price d-flex align-items-center justify-content-center"
+                  },
                   [
-                    _c("span", [_vm._v(_vm._s(plate.price) + "€")]),
+                    _c("span", { staticClass: "prezzo" }, [
+                      _vm._v(_vm._s(plate.price) + "€")
+                    ]),
                     _vm._v(" "),
-                    _c("i", { staticClass: "fas fa-cart-plus" }),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: {
-                            name: "showPlate",
-                            params: { slugPlate: plate.slug }
-                          }
-                        }
-                      },
-                      [_c("i", { staticClass: "fas fa-eye" })]
-                    )
-                  ],
-                  1
+                    _c("img", {
+                      staticClass: "cart",
+                      attrs: {
+                        src: "/storage/img/add-to-cart.png",
+                        alt: "cart icon"
+                      }
+                    })
+                  ]
                 )
               ])
             ])
@@ -45349,16 +45385,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icons" }, [
-      _c("i", { staticClass: "fas fa-eye show" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
