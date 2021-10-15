@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cuisine;
 use App\Restaurant;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CuisineController extends Controller
 {
@@ -56,17 +57,33 @@ class CuisineController extends Controller
      */
     public function show($slug)
     {
-        $cuisine = Cuisine::where('slug', $slug)->first();
+        $cuisine = Cuisine::with('restaurants')->where('slug', $slug)->first();
+
+
         $restaurants = $cuisine->restaurants;
 
-        $cuisine->img = url('storage/' . $cuisine->img);
+        // collection - count - per page - current page - 
+        $curr_page = 1;
+        $per_page= 3;
+        $paginate = new LengthAwarePaginator(
+            $restaurants->forPage($curr_page, $per_page),
+            $restaurants->count(),
+            $per_page,
+            $curr_page,
+
+        );
+
+      
+        
+
             
         return response()->json([
             'success' => true,
-            'results' => $restaurants
+            'results' => $paginate
         ]);
-}
 
+
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -102,3 +119,6 @@ class CuisineController extends Controller
         //
     }
 }
+
+
+

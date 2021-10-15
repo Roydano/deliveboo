@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div  v-if="cuisineSelect != '' " class="card-restaurant">
+        <!-- <div  v-if="cuisineSelect != '' " class="card-restaurant">
 
             <h3>cucina {{ cuisineSelect }}</h3>
 
@@ -26,7 +26,9 @@
             </div>
 
             
-        </div>
+        </div> -->
+
+        <button @click="show">click</button>
 
         
     </div>
@@ -37,7 +39,17 @@ export default {
     name: 'CardRestaurant',
     props:['cuisineSelect', 'restaurants'],
 
-    
+
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        show(){
+            console.log(this.restaurants);
+        }
+    }
     
 
 }
