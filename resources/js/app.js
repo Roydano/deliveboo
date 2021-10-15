@@ -21,14 +21,16 @@ import Vue from 'vue';
 import vmodal from 'vue-js-modal';
 import PortalVue from 'portal-vue';
 import vClickOutside from "click-outside-vue3";
+import Popover from 'vue-js-popover'
+ 
+
 
 /* import ScrollReveal from 'scrollreveal';
     
 Vue.use(ScrollReveal); */
 Vue.use(vmodal);
-Vue.use(PortalVue);
 Vue.use(vClickOutside);
-
+Vue.use(Popover);
 Vue.directive('click-outside', {
     bind: function (el, binding, vnode) {
       el.clickOutsideEvent = function (event) {

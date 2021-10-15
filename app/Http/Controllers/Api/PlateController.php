@@ -95,6 +95,45 @@ class PlateController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showPrev($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $prevPlate = $restaurant->plates->orderBy('id')->where('id', '<', $plate->id)->first()->slug;
+        
+        return response()->json([
+            'success' => true,
+            'results' => $prevPlate
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showNext($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $nextPlate = $restaurant->plates->where('id', '>', $plate->id)->first()->slug;
+
+        
+        return response()->json([
+            'success' => true,
+            'results' => $nextPlate
+        ]);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
