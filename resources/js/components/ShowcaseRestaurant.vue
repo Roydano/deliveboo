@@ -82,7 +82,7 @@ export default {
         getRestaurant(cuisine) {
         axios.get("/api/cuisines/" + cuisine)
         .then((response) => {
-            this.restaurants = response.data.results;
+            this.restaurants = response.data.results.data;
 
         });
     },

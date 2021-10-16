@@ -11,7 +11,11 @@
             <div class="card_plate text-white">
                 <div class="cover_cont">
                     <img :src="plate.img" :alt="plate.id" class="plateImg">
-                    <i class="fas fa-cart-plus cart"></i>
+                    <div @click="addPlateToCart(plate)" >
+                        <i class="fas fa-cart-plus cart"></i>
+
+                    </div>
+                    
                 </div>
                 <div class="infos">
                     <div class="text-uppercase name">{{plate.name}}</div>
@@ -80,6 +84,9 @@ export default {
                     console.log(error);
                 });
         },
+         addPlateToCart(plate) {
+            this.$store.commit('addToCart', plate); 
+        }
         
 
     }
