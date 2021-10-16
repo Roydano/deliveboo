@@ -21,10 +21,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 
-<<<<<<< HEAD
-
-
-=======
 import App from './views/App';
 import router from './router';
 import Vue from 'vue';
@@ -56,7 +52,6 @@ Vue.directive('click-outside', {
       document.body.removeEventListener('click', el.clickOutsideEvent)
     },
   });
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
 
 const app = new Vue({
     el: '#root',
