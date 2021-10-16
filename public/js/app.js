@@ -7450,6 +7450,8 @@ __webpack_require__.r(__webpack_exports__);
       plate: [],
       prevPlateSlug: [],
       nextPlateSlug: [],
+      prevCourse: [],
+      nextCourse: [],
       open: false
     };
   },
@@ -7494,8 +7496,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios.get('http://localhost:8000/api/prevPlate/' + this.$route.params.slugPlate).then(function (response) {
-        _this3.prevPlateSlug = response.data.results;
-        console.log(response.data.results);
+        _this3.prevPlateSlug = response.data.results.plate;
+        _this3.prevCourse = response.data.results.course;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7504,7 +7506,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.get('http://localhost:8000/api/nextPlate/' + this.$route.params.slugPlate).then(function (response) {
-        _this4.nextPlateSlug = response.data.results;
+        _this4.nextPlateSlug = response.data.results.plate;
+        _this4.nextCourse = response.data.results.course;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7523,6 +7526,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -12258,7 +12263,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Ha
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);", ""]);
 
 // module
-exports.push([module.i, "*[data-v-37c76d18] {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: black;\n  height: 100vh;\n  overflow: hidden;\n  justify-content: flex-end;\n}\nvideo[data-v-37c76d18] {\n  height: 100%;\n}\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
+exports.push([module.i, "*[data-v-37c76d18]::not(i) {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: black;\n  height: 100vh;\n  overflow: hidden;\n  justify-content: flex-end;\n}\nvideo[data-v-37c76d18] {\n  height: 100%;\n}\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
 
 // exports
 
@@ -12270,9 +12275,17 @@ exports.push([module.i, "*[data-v-37c76d18] {\n  font-family: \"Montserrat\", se
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Main.vue?vue&type=style&index=0&id=b9c20fb8&lang=scss&scoped=true& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected selector.\n   ╷\n22 │ <<<<<<< HEAD\r\n   │ ^\n   ╵\n  C:\\Users\\angel\\Desktop\\Boolean\\mamp_public\\deliveboo\\resources\\js\\components\\Main.vue 22:1  root stylesheet");
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "*[data-v-b9c20fb8] {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  overflow-x: hidden;\n}\n.body[data-v-b9c20fb8] {\n  background: #17a2b8;\n}\n.swrapper[data-v-b9c20fb8] {\n  width: 100%;\n  margin: 130px auto;\n  background: #fff;\n  padding: 25px 30px 30px 30px;\n  border-radius: 5px;\n}\n.swrapper header[data-v-b9c20fb8] {\n  font-size: 30px;\n  font-weight: 600;\n  margin-bottom: 20px;\n}\n.swrapper nav[data-v-b9c20fb8] {\n  position: relative;\n  height: 50px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n}\n.swrapper nav label[data-v-b9c20fb8] {\n  display: block;\n  height: 100%;\n  width: 100%;\n  text-align: center;\n  line-height: 50px;\n  cursor: pointer;\n  color: #17a2b8;\n  font-size: 17px;\n  z-index: 1;\n  position: relative;\n  transition: all 0.3s ease;\n}\n#home:checked ~ nav label.home[data-v-b9c20fb8] {\n  color: #fff;\n}\n#blog:checked ~ nav label.blog[data-v-b9c20fb8] {\n  color: #fff;\n}\n#code:checked ~ nav label.code[data-v-b9c20fb8] {\n  color: #fff;\n}\n#help:checked ~ nav label.help[data-v-b9c20fb8] {\n  color: #fff;\n}\n#about:checked ~ nav label.about[data-v-b9c20fb8] {\n  color: #fff;\n}\n#greca:checked ~ nav label.greca[data-v-b9c20fb8] {\n  color: #fff;\n}\n#cinese:checked ~ nav label.cinese[data-v-b9c20fb8] {\n  color: #fff;\n}\n#libanese:checked ~ nav label.libanese[data-v-b9c20fb8] {\n  color: #fff;\n}\n#messicana:checked ~ nav label.messicana[data-v-b9c20fb8] {\n  color: #fff;\n}\n#pizza:checked ~ nav label.pizza[data-v-b9c20fb8] {\n  color: #fff;\n}\n#thailandese:checked ~ nav label.thailandese[data-v-b9c20fb8] {\n  color: #fff;\n}\n#vegetariana:checked ~ nav label.vegetariana[data-v-b9c20fb8] {\n  color: #fff;\n}\n#vegana:checked ~ nav label.vegana[data-v-b9c20fb8] {\n  color: #fff;\n}\ninput[type=radio][data-v-b9c20fb8] {\n  display: none;\n}\n.swrapper nav .slider[data-v-b9c20fb8] {\n  position: absolute;\n  height: 100%;\n  width: 7%;\n  background-color: black;\n  opacity: 0.9;\n  border-radius: 5px;\n  z-index: 0;\n  left: 0;\n  bottom: 0;\n  transition: all 0.3s ease;\n}\n#blog:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 7.8%;\n}\n#code:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 15.7%;\n}\n#help:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 23.5%;\n}\n#about:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 31.1%;\n}\n#greca:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 39%;\n}\n#cinese:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 46.6%;\n}\n#libanese:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 54%;\n}\n#messicana:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 61.8%;\n}\n#pizza:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 69.5%;\n}\n#thailandese:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 77.3%;\n}\n#vegetariana:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 84.9%;\n}\n#vegana:checked ~ nav .slider[data-v-b9c20fb8] {\n  left: 92.5%;\n}\nsection .content[data-v-b9c20fb8] {\n  display: none;\n}\n#home:checked ~ section .content-1[data-v-b9c20fb8] {\n  display: block;\n}\n#blog:checked ~ section .content-2[data-v-b9c20fb8] {\n  display: block;\n}\n#code:checked ~ section .content-3[data-v-b9c20fb8] {\n  display: block;\n}\n#help:checked ~ section .content-4[data-v-b9c20fb8] {\n  display: block;\n}\n#about:checked ~ section .content-5[data-v-b9c20fb8] {\n  display: block;\n}\n#greca:checked ~ section .content-6[data-v-b9c20fb8] {\n  display: block;\n}\n#cinese:checked ~ section .content-7[data-v-b9c20fb8] {\n  display: block;\n}\n#libanese:checked ~ section .content-8[data-v-b9c20fb8] {\n  display: block;\n}\n#messicana:checked ~ section .content-9[data-v-b9c20fb8] {\n  display: block;\n}\n#pizza:checked ~ section .content-10[data-v-b9c20fb8] {\n  display: block;\n}\n#thailandese:checked ~ section .content-11[data-v-b9c20fb8] {\n  display: block;\n}\n#vegetariana:checked ~ section .content-12[data-v-b9c20fb8] {\n  display: block;\n}\n#vegana:checked ~ section .content-13[data-v-b9c20fb8] {\n  display: block;\n}\nsection .content .title[data-v-b9c20fb8] {\n  font-size: 21px;\n  font-weight: 500;\n  margin: 30px 0 10px 0;\n}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -45560,7 +45573,10 @@ var render = function() {
             attrs: {
               to: {
                 name: _vm.showPlate,
-                params: { slugPlate: _vm.prevPlateSlug }
+                params: {
+                  slugCourse: _vm.prevCourse,
+                  slugPlate: _vm.prevPlateSlug
+                }
               }
             }
           },
@@ -45634,7 +45650,10 @@ var render = function() {
             attrs: {
               to: {
                 name: _vm.showPlate,
-                params: { slugPlate: _vm.nextPlateSlug }
+                params: {
+                  slugCourse: _vm.nextCourse,
+                  slugPlate: _vm.nextPlateSlug
+                }
               }
             }
           },
@@ -45728,8 +45747,86 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "back" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "my-4 text-center courses col-lg-2" }, [
+        _c(
+          "div",
+          { staticClass: "d-flex flex-column justify-content-lg-around " },
+          _vm._l(_vm.courses, function(course) {
+            return _c(
+              "router-link",
+              {
+                key: course.id,
+                staticClass: "courseName",
+                attrs: {
+                  to: {
+                    name: "showMenu",
+                    params: {
+                      slug: _vm.restaurant.slug,
+                      slugCourse: course.slug
+                    }
+                  },
+                  exact: ""
+                }
+              },
+              [
+                _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                  _vm._v(_vm._s(course.name))
+                ])
+              ]
+            )
+          }),
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-lg-10" },
+        [
+          _c("section", { staticClass: "container head" }, [
+            _c("h3", { staticClass: "text-center py-4 text-white restName" }, [
+              _vm._v(_vm._s(_vm.restaurant.name))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cuisine" },
+              _vm._l(_vm.cuisines, function(cuisine) {
+                return _c("span", { key: cuisine.id }, [
+                  _vm._v(_vm._s(cuisine.name))
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("router-view", {
+            key: _vm.$route.params.slugCourse,
+            staticClass: "showPlates",
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var MenuCourse = ref.MenuCourse
+                  return [_c(MenuCourse, { tag: "component" })]
+                }
+              }
+            ])
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 

@@ -19,17 +19,12 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
-    * {
-        overflow-x: hidden;
-    }
-</style>
-=======
 
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
+    overflow-x: hidden;
 
 }
 .body{
@@ -274,4 +269,3 @@ section .content .title{
 
 </style>
 
->>>>>>> cb8dfd4b9e157d504f8a36186a46eeb9bd0e7ae1

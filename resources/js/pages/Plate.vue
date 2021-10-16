@@ -3,7 +3,7 @@
 
         <main class="w-100 d-flex justify-content-around align-items-center">
 
-            <router-link :to="{name: showPlate, params:{ slugPlate: prevPlateSlug}}"><img src="/storage/img/chevron-l.svg" alt="chevron left" class="chevron"></router-link>
+            <router-link :to="{name: showPlate, params:{slugCourse: prevCourse, slugPlate: prevPlateSlug}}"><img src="/storage/img/chevron-l.svg" alt="chevron left" class="chevron"></router-link>
 
             
             <div  class="plate-cont" v-bind:style="{backgroundImage: 'url(' + plate.img + ')'}">
@@ -26,7 +26,7 @@
             
             </div>
 
-            <router-link :to="{name: showPlate, params:{ slugPlate: nextPlateSlug}}">
+            <router-link :to="{name: showPlate, params:{slugCourse: nextCourse, slugPlate: nextPlateSlug}}">
                 <img src="/storage/img/chevron-r.svg" alt="chevron right" class="chevron">
             </router-link>
 
@@ -67,6 +67,8 @@ export default {
       plate: [],
       prevPlateSlug: [],
       nextPlateSlug: [],
+      prevCourse: [],
+      nextCourse: [],
       open: false
     };
   },
@@ -101,8 +103,8 @@ export default {
         getPrev() {
             axios.get('http://localhost:8000/api/prevPlate/' + this.$route.params.slugPlate)
                 .then( response => {
-                    this.prevPlateSlug = response.data.results;
-                    console.log(response.data.results);
+                    this.prevPlateSlug = response.data.results.plate;
+                    this.prevCourse = response.data.results.course;
                 } )
                 .catch(error => {
                     console.log(error);
@@ -111,7 +113,8 @@ export default {
         getNext() {
             axios.get('http://localhost:8000/api/nextPlate/' + this.$route.params.slugPlate)
                 .then( response => {
-                    this.nextPlateSlug = response.data.results;
+                    this.nextPlateSlug = response.data.results.plate;
+                    this.nextCourse = response.data.results.course;
                 } )
                 .catch(error => {
                     console.log(error);
