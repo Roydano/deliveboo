@@ -25,7 +25,7 @@
 
                     <div class="descr my-2 mx-3">{{plate.description}}</div>
 
-                    <div class="price d-flex align-items-center justify-content-center">
+                    <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
 
                         <span class="prezzo">{{plate.price}}€</span>
                         
@@ -103,6 +103,10 @@ export default {
             this.$store.commit('addToCart', plate); 
         }
         
+         addPlateToCart(plate) {
+            this.$store.commit('addToCart', plate); 
+        }
+        
 
     }
 }
@@ -154,6 +158,7 @@ export default {
         }
     }
     .name {
+        text-align:center;
         position: absolute;
         bottom: -5px;
         padding: 5px 10px;

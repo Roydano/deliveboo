@@ -35,8 +35,6 @@ class PlateSeeder extends Seeder
             $newPlate->price = $faker->randomFloat(2, 5, 30); //da seedare courses
 
             $newPlate->save();
-<<<<<<< HEAD
-=======
 
 
         } */
@@ -44,7 +42,9 @@ class PlateSeeder extends Seeder
         foreach($plates as $plate) {
             $plate -> img = 'img/piatto.jpg';
             $plate->save();
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
+
+
+
         }
     }
 }

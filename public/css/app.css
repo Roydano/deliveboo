@@ -16078,6 +16078,170 @@ label #sidebar_btn:hover {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
+.plates-restaurant {
+  min-height: 100vh;
+  background-image: url(https://i.pinimg.com/originals/94/ce/e3/94cee3f9af5607c6c7da01498f415c1c.jpg);
+  background-size: 100%;
+  background-repeat: repeat;
+}
+
+.plates-restaurant h2 {
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bg-psy {
+  background: rgba(255, 255, 255, 0.356);
+}
+
+.btn-plates i:hover {
+  color: #fffb02;
+}
+
+.plates-restaurant .table {
+  background-color: rgba(0, 0, 0, 0.911);
+  color: white;
+  border: 2px solid grey;
+}
+
+.btn-plates i {
+  color: black;
+  position: relative;
+  top: 10px;
+  font-size: 25px;
+}
+
+.btn-plates i:hover {
+  scale: 1.2;
+  position: relative;
+  top: 10px;
+}
+
+.img-plate {
+  height: 200px;
+  margin: auto;
+  width: 600px;
+}
+
+.btn-plates a {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.info-plate {
+  width: 50%;
+}
+
+.info-plate label {
+  font-size: 21px;
+}
+
+.btn-plates form input {
+  width: 62px;
+  font-size: 20px;
+  height: 62px;
+}
+
+.btn-plates form input:hover {
+  scale: 1.2;
+}
+
+.plates-restaurant th {
+  font-size: 19px;
+  color: wheat;
+  font-weight: 600;
+}
+
+.plates-restaurant td {
+  color: wheat;
+  font-size: 17px;
+}
+
+.img-show-plate {
+  height: 320px;
+  width: 450px;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 20px;
+  -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+  box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.edit-plate {
+  background: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 30px;
+}
+
+.edit-plate form {
+  background-color: rgba(255, 255, 255, 0.048);
+  padding: 100px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.edit-plate h2 {
+  text-transform: uppercase;
+}
+
+.edit-plate button {
+  font-size: 30px;
+}
+
+.edit-plate input {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.edit-plate select {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+
+.edit-plate textarea {
+  border: 1px solid yellow;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1d1d1d;
+  cursor: pointer;
+}
+
+.edit-plate .show-plate {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.178);
+}
+
+.show-plate .card-body {
+  background-color: rgba(255, 255, 255, 0.123);
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.show-plate .card-body b {
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.show-plate .card-body p {
+  font-size: 17px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

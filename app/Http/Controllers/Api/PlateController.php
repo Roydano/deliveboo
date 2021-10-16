@@ -29,12 +29,12 @@ class PlateController extends Controller
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
-<<<<<<< HEAD
+
         
 
         /* cambiare seed con url default img a una in storage public img */
-=======
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
+
+
             
         return response()->json([
             'success' => true,
@@ -90,7 +90,7 @@ class PlateController extends Controller
      */
     public function show($slug)
     {
-        $plate = Plate::where('slug', $slug)->first();
+        $plate = Plate::where('slug', $slug)->where('visible', '1')->first();
         $course = $plate->course;
         $plate->img = url('storage/' . $plate->img);
             
@@ -111,8 +111,14 @@ class PlateController extends Controller
         $plate = Plate::where('slug', $slug)->first();
         $restaurant = Restaurant::find($plate->restaurant_id);
 
-        $prevPlate = $restaurant->plates->orderBy('id')->where('id', '<', $plate->id)->first()->slug;
+        $prevPlate = $restaurant->plates->where('id', '<', $plate->id)->first()->slug;
+
+        if (!$prevPlate) {
+            $prevPlate = 'nullo prev';
+        }
+
         
+
         return response()->json([
             'success' => true,
             'results' => $prevPlate
@@ -131,6 +137,10 @@ class PlateController extends Controller
         $restaurant = Restaurant::find($plate->restaurant_id);
 
         $nextPlate = $restaurant->plates->where('id', '>', $plate->id)->first()->slug;
+
+        if (!$nextPlate) {
+            $nextPlate = 'nullo';
+        }
 
         
         return response()->json([

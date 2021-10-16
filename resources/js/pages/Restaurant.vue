@@ -33,7 +33,6 @@
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
             
-      </div>
     </div>
     
 </template>
@@ -70,7 +69,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
-                    
+                    this.slugRest =  this.$route.params.slug;
                 } )
                 .catch(error => {
                     console.log(error);
@@ -100,10 +99,11 @@ export default {
 <style lang="scss" scoped>
     #back {
         min-height: calc(100vh - 80px);
-        background: url('https://source.unsplash.com/GXXYkSwndP4/1600x900');
+        background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200');
         background-attachment: fixed;
         background-repeat: no-repeat;
-        background-size: cover; 
+        background-size: cover;
+        background-position: center; 
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
     }
 

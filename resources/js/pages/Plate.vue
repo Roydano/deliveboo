@@ -8,7 +8,7 @@
             
             <div  class="plate-cont" v-bind:style="{backgroundImage: 'url(' + plate.img + ')'}">
 
-                <div v-click-outside="onClickOutside" class="box d-flex flex-column     justify-content-center align-items-center text-white">
+                <div v-click-outside="onClickOutside" class="box text-center text-white">
 
                     <div class="name">{{plate.name}}</div>
 
@@ -102,6 +102,7 @@ export default {
             axios.get('http://localhost:8000/api/prevPlate/' + this.$route.params.slugPlate)
                 .then( response => {
                     this.prevPlateSlug = response.data.results;
+                    console.log(response.data.results);
                 } )
                 .catch(error => {
                     console.log(error);
@@ -135,7 +136,7 @@ export default {
     }
 
     .plate-cont {
-        width: 70vw;
+        width: 60vw;
         height: 70vh;
         display: flex;
         justify-content: center;
@@ -143,6 +144,7 @@ export default {
         background-size: cover;
         background-position: center;
         border-radius: 15px;
+        padding: 30px;
         .box {
             background-color: rgba($color: #000000, $alpha: 0.6);
             padding: 10px 20px;
