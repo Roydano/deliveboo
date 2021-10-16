@@ -1,85 +1,34 @@
 <template>
-<div class="sfondo">
-    <h2>Le nostre cucine</h2>
-        <div class="container-fluid">
+<div class="sfondo ">
+    <h2> Tutte le nostre cucine</h2>
+     <div class="container-fluid ">
         <div class="row">
            
             
-            <div class="  col cartella" v-for="cuisine in cuisines" :key="cuisine.id" >
-                 <p class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug);" :value="cuisine.id"> <span>{{ cuisine.name }}</span> </p> 
+            <div class="col-lg-1 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
+                 <p class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug);" :value="cuisine.id"> <span class="cusname">{{ cuisine.name }}</span> </p> 
          
             </div>
             
         </div>
 
-        <div class="row sezione">
+       <div class="row sezione ">
+           <div class="chefame">
+               <CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/>
+               <div class="ciao">
+                   
+               </div>
+
+           </div>
             
             
-                  <div class="card card-cucina" style="width: 28rem;"      >
-                    
-                      <div class="card-body">
-                         
-                        
-                         <div class="card-title">
-                            <p class="card-text"  ><CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"    /></p> 
-                         </div>
-                        
-                      </div>
-                </div>  
-
-            
-
-
-
-                <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <p class="card-text"><CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/></p> 
-      
-    </div>
-    <div class="carousel-item">
-        <p class="card-text"><CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/></p> 
-     
-    </div>
-    <div class="carousel-item">
-     
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div> -->
-
-               
-
-               
-        
-
-      
-
-    
-
-
-
-
-
-
-
-
-
-
-
+                   
            
                   
-            
-        </div>
+
+       </div>
         
-    </div>
+ </div>
   
 
 </div>
@@ -143,14 +92,42 @@ export default {
 
 <style lang="scss" scoped>
 
-.sfondo{
-    //  background: url('img/food-sfondo.jpg');
-    height:100vh;
-    background:lightgray;
+.sect{
+    text-align:center;
 }
+
+.sfondo{
+     
+      height: auto;
+       background:url('/img/ao.jpg');
+       background-size:cover;
+       padding-top:30px;
+       
+}
+
+
+// @media screen and (max-height: 700px) {
+//   .sfondo{
+//    height:200vh;
+//   }
+// }
 h2{
-    padding-top:15px;
-   margin-left:30px;
+    filter: drop-shadow(16px 16px 20px red) invert(75%);
+    
+    font-style:italic;
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    justify-content: center;
+     color:red;
+     
+     
+     padding: 10px;
+     width:400px;
+
+}
+p{
+    color:white;
 }
 
 .container-fluid{
@@ -163,14 +140,14 @@ h2{
 }
 
  .bottone:hover{
-     background-color:black;
+     background-color:rgb(229, 226, 226);
         transition: 0.8s ;
      
     
 
  }
 .bottone:hover span{
-    color:white;
+    color:black;
        transition: 0.5s ease-in-out;
      transition-property: color;
     
@@ -182,15 +159,29 @@ h2{
 }
 
 
-.card-cucina{
-    margin-left:50px;
-    background: url('/img/black-food.jpg');
-    background-size: cover;
+// .card-cucina{
+//     margin-left:50px;
+//     background: url('/img/black-food.jpg');
+//     background-size: cover;
     
     
     
+// }
+p span{
+    color:white;
 }
 
+ .chefame{
+     padding:75px 0 ;
+ }
+
+.ciao{
+    height:200px;
+}
+
+
+
+  
 
 
 

@@ -10,7 +10,10 @@
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
         </video>
 
-        <div class="jumbo text-white text-center">
+        <div class="jumbo text-white text-center ">
+
+            <router-link to="/restaurants" class="links">Restaurants</router-link>
+            <router-link to="/cuisines" class="links">Cuisines</router-link>
 
             <!-- <Cart/> -->
 
@@ -22,8 +25,6 @@
                 <hr class="my-4">
                 <p>Scegli tra una vasta selezione di cucine, esplora i ristoranti e ordina i piatti con un semplice click. <br> Dal ristorante, direttamente a casa tua.</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> -->
-
-                
 
             </div>
         </div>
@@ -39,23 +40,19 @@ export default {
     //     Cart,
     // }
 }
-
 </script>
 
 <style lang="scss" scoped>
 @import '../../sass/commons';
-
     .jumbo-cont {
         background-color: black;
         height: 100vh;
         overflow: hidden;
         justify-content: flex-end;
     }
-
     video {
         height: 100%;
     }
-
     .jumbo {
         font-size: 28px;
         height: 100%;
@@ -68,12 +65,10 @@ export default {
             font-size: 18px;
             color: whitesmoke;
             transition: all .3s linear;
-
             &:hover {
                 color: rgb(187, 184, 184);
                 transform: scale(1.1);
             }
         }
     }
-
 </style>
