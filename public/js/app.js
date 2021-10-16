@@ -7531,6 +7531,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+=======
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'scrollreveal'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+>>>>>>> bc0d072d12db41a115eeb9f228f70a4ca61b858a
 //
 //
 //
@@ -7562,6 +7566,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -7582,6 +7587,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+=======
+
+window.sr = new !(function webpackMissingModule() { var e = new Error("Cannot find module 'scrollreveal'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();
+window.sr = !(function webpackMissingModule() { var e = new Error("Cannot find module 'scrollreveal'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
+  reset: true
+}); // Customizing a reveal set
+
+sr.reveal('div', {
+  opacity: 0.9,
+  duration: 3000
+});
+>>>>>>> bc0d072d12db41a115eeb9f228f70a4ca61b858a
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurants',
   data: function data() {

@@ -4,10 +4,6 @@
 
 <div class="plates-restaurant">
     <div class="container plate">
-    <h2>I Tuoi Piatti</h2>
-
-<div class="plates-restaurant">
-    <div class="container plate">
         <h2>I Tuoi Piatti</h2>
 
         <p>
@@ -96,7 +92,7 @@
 
         </div>
     </div>
-</div>
+
 </div>
 
 @endsection
