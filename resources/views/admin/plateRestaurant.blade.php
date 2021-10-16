@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<div class="plates-restaurant">
+    <div class="container plate">
     <h2>I Tuoi Piatti</h2>
 
     <p>
@@ -44,6 +46,7 @@
                 <th scope="col">Descrizione</th>
                 <th scope="col">Prezzo</th>
                 <th scope="col">Visibile</th>
+                <th scope="col">Image</th>
                 <th scope="col">Azione</th>
             </tr>
         </thead>
@@ -62,13 +65,19 @@
                     @endif
                 </td>
                 <td>
-                    <a href="{{ route('admin.plates.show', $plate->slug) }}" type="button" class="btn btn-primary">Vedi Piatto</a>
-                    <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn btn-warning">Modifica Piatto</a>
+                    @if($plate->img)
+                        <img class="img-plate figure-img img-fluid rounded" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
+                    @endif
+                </td>
+                <td class="btn-plates">
+                    <a href="{{ route('admin.plates.show', $plate->slug) }}" type="button" class="btn bg-psy"><i class="fas fa-eye"></i></a>
+                    <a href="{{ route('admin.plates.edit', $plate->slug) }}" type="button" class="btn bg-psy"><i class="fas fa-pencil-alt"></i></a>
                     <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" value="Cancella Piatto" class="btn btn-danger">
+                        <input  type="submit" class="btn bg-psy" value="del"></a>
                     </form>
+                    
                 </td>
             </tr>
             @endforeach
@@ -76,14 +85,16 @@
         </tbody>
     </table>
     
-    <div class="card bor_none">
+    <div class="card bor_none" style="background-color: transparent">
         <div class="card-body">
-            <a href="{{route('admin.plates.create')}}" class="btn btn-success">Aggiungi un piatto</a>
-            <a href="{{route('admin.index')}}" class="btn btn-info">Torna alla tua Dashboard</a>
+            <a href="{{route('admin.plates.create')}}" class="btn bg-psy mx-5">Aggiungi un piatto</a>
+            <a href="{{route('admin.index')}}" class="btn bg-psy mx-5">Torna alla tua Dashboard</a>
+
         </div>
     </div>
 </div>
-@endsection
+</div>
 
+@endsection
 
 

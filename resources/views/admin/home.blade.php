@@ -18,23 +18,34 @@
      <input type="checkbox" id="check">
 
      <div class="header">
-         <label for="check">
-                 <i class="fas fa-bars" id="sidebar_btn"></i>
-                
-         </label>
-         <div class="header-menu">
-             <div class="title">Wanna Eat</div>
-           
+        <label for="check">
 
-             <ul>
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+            
+        </label>
 
-               <li><a href=""><i class="fas fa-search"></i></a></li>
-               <li><a href=""><i class="fas fa-bell"></i></a></li>
-               <li><a href="{{ route('logout') }}"><i class="fas fa-power-off"></i></a></li>
-             </ul>
+        <div class="header-menu">
+        <div class="title"><a class="no-style" href="{{ url('/') }}">Wanna Eat</a></div>
+        
+
+            <ul>
+
+            <li><a href=""><i class="fas fa-bell"></i></a></li>
+            <li>
+                <a href="{{ url('/') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    <i class="fas fa-power-off"></i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+
+            </ul>
 
 
-         </div>
+        </div>
 
      </div>
 
@@ -45,10 +56,10 @@
 
        <div class="sidebar">
            <div class="sidebar-menu">
-               <center class="profile">
+               <center class="profile pt-3">
 
                   <img src="./img/frutta.jpg" alt="">
-                  <h5 class="card-title"> {{ $restaurant->name }}</h5>
+                  <h5 class="card-title scritta"> {{ $restaurant->name }}</h5>
 
 
                </center>

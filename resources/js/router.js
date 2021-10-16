@@ -7,7 +7,8 @@ Vue.use(VueRouter);
 import Home from './pages/Home';
 import Cuisine from './pages/Cuisine';
 import Cuisines from './pages/Cuisines';
-import Cart from './pages/Cart';
+import CartPage from './pages/CartPage';
+import Checkout from './pages/Checkout';
 import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
 import MenuCourse from './pages/MenuCourse';
@@ -30,11 +31,6 @@ const router = new VueRouter({
             path: '/cuisines/:slug',
             name: 'cuisine', 
             component: Cuisine
-        },
-        {
-            path: '/cart',
-            name: 'cart', 
-            component: Cart
         },
         {
             path: '/restaurants',
@@ -61,6 +57,23 @@ const router = new VueRouter({
                 
                 
             ]
+        },
+        {
+            path: '/cart-page',
+
+            name: 'cart.page',
+
+            component: CartPage,
+
+        },
+        {
+
+            path: '/checkout',
+
+            name: 'checkout',
+
+            component: Checkout,
+
         }
         
 

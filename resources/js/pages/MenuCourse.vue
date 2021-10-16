@@ -25,7 +25,7 @@
 
                     <div class="descr my-2 mx-3">{{plate.description}}</div>
 
-                    <div class="price d-flex align-items-center justify-content-center">
+                    <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
 
                         <span class="prezzo">{{plate.price}}€</span>
                         
@@ -52,12 +52,17 @@ export default {
         return {
             plates: [],
             course: [],
+            loading: false,
+            plates: null,
+            error: null,
         }
     },
     created() {
         this.getPlates();
         this.getCourse();
+        this.fetchData();
     },
+
     methods: {
         
         truncate(text, maxlength){
@@ -88,6 +93,10 @@ export default {
                     console.log(error);
                 });
         },
+        
+         addPlateToCart(plate) {
+            this.$store.commit('addToCart', plate); 
+        }
         
 
     }
