@@ -7,10 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'WannaEat') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="https://unpkg.com/scrollreveal@4"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

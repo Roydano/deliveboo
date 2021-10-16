@@ -21,8 +21,42 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 
+<<<<<<< HEAD
 
 
+=======
+import App from './views/App';
+import router from './router';
+import Vue from 'vue';
+import vmodal from 'vue-js-modal';
+import PortalVue from 'portal-vue';
+import vClickOutside from "click-outside-vue3";
+import Popover from 'vue-js-popover'
+ 
+
+
+/* import ScrollReveal from 'scrollreveal';
+    
+Vue.use(ScrollReveal); */
+Vue.use(vmodal);
+Vue.use(vClickOutside);
+Vue.use(Popover);
+Vue.directive('click-outside', {
+    bind: function (el, binding, vnode) {
+      el.clickOutsideEvent = function (event) {
+        // here I check that click was outside the el and his children
+        if (!(el == event.target || el.contains(event.target))) {
+          // and if it did, call method provided in attribute value
+          vnode.context[binding.expression](event);
+        }
+      };
+      document.body.addEventListener('click', el.clickOutsideEvent)
+    },
+    unbind: function (el) {
+      document.body.removeEventListener('click', el.clickOutsideEvent)
+    },
+  });
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
 
 const app = new Vue({
     el: '#root',

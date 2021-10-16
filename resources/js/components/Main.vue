@@ -1,10 +1,9 @@
 <template>
     <div>
-        <transition name='fade' mode="out-in">
-                <router-view v-slot="{Component}" :key="$route.fullPath">
-                        <component :is="Component"/>
+        
+                <router-view >
+                        
                 </router-view>
-            </transition>
     </div>
 </template>
 
@@ -20,6 +19,7 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+<<<<<<< HEAD
 
 *{
     margin:0;
@@ -269,3 +269,9 @@ section .content .title{
 
 </style>
 
+=======
+    * {
+        overflow-x: hidden;
+    }
+</style>
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5

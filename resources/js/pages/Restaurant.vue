@@ -1,34 +1,44 @@
 <template>
 
     <div id="back">
-        <div class="container">
+        
+        <div class="row">
 
-            <h3 class="text-center pt-4 text-white">{{restaurant.name}}</h3>
-
-            <div class="cuisine">
-                <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
-            </div>
-        </div>
-            
-        <div class="black py-3 my-4">
-            <div class="container">
-                <div class="d-flex flex-column flex-lg-row justify-content-lg-around ">
-                    <router-link v-for="course in courses" :key="course.id" class="courseName" :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" >
-                        <span>{{course.name}}</span>
+            <div class="my-4 text-center courses col-lg-2">
+                <div class="d-flex flex-column justify-content-lg-around ">
+                    <router-link v-for="course in courses" :key="course.id" class="courseName"
+                    :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>
+                        <span class="black my-2 p-3 ps-0">{{course.name}}</span>
                     </router-link>
                 </div>
             </div>
+
+            <div class="col-lg-10">
+
+            <section class="container head">
+
+                <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
+
+                <div class="cuisine">
+                    <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
+                </div>
+
+            </section>
+
+            
+            <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
+                    <component :is="MenuCourse"/>
+            </router-view>
+        
+            </div>
+                 <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
+            
+<<<<<<< HEAD
+
+=======
+    
         </div>
-
-             <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
-            <transition name='fade'>
-                <router-view v-slot="{Component}" :key="$route.fullPath">
-                        <component :is="Component"/>
-                </router-view>
-            </transition>
-            
-            
-
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
     </div>
     
 </template>
@@ -36,28 +46,40 @@
 <script>
 
 export default {
-
-
     name: 'Restaurant',
+    linkExactActiveClass: 'is-active',
     data() {
         return {
             restaurant: [],
             cuisines: [],
             courses: [],
-            active: []
+            slugRest: "",
+            loaded: false
         }
     },
     created(){
         this.getRestaurant();
         this.getCuisines();
         this.getCourses();
+        
+    },
+    watch: {
+
+        /* ora mostra antipasto, fare pagina atterraggio */
+        /* loaded: function() {
+            this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
+        } */
     },
     methods: {
         getRestaurant() {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
+<<<<<<< HEAD
                     
+=======
+                    this.slugRest =  this.$route.params.slug;
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
                 } )
                 .catch(error => {
                     console.log(error);
@@ -77,8 +99,9 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/courses')
                 .then( response => {
                     this.courses = response.data.results;
+                    this.loaded = true;
                 } );
-        },
+        }
     }
 }
 </script>
@@ -93,27 +116,55 @@ export default {
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
     }
 
-    .black {
-        background-color: black;
+    .showPlates {
+        max-height: 65vh;
+        overflow-y: auto;
     }
+
+    .head {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: center;
+    }
+
+    .black {
+        background-color: rgba($color: #000, $alpha: 0.6);
+        display: inline;
+    }
+
+    .restName {
+        font-size: 30px;
+        font-weight: 300;
+    }
+
 
     .courseName {
         font-size: 20px;
+        display: inline-flex;
         color: white;
         text-transform: uppercase;
         font-weight: 100;
         transition: all .3s ease-in-out;
-        &:hover {
-            transform: scale(1.1);
+        span {
+            transition: all .3s ease-in-out;
         }
         a {
             color: black;
             text-decoration: none;
+            padding-bottom: 5px;
         }
-        a.router-link-active {
-        border-bottom: 2px solid white;
-        transform: scale(1.1);
-    }
+        &:hover {
+            font-size: 24px;
+            text-decoration: none;
+        }
+        &.router-link-active span,
+        &.router-link-exact-active span{
+            font-size: 24px;
+            border-bottom: 1px solid white;
+        }
+    
     }
 
     

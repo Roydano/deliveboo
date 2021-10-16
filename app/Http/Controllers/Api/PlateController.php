@@ -29,9 +29,12 @@ class PlateController extends Controller
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
+<<<<<<< HEAD
         
 
         /* cambiare seed con url default img a una in storage public img */
+=======
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
             
         return response()->json([
             'success' => true,
@@ -47,6 +50,11 @@ class PlateController extends Controller
     public function index()
     {
         $plates = Plate::all();
+
+        foreach($plates as $plate) {
+            $plate->img = url('storage/' . $plate->img);
+        }
+
         return response()->json([
             'success' => true,
             'results' => $plates
@@ -80,9 +88,55 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $plate = Plate::where('slug', $slug)->first();
+        $course = $plate->course;
+        $plate->img = url('storage/' . $plate->img);
+            
+        return response()->json([
+            'success' => true,
+            'results' => $plate
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showPrev($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $prevPlate = $restaurant->plates->orderBy('id')->where('id', '<', $plate->id)->first()->slug;
+        
+        return response()->json([
+            'success' => true,
+            'results' => $prevPlate
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showNext($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $nextPlate = $restaurant->plates->where('id', '>', $plate->id)->first()->slug;
+
+        
+        return response()->json([
+            'success' => true,
+            'results' => $nextPlate
+        ]);
     }
 
     /**

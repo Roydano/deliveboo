@@ -12,6 +12,7 @@ import Checkout from './pages/Checkout';
 import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
 import MenuCourse from './pages/MenuCourse';
+import Plate from './pages/Plate';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -44,8 +45,17 @@ const router = new VueRouter({
                 {
                     path: ':slugCourse',
                     name: 'showMenu',
-                    component: MenuCourse
-                }
+                    component: MenuCourse,
+                    children: [
+                        {
+                            path: ':slugPlate',
+                            name: 'showPlate',
+                            component: Plate
+                        }
+                    ]
+                },
+                
+                
             ]
         },
         {

@@ -17,7 +17,7 @@ class PlateSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $faker = \Faker\Factory::create();
+        /* $faker = \Faker\Factory::create();
         $faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
 
         for( $i = 0; $i < 50; $i++){
@@ -35,6 +35,16 @@ class PlateSeeder extends Seeder
             $newPlate->price = $faker->randomFloat(2, 5, 30); //da seedare courses
 
             $newPlate->save();
+<<<<<<< HEAD
+=======
+
+
+        } */
+        $plates = Plate::all();
+        foreach($plates as $plate) {
+            $plate -> img = 'img/piatto.jpg';
+            $plate->save();
+>>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
         }
     }
 }
