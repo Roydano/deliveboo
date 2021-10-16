@@ -8,7 +8,9 @@
             <div class="card_plate text-white">
                 <div class="cover_cont">
                     <img :src="plate.img" :alt="plate.id" class="plateImg">
-                    <i class="fas fa-cart-plus cart"></i>
+                    <div @click="addPlateToCart(plate)">
+                        <i class="fas fa-cart-plus cart"></i>
+                    </div>
                 </div>
                 <div class="infos">
                     <div class="text-uppercase name">{{plate.name}}</div>
@@ -77,8 +79,35 @@ export default {
                     console.log(error);
                 });
         },
-        
+         // metodi per il carrello
+        fetchData() {
 
+            this.error = this.plates = null;
+
+            this.loading = true;
+
+            axios // Implementa una Promise
+
+                .get('/api/plates')
+
+                .then(response => {
+
+                    this.loading = true;
+                    this.plates = response.data.results;
+
+                }).catch(error => { // Nel caso di errori in arrivo
+
+                    this.loading = false;
+
+                    this.error = error.response.data.message || error.message;
+
+                });
+        
+        },
+        
+        addPlateToCart(plate) {
+            this.$store.commit('addToCart', plate); // Qui invece chiamiamo il metodo dello Storagein store.js
+        }
     }
 }
 </script>

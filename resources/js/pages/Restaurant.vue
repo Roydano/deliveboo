@@ -26,10 +26,6 @@
                         <component :is="Component"/>
                 </router-view>
             </transition>
-            
-            
-
-        </div>
     </div>
 </template>
 

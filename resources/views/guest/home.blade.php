@@ -13,18 +13,9 @@
 </head>
 <body>
     
-    <div id="jumbo" class="text-uppercase text-right">
-
-        <div class="container d-flex justify-content-between">
-            <div class="logo mt-2">
-                <img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat">
-            </div>
-
-        </div> --}}
+    <div id="jumbo" class="fixed-top text-uppercase text-right">
 
         
-
-
         <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
         <ul class="d-inline">
             @guest
@@ -54,32 +45,12 @@
                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                     </a>
-
-                    <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                @else
-                    <li class="d-inline-block dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->restaurant->name }}
-                        </a>
-
-                        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            <a class="dropdown-item" href="{{ route('admin.index') }}">la tua area</a>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-        </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    <a class="dropdown-item" href="{{ route('admin.index') }}">la tua area</a>
+                </div>
+            @endauth
                 
     </div>
     

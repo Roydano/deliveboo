@@ -1,6 +1,7 @@
 <template>
     <header>
         <router-link v-for="item in nav" :key="item.label" :to="item.path" class="link">{{item.label}}</router-link>
+        <Cart/>
     </header>
 </template>
 

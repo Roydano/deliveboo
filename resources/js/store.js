@@ -46,7 +46,7 @@ let store = {
                 return;
             }     
 
-            if((parseInt(plate.qty) - parseInt(quantity) <= 0)){
+            if((parseInt(plate.qty) - parseInt(quantity) <= 1)){
                 state.cart.splice(state.cart.findIndex( el => el.id == plate.id ), 1);
                 state.num = state.num - plate.qty;
                 state.cartTotal = parseFloat(state.cartTotal) - parseFloat(plate.qty * plate.price);
