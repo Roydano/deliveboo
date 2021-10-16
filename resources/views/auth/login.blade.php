@@ -68,7 +68,6 @@
 body {
   background: url('../img/lo-sfondo.jpg');
   background-size:cover;
-  height: 100vh;
 }
 p{
   margin-bottom:20px;

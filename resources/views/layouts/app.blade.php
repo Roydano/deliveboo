@@ -7,10 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'WannaEat') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="https://unpkg.com/scrollreveal@4"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -37,7 +38,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        
+
+                        <!-- {{-- aggiungere: sei un ristorante? un po' più discreto --}} -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -84,11 +86,16 @@
        background-color:black;
        height:60px;
        opacity:0.6;
+       
+       
+       
    }
+
    .log-out{
        color:black;
    }
-   .container a{   
+   .container a{
+       
        font-size: 22px;
        text-decoration:none;
    }
@@ -97,6 +104,8 @@
     transition:0.3s;
     transform:scale(1.2);
    }
+   
+
 </style>
 </html>
 

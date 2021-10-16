@@ -1,10 +1,12 @@
 <template>
+
+<!-- cuisine.vue -->
   <div class="container">
-    <h2>Cucina {{name}}</h2>
+     <h2>Cucina {{name}}</h2>
     <div v-for="restaurant in restaurants" :key="restaurant.id">
       <h4>{{ restaurant.name }}</h4>
-    </div>
-  </div>
+    </div> 
+  </div> 
 </template>
 
 <script>
@@ -27,4 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h4{
+  color:black;
+}
 </style>

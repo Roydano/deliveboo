@@ -29,9 +29,6 @@ class PlateController extends Controller
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
-         
-
-        /* cambiare seed con url default img a una in storage public img */
             
         return response()->json([
             'success' => true,
@@ -47,6 +44,11 @@ class PlateController extends Controller
     public function index()
     {
         $plates = Plate::all();
+
+        foreach($plates as $plate) {
+            $plate->img = url('storage/' . $plate->img);
+        }
+
         return response()->json([
             'success' => true,
             'results' => $plates
@@ -80,9 +82,65 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $plate = Plate::where('slug', $slug)->where('visible', '1')->first();
+        $course = $plate->course;
+        $plate->img = url('storage/' . $plate->img);
+            
+        return response()->json([
+            'success' => true,
+            'results' => $plate
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showPrev($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $prevPlate = $restaurant->plates->where('id', '<', $plate->id)->first()->slug;
+
+        if (!$prevPlate) {
+            $prevPlate = 'nullo prev';
+        }
+
+        
+
+        return response()->json([
+            'success' => true,
+            'results' => $prevPlate
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showNext($slug)
+    {
+        $plate = Plate::where('slug', $slug)->first();
+        $restaurant = Restaurant::find($plate->restaurant_id);
+
+        $nextPlate = $restaurant->plates->where('id', '>', $plate->id)->first()->slug;
+
+        if (!$nextPlate) {
+            $nextPlate = 'nullo';
+        }
+
+        
+        return response()->json([
+            'success' => true,
+            'results' => $nextPlate
+        ]);
     }
 
     /**

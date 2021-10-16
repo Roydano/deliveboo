@@ -9,11 +9,6 @@
     color: white;
     font-weight: 700;
     text-transform: uppercase;
-    padding-top: 30px;
-}
-
-.plates-restaurant .table {
-    width: 110%;
 }
 
 .bg-psy {
@@ -22,13 +17,6 @@
 
 .btn-plates i:hover {
     color: rgb(255,251, 2);
-}
-
-.btn-plates .trash {
-    position: relative;
-    right: 43px;
-    bottom: 20px;
-    cursor: pointer;
 }
 
 .plates-restaurant .table {
@@ -62,6 +50,10 @@
     height: 62px;
     margin-bottom: 5px;
     font-size: 20px;
+}
+
+.info-plate {
+    width: 50%;
 }
 
 .info-plate label {
