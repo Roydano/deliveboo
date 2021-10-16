@@ -140,6 +140,7 @@ export default {
         }
     }
     .name {
+        text-align:center;
         position: absolute;
         bottom: -5px;
         padding: 5px 10px;
