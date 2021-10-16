@@ -75,7 +75,7 @@
                     <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
-                        <a  type="submit" class="btn bg-psy"><i class="fas fa-trash-alt"></i></a>
+                        <input  type="submit" class="btn bg-psy" value="del"></a>
                     </form>
                     
                 </td>
@@ -89,7 +89,6 @@
         <div class="card-body">
             <a href="{{route('admin.plates.create')}}" class="btn bg-psy mx-5">Aggiungi un piatto</a>
             <a href="{{route('admin.index')}}" class="btn bg-psy mx-5">Torna alla tua Dashboard</a>
-             <a href="{{ url( '/restaurants', $plates ) }}" class="btn bg-psy mx-5">Vedi il tuo menù</a> 
 
         </div>
     </div>

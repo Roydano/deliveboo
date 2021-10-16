@@ -17,7 +17,7 @@
 
         <div class="container d-flex justify-content-between">
             <div class="logo mt-2">
-                <img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat">
+                <a href="{{ url('/') }}"><img src="{{ asset('img/wanna-eat.png') }}" alt="wanna eat"></a>
             </div>
 
             <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
@@ -30,6 +30,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrati') }}</a>
 
                 @else
                     <li class="d-inline-block dropdown">

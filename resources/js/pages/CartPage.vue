@@ -40,7 +40,7 @@
             </tbody>
         </table>
         <div class="checkout-cart-button-container">
-            <button class="button-b">Checkout diretto</button>
+           z <button class="button-b">Checkout diretto</button>
         </div>
 
     </div>

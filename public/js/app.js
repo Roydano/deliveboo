@@ -6767,11 +6767,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Cart',
+  data: function data() {
+    return {
+      showCart: false
+    };
+  },
   methods: {
     removePlateToCart: function removePlateToCart(plate) {
+      var quantity = document.getElementById(plate.id).value;
       this.$store.commit('removeFromCart', {
-        plate: plate
+        plate: plate,
+        quantity: quantity
+      });
+    },
+    add: function add(plate) {
+      var quantity = document.getElementById(plate.id).value;
+      this.$store.commit('addByCart', {
+        plate: plate,
+        quantity: quantity
       });
     }
   }
@@ -7437,6 +7490,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 window.sr = new scrollreveal__WEBPACK_IMPORTED_MODULE_0__["default"]();
 window.sr = Object(scrollreveal__WEBPACK_IMPORTED_MODULE_0__["default"])({
@@ -7453,18 +7526,27 @@ sr.reveal('div', {
     return {
       apiCall: 'http://localhost:8000/api/restaurants',
       restaurants: [],
-      cuisines: []
+      cuisines: [],
+      currentPage: [],
+      lastPage: []
     };
   },
   created: function created() {
-    this.getRestaurants();
+    this.getRestaurants(1);
   },
   methods: {
-    getRestaurants: function getRestaurants() {
+    getRestaurants: function getRestaurants(pageRest) {
       var _this = this;
 
-      axios.get(this.apiCall).then(function (response) {
-        _this.restaurants = response.data.results;
+      axios.get(this.apiCall, {
+        params: {
+          page: pageRest
+        }
+      }).then(function (response) {
+        console.log(response.data.results);
+        _this.restaurants = response.data.results.data;
+        _this.currentPage = response.data.results.current_page;
+        _this.lastPage = response.data.results.last_page;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -11983,7 +12065,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#cart[data-v-b7f93bea] {\n  text-align: end;\n  margin-bottom: 10px;\n}\n#cart .orange[data-v-b7f93bea] {\n  color: white;\n  background-color: #f66a24;\n}", ""]);
+exports.push([module.i, "#cart[data-v-b7f93bea] {\n  text-align: end;\n  margin-bottom: 10px;\n}\n#cart .orange[data-v-b7f93bea] {\n  color: white;\n  background-color: #f66a24;\n}\n#cart .pointer[data-v-b7f93bea] {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -46280,12 +46362,17 @@ var render = function() {
         attrs: { id: "cart" }
       },
       [
-        _c("div", { staticClass: "dropdown" }, [
+        _c("div", [
           _c(
             "button",
             {
               staticClass: "btn orange",
-              attrs: { type: "button", "data-toggle": "dropdown" }
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.showCart = !_vm.showCart
+                }
+              }
             },
             [
               _c("i", {
@@ -46299,102 +46386,202 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "dropdown-menu" }, [
-            _c(
-              "div",
-              { staticClass: "row total-header-section" },
-              [
-                _c("div", { staticClass: "col-lg-6 col-sm-6 col-6" }, [
-                  _c("i", {
-                    staticClass: "fa fa-shopping-cart",
-                    attrs: { "aria-hidden": "true" }
-                  }),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showCart,
+                  expression: "showCart"
+                }
+              ],
+              attrs: { id: "showMenu" }
+            },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c("div", { staticClass: "row total-header-section" }, [
+                  _c("div", { staticClass: "col-lg-6 col-sm-6 col-6" }, [
+                    _c("i", {
+                      staticClass: "fa fa-shopping-cart",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "badge badge-pill badge-danger" },
+                      [_vm._v(_vm._s(_vm.$store.state.num))]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "badge badge-pill badge-danger" }, [
-                    _vm._v(_vm._s(_vm.$store.state.num))
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.$store.state.cart, function(plate) {
-                  return _c(
+                  _c("div", { staticClass: "cart-list" }, [
+                    _c("div", {}, [
+                      _vm._v(
+                        "\n                            Hai " +
+                          _vm._s(_vm.$store.state.num) +
+                          " elementi nel carrello\n                            "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("table", [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        [
+                          _vm._l(_vm.$store.state.cart, function(plate) {
+                            return _c("tr", { key: plate.id }, [
+                              _c("td", [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(plate.name) +
+                                    "\n                                        "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(plate.tot) +
+                                    " €\n                                        "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("i", {
+                                  staticClass: "fa fa-shopping-cart",
+                                  attrs: { "aria-hidden": "true" }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass: "badge badge-pill badge-danger"
+                                  },
+                                  [_vm._v(_vm._s(plate.qty))]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c("div", { staticClass: "d-flex" }, [
+                                  _c("input", {
+                                    staticClass: "button-a",
+                                    attrs: {
+                                      id: plate.id,
+                                      type: "number",
+                                      min: "1",
+                                      placeholder: "0"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "mx-5 pointer",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.add(plate)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "fas fa-plus" })]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "pointer",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removePlateToCart(plate)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "far fa-trash-alt"
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("tr", { staticStyle: { height: "100px" } }, [
+                            _c("td"),
+                            _vm._v(" "),
+                            _c("td"),
+                            _vm._v(" "),
+                            _c("td"),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("b", [
+                                _vm._v(
+                                  "Totale: " +
+                                    _vm._s(_vm.$store.state.cartTotal) +
+                                    " € "
+                                )
+                              ])
+                            ])
+                          ])
+                        ],
+                        2
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
                     "div",
-                    { key: plate.id, staticClass: "cart-navbar-plate-line" },
+                    {
+                      staticClass:
+                        "col-lg-12 col-sm-12 col-12 text-center checkout checkout-cart-button-container"
+                    },
                     [
                       _c(
-                        "a",
-                        { staticClass: "navbar-item", attrs: { href: "#" } },
+                        "router-link",
+                        { attrs: { to: { name: "checkout" } } },
                         [
-                          _c("span", [
-                            _vm._v(
-                              _vm._s(plate.name) +
-                                " (" +
-                                _vm._s(plate.qty) +
-                                " ) "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("b", [_vm._v(" " + _vm._s(plate.tot) + " €")])
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button-b btn btn-success btn-block"
+                            },
+                            [_vm._v("Checkout")]
+                          )
                         ]
                       )
-                    ]
+                    ],
+                    1
                   )
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-lg-6 col-sm-6 col-6 total-section text-right"
-                  },
-                  [
-                    _c("p", [
-                      _vm._v("Total: "),
-                      _c("span", { staticClass: "text-info" }, [
-                        _vm._v(_vm._s(_vm.$store.state.cartTotal) + " €")
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "col-lg-12 col-sm-12 col-12 text-center checkout checkout-cart-button-container"
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      { attrs: { to: { name: "cart.page" } } },
-                      [
-                        _c(
-                          "button",
-                          { staticClass: "button-b btn btn-primary btn-block" },
-                          [_vm._v("Vai al carrello")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("router-link", { attrs: { to: { name: "checkout" } } }, [
-                      _c(
-                        "button",
-                        { staticClass: "button-b btn btn-success btn-block" },
-                        [_vm._v("Checkout")]
-                      )
-                    ])
-                  ],
-                  1
-                )
-              ],
-              2
-            )
-          ])
+                ])
+              ])
+            ]
+          )
         ])
       ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Nome")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Prezzo")]),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -46752,6 +46939,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "checkout-cart-button-container" }, [
+      _vm._v("\n       z "),
       _c("button", { staticClass: "button-b" }, [_vm._v("Checkout diretto")])
     ])
   }
@@ -47090,63 +47278,145 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "back" } }, [
-    _c("div", { staticClass: "container" }, [
-      _c("h1", [_vm._v("Scopri i nostri ristoranti")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row justify-content-around rests" },
-        _vm._l(_vm.restaurants, function(restaurant) {
-          return _c(
-            "div",
-            {
-              key: restaurant.id,
-              staticClass: "col-12 col-md-5 col-lg-3 m-2 rest",
-              attrs: { "data-sr": "" }
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "restaurant",
-                      params: { slug: restaurant.slug }
-                    }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "card" }, [
-                    _c("img", {
-                      staticClass: "cover",
-                      attrs: { src: restaurant.img, alt: restaurant.name }
-                    }),
+    _c(
+      "div",
+      { staticClass: "container" },
+      _vm._l(_vm.restaurants, function(restaurant) {
+        return _c(
+          "div",
+          {
+            key: restaurant.id,
+            staticClass: "col-12 col-md-5 col-lg-3 m-2 rest",
+            attrs: { "data-sr": "" }
+          },
+          [
+            _c(
+              "router-link",
+              {
+                attrs: {
+                  to: { name: "restaurant", params: { slug: restaurant.slug } }
+                }
+              },
+              [
+                _c("div", { staticClass: "card" }, [
+                  _c("img", {
+                    staticClass: "cover",
+                    attrs: { src: restaurant.img, alt: restaurant.name }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h5", { staticClass: "card-title text-center" }, [
+                      _vm._v(_vm._s(restaurant.name))
+                    ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title text-center" }, [
-                        _vm._v(_vm._s(restaurant.name))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "card-text" },
-                        _vm._l(_vm.cuisines, function(cuisine) {
-                          return _c("span", { key: cuisine.id }, [
-                            _vm._v(_vm._s(cuisine.name))
-                          ])
-                        }),
-                        0
-                      )
-                    ])
+                    _c(
+                      "p",
+                      { staticClass: "card-text" },
+                      _vm._l(_vm.cuisines, function(cuisine) {
+                        return _c("span", { key: cuisine.id }, [
+                          _vm._v(_vm._s(cuisine.name))
+                        ])
+                      }),
+                      0
+                    )
                   ])
-                ]
-              )
-            ],
-            1
-          )
-        }),
-        0
-      )
+                ])
+              ]
+            )
+          ],
+          1
+        )
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("p", { staticClass: "text-center" }, [
+      _vm._v("Pag. " + _vm._s(_vm.currentPage))
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
+        _c(
+          "ul",
+          { staticClass: "pagination" },
+          [
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: { disabled: _vm.currentPage == 1 }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", "aria-label": "Previous" },
+                    on: {
+                      click: function($event) {
+                        return _vm.getRestaurants(_vm.currentPage - 1)
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("«")
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.lastPage, function(i) {
+              return _c("li", { key: i, staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        return _vm.getRestaurants(i)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(i))]
+                )
+              ])
+            }),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "page-item",
+                class: { disabled: _vm.currentPage == _vm.lastPage }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: { href: "#", "aria-label": "Next" },
+                    on: {
+                      click: function($event) {
+                        return _vm.getRestaurants(_vm.currentPage + 1)
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("»")
+                    ])
+                  ]
+                )
+              ]
+            )
+          ],
+          2
+        )
+      ])
     ])
   ])
 }
@@ -65190,6 +65460,7 @@ __webpack_require__.r(__webpack_exports__);
 var already_existent_cart = JSON.parse(window.localStorage.getItem('carrello'));
 var already_existent_num = parseInt(window.localStorage.getItem('numero_elem'));
 var already_existent_cart_total = parseFloat(window.localStorage.getItem('tot_carrello'));
+var already_existent_rest_id = parseFloat(window.localStorage.getItem('currentRest'));
 var store_cart = [];
 
 if (already_existent_cart) {
@@ -65200,10 +65471,20 @@ var store = {
   state: {
     cart: store_cart,
     num: already_existent_num ? already_existent_num : 0,
-    cartTotal: already_existent_cart_total ? already_existent_cart_total : 0
+    cartTotal: already_existent_cart_total ? already_existent_cart_total : 0,
+    currentRest: already_existent_rest_id ? already_existent_rest_id : -1
   },
   mutations: {
     addToCart: function addToCart(state, plate) {
+      // console.log(plate.restaurant_id, state.currentRest, state.cart );
+      if (state.currentRest > 0) {
+        if (parseInt(plate.restaurant_id) != parseInt(state.currentRest)) {
+          alert('funzia');
+          return;
+        }
+      }
+
+      state.currentRest = plate.restaurant_id;
       var is_already_in = state.cart.find(function (elem) {
         return elem.id == plate.id;
       });
@@ -65221,16 +65502,37 @@ var store = {
       state.num++;
       this.commit('saveToLocalStorage');
     },
+    addByCart: function addByCart(state, _ref) {
+      var plate = _ref.plate,
+          quantity = _ref.quantity;
+
+      if (!Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isNumber"])(parseInt(quantity)) || parseInt(quantity) <= 0 || isNaN(parseInt(quantity))) {
+        console.log('Error qty');
+        return;
+      }
+
+      var plateIndex = state.cart.findIndex(function (el) {
+        return el.id == plate.id;
+      });
+      var newQty = parseInt(plate.qty) + parseInt(quantity);
+      state.cart[plateIndex].qty = newQty;
+      state.cart[plateIndex].tot = plate.price * newQty;
+      state.num = parseInt(state.num) + parseInt(quantity);
+      state.cartTotal = parseFloat(state.cartTotal) + parseFloat(quantity * plate.price);
+      this.commit('saveToLocalStorage');
+    },
     saveToLocalStorage: function saveToLocalStorage(state) {
       window.localStorage.setItem('carrello', JSON.stringify(state.cart));
       window.localStorage.setItem('numero_elem', JSON.stringify(state.num));
       window.localStorage.setItem('tot_carrello', JSON.stringify(state.cartTotal));
+      window.localStorage.setItem('currentRest', JSON.stringify(state.currentRest));
     },
-    removeFromCart: function removeFromCart(state, _ref) {
-      var plate = _ref.plate,
-          quantity = _ref.quantity;
+    removeFromCart: function removeFromCart(state, _ref2) {
+      var plate = _ref2.plate,
+          quantity = _ref2.quantity;
+      console.log(state.num, state.cartTotal, state.cart.length);
 
-      if (!Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isNumber"])(parseInt(quantity)) || parseInt(quantity) <= 0) {
+      if (!Object(lodash__WEBPACK_IMPORTED_MODULE_0__["isNumber"])(parseInt(quantity)) || parseInt(quantity) <= 0 || isNaN(parseInt(quantity))) {
         console.log('Error qty');
         return;
       }
@@ -65250,6 +65552,10 @@ var store = {
         state.cart[elemIndex].tot = plate.price * new_qty;
         state.num = state.num - quantity;
         state.cartTotal = parseFloat(state.cartTotal) - parseFloat(quantity * plate.price);
+      }
+
+      if (state.cart.length === 0) {
+        state.currentRest = -1;
       }
 
       this.commit('saveToLocalStorage');
