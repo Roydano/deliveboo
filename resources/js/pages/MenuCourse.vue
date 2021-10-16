@@ -23,7 +23,7 @@
 
                 <div class="infos">
 
-                    <div class="descr my-2 mx-3">{{plate.description}}</div>
+                    <div class="descr mt-2 mb-3 px-4">{{plate.description}}</div>
 
                     <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
 

@@ -15634,10 +15634,28 @@ a.text-dark:focus {
   }
 }
 
-*::not(i) {
+* {
   font-family: "Montserrat", serif !important;
   scroll-behavior: smooth;
 }
+
+* i {
+  font-family: "Font Awesome 5 Free";
+}
+
+.msgAdd {
+  position: fixed;
+  top: 3rem;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* @font-face {
+  font-family: 'Logo';
+  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');
+} */
 
 #nav_inline {
   display: inline;
@@ -15684,43 +15702,39 @@ a::visited {
   opacity: 0;
 }
 
-#jumbo {
+#navHead {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100vw;
   color: black;
+  height: 80px;
   text-transform: uppercase;
   font-size: 12px;
 }
 
-#jumbo #navbarDropdown {
+#navHead #navbarDropdown {
   color: black;
 }
 
-#jumbo #navbarDropdown :hover {
+#navHead #navbarDropdown :hover {
   color: whitesmoke;
 }
 
-#jumbo .dropdown-menu {
+#navHead .dropdown-menu {
   background-color: black !important;
+  overflow: hidden !important;
 }
 
-#jumbo .dropdown-item {
+#navHead .dropdown-item {
   font-size: 11px;
-  color: whitesmoke;
+  color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s linear;
 }
 
-#jumbo .dropdown-item:hover,
-#jumbo .dropdown-item:focus {
-  color: #bbb8b8;
+#navHead .dropdown-item:hover,
+#navHead .dropdown-item:focus {
+  color: white;
   transform: scale(1.1);
-  background-color: black;
-}
-
-#jumbo .logo {
-  width: 100px;
-}
-
-#jumbo .logo img {
-  width: 100%;
 }
 
 * {

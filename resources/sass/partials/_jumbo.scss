@@ -1,5 +1,9 @@
-#jumbo {
+#navHead {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0);
+    width: 100vw;
     color: black;
+    height: 80px;
     text-transform: uppercase;
     font-size: 12px;
     #navbarDropdown {
@@ -10,22 +14,17 @@
     }
     .dropdown-menu {
         background-color: black !important;
+        overflow: hidden !important;
     }
     .dropdown-item {
         font-size: 11px;
-        color: whitesmoke;
+        color: rgba($color: #FFF, $alpha: 0.8);
         transition: all .3s linear;
         &:hover, &:focus {
-            color: rgb(187, 184, 184);
+            color: rgba($color: #FFF, $alpha: 1);
             transform: scale(1.1);
-            background-color: black;
         }
     }
-    .logo{
-        width: 100px;
-        img{
-            width: 100%;
-        }
-        
-    }
+
+    
 }

@@ -1,8 +1,9 @@
 <template>
 
     <div id="back">
-        
-        <div class="row">
+
+
+        <div class="row vh-100">
 
             <div class="my-4 text-center courses col-lg-2">
                 <div class="d-flex flex-column justify-content-lg-around ">
@@ -13,22 +14,22 @@
                 </div>
             </div>
 
-            <div class="col-lg-10">
+            <div class="col-lg-10 cont-right">
 
-            <section class="container head">
+                <section class="container head">
 
-                <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
+                    <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
 
-                <div class="cuisine">
-                    <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
-                </div>
+                    <div class="cuisine">
+                        <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
+                    </div>
 
-            </section>
+                </section>
 
             
-            <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
-                    <component :is="MenuCourse"/>
-            </router-view>
+                <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
+                        <component :is="MenuCourse"/>
+                </router-view>
         
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
@@ -107,6 +108,12 @@ export default {
         background-size: cover;
         background-position: center; 
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
+    }
+
+    .cont-right {
+        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 10%, rgba(0,0,0,0.7) 100%);
+        padding-left: 2rem;
+        height: 100%;
     }
 
     .showPlates {
