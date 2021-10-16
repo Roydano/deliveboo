@@ -19,7 +19,6 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-<<<<<<< HEAD
 
 *{
     margin:0;
@@ -269,9 +268,3 @@ section .content .title{
 
 </style>
 
-=======
-    * {
-        overflow-x: hidden;
-    }
-</style>
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5

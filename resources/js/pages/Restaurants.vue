@@ -1,14 +1,10 @@
 <template>
     <div id="back">
-<<<<<<< HEAD
-        <div class="container">
-=======
     <div class="container">
 
         <h1>Scopri i nostri ristoranti</h1>
         
         <div class="row justify-content-around rests" v-scroll-reveal.reset>
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
 
                 <div class="col-12 col-md-5 col-lg-3 m-2 rest" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
 

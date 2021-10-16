@@ -21,8 +21,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 
-import App from './views/App';
-import router from './router';
+
+
 import Vue from 'vue';
 import vmodal from 'vue-js-modal';
 import PortalVue from 'portal-vue';

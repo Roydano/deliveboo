@@ -33,12 +33,7 @@
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
             
-<<<<<<< HEAD
-
-=======
-    
-        </div>
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
+      </div>
     </div>
     
 </template>
@@ -75,11 +70,7 @@ export default {
             axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug)
                 .then( response => {
                     this.restaurant = response.data.results;
-<<<<<<< HEAD
                     
-=======
-                    this.slugRest =  this.$route.params.slug;
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
                 } )
                 .catch(error => {
                     console.log(error);

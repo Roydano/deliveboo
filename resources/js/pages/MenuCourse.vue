@@ -5,22 +5,6 @@
             </router-view>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-<<<<<<< HEAD
-
-        
-
-        
-        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
-
-        <div v-for="plate in plates" :key="plate.id" class="col p-3">
-            <div class="card_plate text-white">
-                <div class="cover_cont">
-                    <img :src="plate.img" :alt="plate.id" class="plateImg">
-                    <div @click="addPlateToCart(plate)" >
-                        <i class="fas fa-cart-plus cart"></i>
-
-                    </div>
-=======
         <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
             <div class="card_plate text-white">
                 <div class="cover_cont">
@@ -34,7 +18,6 @@
                     </div>
 
                     <div class="text-uppercase name"><span>{{plate.name}}</span></div>
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
                     
                 </div>
 
@@ -79,7 +62,6 @@ export default {
         this.getCourse();
         this.fetchData();
     },
-<<<<<<< HEAD
     watch: {
         $route () {
         this.getPlates();
@@ -87,8 +69,6 @@ export default {
         }
     },
 
-=======
->>>>>>> 89c8e12f0ad8052e270ba5530c9ea2a535ba49a5
     methods: {
         
         truncate(text, maxlength){
