@@ -1,6 +1,6 @@
 <template>
     
-     <div class="container">
+     <div class="container" style="padding-top: 80px;">
             <div class="row">
                     <div class="col-sm-6 col-md-5 col-lg-4" v-for="cuisine in cuisines" :key="cuisine.id">
                         <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug, name: cuisine.name}}">

@@ -13,14 +13,14 @@
 </head>
 <body>
     
-    <div id="navHead" class="text-uppercase d-flex justify-content-between align-items-center">
+    <div id="navHead" class="text-uppercase d-flex justify-content-end align-items-start text-white">
                    
 
             <!-- QUI INIZIA LA PARTE PER IL LOGIN -->
-            <ul class="align-self-start">
+            <ul class="align-self-end mb-0">
                 @guest
                 <li class="d-inline-block dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Sei un ristorante?
                     </a>
 

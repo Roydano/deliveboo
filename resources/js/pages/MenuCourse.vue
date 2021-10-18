@@ -157,7 +157,7 @@ export default {
         width: 100%;
         background: rgb(0,0,0);
         background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,1) 100%);
-        font-size: 20px;
+        font-size: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -179,7 +179,7 @@ export default {
         
         .descr {
             font-style: italic;
-            font-size: 14px;
+            font-size: 0.8rem;
             text-align: center
         }
         .price {
@@ -211,7 +211,7 @@ export default {
     }
 
     .prezzo {
-        font-size: 20px;
+        font-size: 1rem;
     }
 
     .cart, .prezzo {

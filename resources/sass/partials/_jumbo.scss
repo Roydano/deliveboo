@@ -1,9 +1,10 @@
 #navHead {
-    position: absolute;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    right: 5px;
     background-color: rgba($color: #000000, $alpha: 0);
-    width: 100vw;
     color: black;
-    height: 80px;
     text-transform: uppercase;
     font-size: 12px;
     #navbarDropdown {
@@ -13,7 +14,7 @@
         }
     }
     .dropdown-menu {
-        background-color: black !important;
+        background-color: rgba($color: #000000, $alpha: 0.6) !important;
         overflow: hidden !important;
     }
     .dropdown-item {
@@ -23,6 +24,7 @@
         &:hover, &:focus {
             color: rgba($color: #FFF, $alpha: 1);
             transform: scale(1.1);
+            background: rgba($color: #000000, $alpha: 0.6) !important;
         }
     }
 

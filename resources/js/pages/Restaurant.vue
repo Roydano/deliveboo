@@ -1,22 +1,10 @@
 <template>
 
-    <div id="back">
+    <div id="back" :style="{'background-image': 'url(' + restaurant.img + ')' }">
 
+        <div class="grad">
 
-        <div class="row vh-100">
-
-            <div class="my-4 text-center courses col-lg-2">
-                <div class="d-flex flex-column justify-content-lg-around ">
-                    <router-link v-for="course in courses" :key="course.id" class="courseName"
-                    :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>
-                        <span class="black my-2 p-3 ps-0">{{course.name}}</span>
-                    </router-link>
-                </div>
-            </div>
-
-            <div class="col-lg-10 cont-right">
-
-                <section class="container head">
+        <section class="container head">
 
                     <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
 
@@ -24,8 +12,20 @@
                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                     </div>
 
-                </section>
+        </section>
 
+        <div class="row vh-100 justify-content-between">
+
+            <div class="my-4 text-center courses col-2">
+                <div class="d-flex flex-column justify-content-around ">
+                    <router-link v-for="course in courses" :key="course.id" class="courseName"
+                    :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>
+                        <span class="black my-2 p-3 ps-0">{{course.name}}</span>
+                    </router-link>
+                </div>
+            </div>
+
+            <div class="col-9 cont-right">
             
                 <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
                         <component :is="MenuCourse"/>
@@ -34,6 +34,8 @@
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
             
+        </div>
+
         </div>
 
     </div>
@@ -101,8 +103,9 @@ export default {
 
 <style lang="scss" scoped>
     #back {
+        padding-top: 80px;
         min-height: calc(100vh - 80px);
-        background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200');
+        /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -110,8 +113,12 @@ export default {
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
     }
 
+    .grad {
+        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.7) 100%);
+    }
+
     .cont-right {
-        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 10%, rgba(0,0,0,0.7) 100%);
+        
         padding-left: 2rem;
         height: 100%;
     }
@@ -135,20 +142,20 @@ export default {
     }
 
     .restName {
-        font-size: 30px;
+        font-size: 2rem;
         font-weight: 300;
     }
 
 
     .courseName {
-        font-size: 20px;
+        font-size: 1rem;
         display: inline-flex;
         color: white;
         text-transform: uppercase;
         font-weight: 100;
-        transition: all .3s ease-in-out;
+        transition: all .2s ease-in-out;
         span {
-            transition: all .3s ease-in-out;
+            transition: all .2s linear;
         }
         a {
             color: black;
@@ -156,12 +163,12 @@ export default {
             padding-bottom: 5px;
         }
         &:hover {
-            font-size: 24px;
+            font-size: 1.2rem;
             text-decoration: none;
         }
         &.router-link-active span,
         &.router-link-exact-active span{
-            font-size: 24px;
+            font-size: 1rem;
             border-bottom: 1px solid white;
         }
     
@@ -170,7 +177,7 @@ export default {
     
 
     .cuisine {
-        font-size: 13px;
+        font-size: 0.7rem;
         font-style: italic;
     }
 
@@ -192,9 +199,10 @@ export default {
     } */
     
     .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+        transition: opacity .2s;
+    }
+
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+    }
 </style>

@@ -15703,11 +15703,12 @@ a::visited {
 }
 
 #navHead {
-  position: absolute;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  right: 5px;
   background-color: rgba(0, 0, 0, 0);
-  width: 100vw;
   color: black;
-  height: 80px;
   text-transform: uppercase;
   font-size: 12px;
 }
@@ -15721,7 +15722,7 @@ a::visited {
 }
 
 #navHead .dropdown-menu {
-  background-color: black !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
   overflow: hidden !important;
 }
 
@@ -15735,6 +15736,7 @@ a::visited {
 #navHead .dropdown-item:focus {
   color: white;
   transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.6) !important;
 }
 
 * {
@@ -15763,14 +15765,14 @@ a::visited {
   z-index: 1;
   background: #22242A;
   position: fixed;
-  width: calc(100% - 0%);
+  width: 100%;
   height: 100px;
   display: flex;
   top: 0;
 }
 
 .wrapper .header .header-menu {
-  width: calc(100% - 0%);
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -15843,7 +15845,7 @@ a.no-style:hover {
   background: #2F323A;
   position: fixed;
   width: 250px;
-  height: calc(100% - 9%);
+  height: 91%;
   /* transition: 0.3s;
   transition-property: width; */
   overflow-y: auto;
