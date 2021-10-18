@@ -2,9 +2,9 @@
     <div>
          <div class="container-fluid"  v-if="cuisineSelect != '' " >
 
-            <h3 clss="">Cucina {{ cuisineSelect }}</h3>
+            <h3>Cucina {{ cuisineSelect }}</h3>
 
-            <div class="row mt-5 text-center" >
+            <div class="row  mt-5 text-center" >
                 
                 <div v-for="restaurant in restaurants" :key="restaurant.id">
 

@@ -5,7 +5,7 @@
         <div class="row">
            
             
-            <div class="col-lg-1 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
+            <div class="col-lg-2 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
                  <p class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug);" :value="cuisine.id"> <span class="cusname">{{ cuisine.name }}</span> </p> 
          
             </div>
@@ -130,6 +130,7 @@ h2{
 p{
     color:white;
     font-style:italic;
+    font-size:20px;
 }
 
 .container-fluid{
