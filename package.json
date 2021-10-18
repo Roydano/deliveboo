@@ -32,6 +32,7 @@
         "animate.css": "^4.1.1",
         "click-outside-vue3": "^4.0.1",
         "fontawesome": "^5.6.3",
+        "fortawesome": "0.0.1-security",
         "portal-vue": "^2.1.7",
         "scrollreveal": "^4.0.9",
         "vue-js-modal": "^2.0.1",
