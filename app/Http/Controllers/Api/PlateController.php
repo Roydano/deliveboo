@@ -29,6 +29,12 @@ class PlateController extends Controller
         foreach($plates as $plate) {
             $plate->img = url('storage/' . $plate->img);
         }
+
+        
+
+        /* cambiare seed con url default img a una in storage public img */
+
+
             
         return response()->json([
             'success' => true,
@@ -105,17 +111,19 @@ class PlateController extends Controller
         $plate = Plate::where('slug', $slug)->first();
         $restaurant = Restaurant::find($plate->restaurant_id);
 
-        $prevPlate = $restaurant->plates->where('id', '<', $plate->id)->first()->slug;
+        $prevPlate = $restaurant->plates->sortBy('course_id')->where('id', '<', $plate->id)->last();
 
-        if (!$prevPlate) {
-            $prevPlate = 'nullo prev';
+        if (empty($prevPlate)) {
+            $prevPlate = $restaurant->plates->sortBy('course_id')->last();
         }
 
-        
+        $prevCourse = $prevPlate->course->slug;
+      
 
         return response()->json([
             'success' => true,
-            'results' => $prevPlate
+            'results' => array('plate' => $prevPlate->slug, 
+                                'course' => $prevCourse) 
         ]);
     }
 
@@ -130,16 +138,19 @@ class PlateController extends Controller
         $plate = Plate::where('slug', $slug)->first();
         $restaurant = Restaurant::find($plate->restaurant_id);
 
-        $nextPlate = $restaurant->plates->where('id', '>', $plate->id)->first()->slug;
+        $nextPlate = $restaurant->plates->sortBy('course_id')->firstWhere('id', '>', $plate->id);
 
-        if (!$nextPlate) {
-            $nextPlate = 'nullo';
+        if (empty($nextPlate)) {
+            $nextPlate = $restaurant->plates->sortBy('course_id')->first();
         }
+
+        $nextCourse = $nextPlate->course->slug;
 
         
         return response()->json([
             'success' => true,
-            'results' => $nextPlate
+            'results' => array('plate' => $nextPlate->slug, 
+            'course' => $nextCourse) 
         ]);
     }
 

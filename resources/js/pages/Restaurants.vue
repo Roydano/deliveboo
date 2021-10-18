@@ -1,8 +1,20 @@
 <template>
     <div id="back">
+        <div class="tit">
+            <h2 class=" text-center">Tutti i nostri ristoranti</h2>
+        </div>
         <div class="container">
+            
+            <div class="row">
+                
 
-                <div class="col-12 col-md-5 col-lg-3 m-2 rest" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
+            
+         
+            
+
+                <div class="col-12 col-md-5 col-lg-3 rest m-1 p-2" data-sr v-for="restaurant in restaurants" :key="restaurant.id">
+                   
+                    
 
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
@@ -16,7 +28,7 @@
                         </div>
                     </router-link>
                 </div>
-                
+            </div>
         </div>
 
             <hr>
@@ -31,7 +43,6 @@
                             <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-
                         <li class="page-item" v-for="i in lastPage" :key="i"><a class="page-link" href="#" @click="getRestaurants(i)">{{i}}</a></li>
 
                         <li class="page-item" :class="{'disabled' : currentPage == lastPage}">
@@ -43,7 +54,11 @@
                 </nav>
             </div>
 
+            
+
         </div>
+
+ 
     
 
     
@@ -114,14 +129,46 @@ export default {
         max-height: calc(100vh - 70px);
     }
 
-    .card {
-        padding: 0 !important;
-        transition: all .2s linear;
-        background-color: rgba(0, 0, 0, 0.856);
-        border-radius: 20px;
-        padding: 10px;
-        &:hover {
-            transform: translateY(5px);
+  
+    .card{
+         background-color: rgba(0, 0, 0, 0.8);
+         padding: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         height:200px;
+         font-style:italic;
+           &:hover {
+             transform: translateY(5px);
+             background-color:#007bff;
+             opacity: 0.6;
+             transition:0.5s ease-in-out;
+             color:white;
+             
+         }
+     }
+
+    
+
+
+       
+        h2{
+           padding-bottom:10px;
+           color: white;
+           font-style:italic;
+            
+          
+
+            
         }
-    }
+        .row{
+            justify-content: center;
+        }
+       
+        a{
+            text-decoration:none;
+        }
+    
 </style>

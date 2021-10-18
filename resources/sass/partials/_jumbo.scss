@@ -1,4 +1,9 @@
-#jumbo {
+#navHead {
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    right: 5px;
+    background-color: rgba($color: #000000, $alpha: 0);
     color: black;
     text-transform: uppercase;
     font-size: 12px;
@@ -9,23 +14,19 @@
         }
     }
     .dropdown-menu {
-        background-color: black !important;
+        background-color: rgba($color: #000000, $alpha: 0.6) !important;
+        overflow: hidden !important;
     }
     .dropdown-item {
         font-size: 11px;
-        color: whitesmoke;
+        color: rgba($color: #FFF, $alpha: 0.8);
         transition: all .3s linear;
         &:hover, &:focus {
-            color: rgb(187, 184, 184);
+            color: rgba($color: #FFF, $alpha: 1);
             transform: scale(1.1);
-            background-color: black;
+            background: rgba($color: #000000, $alpha: 0.6) !important;
         }
     }
-    .logo{
-        width: 100px;
-        img{
-            width: 100%;
-        }
-        
-    }
+
+    
 }

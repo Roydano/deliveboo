@@ -35,6 +35,7 @@ let store = {
 
 
             state.currentRest = plate.restaurant_id;
+            
             let is_already_in = state.cart.find(elem => elem.id == plate.id);
             if (is_already_in) {
                 is_already_in.qty ++;

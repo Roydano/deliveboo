@@ -1,21 +1,15 @@
 <template>
 
-    <div class="jumbo-cont d-flex position-relative">
-
+    <div class="jumbo-cont d-flex position-relative justify-content-center">
         
-
-        
-
-        <video autoplay muted loop>    
+        <div class="overlay">
+            <video autoplay muted loop>    
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
-        </video>
+            </video>
+        </div>
+        
 
-        <div class="jumbo text-white text-center ">
-
-            <router-link to="/restaurants" class="links">Restaurants</router-link>
-            <router-link to="/cuisines" class="links">Cuisines</router-link>
-
-            <!-- <Cart/> -->
+        <!-- <div class="jumbo text-white text-center ">
 
             <!-- <Cart/> -->
 
@@ -26,23 +20,19 @@
                 <!-- <p class="lead">Con WannaEat puoi gustare i tuoi piatti preferiti comodamente da casa tua</p>
                 <hr class="my-4">
                 <p>Scegli tra una vasta selezione di cucine, esplora i ristoranti e ordina i piatti con un semplice click. <br> Dal ristorante, direttamente a casa tua.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> -->
+                <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> 
 
             </div>
-        </div>
+        </div> -->
     </div>
     
 </template>
 
 <script>
-// import Cart from '../components/Cart';
+
 export default {
     name: 'Jumbo',
-    // components: {
-    //     Cart,
-    // }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -55,6 +45,9 @@ export default {
     }
     video {
         height: 100%;
+    }
+    .overlay {
+        background-color: rgba($color: #000000, $alpha: .5);
     }
     .jumbo {
         font-size: 28px;

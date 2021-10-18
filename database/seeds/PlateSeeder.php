@@ -42,6 +42,9 @@ class PlateSeeder extends Seeder
         foreach($plates as $plate) {
             $plate -> img = 'img/piatto.jpg';
             $plate->save();
+
+
+
         }
     }
 }

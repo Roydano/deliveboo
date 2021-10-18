@@ -29,7 +29,6 @@ import Popover from 'vue-js-popover'
 /* import ScrollReveal from 'scrollreveal';
     
 Vue.use(ScrollReveal); */
-
 Vue.use(vClickOutside);
 Vue.use(Popover);
 Vue.directive('click-outside', {

@@ -5,44 +5,46 @@
             </router-view>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-            <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
-                <div class="card_plate text-white">
-                    <div class="cover_cont">
+        <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
+            <div class="card_plate text-white">
+                <div class="cover_cont">
 
-                        <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}">
-                            <img :src="plate.img" :alt="plate.id" class="plateImg">
-                        </router-link>
-                        
-                        <div class="icons">
-                            <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}"><i class="fas fa-eye show"></i></router-link>
-                        </div>
-
-                        <div class="text-uppercase name"><span>{{plate.name}}</span></div>
-                        
+                    <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}">
+                        <img :src="plate.img" :alt="plate.id" class="plateImg">
+                    </router-link>
+                    
+                    <div class="icons">
+                        <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}"><i class="fas fa-eye show"></i></router-link>
                     </div>
 
-                    <div class="infos">
-
-                        <div class="descr my-2 mx-3">{{plate.description}}</div>
-
-                        <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
-
-                            <span class="prezzo">{{plate.price}}€</span>
-                            
-                            <img class="cart" src="/storage/img/add-to-cart.png" alt="cart icon">
-                                                    
-                        </div>
-                    </div>
+                    <div class="text-uppercase name"><span>{{plate.name}}</span></div>
                     
                 </div>
+
+                <div class="infos">
+
+                    <div class="descr mt-2 mb-3 px-4">{{plate.description}}</div>
+
+                    <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
+
+                        <span class="prezzo">{{plate.price}}€</span>
+                        
+                        <img class="cart" src="/storage/img/add-to-cart.png" alt="cart icon">
+                                                
+                    </div>
+                </div>
+                
             </div>
         </div>
+        </div>
+
+        
+
     </div>
     
 </template>
 
 <script>
-
 export default {
     name: 'MenuCourse',
     data() {
@@ -59,7 +61,12 @@ export default {
         this.getCourse();
         this.fetchData();
     },
-
+    watch: {
+        $route () {
+        this.getPlates();
+        this.getCourse();
+        }
+    },
     methods: {
         
         truncate(text, maxlength){
@@ -90,33 +97,22 @@ export default {
                     console.log(error);
                 });
         },
+         addPlateToCart(plate) {
+            this.$store.commit('addToCart', plate); 
+        },
         
          addPlateToCart(plate) {
             this.$store.commit('addToCart', plate); 
         }
         
-
-            }.catch(error => { // Nel caso di errori in arrivo
-
-                this.loading = false;
-                this.error = error.response.data.message || error.message;
-
-            });
-        
-        },
-        
-        addPlateToCart(plate) {
-            this.$store.commit('addToCart', plate); // Qui invece chiamiamo il metodo dello Storagein store.js
-        }
+    }
 }
-
 </script>
 
 <style lang="scss" scoped>
     * {
         font-family: 'Montserrat';
     }
-
     
     .card_plate {
         padding: 0;
@@ -166,7 +162,7 @@ export default {
         width: 100%;
         background: rgb(0,0,0);
         background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,1) 100%);
-        font-size: 20px;
+        font-size: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -188,7 +184,7 @@ export default {
         
         .descr {
             font-style: italic;
-            font-size: 14px;
+            font-size: 0.8rem;
             text-align: center
         }
         .price {
@@ -197,10 +193,8 @@ export default {
             border-radius: 20px;
             position: relative;
             cursor: pointer;
-
         }
     }
-
     .showPlate {
         position: fixed;
         top: 0;
@@ -210,7 +204,6 @@ export default {
         justify-content: center;
         align-items: center;
     }
-
     .cart {
         filter: invert(1);
         position:absolute;
@@ -218,15 +211,11 @@ export default {
         bottom: 5px;
         max-width: 2rem;
     }
-
     .prezzo {
-        font-size: 20px;
+        font-size: 1rem;
     }
-
     .cart, .prezzo {
         transition: all .2s ease-in-out;
     }
-
     
-
 </style>
