@@ -101,7 +101,7 @@ export default {
         },
          addPlateToCart(plate) {
             this.$store.commit('addToCart', plate); 
-        }
+        },
         
          addPlateToCart(plate) {
             this.$store.commit('addToCart', plate); 

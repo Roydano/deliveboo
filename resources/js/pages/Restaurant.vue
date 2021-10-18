@@ -1,8 +1,10 @@
 <template>
 
     <div id="back">
+      
         
         <div class="row">
+        
 
             <div class="my-4 text-center courses col-lg-2">
                 <div class="d-flex flex-column justify-content-lg-around ">
@@ -15,7 +17,7 @@
 
             <div class="col-lg-10">
 
-            <section class="container head">
+            <section class="container flex-end head">
 
                 <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
 
@@ -30,9 +32,10 @@
                     <component :is="MenuCourse"/>
             </router-view>
         
-            </div>
+           
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
-            
+          </div>  
+        </div>
     </div>
     
 </template>
@@ -59,10 +62,7 @@ export default {
     },
     watch: {
 
-        /* ora mostra antipasto, fare pagina atterraggio */
-        /* loaded: function() {
-            this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
-        } */
+      
     },
     methods: {
         getRestaurant() {
@@ -115,9 +115,11 @@ export default {
     .head {
         height: 100px;
         display: flex;
+        
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
         justify-content: center;
+        
     }
 
     .black {
@@ -129,7 +131,6 @@ export default {
         font-size: 30px;
         font-weight: 300;
     }
-
 
     .courseName {
         font-size: 20px;
@@ -157,35 +158,19 @@ export default {
         }
     
     }
-
     
-
     .cuisine {
         font-size: 13px;
         font-style: italic;
     }
-
-   /*  .fade-enter-active {
-        transition: opacity 4s ease-in-out;
-    }
-
-    .fade-enter-to {
-        opacity: 1;
-    }
-    .fade-leave-active {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-
-    .fade-enter-from,
-    .fade-leave-to {
-         opacity: 0 !important;
-    } */
+  
     
     .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+      transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to  {
   opacity: 0;
 }
+
 </style>
