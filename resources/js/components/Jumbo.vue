@@ -44,9 +44,9 @@ export default {
     video {
         height: 100%;
     }
-    .overlay {
+    /* .overlay {
         background-color: rgba($color: #000000, $alpha: .5);
-    }
+    } */
     .jumbo {
         font-size: 28px;
         height: 100%;

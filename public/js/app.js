@@ -6845,6 +6845,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
@@ -12274,7 +12276,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  z-index: 1;\n  position: fixed;\n  padding-right: 30%;\n  width: 100%;\n  height: 80px;\n  background-color: rgba(0, 0, 0, 0);\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n  color: white;\n}\nheader .link[data-v-1f42fb90] {\n  width: 100%;\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 200;\n  font-size: 1.2rem;\n  color: white;\n  text-decoration: none;\n  font-weight: 300;\n  transition: all 0.2s linear;\n}\nheader .link[data-v-1f42fb90]:hover {\n  transform: scale(1.1);\n}\nheader .logo img[data-v-1f42fb90] {\n  width: 8rem;\n  filter: invert(1);\n  transition: all 0.3s linear;\n}\nheader .logo img[data-v-1f42fb90]:hover {\n  transform: rotateZ(360deg);\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  z-index: 1;\n  position: fixed;\n  background-color: rgba(0, 0, 0, 0);\n  display: flex;\n  color: white;\n}\nheader .link[data-v-1f42fb90] {\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 200;\n  font-size: 1.2rem;\n  color: white;\n  text-decoration: none;\n  font-weight: 300;\n  transition: all 0.2s linear;\n}\nheader .link[data-v-1f42fb90]:hover {\n  transform: scale(1.1);\n}\nheader .logo img[data-v-1f42fb90] {\n  width: 8rem;\n  filter: invert(1);\n  transition: all 0.3s linear;\n}\nheader .logo img[data-v-1f42fb90]:hover {\n  transform: rotateZ(360deg);\n}", ""]);
 
 // exports
 
@@ -12294,7 +12296,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Ha
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);", ""]);
 
 // module
-exports.push([module.i, "*[data-v-37c76d18] {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n* i[data-v-37c76d18] {\n  font-family: \"Font Awesome 5 Free\";\n}\n.msgAdd[data-v-37c76d18] {\n  position: fixed;\n  top: 3rem;\n  text-align: center;\n  color: white;\n  border: none;\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n\n/* @font-face {\n  font-family: 'Logo';\n  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');\n} */\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: black;\n  height: 100vh;\n  overflow: hidden;\n  justify-content: flex-end;\n}\nvideo[data-v-37c76d18] {\n  height: 100%;\n}\n.overlay[data-v-37c76d18] {\n  background-color: rgba(0, 0, 0, 0.5);\n}\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
+exports.push([module.i, "*[data-v-37c76d18] {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n* i[data-v-37c76d18] {\n  font-family: \"Font Awesome 5 Free\";\n}\n.msgAdd[data-v-37c76d18] {\n  position: fixed;\n  top: 3rem;\n  text-align: center;\n  color: white;\n  border: none;\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n\n/* @font-face {\n  font-family: 'Logo';\n  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');\n} */\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: black;\n  height: 100vh;\n  overflow: hidden;\n  justify-content: flex-end;\n}\nvideo[data-v-37c76d18] {\n  height: 100%;\n}\n\n/* .overlay {\n    background-color: rgba($color: #000000, $alpha: .5);\n} */\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
 
 // exports
 
@@ -12389,7 +12391,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 1rem;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
+exports.push([module.i, "*[data-v-593b98ba] {\n  font-family: \"Montserrat\";\n}\n.card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  max-height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 1rem;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
 
 // exports
 
@@ -12427,7 +12429,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-25de3706] {\n  padding-top: 80px;\n  min-height: calc(100vh - 80px);\n  /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.grad[data-v-25de3706] {\n  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n}\n.cont-right[data-v-25de3706] {\n  padding-left: 2rem;\n  height: 100%;\n}\n.showPlates[data-v-25de3706] {\n  max-height: 65vh;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: end;\n  justify-content: center;\n}\n.black[data-v-25de3706] {\n  background-color: rgba(0, 0, 0, 0.6);\n  display: inline;\n}\n.restName[data-v-25de3706] {\n  font-size: 2rem;\n  font-weight: 300;\n}\n.courseName[data-v-25de3706] {\n  font-size: 1rem;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.2s ease-in-out;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.2s linear;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n  padding-bottom: 5px;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 1.2rem;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 1rem;\n  border-bottom: 1px solid white;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 0.7rem;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.2s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
+exports.push([module.i, "#back[data-v-25de3706] {\n  height: 100vh;\n  /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.grad[data-v-25de3706] {\n  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n  height: 100%;\n}\n.main-cont[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.cont-right[data-v-25de3706] {\n  padding-left: 2rem;\n  height: 100%;\n}\n.courses[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.showPlates[data-v-25de3706] {\n  height: 100%;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 7rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.restName[data-v-25de3706] {\n  text-transform: uppercase;\n  font-size: 3.5rem;\n  font-weight: 100;\n}\n\n/* \n.black {\n        background-color: rgba($color: #000, $alpha: 0.5);\n        display: inline;\n    } */\n.courseName[data-v-25de3706] {\n  font-size: 1.2rem;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.2s linear;\n  height: 3rem;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.2s linear;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 1.4rem;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 1.5rem;\n  text-decoration: line-through;\n  text-decoration-thickness: 0.5px;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 0.7rem;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.2s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -44940,23 +44942,34 @@ var render = function() {
   return _c(
     "header",
     [
-      _c("router-link", { staticClass: "logo ml-3", attrs: { to: "/" } }, [
-        _c("img", {
-          attrs: { src: "/storage/img/welogo.svg", alt: "wanna eat" }
-        })
-      ]),
+      _c(
+        "div",
+        { staticClass: "left d-flex flex-column" },
+        [
+          _c("router-link", { staticClass: "logo ml-3", attrs: { to: "/" } }, [
+            _c("img", {
+              attrs: { src: "/storage/img/welogo.svg", alt: "wanna eat" }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.nav, function(item) {
+            return _c(
+              "router-link",
+              {
+                key: item.label,
+                staticClass: "link",
+                attrs: { to: item.path }
+              },
+              [_vm._v(_vm._s(item.label))]
+            )
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _vm._l(_vm.nav, function(item) {
-        return _c(
-          "router-link",
-          { key: item.label, staticClass: "link", attrs: { to: item.path } },
-          [_vm._v(_vm._s(item.label))]
-        )
-      }),
-      _vm._v(" "),
-      _c("Cart")
+      _c("Cart", { staticClass: "mt-5" })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -45444,7 +45457,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "row row-cols-1 row-cols-md-2 row-cols-lg-3" },
+        { staticClass: "row row-cols-1 row-cols-md-3 row-cols-lg-4" },
         _vm._l(_vm.plates, function(plate) {
           return _c("div", { key: plate.id, staticClass: "col p-3 plate" }, [
             _c("div", { staticClass: "card_plate text-white" }, [
@@ -45782,7 +45795,7 @@ var render = function() {
     [
       _c("div", { staticClass: "grad" }, [
         _c("section", { staticClass: "container head" }, [
-          _c("h3", { staticClass: "text-center py-4 text-white restName" }, [
+          _c("h3", { staticClass: "text-center text-white restName" }, [
             _vm._v(_vm._s(_vm.restaurant.name))
           ]),
           _vm._v(" "),
@@ -45798,42 +45811,43 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row vh-100 justify-content-between" }, [
-          _c("div", { staticClass: "my-4 text-center courses col-2" }, [
-            _c(
-              "div",
-              { staticClass: "d-flex flex-column justify-content-around " },
-              _vm._l(_vm.courses, function(course) {
-                return _c(
-                  "router-link",
-                  {
-                    key: course.id,
-                    staticClass: "courseName",
-                    attrs: {
-                      to: {
-                        name: "showMenu",
-                        params: {
-                          slug: _vm.restaurant.slug,
-                          slugCourse: course.slug
-                        }
-                      },
-                      exact: ""
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
-                      _vm._v(_vm._s(course.name))
-                    ])
-                  ]
-                )
-              }),
-              1
-            )
-          ]),
+        _c("div", { staticClass: "row main-cont justify-content-between" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "my-4 text-center courses col-2 d-flex flex-column justify-content-center"
+            },
+            _vm._l(_vm.courses, function(course) {
+              return _c(
+                "router-link",
+                {
+                  key: course.id,
+                  staticClass: "courseName",
+                  attrs: {
+                    to: {
+                      name: "showMenu",
+                      params: {
+                        slug: _vm.restaurant.slug,
+                        slugCourse: course.slug
+                      }
+                    },
+                    exact: ""
+                  }
+                },
+                [
+                  _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                    _vm._v(_vm._s(course.name))
+                  ])
+                ]
+              )
+            }),
+            1
+          ),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-9 cont-right" },
+            { staticClass: "col-10 cont-right" },
             [
               _c("router-view", {
                 key: _vm.$route.params.slugCourse,
