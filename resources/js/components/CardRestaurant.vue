@@ -68,7 +68,7 @@ h5{
 h5:hover{
     text-decoration:none;
     border:none;
-    color: #19B3D3;
+    color:black;
     
     
     transition:0.2s;
@@ -77,26 +77,45 @@ h5:hover{
 #h5 {transition-timing-function: ease-out;}
 
 
- .card_plate {
-     background-color: rgba(0, 0, 0, 0.8);
-     padding: 10px;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
+//  .card_plate {
+//      background-color: rgba(0, 0, 0, 0.8);
+//      padding: 10px;
+//      display: flex;
+//      flex-direction: column;
+//      justify-content: center;
+//      align-items: center;
+//      text-align: center;
        
-    }
+//     }
  
-    // .container{
-    //     width:100%;
-
-    // }
     .carta{
         margin-left:70px;
         margin-bottom:40px;
         
      
+    }
+    .card_plate{
+          
+         background-color: rgba(0, 0, 0, 0.8);
+         padding: 10px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         height:200px;
+         font-style:italic;
+           &:hover {
+             transform: translateY(5px);
+             background-color:white;
+             opacity: 0.6;
+             transition:0.5s ease-in-out;
+             color:black;
+             h5{
+                 color:black;
+             }
+           }  
+         
     }
 
 h3{
@@ -108,14 +127,18 @@ h3{
 }
 .scegli{
        background-color: rgba(0, 0, 0, 0.8);
-padding: 20px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-color:white;
+       padding: 20px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+        align-items: center;
+        text-align: center;
+        color:white;
 
+    }
+
+    a{
+        text-decoration:none;    
     }
 
 

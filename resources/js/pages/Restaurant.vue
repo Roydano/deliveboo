@@ -1,8 +1,10 @@
 <template>
 
     <div id="back">
+      
         
         <div class="row">
+        
 
             <div class="my-4 text-center courses col-lg-2">
                 <div class="d-flex flex-column justify-content-lg-around ">
@@ -32,7 +34,7 @@
         
             </div>
                  <!-- <transition enter-active-class="animate__animated animate__fadeInLeft" leave-active-class="animate__animated animate__fadeInLeft"> -->
-            
+          </div>  
     </div>
     
 </template>
@@ -59,10 +61,7 @@ export default {
     },
     watch: {
 
-        /* ora mostra antipasto, fare pagina atterraggio */
-        /* loaded: function() {
-            this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
-        } */
+      
     },
     methods: {
         getRestaurant() {
@@ -130,7 +129,6 @@ export default {
         font-weight: 300;
     }
 
-
     .courseName {
         font-size: 20px;
         display: inline-flex;
@@ -157,35 +155,19 @@ export default {
         }
     
     }
-
     
-
     .cuisine {
         font-size: 13px;
         font-style: italic;
     }
-
-   /*  .fade-enter-active {
-        transition: opacity 4s ease-in-out;
-    }
-
-    .fade-enter-to {
-        opacity: 1;
-    }
-    .fade-leave-active {
-        transition: opacity 0.3s ease-in-out;
-    }
-
-
-    .fade-enter-from,
-    .fade-leave-to {
-         opacity: 0 !important;
-    } */
+  
     
     .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+      transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to  {
   opacity: 0;
 }
+
 </style>

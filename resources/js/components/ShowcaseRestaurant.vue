@@ -129,10 +129,12 @@ h2{
 }
 p{
     color:white;
+    font-style:italic;
 }
 
 .container-fluid{
     margin-top:50px;
+    font-style:italic;
 }
 
 .cartella{
@@ -149,7 +151,7 @@ p{
  }
 .bottone:hover span{
     color:black;
-       transition: 0.5s ease-in-out;
+     transition: 0.5s ease-in-out;
      transition-property: color;
     
 
@@ -157,6 +159,7 @@ p{
 .card-title p{
     color:white;
     text-decoration: none;
+    font-style:italic;
 }
 
 
@@ -170,6 +173,7 @@ p{
 // }
 p span{
     color:white;
+    font-style:italic;
 }
 
  .chefame{

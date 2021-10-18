@@ -7265,9 +7265,117 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MenuCourse.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\resources\\js\\pages\\MenuCourse.vue: Unexpected token, expected \",\" (106:9)\n\n\u001b[0m \u001b[90m 104 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 105 |\u001b[39m         \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 106 |\u001b[39m          addPlateToCart(plate) {\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 107 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$store\u001b[33m.\u001b[39mcommit(\u001b[32m'addToCart'\u001b[39m\u001b[33m,\u001b[39m plate)\u001b[33m;\u001b[39m \u001b[0m\n\u001b[0m \u001b[90m 108 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 109 |\u001b[39m         \u001b[0m\n    at Parser._raise (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:510:17)\n    at Parser.raiseWithData (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:503:17)\n    at Parser.raise (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:464:17)\n    at Parser.unexpected (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:3368:16)\n    at Parser.expect (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:3342:28)\n    at Parser.parseObjectLike (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12072:14)\n    at Parser.parseExprAtom (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11571:23)\n    at Parser.parseExprSubscripts (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11217:23)\n    at Parser.parseUpdate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11197:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11172:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10986:59)\n    at Parser.parseExprOps (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10993:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10963:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10926:21)\n    at C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:39\n    at Parser.allowInAnd (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12720:12)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:17)\n    at Parser.parseObjectProperty (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12242:101)\n    at Parser.parseObjPropValue (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12267:100)\n    at Parser.parsePropertyDefinition (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12191:10)\n    at Parser.parseObjectLike (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12080:25)\n    at Parser.parseExprAtom (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11571:23)\n    at Parser.parseExprSubscripts (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11217:23)\n    at Parser.parseUpdate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11197:21)\n    at Parser.parseMaybeUnary (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:11172:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10986:59)\n    at Parser.parseExprOps (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10993:23)\n    at Parser.parseMaybeConditional (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10963:23)\n    at Parser.parseMaybeAssign (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10926:21)\n    at C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:39\n    at Parser.allowInAnd (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12714:16)\n    at Parser.parseMaybeAssignAllowIn (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:10888:17)\n    at Parser.parseExportDefaultExpression (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:14145:24)\n    at Parser.parseExport (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:14055:31)\n    at Parser.parseStatementContent (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:13039:27)\n    at Parser.parseStatement (C:\\Users\\Hp\\Desktop\\Boolean\\boolean-1\\deliveboo\\node_modules\\@babel\\parser\\lib\\index.js:12931:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'MenuCourse',
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      plates: [],
+      course: [],
+      loading: false
+    }, _defineProperty(_ref, "plates", null), _defineProperty(_ref, "error", null), _ref;
+  },
+  created: function created() {
+    this.getPlates();
+    this.getCourse();
+    this.fetchData();
+  },
+  watch: {
+    $route: function $route() {
+      this.getPlates();
+      this.getCourse();
+    }
+  },
+  methods: _defineProperty({
+    truncate: function truncate(text, maxlength) {
+      if (text.length > maxlength) {
+        return text.substr(0, maxlength) + '...';
+      }
+
+      return text;
+    },
+    getCourse: function getCourse() {
+      var _this = this;
+
+      axios.get('http://localhost:8000/api/courses/' + this.$route.params.slugCourse).then(function (response) {
+        _this.course = response.data.results;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getPlates: function getPlates() {
+      var _this2 = this;
+
+      axios.get('http://localhost:8000/api/restaurants/' + this.$route.params.slug + '/' + this.$route.params.slugCourse).then(function (response) {
+        _this2.plates = response.data.results;
+
+        _this2.plates.forEach(function (elem) {
+          elem.description = _this2.truncate(elem.description, 60);
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    addPlateToCart: function addPlateToCart(plate) {
+      this.$store.commit('addToCart', plate);
+    }
+  }, "addPlateToCart", function addPlateToCart(plate) {
+    this.$store.commit('addToCart', plate);
+  })
+});
 
 /***/ }),
 
@@ -7462,6 +7570,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurant',
   linkExactActiveClass: 'is-active',
@@ -7479,13 +7589,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getCuisines();
     this.getCourses();
   },
-  watch: {
-    /* ora mostra antipasto, fare pagina atterraggio */
-
-    /* loaded: function() {
-        this.$router.push('/restaurants/' + this.$route.params.slug + '/' + this.courses[0].slug);
-    } */
-  },
+  watch: {},
   methods: {
     getRestaurant: function getRestaurant() {
       var _this = this;
@@ -7529,6 +7633,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12119,7 +12234,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-0a197b18] {\n  text-decoration: none;\n}\nh5[data-v-0a197b18] {\n  color: white;\n  text-decoration: none;\n  margin-top: 25px;\n  text-transform: uppercase;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\nh5[data-v-0a197b18]:hover {\n  text-decoration: none;\n  border: none;\n  color: #19B3D3;\n  transition: 0.2s;\n}\n#h5[data-v-0a197b18] {\n  transition-timing-function: ease-out;\n}\n.card_plate[data-v-0a197b18] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.carta[data-v-0a197b18] {\n  margin-left: 70px;\n  margin-bottom: 40px;\n}\nh3[data-v-0a197b18] {\n  color: white;\n}\n.phone[data-v-0a197b18] {\n  font-size: 10px;\n}\n.scegli[data-v-0a197b18] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  color: white;\n}", ""]);
+exports.push([module.i, "*[data-v-0a197b18] {\n  text-decoration: none;\n}\nh5[data-v-0a197b18] {\n  color: white;\n  text-decoration: none;\n  margin-top: 25px;\n  text-transform: uppercase;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\nh5[data-v-0a197b18]:hover {\n  text-decoration: none;\n  border: none;\n  color: black;\n  transition: 0.2s;\n}\n#h5[data-v-0a197b18] {\n  transition-timing-function: ease-out;\n}\n.carta[data-v-0a197b18] {\n  margin-left: 70px;\n  margin-bottom: 40px;\n}\n.card_plate[data-v-0a197b18] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  height: 200px;\n  font-style: italic;\n}\n.card_plate[data-v-0a197b18]:hover {\n  transform: translateY(5px);\n  background-color: white;\n  opacity: 0.6;\n  transition: 0.5s ease-in-out;\n  color: black;\n}\n.card_plate:hover h5[data-v-0a197b18] {\n  color: black;\n}\nh3[data-v-0a197b18] {\n  color: white;\n}\n.phone[data-v-0a197b18] {\n  font-size: 10px;\n}\n.scegli[data-v-0a197b18] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  color: white;\n}\na[data-v-0a197b18] {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -12196,7 +12311,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sect[data-v-43983775] {\n  text-align: center;\n}\n.sfondo[data-v-43983775] {\n  height: auto;\n  background: url(\"/img/ao.jpg\");\n  background-size: cover;\n  padding-top: 30px;\n}\nh2[data-v-43983775] {\n  filter: drop-shadow(16px 16px 20px red) invert(75%);\n  font-style: italic;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  justify-content: center;\n  color: red;\n  padding: 10px;\n  width: 400px;\n}\np[data-v-43983775] {\n  color: white;\n}\n.container-fluid[data-v-43983775] {\n  margin-top: 50px;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: #e5e2e2;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: black;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\n.card-title p[data-v-43983775] {\n  color: white;\n  text-decoration: none;\n}\np span[data-v-43983775] {\n  color: white;\n}\n.chefame[data-v-43983775] {\n  padding: 75px 0;\n}\n.ciao[data-v-43983775] {\n  height: 200px;\n}", ""]);
+exports.push([module.i, ".sect[data-v-43983775] {\n  text-align: center;\n}\n.sfondo[data-v-43983775] {\n  height: auto;\n  background: url(\"/img/ao.jpg\");\n  background-size: cover;\n  padding-top: 30px;\n}\nh2[data-v-43983775] {\n  filter: drop-shadow(16px 16px 20px red) invert(75%);\n  font-style: italic;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  justify-content: center;\n  color: red;\n  padding: 10px;\n  width: 400px;\n}\np[data-v-43983775] {\n  color: white;\n  font-style: italic;\n}\n.container-fluid[data-v-43983775] {\n  margin-top: 50px;\n  font-style: italic;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: #e5e2e2;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: black;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\n.card-title p[data-v-43983775] {\n  color: white;\n  text-decoration: none;\n  font-style: italic;\n}\np span[data-v-43983775] {\n  color: white;\n  font-style: italic;\n}\n.chefame[data-v-43983775] {\n  padding: 75px 0;\n}\n.ciao[data-v-43983775] {\n  height: 200px;\n}", ""]);
 
 // exports
 
@@ -12291,7 +12406,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/d-RR7nNcUB8/1600x1200\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.showPlates[data-v-25de3706] {\n  max-height: 65vh;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: end;\n  justify-content: center;\n}\n.black[data-v-25de3706] {\n  background-color: rgba(0, 0, 0, 0.6);\n  display: inline;\n}\n.restName[data-v-25de3706] {\n  font-size: 30px;\n  font-weight: 300;\n}\n.courseName[data-v-25de3706] {\n  font-size: 20px;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.3s ease-in-out;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.3s ease-in-out;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n  padding-bottom: 5px;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 24px;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 24px;\n  border-bottom: 1px solid white;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 13px;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.5s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
+exports.push([module.i, "#back[data-v-25de3706] {\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/d-RR7nNcUB8/1600x1200\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.showPlates[data-v-25de3706] {\n  max-height: 65vh;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  align-items: end;\n  justify-content: center;\n}\n.black[data-v-25de3706] {\n  background-color: rgba(0, 0, 0, 0.6);\n  display: inline;\n}\n.restName[data-v-25de3706] {\n  font-size: 30px;\n  font-weight: 300;\n}\n.courseName[data-v-25de3706] {\n  font-size: 20px;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.3s ease-in-out;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.3s ease-in-out;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n  padding-bottom: 5px;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 24px;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 24px;\n  border-bottom: 1px solid white;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 13px;\n  font-style: italic;\n}\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.5s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -12310,7 +12425,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-ccd76a46] {\n  padding-top: 80px;\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  background-color: white;\n  position: fixed;\n  top: 80px;\n  z-index: 9;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\n.card[data-v-ccd76a46] {\n  padding: 0 !important;\n  transition: all 0.2s linear;\n}\n.card[data-v-ccd76a46]:hover {\n  transform: translateY(5px);\n}", ""]);
+exports.push([module.i, "#back[data-v-ccd76a46] {\n  padding-top: 80px;\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  background-color: white;\n  position: fixed;\n  top: 80px;\n  z-index: 9;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\n.card[data-v-ccd76a46] {\n  background-color: rgba(0, 0, 0, 0.8);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  height: 200px;\n  font-style: italic;\n}\n.card[data-v-ccd76a46]:hover {\n  transform: translateY(5px);\n  background-color: #007bff;\n  opacity: 0.6;\n  transition: 0.5s ease-in-out;\n  color: white;\n}\nh2[data-v-ccd76a46] {\n  padding-bottom: 10px;\n  color: white;\n  font-style: italic;\n}\n.row[data-v-ccd76a46] {\n  justify-content: center;\n}\na[data-v-ccd76a46] {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -45636,8 +45751,86 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "back" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "my-4 text-center courses col-lg-2" }, [
+        _c(
+          "div",
+          { staticClass: "d-flex flex-column justify-content-lg-around " },
+          _vm._l(_vm.courses, function(course) {
+            return _c(
+              "router-link",
+              {
+                key: course.id,
+                staticClass: "courseName",
+                attrs: {
+                  to: {
+                    name: "showMenu",
+                    params: {
+                      slug: _vm.restaurant.slug,
+                      slugCourse: course.slug
+                    }
+                  },
+                  exact: ""
+                }
+              },
+              [
+                _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                  _vm._v(_vm._s(course.name))
+                ])
+              ]
+            )
+          }),
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-lg-10" },
+        [
+          _c("section", { staticClass: "container head" }, [
+            _c("h3", { staticClass: "text-center py-4 text-white restName" }, [
+              _vm._v(_vm._s(_vm.restaurant.name))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cuisine" },
+              _vm._l(_vm.cuisines, function(cuisine) {
+                return _c("span", { key: cuisine.id }, [
+                  _vm._v(_vm._s(cuisine.name))
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("router-view", {
+            key: _vm.$route.params.slugCourse,
+            staticClass: "showPlates",
+            scopedSlots: _vm._u([
+              {
+                key: "default",
+                fn: function(ref) {
+                  var MenuCourse = ref.MenuCourse
+                  return [_c(MenuCourse, { tag: "component" })]
+                }
+              }
+            ])
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -45659,57 +45852,64 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "back" } }, [
-    _c(
-      "div",
-      { staticClass: "container" },
-      _vm._l(_vm.restaurants, function(restaurant) {
-        return _c(
-          "div",
-          {
-            key: restaurant.id,
-            staticClass: "col-12 col-md-5 col-lg-3 m-2 rest",
-            attrs: { "data-sr": "" }
-          },
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "restaurant", params: { slug: restaurant.slug } }
-                }
-              },
-              [
-                _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "cover",
-                    attrs: { src: restaurant.img, alt: restaurant.name }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title text-center" }, [
-                      _vm._v(_vm._s(restaurant.name))
-                    ]),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.restaurants, function(restaurant) {
+          return _c(
+            "div",
+            {
+              key: restaurant.id,
+              staticClass: "col-12 col-md-5 col-lg-3 rest m-1 p-2",
+              attrs: { "data-sr": "" }
+            },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: {
+                      name: "restaurant",
+                      params: { slug: restaurant.slug }
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "card" }, [
+                    _c("img", {
+                      staticClass: "cover",
+                      attrs: { src: restaurant.img, alt: restaurant.name }
+                    }),
                     _vm._v(" "),
-                    _c(
-                      "p",
-                      { staticClass: "card-text" },
-                      _vm._l(_vm.cuisines, function(cuisine) {
-                        return _c("span", { key: cuisine.id }, [
-                          _vm._v(_vm._s(cuisine.name))
-                        ])
-                      }),
-                      0
-                    )
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title text-center" }, [
+                        _vm._v(_vm._s(restaurant.name))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        { staticClass: "card-text" },
+                        _vm._l(_vm.cuisines, function(cuisine) {
+                          return _c("span", { key: cuisine.id }, [
+                            _vm._v(_vm._s(cuisine.name))
+                          ])
+                        }),
+                        0
+                      )
+                    ])
                   ])
-                ])
-              ]
-            )
-          ],
-          1
-        )
-      }),
-      0
-    ),
+                ]
+              )
+            ],
+            1
+          )
+        }),
+        0
+      )
+    ]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
@@ -45801,7 +46001,18 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tit" }, [
+      _c("h2", { staticClass: " text-center" }, [
+        _vm._v("Tutti i nostri ristoranti")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
