@@ -40,4 +40,7 @@ Route::namespace('Api')->group(function(){
 
    
     /* Route::post('/contact-us', 'CuisineController@store'); */
+
+    Route::get('/orders/generate', 'OrderController@generate');
+    Route::post('/orders/payment', 'OrderController@makePayment');
 });

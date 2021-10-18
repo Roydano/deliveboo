@@ -63,15 +63,15 @@ class CuisineController extends Controller
         $restaurants = $cuisine->restaurants;
 
         // collection - count - per page - current page - 
-        $curr_page = 1;
-        $per_page= 3;
-        $paginate = new LengthAwarePaginator(
-            $restaurants->forPage($curr_page, $per_page),
-            $restaurants->count(),
-            $per_page,
-            $curr_page,
+        // $curr_page = 1;
+        // $per_page= 3;
+        // $paginate = new LengthAwarePaginator(
+        //     $restaurants->forPage($curr_page, $per_page),
+        //     $restaurants->count(),
+        //     $per_page,
+        //     $curr_page,
 
-        );
+        // );
 
       
         
@@ -79,7 +79,7 @@ class CuisineController extends Controller
             
         return response()->json([
             'success' => true,
-            'results' => $paginate
+            'results' => $restaurants
         ]);
 
 

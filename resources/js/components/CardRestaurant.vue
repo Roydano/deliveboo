@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <div  v-if="cuisineSelect != '' " class="card-restaurant">
+        <div  v-if="cuisineSelect != '' " class="card-restaurant">
 
             <h3>cucina {{ cuisineSelect }}</h3>
 
@@ -24,11 +24,12 @@
 
                 </div>
             </div>
-
             
-        </div> -->
 
-        <button @click="show">click</button>
+        </div>
+
+
+        
 
         
     </div>
@@ -45,11 +46,6 @@ export default {
 
         }
     },
-    methods:{
-        show(){
-            console.log(this.restaurants);
-        }
-    }
     
 
 }

@@ -8,11 +8,39 @@
             
         </div>
 
-        <div class="row">
+        <div  class="row">
            
                 <CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/>
             
         </div>
+
+        <!-- <div id="card" v-if="cuisineSelect != '' ">
+
+            <hr>
+            
+            <p class="text-center">Pag. {{currentPage}}</p>
+
+            <div class="row justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item" :class="{'disabled' : currentPage == 1}">
+                            <a class="page-link" href="#card" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item" v-for="i in lastPage" :key="i"><a class="page-link" href="#card">{{i}}</a></li>
+
+                        <li class="page-item" :class="{'disabled' : currentPage == lastPage}">
+                            <a class="page-link" href="#card" aria-label="Next" @click="changePage(currentPage + 1)">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div> -->
         
     </div>
   
@@ -33,12 +61,15 @@ export default {
             apiCall: 'http://localhost:8000/api/cuisines',
             cuisines: [],
             cuisineSelect: "",
-            restaurants: []
+            restaurants: [],
+            currentPage: [],
+            lastPage: []
         }
     },
 
     created(){
         this.getCuisines();
+        // this.changePage(1)
 
         
     },
@@ -63,12 +94,29 @@ export default {
         },
 
         getRestaurant(cuisine) {
-        axios.get("/api/cuisines/" + cuisine)
-        .then((response) => {
-            this.restaurants = response.data.results;
+            axios.get("/api/cuisines/" + cuisine)
+            .then((response) => {
+                this.restaurants = response.data.results;
+            //     this.currentPage = response.data.results.current_page;
+            //     this.lastPage = response.data.results.last_page;
+            });
 
-        });
-    },
+        
+        },
+
+        // changePage(page){
+        //     axios.get("/api/cuisines/" + this.cuisineSelect, {
+        //         params:{
+        //             page: page
+        //         }
+        //     })
+        //     .then((response) =>{
+                
+                
+        //         this.currentPage = response.data.results.current_page;
+        //         console.log(response.data.results);
+        //     })
+        // }
     }
 
 }

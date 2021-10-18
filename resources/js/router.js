@@ -12,6 +12,7 @@ import Checkout from './pages/Checkout';
 import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
 import MenuCourse from './pages/MenuCourse';
+import Payment from './pages/Payment';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -50,20 +51,21 @@ const router = new VueRouter({
         },
         {
             path: '/cart-page',
-
             name: 'cart.page',
-
             component: CartPage,
 
         },
         {
 
             path: '/checkout',
-
             name: 'checkout',
-
             component: Checkout,
 
+        },
+        {
+            path:'/payment',
+            name: 'payment',
+            component: Payment
         }
         
 
