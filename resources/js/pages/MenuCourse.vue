@@ -5,41 +5,38 @@
             </router-view>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-        <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
-            <div class="card_plate text-white">
-                <div class="cover_cont">
+            <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
+                <div class="card_plate text-white">
+                    <div class="cover_cont">
 
-                    <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}">
-                        <img :src="plate.img" :alt="plate.id" class="plateImg">
-                    </router-link>
-                    
-                    <div class="icons">
-                        <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}"><i class="fas fa-eye show"></i></router-link>
-                    </div>
-
-                    <div class="text-uppercase name"><span>{{plate.name}}</span></div>
-                    
-                </div>
-
-                <div class="infos">
-
-                    <div class="descr my-2 mx-3">{{plate.description}}</div>
-
-                    <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
-
-                        <span class="prezzo">{{plate.price}}€</span>
+                        <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}">
+                            <img :src="plate.img" :alt="plate.id" class="plateImg">
+                        </router-link>
                         
-                        <img class="cart" src="/storage/img/add-to-cart.png" alt="cart icon">
-                                                
+                        <div class="icons">
+                            <router-link :to="{name: 'showPlate', params: { slugPlate: plate.slug}}"><i class="fas fa-eye show"></i></router-link>
+                        </div>
+
+                        <div class="text-uppercase name"><span>{{plate.name}}</span></div>
+                        
                     </div>
+
+                    <div class="infos">
+
+                        <div class="descr my-2 mx-3">{{plate.description}}</div>
+
+                        <div class="price d-flex align-items-center justify-content-center" @click="addPlateToCart(plate)">
+
+                            <span class="prezzo">{{plate.price}}€</span>
+                            
+                            <img class="cart" src="/storage/img/add-to-cart.png" alt="cart icon">
+                                                    
+                        </div>
+                    </div>
+                    
                 </div>
-                
             </div>
         </div>
-        </div>
-
-        
-
     </div>
     
 </template>
@@ -99,21 +96,20 @@ export default {
         }
         
 
-                }).catch(error => { // Nel caso di errori in arrivo
+            }.catch(error => { // Nel caso di errori in arrivo
 
-                    this.loading = false;
+                this.loading = false;
+                this.error = error.response.data.message || error.message;
 
-                    this.error = error.response.data.message || error.message;
-
-                });
+            });
         
         },
         
         addPlateToCart(plate) {
             this.$store.commit('addToCart', plate); // Qui invece chiamiamo il metodo dello Storagein store.js
         }
-    }
 }
+
 </script>
 
 <style lang="scss" scoped>
