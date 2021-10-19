@@ -29,13 +29,13 @@
                         <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrati') }}</a>
 
                 @else
-                    <li class="d-inline-block dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <li class="d-inline-block dropdown drop">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->restaurant->name }}
                         </a>
 
                         
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -45,7 +45,7 @@
                                 @csrf
                             </form>
                             <a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrati') }}</a>
-                            <a class="dropdown-item" href="{{ route('admin.index') }}">la tua area</a>
+                            <a class="dropdown-item" href="{{ route('admin.index') }}">La tua area</a>
                         </div>
                     </li>
                 @endguest
@@ -58,4 +58,18 @@
     
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
+
+<style>
+    .drop{
+        margin-right:200px;
+        font-size:18px;
+        opacity:0.6;
+        font-style:italic;
+
+
+    }
+    .drop:hover{
+        opacity:1;
+    }
+</style>
 </html>

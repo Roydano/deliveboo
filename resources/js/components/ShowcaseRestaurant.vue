@@ -6,7 +6,7 @@
            
             
             <div class="col-lg-2 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
-                 <p   class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug); " :value="cuisine.id"> <span class="cusname" :class="active" @click="active()"  >{{ cuisine.name }}</span> </p> 
+                 <p :class="[ cuisine.slug === cuisineSelect ? classActive : classNotActive ]"   class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug); " :value="cuisine.id"  > <span class="cusname"   >{{ cuisine.name }}</span> </p> 
                   
             </div>
             
@@ -51,7 +51,8 @@ export default {
             cuisines: [],
             cuisineSelect: "",
             restaurants: [],
-            active: '',
+            classActive: 'attiva',
+            classNotActive: 'notActive'
             
         }
     },
@@ -89,16 +90,25 @@ export default {
         });
       
         },
-      active(){
-             this.active='isactive';
-
-        },
+     
     }
 
 }
 </script>
 
 <style lang="scss" scoped>
+
+.attiva{
+    background-color: white;
+    span{
+        color:black;
+    }
+
+}
+
+.notActive{
+   background-color:rgba(0, 0, 0, 0.4);
+}
 
 .sect{
     text-align:center;
@@ -161,11 +171,12 @@ p{
 
 }
 
-.isactive{
-    background-color: white;
-    color:black;
 
-}
+
+
+
+
+
 
 
 

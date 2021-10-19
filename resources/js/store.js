@@ -118,7 +118,17 @@ let store = {
             state.cart = [];
             this.addByCart(state.plateDiff);
             state.diffRest = false;
+        },
+        reset(state){
+            state.cart= [];
+            state.num = 0;
+            state.cartTotal = 0;
+            state.currentRest = -1;
+            this.commit('saveToLocalStorage');
+            
+
         }
+
     }
 };
 

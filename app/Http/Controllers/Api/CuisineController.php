@@ -64,7 +64,7 @@ class CuisineController extends Controller
 
         // collection - count - per page - current page - 
         $curr_page = 1;
-        $per_page= 3;
+        $per_page= 20;
         $paginate = new LengthAwarePaginator(
             $restaurants->forPage($curr_page, $per_page),
             $restaurants->count(),

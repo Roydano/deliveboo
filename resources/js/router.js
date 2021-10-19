@@ -13,6 +13,7 @@ import Restaurants from './pages/Restaurants';
 import Restaurant from './pages/Restaurant';
 import MenuCourse from './pages/MenuCourse';
 import Plate from './pages/Plate';
+import Payment from './pages/Payment';
 
 const router = new VueRouter({
     mode: 'history', 
@@ -73,6 +74,16 @@ const router = new VueRouter({
             name: 'checkout',
 
             component: Checkout,
+
+        },
+
+        {
+          path: '/payment',
+
+          name: 'payment',
+
+          component: Payment,
+
 
         }
         
