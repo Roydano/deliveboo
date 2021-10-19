@@ -6,10 +6,11 @@
 
         <section class="container head">
 
-                    <h3 class="text-center text-white restName">{{restaurant.name}}</h3>
+                    <h3 class="text-center restName titolo">{{restaurant.name}}</h3>
 
                     <div class="cuisine">
-                        <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
+                        <span class="mostra-cucine">Cucina:  </span>
+                        <span class="mostra-cucine" v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                     </div>
 
         </section>
@@ -103,12 +104,20 @@ export default {
 <style lang="scss" scoped>
     #back {
         height: 100vh;
-        /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */
+        
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center; 
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
+        font-style:italic;
+    }
+    .titolo,
+    .mostra-cucine
+    {
+        filter: drop-shadow(16px 16px 20px red) invert(75%);
+        color:red;
+         font-style:italic;
     }
 
 
@@ -151,11 +160,7 @@ export default {
         max-width: 72%;
         margin: auto;
     }
-/* 
-.black {
-        background-color: rgba($color: #000, $alpha: 0.5);
-        display: inline;
-    } */
+
 
     .courseName {
         font-size: 1.2rem;
@@ -196,5 +201,15 @@ export default {
 
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
       opacity: 0;
+    }
+
+    // mostra cucine
+
+    .mostra-cucine{
+        
+        padding:7px;
+        font-size:18px;
+        padding-top:10px;
+        margin-bottom:15px;
     }
 </style>

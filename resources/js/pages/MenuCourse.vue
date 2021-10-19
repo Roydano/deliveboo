@@ -1,5 +1,6 @@
 <template>
     <div class="container cont">
+        
         <router-view v-slot="{Plate}" :key="$route.params.slugPlate" class="showPlate">
             <component :is="Plate"/>
         </router-view>
@@ -114,7 +115,7 @@ export default {
 
 <style lang="scss" scoped>
     * {
-        font-family: 'Montserrat';
+         font-style:italic;
     }
 
     

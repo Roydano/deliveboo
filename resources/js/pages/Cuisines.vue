@@ -53,11 +53,13 @@ export default {
         text-transform: uppercase;
         color: black;
         text-decoration: none;
+        font-style:italic;
     }
     .card {
         height: 180px;
         background-size: cover;
         background-position: center;
+        font-style:italic;
     }
 
     .cuisinePic {

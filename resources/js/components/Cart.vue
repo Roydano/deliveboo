@@ -132,12 +132,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .modal-cont {
-
-    }
+   
     .container {
         position: relative;
-        transform: translateY(20px);
+        transform: translateY(70px);
+        font-style:italic;
     }
 
     .tableFull {
@@ -168,10 +167,15 @@ export default {
 
         .bg-btn {
             background-color:whitesmoke;
+            opacity:0.6;
             border-radius: 20px;
             display: inline;
             cursor: pointer; 
             padding: 10px 15px;
+        }
+
+        .bg-btn:hover{
+            opacity:1;
         }
 
         #showMenu {

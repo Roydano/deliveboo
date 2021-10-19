@@ -1,6 +1,6 @@
 <template>
 
-    <div>
+    <div class="body">
         <Header/>
         <Main/>
         <Footer/>
@@ -24,4 +24,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.body{
+    background-color:black;
+    font-style:italic;
+}
+
 </style>
