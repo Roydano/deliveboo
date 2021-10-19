@@ -33,20 +33,20 @@
 
             <hr>
             
-            <p class="text-center">Pag. {{currentPage}}</p>
+            <p class="text-center pag">Pagina {{currentPage}}</p>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center contenitore">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item" :class="{'disabled' : currentPage == 1}">
-                            <a class="page-link" href="#" aria-label="Previous" @click="getRestaurants(currentPage - 1)">
+                        <li class="page-item " :class="{'disabled' : currentPage == 1}">
+                            <a class="page-link " href="#" aria-label="Previous" @click="getRestaurants(currentPage - 1)">
                             <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <li class="page-item" v-for="i in lastPage" :key="i"><a class="page-link" href="#" @click="getRestaurants(i)">{{i}}</a></li>
 
                         <li class="page-item" :class="{'disabled' : currentPage == lastPage}">
-                            <a class="page-link" href="#" aria-label="Next" @click="getRestaurants(currentPage + 1)">
+                            <a class="page-link freccia" href="#" aria-label="Next" @click="getRestaurants(currentPage + 1)">
                             <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -110,6 +110,7 @@ export default {
         background-repeat: no-repeat;
         background-size: cover; 
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
+        font-style:italic;
     }
 
     .container {
@@ -170,5 +171,26 @@ export default {
         a{
             text-decoration:none;
         }
+
+
+        // paginate
+
+        nav a 
+        
+        {
+            background-color: rgb(0, 0, 0 , 0.6);
+            
+        }
+       
+
+        .freccia{
+          background-color: white;
+        }
+
+        .pag{
+            color:white;
+
+        }
+      
     
 </style>

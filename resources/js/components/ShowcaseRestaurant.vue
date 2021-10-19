@@ -1,13 +1,13 @@
 <template>
-<div class="sfondo ">
+<div id="cuisines" class="sfondo  ">
     <h2> Tutte le nostre cucine</h2>
      <div class="container-fluid ">
         <div class="row">
            
             
             <div class="col-lg-2 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
-                 <p class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug);" :value="cuisine.id"> <span class="cusname">{{ cuisine.name }}</span> </p> 
-         
+                 <p :class="[ cuisine.slug === cuisineSelect ? classActive : classNotActive ]"   class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug); " :value="cuisine.id"  > <span class="cusname"   >{{ cuisine.name }}</span> </p> 
+                  
             </div>
             
         </div>
@@ -50,7 +50,10 @@ export default {
             apiCall: 'http://localhost:8000/api/cuisines',
             cuisines: [],
             cuisineSelect: "",
-            restaurants: []
+            restaurants: [],
+            classActive: 'attiva',
+            classNotActive: 'notActive'
+            
         }
     },
 
@@ -85,13 +88,27 @@ export default {
             this.restaurants = response.data.results.data;
 
         });
-    },
+      
+        },
+     
     }
 
 }
 </script>
 
 <style lang="scss" scoped>
+
+.attiva{
+    background-color: white;
+    span{
+        color:black;
+    }
+
+}
+
+.notActive{
+   background-color:rgba(0, 0, 0, 0.4);
+}
 
 .sect{
     text-align:center;
@@ -107,10 +124,6 @@ export default {
 }
 
 
-// @media screen and (max-height: 700px) {
-//   .sfondo{
-//    height:200vh;
-//   }
 // }
 h2{
     filter: drop-shadow(16px 16px 20px red) invert(75%);
@@ -157,6 +170,18 @@ p{
     
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 .card-title p{
     color:white;
     text-decoration: none;

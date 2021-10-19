@@ -9,7 +9,7 @@
 <form method="POST" action="{{ route('login') }}">
 @csrf
 
-<h2>Login</h2>
+<h2 class="tito">Login</h2>
 
 <!-- email -->
 
@@ -71,6 +71,10 @@ body {
 }
 p{
   margin-bottom:20px;
+}
+
+.tito{
+  font-size:3vw;
 }
 
 

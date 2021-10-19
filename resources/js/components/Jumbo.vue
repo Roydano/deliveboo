@@ -8,14 +8,6 @@
             </video>
         </div>
 
-            <!-- <Cart/> -->
-
-            <div class="mb-5">
-              
-                Ordina dai migliori ristoranti della tua città
-            
-            </div>
-        
     </div>
     
 </template>
@@ -34,13 +26,12 @@ export default {
         height: 100vh;
         overflow: hidden;
         justify-content: flex-end;
+        font-style:italic;
     }
     video {
         height: 100%;
     }
-    .overlay {
-        background-color: rgba($color: #000000, $alpha: .5);
-    }
+
     .jumbo {
         font-size: 28px;
         height: 100%;

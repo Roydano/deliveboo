@@ -27,13 +27,14 @@
 <body>
     <header>
         {{-- rendere questa nav un'icona con sei un ristorante? --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <span id="logo">WannaEat</span>
+                    <span class="logo" id="logo">
+                        <img src="/storage/img/welogo.svg" alt=""></span>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler bg-light tog" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon "></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,23 +46,23 @@
                         <!-- {{-- aggiungere: sei un ristorante? un po' più discreto --}} -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                        
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item log-out" href="{{ route('logout') }}"
+                                    <a class="dropdown-item log-out " href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> 
                                         {{ __('Logout') }} 
@@ -93,6 +94,30 @@
        
        
    }
+
+
+   /* tog */
+
+   .tog{
+       opacity:0.6;
+   }
+
+   .tog:hover{
+       opacity:1;
+   }
+   .bg-black{
+       background-color: black;
+       
+   }
+   .logo img {
+        width: 8rem;
+        filter: invert(1);
+        transition: all .3s linear;
+       
+    }
+    .logo img:hover{
+        transform: rotateZ(360deg);
+    }
 
    .log-out{
        color:black;

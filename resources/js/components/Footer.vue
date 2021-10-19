@@ -17,13 +17,14 @@
                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
 
             </ul>
+      
 
             <ul class="menu">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/restaurants">Ristoranti</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="#cuisines">Cucine</a></li>
 
             </ul>
 
@@ -140,7 +141,9 @@ footer .wave{
     width:100%;
     height:100px;
     background:url('/img/wave.png');
+    
     background-size: 1000px 100px;
+    
 
 }
 
