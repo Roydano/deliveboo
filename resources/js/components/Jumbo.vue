@@ -7,23 +7,15 @@
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
             </video>
         </div>
-        
-
-        <!-- <div class="jumbo text-white text-center ">
 
             <!-- <Cart/> -->
 
             <div class="mb-5">
               
                 Ordina dai migliori ristoranti della tua città
-
-                <!-- <p class="lead">Con WannaEat puoi gustare i tuoi piatti preferiti comodamente da casa tua</p>
-                <hr class="my-4">
-                <p>Scegli tra una vasta selezione di cucine, esplora i ristoranti e ordina i piatti con un semplice click. <br> Dal ristorante, direttamente a casa tua.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Esplora</a> 
-
+            
             </div>
-        </div> -->
+        
     </div>
     
 </template>

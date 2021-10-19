@@ -16099,6 +16099,10 @@ label #sidebar_btn:hover {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
+.bor_none {
+  border: none !important;
+}
+
 .plates-restaurant {
   min-height: 100vh;
   background-image: url(https://i.pinimg.com/originals/94/ce/e3/94cee3f9af5607c6c7da01498f415c1c.jpg);
