@@ -6792,12 +6792,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Cart',
   data: function data() {
     return {
       showCart: false
     };
+  },
+  computed: {
+    rest: function rest() {
+      return this.$store.state.diffRest;
+    }
+  },
+  watch: {
+    rest: function rest() {
+      if (this.rest) {
+        $('#modal').modal('show');
+      }
+    }
   },
   methods: {
     remove: function remove(plate) {
@@ -12257,7 +12295,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-b7f93bea] {\n  position: relative;\n  transform: translateY(10px);\n}\n.tableFull[data-v-b7f93bea] {\n  width: 100%;\n}\n.tableFull th[data-v-b7f93bea] {\n  padding: 0 20px;\n}\n#cart[data-v-b7f93bea] {\n  position: fixed;\n  right: 10px;\n  width: auto;\n  height: auto;\n  transition: all 0.2s linear;\n  color: black;\n}\n#cart .bg-btn[data-v-b7f93bea] {\n  background-color: whitesmoke;\n  border-radius: 20px;\n  display: inline;\n  cursor: pointer;\n  padding: 5px 10px;\n}\n#cart #showMenu .container[data-v-b7f93bea] {\n  border-radius: 20px;\n  background-color: whitesmoke;\n  padding: 15px;\n  position: absolute;\n  right: 10px;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n#cart .pointer[data-v-b7f93bea] {\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".container[data-v-b7f93bea] {\n  position: relative;\n  transform: translateY(20px);\n}\n.tableFull[data-v-b7f93bea] {\n  width: 100%;\n}\n.tableFull tbody[data-v-b7f93bea] {\n  padding-top: 0.8rem;\n}\n.tableFull th[data-v-b7f93bea] {\n  padding: 0 20px;\n}\n#cart[data-v-b7f93bea] {\n  position: fixed;\n  right: 10px;\n  width: auto;\n  height: auto;\n  transition: all 0.2s linear;\n  color: black;\n}\n#cart .numb[data-v-b7f93bea] {\n  padding: 3px 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-size: 0.9rem;\n  color: white;\n  border-radius: 20px;\n}\n#cart .bg-btn[data-v-b7f93bea] {\n  background-color: whitesmoke;\n  border-radius: 20px;\n  display: inline;\n  cursor: pointer;\n  padding: 10px 15px;\n}\n#cart #showMenu .container[data-v-b7f93bea] {\n  border-radius: 20px;\n  background-color: whitesmoke;\n  padding: 15px;\n  position: absolute;\n  right: 10px;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\n#cart .pointer[data-v-b7f93bea] {\n  cursor: pointer;\n}\n#cart .imgCont[data-v-b7f93bea] {\n  width: 3.5rem;\n  height: 3.5rem;\n  border-radius: 50%;\n  overflow: hidden;\n  margin-bottom: 0.5rem;\n}\n#cart .imgPlate[data-v-b7f93bea] {\n  max-height: 100%;\n}", ""]);
 
 // exports
 
@@ -12429,7 +12467,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-25de3706] {\n  height: 100vh;\n  /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.grad[data-v-25de3706] {\n  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n  height: 100%;\n}\n.main-cont[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.cont-right[data-v-25de3706] {\n  padding-left: 2rem;\n  height: 100%;\n}\n.courses[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.showPlates[data-v-25de3706] {\n  height: 100%;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 7rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.restName[data-v-25de3706] {\n  text-transform: uppercase;\n  font-size: 3.5rem;\n  font-weight: 100;\n}\n\n/* \n.black {\n        background-color: rgba($color: #000, $alpha: 0.5);\n        display: inline;\n    } */\n.courseName[data-v-25de3706] {\n  font-size: 1.2rem;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.2s linear;\n  height: 3rem;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.2s linear;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 1.4rem;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 1.5rem;\n  text-decoration: line-through;\n  text-decoration-thickness: 0.5px;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 0.7rem;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.2s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
+exports.push([module.i, "#back[data-v-25de3706] {\n  height: 100vh;\n  /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: center;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n}\n.grad[data-v-25de3706] {\n  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n  height: 100%;\n}\n.main-cont[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.cont-right[data-v-25de3706] {\n  padding-left: 2rem;\n  height: 100%;\n}\n.courses[data-v-25de3706] {\n  height: calc(100% - 7rem);\n}\n.showPlates[data-v-25de3706] {\n  height: 100%;\n  overflow-y: auto;\n}\n.head[data-v-25de3706] {\n  height: 7rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding-top: 2rem;\n}\n.restName[data-v-25de3706] {\n  text-transform: uppercase;\n  font-size: 3rem;\n  font-weight: 100;\n  max-width: 72%;\n  margin: auto;\n}\n\n/* \n.black {\n        background-color: rgba($color: #000, $alpha: 0.5);\n        display: inline;\n    } */\n.courseName[data-v-25de3706] {\n  font-size: 1.2rem;\n  display: inline-flex;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 100;\n  transition: all 0.2s linear;\n  height: 3rem;\n}\n.courseName span[data-v-25de3706] {\n  transition: all 0.2s linear;\n}\n.courseName a[data-v-25de3706] {\n  color: black;\n  text-decoration: none;\n}\n.courseName[data-v-25de3706]:hover {\n  font-size: 1.4rem;\n  text-decoration: none;\n}\n.courseName.router-link-active span[data-v-25de3706], .courseName.router-link-exact-active span[data-v-25de3706] {\n  font-size: 1.5rem;\n  font-weight: 200;\n}\n.cuisine[data-v-25de3706] {\n  font-size: 0.7rem;\n  font-style: italic;\n}\n\n/*  .fade-enter-active {\n     transition: opacity 4s ease-in-out;\n }\n\n .fade-enter-to {\n     opacity: 1;\n }\n .fade-leave-active {\n     transition: opacity 0.3s ease-in-out;\n }\n\n\n .fade-enter-from,\n .fade-leave-to {\n      opacity: 0 !important;\n } */\n.fade-enter-active[data-v-25de3706], .fade-leave-active[data-v-25de3706] {\n  transition: opacity 0.2s;\n}\n.fade-enter[data-v-25de3706], .fade-leave-to[data-v-25de3706] {\n  opacity: 0;\n}", ""]);
 
 // exports
 
@@ -44747,162 +44785,258 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        {
-          name: "click-outside",
-          rawName: "v-click-outside",
-          value: _vm.onClickOutside,
-          expression: "onClickOutside"
+  return _c("div", { staticClass: "cont" }, [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
         }
-      ],
-      staticClass: "container",
-      attrs: { id: "cart" }
-    },
-    [
-      _c(
-        "div",
-        {
-          staticClass: "bg-btn",
-          on: {
-            click: function($event) {
-              _vm.showCart = !_vm.showCart
-            }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cancella")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: function($event) {} }
+                  },
+                  [_vm._v("Prosegui")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "click-outside",
+            rawName: "v-click-outside",
+            value: _vm.onClickOutside,
+            expression: "onClickOutside"
           }
-        },
-        [
-          _c("i", {
-            staticClass: "fa fa-shopping-cart",
-            attrs: { "aria-hidden": "true" }
-          }),
-          _vm._v(" "),
-          _c("span", { staticClass: "badge badge-pill badge-dark" }, [
-            _vm._v(_vm._s(_vm.$store.state.num))
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showCart,
-              expression: "showCart"
+        ],
+        staticClass: "container",
+        attrs: { id: "cart" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "bg-btn",
+            on: {
+              click: function($event) {
+                _vm.showCart = !_vm.showCart
+              }
             }
-          ],
-          attrs: { id: "showMenu" }
-        },
-        [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "total-header-section w-100" }, [
-              _c("div", { staticClass: "cart-list text-center w-100" }, [
-                _c("table", { staticClass: "tableFull" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.$store.state.cart, function(plate) {
-                      return _c("tr", { key: plate.id }, [
-                        _c("td", [
-                          _vm._v(
-                            "\n                                            " +
-                              _vm._s(plate.name) +
-                              "\n                                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(
-                            "\n                                            " +
-                              _vm._s(plate.tot.toFixed(2)) +
-                              " €\n                                        "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-shopping-cart",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "numb" }, [
+              _vm._v(_vm._s(_vm.$store.state.num))
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showCart && _vm.$store.state.num,
+                expression: "showCart && $store.state.num"
+              }
+            ],
+            attrs: { id: "showMenu" }
+          },
+          [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "total-header-section w-100" }, [
+                _c("div", { staticClass: "cart-list text-center w-100" }, [
+                  _c("table", { staticClass: "tableFull text-center" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.$store.state.cart, function(plate) {
+                        return _c("tr", { key: plate.id }, [
                           _c(
-                            "div",
-                            { staticClass: "d-flex justify-content-around" },
+                            "td",
+                            {
+                              staticClass:
+                                "d-flex flex-column justify-content-center align-items-center"
+                            },
                             [
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "pointer",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.remove(plate)
-                                    }
-                                  }
-                                },
-                                [_c("i", { staticClass: "fas fa-minus" })]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticClass: "px-2" }, [
-                                _vm._v(_vm._s(plate.qty))
+                              _c("div", { staticClass: "imgCont mr-2" }, [
+                                _c("img", {
+                                  staticClass: "imgPlate",
+                                  attrs: { src: plate.img, alt: plate.name }
+                                })
                               ]),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                {
-                                  staticClass: "pointer",
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.add(plate)
-                                    }
-                                  }
-                                },
-                                [_c("i", { staticClass: "fas fa-plus" })]
+                              _vm._v(
+                                "\n                                            \n                                            " +
+                                  _vm._s(plate.name) +
+                                  "\n                                        "
                               )
                             ]
-                          )
+                          ),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                            " +
+                                _vm._s(plate.tot.toFixed(2)) +
+                                " €\n                                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "div",
+                              { staticClass: "d-flex justify-content-around" },
+                              [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "pointer",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.remove(plate)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fas fa-minus" })]
+                                ),
+                                _vm._v(" "),
+                                _c("p", { staticClass: "px-2" }, [
+                                  _vm._v(_vm._s(plate.qty))
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "pointer",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.add(plate)
+                                      }
+                                    }
+                                  },
+                                  [_c("i", { staticClass: "fas fa-plus" })]
+                                )
+                              ]
+                            )
+                          ])
                         ])
-                      ])
-                    }),
-                    0
-                  )
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-start my-2" }, [
+                    _c("b", [
+                      _vm._v(
+                        "Totale: " +
+                          _vm._s(_vm.$store.state.cartTotal.toFixed(2)) +
+                          " € "
+                      )
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "text-start my-2" }, [
-                  _c("b", [
-                    _vm._v(
-                      "Totale: " +
-                        _vm._s(_vm.$store.state.cartTotal.toFixed(2)) +
-                        " € "
-                    )
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "w-100 text-center checkout checkout-cart-button-container"
-                },
-                [
-                  _c("router-link", { attrs: { to: { name: "checkout" } } }, [
-                    _c(
-                      "button",
-                      { staticClass: "button-b btn btn-success btn-block" },
-                      [_vm._v("Checkout")]
-                    )
-                  ])
-                ],
-                1
-              )
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "w-100 text-center checkout checkout-cart-button-container"
+                  },
+                  [
+                    _c("router-link", { attrs: { to: { name: "checkout" } } }, [
+                      _c(
+                        "button",
+                        { staticClass: "button-b btn btn-success btn-block" },
+                        [_vm._v("Checkout")]
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ])
             ])
-          ])
-        ]
-      )
-    ]
-  )
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _vm._v("Desideri cambiare ristorante?")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("div", [
+        _vm._v("Aggiungendo questo prodotto, il cartello verrà svuotato.")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -66743,14 +66877,15 @@ var store = {
     cart: store_cart,
     num: already_existent_num ? already_existent_num : 0,
     cartTotal: already_existent_cart_total ? already_existent_cart_total : 0,
-    currentRest: already_existent_rest_id ? already_existent_rest_id : -1
+    currentRest: already_existent_rest_id ? already_existent_rest_id : -1,
+    diffRest: false
   },
   mutations: {
     addToCart: function addToCart(state, plate) {
       // console.log(plate.restaurant_id, state.currentRest, state.cart );
       if (state.currentRest > 0) {
         if (parseInt(plate.restaurant_id) != parseInt(state.currentRest)) {
-          alert('funzia');
+          state.diffRest = true;
           return;
         }
       }

@@ -141,12 +141,15 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 2rem;
     }
 
     .restName {
         text-transform: uppercase;
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 100;
+        max-width: 72%;
+        margin: auto;
     }
 /* 
 .black {
@@ -176,8 +179,7 @@ export default {
         &.router-link-active span,
         &.router-link-exact-active span{
             font-size: 1.5rem;
-            text-decoration: line-through;
-            text-decoration-thickness: .5px;
+            font-weight: 200;
         }
     
     }
