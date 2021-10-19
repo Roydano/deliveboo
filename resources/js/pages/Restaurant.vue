@@ -6,7 +6,7 @@
 
         <section class="container head">
 
-                    <h3 class="text-center py-4 text-white restName">{{restaurant.name}}</h3>
+                    <h3 class="text-center text-white restName">{{restaurant.name}}</h3>
 
                     <div class="cuisine">
                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
@@ -14,18 +14,18 @@
 
         </section>
 
-        <div class="row vh-100 justify-content-between">
+        <div class="row main-cont justify-content-between">
 
-            <div class="my-4 text-center courses col-2">
-                <div class="d-flex flex-column justify-content-around ">
+            <div class="my-4 text-center courses col-2 d-flex flex-column justify-content-center">
+             
                     <router-link v-for="course in courses" :key="course.id" class="courseName"
                     :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>
                         <span class="black my-2 p-3 ps-0">{{course.name}}</span>
                     </router-link>
-                </div>
+               
             </div>
 
-            <div class="col-9 cont-right">
+            <div class="col-10 cont-right">
             
                 <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
                         <component :is="MenuCourse"/>
@@ -102,8 +102,7 @@ export default {
 
 <style lang="scss" scoped>
     #back {
-        padding-top: 80px;
-        min-height: calc(100vh - 80px);
+        height: 100vh;
         /* background: url('https://source.unsplash.com/d-RR7nNcUB8/1600x1200'); */
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -112,64 +111,75 @@ export default {
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
     }
 
+
     .grad {
         background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.7) 100%);
+        height: 100%;
+    }
+
+    .main-cont{
+        height: calc(100% - 7rem);
     }
 
     .cont-right {
-        
         padding-left: 2rem;
         height: 100%;
     }
 
+    .courses {
+        height: calc(100% - 7rem);
+    }
+
     .showPlates {
-        max-height: 65vh;
+        height: 100%;
         overflow-y: auto;
     }
 
     .head {
-        height: 100px;
+        height: 7rem;
         display: flex;
         
         flex-direction: column;
-        align-items: flex-end;
         justify-content: center;
-        
-    }
-
-    .black {
-        background-color: rgba($color: #000, $alpha: 0.6);
-        display: inline;
+        padding-top: 2rem;
     }
 
     .restName {
-        font-size: 2rem;
-        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 100;
+        max-width: 72%;
+        margin: auto;
     }
+/* 
+.black {
+        background-color: rgba($color: #000, $alpha: 0.5);
+        display: inline;
+    } */
 
     .courseName {
-        font-size: 1rem;
+        font-size: 1.2rem;
         display: inline-flex;
         color: white;
         text-transform: uppercase;
         font-weight: 100;
-        transition: all .2s ease-in-out;
+        transition: all .2s linear;
+        height: 3rem;
         span {
             transition: all .2s linear;
         }
         a {
             color: black;
             text-decoration: none;
-            padding-bottom: 5px;
         }
         &:hover {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             text-decoration: none;
         }
         &.router-link-active span,
         &.router-link-exact-active span{
-            font-size: 1rem;
-            border-bottom: 1px solid white;
+            font-size: 1.5rem;
+            font-weight: 200;
         }
     
     }

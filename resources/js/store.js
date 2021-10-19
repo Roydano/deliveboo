@@ -16,6 +16,8 @@ let store = {
         num: already_existent_num? already_existent_num : 0,
         cartTotal: already_existent_cart_total? already_existent_cart_total : 0,
         currentRest: already_existent_rest_id? already_existent_rest_id : -1,
+        diffRest: false,
+        plateDiff: ''
     },
     mutations: {   
 
@@ -26,8 +28,8 @@ let store = {
                 
                 if((parseInt(plate.restaurant_id) != parseInt(state.currentRest))){
                 
-                    alert('funzia');
-
+                    state.diffRest = true;
+                    state.plateDiff = plate;
                     return;
                     
                 }
@@ -110,6 +112,12 @@ let store = {
             }
             
             this.commit('saveToLocalStorage');
+        },
+
+        delete(state){
+            state.cart = [];
+            this.addByCart(state.plateDiff);
+            state.diffRest = false;
         }
     }
 };

@@ -1,12 +1,14 @@
 <template>
     <header>
         
-        
-          <router-link class="logo ml-3" to="/"><img src="/storage/img/welogo.svg" alt="wanna eat"></router-link>
+      <div class="left d-flex flex-column">
+        <router-link class="logo ml-3" to="/"><img src="/storage/img/welogo.svg" alt="wanna eat"></router-link>
 
         <router-link v-for="item in nav" :key="item.label" :to="item.path" class="link">{{item.label}}</router-link>
+      </div>
+          
 
-        <Cart />
+        <Cart class="mt-5"/>
 
     </header>
 </template>
@@ -43,16 +45,10 @@ export default {
   header {
     z-index: 1;
     position: fixed;
-    padding-right: 30%;
-    width: 100%;
-    height: 80px;
     background-color: rgba($color: #000000, $alpha: 0);
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     color: white;
     .link {
-      width: 100%;
       text-align: center;
       text-transform: uppercase;
       font-weight: 200;

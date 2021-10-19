@@ -1,9 +1,9 @@
 <template>
     <div class="container cont">
         <router-view v-slot="{Plate}" :key="$route.params.slugPlate" class="showPlate">
-                    <component :is="Plate"/>
-            </router-view>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <component :is="Plate"/>
+        </router-view>
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4">
 
         <div v-for="plate in plates" :key="plate.id" class="col p-3 plate">
             <div class="card_plate text-white">
@@ -123,7 +123,6 @@ export default {
         border-radius: 20px;
         overflow: hidden;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */
         transition: all 0.3s ease-in-out;
         &:hover {
             transform: translateY(-5px);
