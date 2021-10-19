@@ -10,23 +10,15 @@
     .fa, .fas {
         font-family: 'Font Awesome 5 Free';
     }
-    
-  }
- 
+}
 
+.scritta{
+    color:white;
+}
 
-//   .body{
-      
-      
-//       overflow:hidden;
-
-//   }
-  .scritta{
-      color:white;
-  }
-  .tendina{
-      color:white;
-  }
+.tendina{
+    color:white;
+}
   
 
   .wrapper .header{
@@ -110,27 +102,20 @@
  .wrapper .header .header-menu ul li a:hover{
      background:#4CCEE8;
      color:#fff;
+}
 
+.wrapper .sidebar{
+    background: #000000;
+    position:fixed;
+    width:250px;
+    overflow-y: auto;
+    height: 100%;
  }
 
-
- .wrapper .sidebar{
-     background: #2F323A;
-     position:fixed;
-     width:250px;
-     height: calc(100% - 9%);
-     /* transition: 0.3s;
-     transition-property: width; */
-     overflow-y: auto;
-     
-
-
- }
- .sidebar{
-     transition:0.5s;
-     transition-property:left;
-
- }
+.sidebar{
+    transition:0.5s;
+    transition-property:left;
+}
 
  .wrapper .sidebar .sidebar-menu{
      overflow:hidden;
@@ -141,13 +126,12 @@
      width: 100px;
      height:100px;
      border-radius: 50%;
- }
+}
 
  .wrapper .sidebar .sidebar-menu .profile p{
      color: #bbb;
      font-weight: 700;
-      margin-bottom:10px;
-
+    margin-bottom:10px;
  }
 
  .wrapper .sidebar .sidebar-menu .item{
@@ -239,7 +223,6 @@
 //   } 
   .main-container{
       margin-left:35%;
-      margin-top:4%;
   }
 
  /* tendina */
@@ -310,14 +293,13 @@
      
         display:flex;
         align-items:center;
-        overflow:hidden;
-        
-  }
+        overflow:hidden;     
+}
  
 
 .card-dash{
     margin-right: 150px;
-    
+    margin-top: 150px;
     display:grid;
     grid-template-columns: 500px;
     grid-template-rows: 210px 210px 80px;
@@ -329,9 +311,8 @@
     box-shadow: 5px 5px 15px rgba(0,0,0,.9);
     text-align: center;
     transition: 0.5s ease;
-     
-
 }
+
 .card-dash .date{
     font-size:35px;
     color:red;
@@ -339,7 +320,7 @@
 
 .card-image{
     grid-area: image;
-    background:url("./img/frutta.jpg");
+    background:url("./img/garagol.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size:cover;
