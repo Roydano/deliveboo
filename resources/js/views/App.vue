@@ -3,7 +3,7 @@
     <div class="body">
         <Header/>
         <Main/>
-        <Footer/>
+        <Footer v-if="$route.meta.footer"/>
     </div>
         
 </template>
@@ -26,7 +26,6 @@ export default {
 <style lang="scss" scoped>
 .body{
     background-color:black;
-    font-style:italic;
 }
 
 </style>

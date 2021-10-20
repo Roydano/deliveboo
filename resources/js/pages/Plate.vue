@@ -152,6 +152,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    * {
+        font-family: Montserrat;
+    }
+
     .cont {
         background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
         width: 100vw;
@@ -161,7 +165,6 @@ export default {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        font-style:italic;
     }
 
     .plate-cont {

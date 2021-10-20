@@ -1,18 +1,18 @@
 <template>
-<div id="cuisines" class="sfondo  ">
-    <h2> Tutte le nostre cucine</h2>
-     <div class="container-fluid ">
-        <div class="row">
+<div id="cuisines" class="sfondo position-md-absolute">
+     <div class="container-fluid d-flex flex-column">
+
+        <div class="col row row-cols-4 row-cols-md-6 row-cols-lg-12 cuc align-self-end">
            
             
-            <div class="col-lg-2 col-md-2 col-sm-4 sect" v-for="cuisine in cuisines" :key="cuisine.id" >
+            <div class="col sect" v-for="cuisine in cuisines" :key="cuisine.id" >
                  <p :class="[ cuisine.slug === cuisineSelect ? classActive : classNotActive ]"   class="bottone btn " @click="getCuisine(cuisine.slug); getRestaurant(cuisine.slug); " :value="cuisine.id"  > <span class="cusname"   >{{ cuisine.name }}</span> </p> 
                   
             </div>
             
         </div>
 
-       <div class="row sezione ">
+       <div class="col row sezione ">
            <div class="chefame">
                <CardRestaurant :cuisineSelect="cuisineSelect" :restaurants="restaurants"/>
                <div class="ciao">
@@ -21,14 +21,9 @@
 
            </div>
             
-            
-                   
-           
-                  
-
        </div>
         
- </div>
+    </div>
   
 
 </div>
@@ -97,6 +92,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sfondo {
+    top: 0;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.7) 100%);
+    height: 100%;
+    z-index: 3;
+    }
+.cuc {
+    width: 85%;
+    }
 
 .attiva{
     background-color: white;
@@ -114,27 +119,16 @@ export default {
     text-align:center;
 }
 
-.sfondo{
-     
-      height: auto;
-       background:url('/img/ao.jpg');
-       background-size:cover;
-       padding-top:30px;
-       
-}
 
 
 // }
 h2{
-    filter: drop-shadow(16px 16px 20px red) invert(75%);
     
     font-style:italic;
     margin:auto;
     display:flex;
     justify-content: center;
     justify-content: center;
-     color:red;
-     
      
      padding: 10px;
      width:400px;
@@ -147,8 +141,7 @@ p{
 }
 
 .container-fluid{
-    margin-top:50px;
-    font-style:italic;
+    padding-top:6rem;
 }
 
 .cartella{

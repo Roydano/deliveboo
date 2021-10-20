@@ -10,7 +10,8 @@
 
                     <router-link :to="{name: 'restaurant', params:{slug: restaurant.slug}}">
 
-                        <div  class="  carta   text-white  " style="width: 20rem; ">
+                        <div  class="card  carta   text-white  " style="width: 20rem; ">
+                             <img class="cover" :src="'storage/' + restaurant.img" :alt="restaurant.name"> 
                             <div class=" card_plate card-body">
                                 <h5 class="card-title">{{ restaurant.name }}</h5>
                                 <span>{{restaurant.address}}</span>
@@ -103,7 +104,7 @@ h5:hover{
          justify-content: center;
          align-items: center;
          text-align: center;
-         height:200px;
+         height:150px;
          font-style:italic;
            &:hover {
              transform: translateY(5px);
@@ -139,6 +140,10 @@ h3{
 
     a{
         text-decoration:none;    
+    }
+
+    .cover{
+        height:250px;
     }
 
 

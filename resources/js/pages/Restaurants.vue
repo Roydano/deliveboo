@@ -18,9 +18,10 @@
 
                     <router-link :to="{name: 'restaurant', params: { slug: restaurant.slug}}">
                         <div class="card">
-                            <img class="cover" :src="restaurant.img" :alt="restaurant.name">
+                             <img class="cover" :src="restaurant.img" :alt="restaurant.name"> 
                              <div class="card-body">
-                                <h5 class="card-title text-center">{{restaurant.name}}</h5>
+                                <h3 class="card-title text-center">{{restaurant.name}}</h3>
+                                <p class="card-title text-center"> {{restaurant.address}}</p>
                                     <p class="card-text">
                                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                                     </p>
@@ -103,6 +104,7 @@ export default {
 
 <style lang="scss" scoped>
     #back {
+
         padding-top: 80px;
         min-height: calc(100vh - 80px);
         background: url('https://source.unsplash.com/GXXYkSwndP4/1600x900');
@@ -132,15 +134,18 @@ export default {
 
   
     .card{
-         background-color: rgba(0, 0, 0, 0.8);
+         background-color:rgba(0, 0, 0, 0.5);
          padding: 10px;
          display: flex;
          flex-direction: column;
          justify-content: center;
          align-items: center;
          text-align: center;
-         height:200px;
+         
          font-style:italic;
+        
+
+
            &:hover {
              transform: translateY(5px);
              background-color:#007bff;
@@ -190,6 +195,20 @@ export default {
         .pag{
             color:white;
 
+        }
+
+
+        // immagine ristorante
+
+        .cover{
+            width:80%;
+            padding-top:10px;
+            font-size:22px;
+            height:150px;
+        }
+
+        h5{
+            font-size:10px;
         }
       
     
