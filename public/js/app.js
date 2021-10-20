@@ -6991,10 +6991,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Jumbo'
 });
@@ -12681,9 +12677,17 @@ exports.push([module.i, ".title[data-v-7848d6b8] {\n  font-size: 2.2rem;\n  text
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/MenuCourse.vue?vue&type=style&index=0&id=593b98ba&lang=scss&scoped=true& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected selector.\n    ╷\n114 │ <<<<<<< HEAD\r\n    │ ^\n    ╵\n  C:\\mamp_public\\deliveboo\\resources\\js\\pages\\MenuCourse.vue 114:1  root stylesheet");
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 1rem;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -45640,8 +45644,29 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "jumbo-cont d-flex " }, [
+    _c("div", { staticClass: "overlay" }, [
+      _c(
+        "video",
+        {
+          attrs: { autoplay: "", muted: "", loop: "" },
+          domProps: { muted: true }
+        },
+        [
+          _c("source", {
+            attrs: { src: "/storage/img/jumbovid.mp4", type: "video/mp4" }
+          })
+        ]
+      )
+    ])
+  ])
+}
 var staticRenderFns = []
+render._withStripped = true
 
 
 
