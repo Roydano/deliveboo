@@ -15745,7 +15745,6 @@ a::visited {
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 * .fa,
@@ -27192,7 +27191,6 @@ a.text-dark:focus {
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 * .fa,

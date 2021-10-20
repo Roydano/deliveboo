@@ -24,8 +24,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.body{
-    background-color:black;
-}
+@import '../../sass/commons';
+ .body{
+     background-color:black;
+     font-family: montserrat !important;
+ }
 
 </style>

@@ -1,16 +1,9 @@
 <template>
     
      <div class="container" style="padding-top: 80px;">
-            <div class="row">
-                    <div class="col-sm-6 col-md-5 col-lg-4" v-for="cuisine in cuisines" :key="cuisine.id">
-                        <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug, name: cuisine.name}}">
-                            <div class="card text-center mt-3 bg" :style="{'background-image': 'url(' + cuisine.img + ')' }">
-                                <div class="title cus">{{ cuisine.name}}</div>
-                            </div>
-                        </router-link>
-                    </div> 
-                
-            </div>
+
+
+        
 
 
 
@@ -48,6 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    
     .title {
         font-size: 2.2rem;
         text-transform: uppercase;

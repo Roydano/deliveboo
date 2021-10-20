@@ -6944,6 +6944,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
@@ -6952,14 +6953,26 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      cuisines: "",
       nav: [{
         label: 'Ristoranti',
         path: '/restaurants'
-      }, {
-        label: 'Cucine',
-        path: '/#cuisines'
       }]
     };
+  },
+  mounted: function mounted() {
+    this.getCuisines();
+  },
+  methods: {
+    getCuisines: function getCuisines() {
+      var _this = this;
+
+      axios.get("http://localhost:8000/api/cuisines").then(function (response) {
+        _this.cuisines = response.data.results;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -7031,7 +7044,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CardRestaurant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CardRestaurant */ "./resources/js/components/CardRestaurant.vue");
-//
 //
 //
 //
@@ -7391,13 +7403,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Cuisines",
   data: function data() {
@@ -7676,6 +7681,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -7693,7 +7745,8 @@ __webpack_require__.r(__webpack_exports__);
       nextPlateSlug: [],
       prevCourse: [],
       nextCourse: [],
-      open: false
+      open: false,
+      loading: true
     };
   },
   mounted: function mounted() {
@@ -7741,6 +7794,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('http://localhost:8000/api/plates/' + this.$route.params.slugPlate).then(function (response) {
         _this2.plate = response.data.results;
+        _this2.loading = false;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7779,6 +7833,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12550,7 +12610,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  z-index: 4;\n  position: fixed;\n  background-color: rgba(0, 0, 0, 0);\n  display: flex;\n  color: white;\n}\nheader .link[data-v-1f42fb90] {\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 200;\n  font-size: 1.2rem;\n  color: white;\n  opacity: 0.6;\n  text-decoration: none;\n  font-weight: 300;\n  transition: all 0.2s linear;\n}\nheader .link[data-v-1f42fb90]:hover {\n  transform: scale(1.1);\n}\nheader .logo img[data-v-1f42fb90] {\n  width: 8rem;\n  filter: invert(1);\n  transition: all 0.3s linear;\n}\nheader .logo img[data-v-1f42fb90]:hover {\n  transform: rotateZ(360deg);\n}\n.link[data-v-1f42fb90]:hover {\n  opacity: 1;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  z-index: 4;\n  position: fixed;\n  background-color: rgba(0, 0, 0, 0);\n  display: flex;\n  color: white;\n}\n.link[data-v-1f42fb90] {\n  text-align: center;\n  text-transform: uppercase;\n  font-weight: 200;\n  font-size: 1.2rem;\n  color: white;\n  opacity: 0.6;\n  text-decoration: none;\n  font-weight: 300;\n  transition: all 0.2s linear;\n}\n.link[data-v-1f42fb90]:hover {\n  transform: scale(1.1);\n}\n.logo img[data-v-1f42fb90] {\n  width: 8rem;\n  filter: invert(1);\n  transition: all 0.3s linear;\n}\n.logo img[data-v-1f42fb90]:hover {\n  transform: rotateZ(360deg);\n}\n.link[data-v-1f42fb90]:hover {\n  opacity: 1;\n}", ""]);
 
 // exports
 
@@ -12570,7 +12630,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Ha
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);", ""]);
 
 // module
-exports.push([module.i, "*[data-v-37c76d18]::not(i) {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n*::not(i) i[data-v-37c76d18] {\n  font-family: \"Font Awesome 5 Free\";\n}\n.msgAdd[data-v-37c76d18] {\n  position: fixed;\n  top: 3rem;\n  text-align: center;\n  color: white;\n  border: none;\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n\n/* @font-face {\n  font-family: 'Logo';\n  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');\n} */\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: rgba(0, 0, 0, 0.5);\n  height: 100vh;\n  -o-object-position: center;\n     object-position: center;\n}\n.overlay[data-v-37c76d18] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.7);\n  z-index: 2;\n  overflow: hidden;\n}\nvideo[data-v-37c76d18] {\n  width: 100%;\n  -o-object-position: center;\n     object-position: center;\n}\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
+exports.push([module.i, "*[data-v-37c76d18]::not(i) {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n*::not(i) i[data-v-37c76d18] {\n  font-family: \"Font Awesome 5 Free\";\n}\n.msgAdd[data-v-37c76d18] {\n  position: fixed;\n  top: 3rem;\n  text-align: center;\n  color: white;\n  border: none;\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n\n/* @font-face {\n  font-family: 'Logo';\n  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');\n} */\n#nav_inline[data-v-37c76d18] {\n  display: inline;\n}\na[data-v-37c76d18], a[data-v-37c76d18]:hover, a[data-v-37c76d18]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-37c76d18]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-37c76d18]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-37c76d18]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-37c76d18],\n.fade-leave-active[data-v-37c76d18] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-37c76d18],\n.fade-leave-to[data-v-37c76d18] {\n  opacity: 0;\n}\n.jumbo-cont[data-v-37c76d18] {\n  background-color: rgba(0, 0, 0, 0.5);\n  height: 100vh;\n  -o-object-position: center;\n     object-position: center;\n}\n.overlay[data-v-37c76d18] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.7);\n  z-index: 2;\n  overflow: hidden;\n}\nvideo[data-v-37c76d18] {\n  height: 100%;\n  -o-object-position: center;\n     object-position: center;\n}\n.jumbo[data-v-37c76d18] {\n  font-size: 28px;\n  height: 100%;\n  width: 20%;\n  text-transform: uppercase;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n}\n.jumbo .links[data-v-37c76d18] {\n  font-size: 18px;\n  color: whitesmoke;\n  transition: all 0.3s linear;\n}\n.jumbo .links[data-v-37c76d18]:hover {\n  color: #bbb8b8;\n  transform: scale(1.1);\n}", ""]);
 
 // exports
 
@@ -12608,7 +12668,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sfondo[data-v-43983775] {\n  top: 0;\n  position: absolute;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n  height: 100%;\n  z-index: 3;\n}\n.cuc[data-v-43983775] {\n  width: 85%;\n}\n.attiva[data-v-43983775] {\n  background-color: white;\n}\n.attiva span[data-v-43983775] {\n  color: black;\n}\n.notActive[data-v-43983775] {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.sect[data-v-43983775] {\n  text-align: center;\n}\nh2[data-v-43983775] {\n  font-style: italic;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  justify-content: center;\n  padding: 10px;\n  width: 400px;\n}\np[data-v-43983775] {\n  color: white;\n  font-style: italic;\n  font-size: 20px;\n}\n.container-fluid[data-v-43983775] {\n  padding-top: 6rem;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: #e5e2e2;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: black;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\n.card-title p[data-v-43983775] {\n  color: white;\n  text-decoration: none;\n  font-style: italic;\n}\np span[data-v-43983775] {\n  color: white;\n  font-style: italic;\n}\n.chefame[data-v-43983775] {\n  padding: 75px 0;\n}\n.ciao[data-v-43983775] {\n  height: 200px;\n}", ""]);
+exports.push([module.i, "*[data-v-43983775] {\n  font-family: Montserrat !important;\n}\n.cucine[data-v-43983775] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  font-family: Montserrat;\n}\n.betw[data-v-43983775] {\n  padding: 1.3vw;\n}\n.link[data-v-43983775] {\n  text-transform: uppercase;\n  font-weight: 200;\n  font-size: 2rem;\n  color: white;\n  opacity: 0.8;\n}\na[data-v-43983775]:hover {\n  text-decoration: none;\n}\n.cucina[data-v-43983775] {\n  text-transform: capitalize;\n  font-size: 1.7rem;\n  font-weight: 100;\n  padding: 0.8vw;\n}\n.cucina[data-v-43983775]:hover {\n  font-size: 2rem;\n  background: rgba(255, 255, 255, 0.219);\n  text-decoration: none;\n}\n.sfondo[data-v-43983775] {\n  width: 100%;\n  top: 0;\n  position: absolute;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0.7) 100%);\n  height: 100%;\n  z-index: 3;\n}\n.cuc[data-v-43983775] {\n  width: 85%;\n}\n.attiva[data-v-43983775] {\n  background-color: white;\n}\n.attiva span[data-v-43983775] {\n  color: black;\n}\n.notActive[data-v-43983775] {\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.sect[data-v-43983775] {\n  text-align: center;\n}\nh2[data-v-43983775] {\n  font-style: italic;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  justify-content: center;\n  padding: 10px;\n  width: 400px;\n}\np[data-v-43983775] {\n  color: white;\n  font-style: italic;\n  font-size: 20px;\n}\n.container-fluid[data-v-43983775] {\n  padding-top: 6rem;\n}\n.cartella[data-v-43983775] {\n  text-align: center;\n}\n.bottone[data-v-43983775]:hover {\n  background-color: #e5e2e2;\n  transition: 0.8s;\n}\n.bottone:hover span[data-v-43983775] {\n  color: black;\n  transition: 0.5s ease-in-out;\n  transition-property: color;\n}\n.card-title p[data-v-43983775] {\n  color: white;\n  text-decoration: none;\n  font-style: italic;\n}\np span[data-v-43983775] {\n  color: white;\n  font-style: italic;\n}\n.chefame[data-v-43983775] {\n  padding: 75px 0;\n}\n.ciao[data-v-43983775] {\n  height: 200px;\n}", ""]);
 
 // exports
 
@@ -12627,7 +12687,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bord[data-v-19797662] {\n  border-top: 1px solid lightgrey;\n}\n.padding20[data-v-19797662] {\n  padding: 20px;\n}", ""]);
+exports.push([module.i, ".bord[data-v-19797662] {\n  border-top: 1px solid lightgrey;\n}\n.padding20[data-v-19797662] {\n  padding: 20px;\n}\n.contenitore[data-v-19797662] {\n  height: 100vh;\n}\n.completamenti[data-v-19797662] {\n  margin-top: 10%;\n}\n.carr[data-v-19797662] {\n  margin-top: 20%;\n}\na[data-v-19797662]:hover {\n  color: black;\n  text-decoration: none;\n}\n.bottone[data-v-19797662] {\n  background-color: white;\n  opacity: 0.6;\n  transition: 1s;\n}\n.bottone[data-v-19797662]:hover {\n  opacity: 1;\n}\n.pay[data-v-19797662] {\n  margin-left: 200px;\n}", ""]);
 
 // exports
 
@@ -12684,7 +12744,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 1rem;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
+exports.push([module.i, ".card_plate[data-v-593b98ba] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  transition: all 0.3s ease-in-out;\n}\n.card_plate[data-v-593b98ba]:hover {\n  transform: translateY(-5px);\n}\n.card_plate:hover .icons[data-v-593b98ba] {\n  display: inline;\n}\n.card_plate:hover .plateImg[data-v-593b98ba] {\n  filter: brightness(120%);\n}\n.plateImg[data-v-593b98ba] {\n  width: 100%;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-593b98ba] {\n  position: relative;\n}\n.cover_cont .icons[data-v-593b98ba] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-593b98ba], .cover_cont .icons a[data-v-593b98ba]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-593b98ba] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-593b98ba] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos:hover .cart[data-v-593b98ba], .infos:hover .prezzo[data-v-593b98ba] {\n  transform: scale(1.1);\n}\n.infos .descr[data-v-593b98ba] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}\n.infos .price[data-v-593b98ba] {\n  width: 100%;\n  padding: 0 8%;\n  border-radius: 20px;\n  position: relative;\n  cursor: pointer;\n}\n.showPlate[data-v-593b98ba] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.cart[data-v-593b98ba] {\n  filter: invert(1);\n  position: absolute;\n  right: 5px;\n  bottom: 5px;\n  max-width: 2rem;\n}\n.prezzo[data-v-593b98ba] {\n  font-size: 1rem;\n}\n.cart[data-v-593b98ba], .prezzo[data-v-593b98ba] {\n  transition: all 0.2s ease-in-out;\n}", ""]);
 
 // exports
 
@@ -12722,7 +12782,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-29ba285d] {\n  font-family: Montserrat;\n}\n.cont[data-v-29ba285d] {\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%);\n  width: 100vw;\n  height: 100vh;\n  z-index: 99;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  align-items: center;\n}\n.plate-cont[data-v-29ba285d] {\n  width: 60vw;\n  height: 70vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background-size: cover;\n  background-position: center;\n  border-radius: 15px;\n  padding: 30px;\n}\n.plate-cont .box[data-v-29ba285d] {\n  background-color: rgba(0, 0, 0, 0.6);\n  padding: 10px 20px;\n  width: 80%;\n  height: 80%;\n  overflow-y: auto;\n  border-radius: 15px;\n}\n.plate-cont .box .info[data-v-29ba285d] {\n  font-size: 14px;\n}\n.plate-cont .box .descr[data-v-29ba285d] {\n  font-size: 14px;\n  font-style: italic;\n}\n.plate-cont .box .name[data-v-29ba285d] {\n  font-size: 2rem;\n}\n.info-cont[data-v-29ba285d] {\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n.actions[data-v-29ba285d] {\n  width: 40%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  position: absolute;\n  bottom: 0;\n}\n[data-popover=links][data-v-29ba285d] {\n  display: flex;\n  justify-content: space-around;\n}\n[data-popover=links] *[data-v-29ba285d] {\n  cursor: pointer;\n}\n.icon[data-v-29ba285d], .chevron[data-v-29ba285d] {\n  filter: invert(1) opacity(0.8);\n  cursor: pointer;\n  transition: all 0.2s ease-in-out;\n}\n.icon[data-v-29ba285d]:hover, .chevron[data-v-29ba285d]:hover {\n  filter: invert(1) opacity(1);\n}\n.icon[data-v-29ba285d] {\n  height: 2.5rem;\n}\n.icon-bg[data-v-29ba285d] {\n  border-radius: 50%;\n  margin: 20px;\n  padding: 1rem;\n  background-color: rgba(0, 0, 0, 0.7);\n  border: 1.2px solid rgba(255, 255, 255, 0.8);\n  transition: all 0.2s ease-in-out;\n}\n.icon-bg[data-v-29ba285d]:hover {\n  background-color: rgba(0, 0, 0, 0.9);\n  border: 2px solid white;\n  transform: scale(1.1);\n}\n.icon-bg:hover .icon[data-v-29ba285d] {\n  transform: rotateY(180deg);\n}\n.chevron[data-v-29ba285d] {\n  height: 4rem;\n}\n.chevron[data-v-29ba285d]:hover {\n  transform: scale(1.1);\n}", ""]);
+exports.push([module.i, ".cont[data-v-29ba285d] {\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%);\n  width: 100vw;\n  height: 100vh;\n  z-index: 99;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-evenly;\n  align-items: center;\n}\n.plate-cont[data-v-29ba285d] {\n  width: 60vw;\n  height: 70vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background-size: cover;\n  background-position: center;\n  border-radius: 15px;\n  padding: 30px;\n}\n.plate-cont .box[data-v-29ba285d] {\n  background-color: rgba(0, 0, 0, 0.6);\n  padding: 10px 20px;\n  width: 80%;\n  height: 80%;\n  overflow-y: auto;\n  border-radius: 15px;\n}\n.plate-cont .box .info[data-v-29ba285d] {\n  font-size: 14px;\n}\n.plate-cont .box .descr[data-v-29ba285d] {\n  font-size: 14px;\n  font-style: italic;\n}\n.plate-cont .box .name[data-v-29ba285d] {\n  font-size: 2rem;\n}\n.info-cont[data-v-29ba285d] {\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n.info-cont img[data-v-29ba285d] {\n  width: 40%;\n  -webkit-animation: pulse-data-v-29ba285d 1s infinite;\n          animation: pulse-data-v-29ba285d 1s infinite;\n  filter: invert(1);\n}\n@-webkit-keyframes pulse-data-v-29ba285d {\nfrom {\n    transform: scale(1);\n}\nto {\n    transform: scale(1.5);\n}\n}\n@keyframes pulse-data-v-29ba285d {\nfrom {\n    transform: scale(1);\n}\nto {\n    transform: scale(1.5);\n}\n}\n.actions[data-v-29ba285d] {\n  width: 40%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  position: absolute;\n  bottom: 0;\n}\n[data-popover=links][data-v-29ba285d] {\n  display: flex;\n  justify-content: space-around;\n}\n[data-popover=links] *[data-v-29ba285d] {\n  cursor: pointer;\n}\n.icon[data-v-29ba285d], .chevron[data-v-29ba285d] {\n  filter: invert(1) opacity(0.8);\n  cursor: pointer;\n  transition: all 0.2s ease-in-out;\n}\n.icon[data-v-29ba285d]:hover, .chevron[data-v-29ba285d]:hover {\n  filter: invert(1) opacity(1);\n}\n.icon[data-v-29ba285d] {\n  height: 2.5rem;\n}\n.icon-bg[data-v-29ba285d] {\n  border-radius: 50%;\n  margin: 20px;\n  padding: 1rem;\n  background-color: rgba(0, 0, 0, 0.7);\n  border: 1.2px solid rgba(255, 255, 255, 0.8);\n  transition: all 0.2s ease-in-out;\n}\n.icon-bg[data-v-29ba285d]:hover {\n  background-color: rgba(0, 0, 0, 0.9);\n  border: 2px solid white;\n  transform: scale(1.1);\n}\n.icon-bg:hover .icon[data-v-29ba285d] {\n  transform: rotateY(180deg);\n}\n.chevron[data-v-29ba285d] {\n  height: 4rem;\n}\n.chevron[data-v-29ba285d]:hover {\n  transform: scale(1.1);\n}", ""]);
 
 // exports
 
@@ -12776,10 +12836,11 @@ exports.push([module.i, "#back[data-v-ccd76a46] {\n  padding-top: 80px;\n  min-h
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Hahmlet:wght@100;200;300;400;500;600;700;800&display=swap);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);", ""]);
 
 // module
-exports.push([module.i, ".body[data-v-91ac6b5c] {\n  background-color: black;\n}", ""]);
+exports.push([module.i, "*[data-v-91ac6b5c]::not(i) {\n  font-family: \"Montserrat\", serif !important;\n  scroll-behavior: smooth;\n}\n*::not(i) i[data-v-91ac6b5c] {\n  font-family: \"Font Awesome 5 Free\";\n}\n.msgAdd[data-v-91ac6b5c] {\n  position: fixed;\n  top: 3rem;\n  text-align: center;\n  color: white;\n  border: none;\n  background-color: rgba(0, 0, 0, 0.6) !important;\n}\n\n/* @font-face {\n  font-family: 'Logo';\n  src:  url('../../public/fonts/ArgonPERSONAL-Regular.otf') format('otf');\n} */\n#nav_inline[data-v-91ac6b5c] {\n  display: inline;\n}\na[data-v-91ac6b5c], a[data-v-91ac6b5c]:hover, a[data-v-91ac6b5c]::visited {\n  color: inherit;\n  text-decoration: none;\n}\n\n/* width */\n*[data-v-91ac6b5c]::-webkit-scrollbar {\n  width: 10px;\n}\n\n/* Track */\n*[data-v-91ac6b5c]::-webkit-scrollbar-track {\n  background: #797979;\n}\n\n/* Handle */\n*[data-v-91ac6b5c]::-webkit-scrollbar-thumb {\n  background: #252525;\n}\n\n/* Handle on hover */\n*[data-v-91ac6b5c]::-webkit-scrollbar-thumb:hover {\n  background: rgba(100, 100, 100, 0.6);\n}\n.fade-enter-active[data-v-91ac6b5c],\n.fade-leave-active[data-v-91ac6b5c] {\n  transition: opacity 0.5s ease-in-out;\n}\n.fade-enter-from[data-v-91ac6b5c],\n.fade-leave-to[data-v-91ac6b5c] {\n  opacity: 0;\n}\n.body[data-v-91ac6b5c] {\n  background-color: black;\n  font-family: montserrat !important;\n}", ""]);
 
 // exports
 
@@ -45713,63 +45774,59 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "sfondo position-md-absolute", attrs: { id: "cuisines" } },
+    { staticClass: "sfondo position-absolute", attrs: { id: "cuisines" } },
     [
-      _c("div", { staticClass: "container-fluid d-flex flex-column" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "col row row-cols-4 row-cols-md-6 row-cols-lg-12 cuc align-self-end"
-          },
-          _vm._l(_vm.cuisines, function(cuisine) {
-            return _c("div", { key: cuisine.id, staticClass: "col sect" }, [
-              _c(
-                "p",
-                {
-                  staticClass: "bottone btn ",
-                  class: [
-                    cuisine.slug === _vm.cuisineSelect
-                      ? _vm.classActive
-                      : _vm.classNotActive
-                  ],
-                  attrs: { value: cuisine.id },
-                  on: {
-                    click: function($event) {
-                      _vm.getCuisine(cuisine.slug)
-                      _vm.getRestaurant(cuisine.slug)
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "cusname" }, [
-                    _vm._v(_vm._s(cuisine.name))
-                  ])
-                ]
-              )
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col row sezione " }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "container h-100 d-flex align-content-center justify-content-center"
+        },
+        [
           _c(
             "div",
-            { staticClass: "chefame" },
+            { staticClass: "row justify-content-center align-items-center" },
             [
-              _c("CardRestaurant", {
-                attrs: {
-                  cuisineSelect: _vm.cuisineSelect,
-                  restaurants: _vm.restaurants
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "ciao" })
-            ],
-            1
+              _c("div", { staticClass: "cucine ml-3 mt-5 text-center" }, [
+                _c("span", { staticClass: "link " }, [
+                  _vm._v("Le nostre cucine")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  _vm._l(_vm.cuisines, function(cuisine) {
+                    return _c(
+                      "li",
+                      { key: cuisine.id },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "betw",
+                            attrs: {
+                              to: {
+                                name: "cuisine",
+                                params: { slug: cuisine.slug }
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "link cucina" }, [
+                              _vm._v(_vm._s(cuisine.name))
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                )
+              ])
+            ]
           )
-        ])
-      ])
+        ]
+      )
     ]
   )
 }
@@ -45931,12 +45988,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "pb-3" }, [
+  return _c("section", { staticClass: "pb-3 contenitore" }, [
     _c("div", { staticClass: "container mt-5 bg-color" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "col-12 col-md-12 col-lg-8" }, [
           _c("form", [
-            _c("div", { staticClass: "row pt-5" }, [
+            _c("div", { staticClass: "row completamenti pt-5" }, [
               _c("div", { staticClass: "col-12 col-md-6 col-lg-6 mb-3" }, [
                 _c("input", {
                   directives: [
@@ -46068,7 +46125,7 @@ var render = function() {
               [
                 _c(
                   "label",
-                  { staticClass: "form-label", attrs: { for: "pac-input" } },
+                  { staticClass: "form-label ", attrs: { for: "pac-input" } },
                   [_vm._v("Seleziona l'indirizzo di consegna")]
                 ),
                 _vm._v(" "),
@@ -46081,7 +46138,7 @@ var render = function() {
                       expression: "user.address"
                     }
                   ],
-                  staticClass: "form-control",
+                  staticClass: "form-control ",
                   attrs: {
                     type: "text",
                     id: "address",
@@ -46109,15 +46166,16 @@ var render = function() {
                 ? _c(
                     "button",
                     {
-                      staticClass: "btn bottone text-decoration-none",
+                      staticClass:
+                        " pay mt-3 btn   bottone text-decoration-none",
                       attrs: { type: "submit" }
                     },
-                    [_vm._v("Pagamento")]
+                    [_vm._v("Completa Ordine")]
                   )
                 : _c(
                     "button",
                     {
-                      staticClass: "btn bottone text-decoration-none",
+                      staticClass: "btn  mt-5 bottone text-decoration-none",
                       attrs: { type: "submit" },
                       on: {
                         click: function($event) {
@@ -46127,7 +46185,7 @@ var render = function() {
                     },
                     [
                       _c("a", { attrs: { href: "/payment" } }, [
-                        _vm._v("Payment")
+                        _vm._v("Pagamento")
                       ])
                     ]
                   )
@@ -46135,8 +46193,10 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-12 col-lg-4 my-3" }, [
-          _c("div", { staticClass: "mb-2" }, [_vm._v("Riepilogo ordine")]),
+        _c("div", { staticClass: "  col-12 col-md-12 col-lg-4 my-3" }, [
+          _c("div", { staticClass: " text-white carr mb-2" }, [
+            _vm._v("Riepilogo ordine")
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card" }, [
             _c("table", { staticClass: "tableFull text-center" }, [
@@ -46185,7 +46245,7 @@ var render = function() {
                   _c("th", [_vm._v("Totale")]),
                   _vm._v(" "),
                   _c("th", [
-                    _vm._v(_vm._s(_vm.$store.state.cartTotal.toFixed(2)))
+                    _vm._v(_vm._s(_vm.$store.state.cartTotal.toFixed(2)) + " €")
                   ])
                 ])
               ])
@@ -46270,51 +46330,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container", staticStyle: { "padding-top": "80px" } },
-    [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.cuisines, function(cuisine) {
-          return _c(
-            "div",
-            { key: cuisine.id, staticClass: "col-sm-6 col-md-5 col-lg-4" },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "cuisine",
-                      params: { slug: cuisine.slug, name: cuisine.name }
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card text-center mt-3 bg",
-                      style: { "background-image": "url(" + cuisine.img + ")" }
-                    },
-                    [
-                      _c("div", { staticClass: "title cus" }, [
-                        _vm._v(_vm._s(cuisine.name))
-                      ])
-                    ]
-                  )
-                ]
-              )
-            ],
-            1
-          )
-        }),
-        0
-      )
-    ]
-  )
+  return _c("div", {
+    staticClass: "container",
+    staticStyle: { "padding-top": "80px" }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -46555,7 +46574,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c(
-      "main",
+      "section",
       { staticClass: "w-100 d-flex justify-content-around align-items-center" },
       [
         _c(
@@ -46579,137 +46598,232 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "click-outside",
-                rawName: "v-click-outside",
-                value: _vm.onClickOutside,
-                expression: "onClickOutside"
-              }
-            ],
-            staticClass: "plate-cont mb-5",
-            style: { backgroundImage: "url(" + _vm.plate.img + ")" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "box d-flex align-items-center justify-content-center text-center text-white"
-              },
-              [
-                _c("div", { staticClass: "info-cont" }, [
-                  _c("div", { staticClass: "name" }, [
-                    _vm._v(_vm._s(_vm.plate.name))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "descr text-center my-3" }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.plate.description) +
-                        "\n                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "info text-center" }, [
-                    _c("h6", { staticClass: "infotitle" }, [
-                      _vm._v("Ingredienti")
-                    ]),
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.plate.ingredients) +
-                        "\n                        "
-                    ),
-                    _c("h6", { staticClass: "infotitle mt-2" }, [
-                      _vm._v("Prezzo")
-                    ]),
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.plate.price) +
-                        "€\n                    "
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "actions d-flex" },
-              [
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "popover",
-                        rawName: "v-popover:links.left",
-                        arg: "links",
-                        modifiers: { left: true }
-                      }
-                    ],
-                    staticClass: "icon-bg"
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/storage/img/share.svg",
-                        alt: "share icon"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "icon-bg", on: { click: _vm.addStay } },
-                  [
-                    _c("img", {
-                      staticClass: "icon",
-                      attrs: {
-                        src: "/storage/img/add-to-cart.png",
-                        alt: "cart icon"
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "popover",
-                  { attrs: { name: "links" } },
-                  [
-                    _c("Facebook", {
-                      attrs: {
-                        url: "www.wannaeat.com" + _vm.$route.fullPath,
-                        scale: "2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("Telegram", {
-                      attrs: {
-                        url: "www.wannaeat.com" + _vm.$route.fullPath,
-                        scale: "2"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("WhatsApp", {
-                      attrs: {
-                        url: "www.wannaeat.com" + _vm.$route.fullPath,
-                        scale: "2"
-                      }
-                    })
+        !_vm.loading
+          ? _c("div", [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "click-outside",
+                      rawName: "v-click-outside",
+                      value: _vm.onClickOutside,
+                      expression: "onClickOutside"
+                    }
                   ],
-                  1
-                )
-              ],
-              1
-            )
-          ]
-        ),
+                  staticClass: "plate-cont mb-5",
+                  style: { backgroundImage: "url(" + _vm.plate.img + ")" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "box d-flex align-items-center justify-content-center text-center text-white"
+                    },
+                    [
+                      _c("div", { staticClass: "info-cont" }, [
+                        _c("div", { staticClass: "name" }, [
+                          _vm._v(_vm._s(_vm.plate.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "descr text-center my-3" }, [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.plate.description) +
+                              "\n                        "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "info text-center" }, [
+                          _c("h6", { staticClass: "infotitle" }, [
+                            _vm._v("Ingredienti")
+                          ]),
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.plate.ingredients) +
+                              "\n                            "
+                          ),
+                          _c("h6", { staticClass: "infotitle mt-2" }, [
+                            _vm._v("Prezzo")
+                          ]),
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.plate.price) +
+                              "€\n                        "
+                          )
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "actions d-flex" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "popover",
+                              rawName: "v-popover:links.left",
+                              arg: "links",
+                              modifiers: { left: true }
+                            }
+                          ],
+                          staticClass: "icon-bg"
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/storage/img/share.svg",
+                              alt: "share icon"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "icon-bg", on: { click: _vm.addStay } },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/storage/img/add-to-cart.png",
+                              alt: "cart icon"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "popover",
+                        { attrs: { name: "links" } },
+                        [
+                          _c("Facebook", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("Telegram", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("WhatsApp", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ])
+          : _c("div", [
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "click-outside",
+                      rawName: "v-click-outside",
+                      value: _vm.onClickOutside,
+                      expression: "onClickOutside"
+                    }
+                  ],
+                  staticClass: "plate-cont mb-5"
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "actions d-flex" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "popover",
+                              rawName: "v-popover:links.left",
+                              arg: "links",
+                              modifiers: { left: true }
+                            }
+                          ],
+                          staticClass: "icon-bg"
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/storage/img/share.svg",
+                              alt: "share icon"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "icon-bg", on: { click: _vm.addStay } },
+                        [
+                          _c("img", {
+                            staticClass: "icon",
+                            attrs: {
+                              src: "/storage/img/add-to-cart.png",
+                              alt: "cart icon"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "popover",
+                        { attrs: { name: "links" } },
+                        [
+                          _c("Facebook", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("Telegram", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("WhatsApp", {
+                            attrs: {
+                              url: "www.wannaeat.com" + _vm.$route.fullPath,
+                              scale: "2"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ]),
         _vm._v(" "),
         _c(
           "router-link",
@@ -46736,7 +46850,27 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "box d-flex align-items-center justify-content-center text-center text-white"
+      },
+      [
+        _c("div", { staticClass: "info-cont" }, [
+          _c("div", { staticClass: "loader" }, [
+            _c("img", { attrs: { src: "/storage/img/welogo.svg", alt: "" } })
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
