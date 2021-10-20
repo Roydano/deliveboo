@@ -1,14 +1,15 @@
 <template>
 
-    <div class="jumbo-cont d-flex position-relative justify-content-center">
+    <div class="jumbo-cont d-flex ">
         
-        <div class="overlay">
+         <div class="overlay">
+
             <video autoplay muted loop>    
                 <source src="/storage/img/jumbovid.mp4" type="video/mp4">
             </video>
-        </div>
-        
 
+        
+    </div>
 
     </div>
     
@@ -24,14 +25,27 @@ export default {
 <style lang="scss" scoped>
 @import '../../sass/commons';
     .jumbo-cont {
-        background-color: black;
+        background-color: rgba($color: #000000, $alpha: 0.5);
         height: 100vh;
-        overflow: hidden;
-        justify-content: flex-end;
-        font-style:italic;
+        object-position: center;
     }
+
+    .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.7);
+  z-index: 2;
+  overflow: hidden;
+
+  
+}
+
     video {
-        height: 100%;
+        width: 100%;
+        object-position: center;
     }
 
     .jumbo {

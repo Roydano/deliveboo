@@ -22,9 +22,10 @@
             <ul class="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="/restaurants">Ristoranti</a></li>
+                <li><a href="#cuisines">Cucine</a></li>
                 <li><a href="/register">Registrati</a></li>
                 <li><a href="/login">Login</a></li>
-                <li><a href="#cuisines">Cucine</a></li>
+                
 
             </ul>
 
@@ -54,7 +55,6 @@ export default {
 }
 
 .body{
-    font-style:italic;
     display:flex;
     justify-content:flex-end;
     align-items:flex-end;

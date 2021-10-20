@@ -90,9 +90,6 @@
        background-color:black;
        height:60px;
        opacity:0.6;
-       
-       
-       
    }
 
 

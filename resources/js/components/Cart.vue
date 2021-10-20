@@ -2,7 +2,7 @@
  
     <div class="cont">
 
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="cambioRistorante" aria-hidden="true" data-backdrop="false">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -24,7 +24,7 @@
 
             <div class="container" id="cart" v-click-outside="onClickOutside">      
 
-        <div class="bg-btn" @click="showCart = !showCart">
+        <div class="bg-btn" @click="showCart = !showCart" v-show="$store.state.num">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             <span class="numb">{{ $store.state.num }}</span>
         </div>
@@ -57,13 +57,13 @@
                                             </td>
 
                                             <td>
-                                                <div class="d-flex justify-content-around">
+                                                <div class="d-flex justify-content-around align-items-center">
 
-                                                    <p class="pointer" @click="remove(plate)"><i class="fas fa-minus"></i></p>
+                                                    <div class="pointer" @click="remove(plate)"><i class="fas fa-minus"></i></div>
 
-                                                    <p class="px-2">{{plate.qty}}</p>
+                                                    <div class="px-2">{{plate.qty}}</div>
 
-                                                    <p class="pointer" @click="add(plate)"><i class="fas fa-plus"></i></p>
+                                                    <div class="pointer" @click="add(plate)"><i class="fas fa-plus"></i></div>
                                                     
                                                 </div>
                                             </td>
@@ -135,8 +135,7 @@ export default {
    
     .container {
         position: relative;
-        transform: translateY(70px);
-        font-style:italic;
+        transform: translateY(20px);
     }
 
     .tableFull {

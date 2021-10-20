@@ -114,9 +114,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    * {
-         font-style:italic;
-    }
 
     
     .card_plate {
@@ -137,7 +134,7 @@ export default {
     }
     .plateImg {
         width: 100%;
-        max-height: 180px;
+        height:180px;
         object-fit: cover;
         object-position: center;
         transition: all 0.2s linear;

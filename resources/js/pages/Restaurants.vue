@@ -20,7 +20,8 @@
                         <div class="card">
                              <img class="cover" :src="restaurant.img" :alt="restaurant.name"> 
                              <div class="card-body">
-                                <h5 class="card-title text-center">{{restaurant.name}}</h5>
+                                <h3 class="card-title text-center">{{restaurant.name}}</h3>
+                                <p class="card-title text-center"> {{restaurant.address}}</p>
                                     <p class="card-text">
                                         <span v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                                     </p>
@@ -201,6 +202,12 @@ export default {
         .cover{
             width:80%;
             padding-top:10px;
+            font-size:22px;
+            height:150px;
+        }
+
+        h5{
+            font-size:10px;
         }
       
     

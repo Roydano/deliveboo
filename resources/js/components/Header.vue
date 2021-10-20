@@ -1,22 +1,12 @@
 <template>
     <header>
         
-      <div class="left ">
+      <div class="left d-flex flex-column">
         <router-link class="logo ml-3" to="/"><img src="/storage/img/welogo.svg" alt="wanna eat"></router-link>
 
         <router-link v-for="item in nav" :key="item.label" :to="item.path" class="link ml-3 mt-3">{{item.label}}</router-link>
-       
          
       </div>
-       <div class="ml-3 p-4">
-              <a class="link" href="#cuisines">Cucine</a>
-
-         </div>
-    
-       
-
-    
-          
 
         <Cart class="mt-5"/>
 
@@ -40,6 +30,10 @@ export default {
           {
             label: 'Ristoranti',
             path: '/restaurants',
+          },
+          {
+            label: 'Cucine',
+            path: '/#cuisines',
           }
        
         ]
@@ -50,12 +44,11 @@ export default {
 
 <style lang="scss" scoped>
   header {
-    z-index: 1;
+    z-index: 4;
     position: fixed;
     background-color: rgba($color: #000000, $alpha: 0);
     display: flex;
     color: white;
-    font-style:italic;
 
     .link {
       text-align: center;
@@ -82,8 +75,7 @@ export default {
   }
 
   .link:hover{
-    opacity:1;
-    
+    opacity:1; 
   }
     
 

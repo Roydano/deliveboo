@@ -21,7 +21,10 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home', 
-            component: Home
+            component: Home,
+            meta: {
+                footer: 1
+            }
         },
         {
             path: '/cuisines',

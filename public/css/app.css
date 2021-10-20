@@ -18745,10 +18745,6 @@ a::visited {
   opacity: 0;
 }
 
-* {
-  font-style: italic;
-}
-
 #navHead {
   z-index: 9;
   position: fixed;

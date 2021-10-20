@@ -1,15 +1,15 @@
 <template>
 
-    <div id="back" :style="{'background-image': 'url(' + restaurant.img + ')' }">
 
+    <div id="back" :style="{'background-image': 'url(' + restaurant.img + ')' }">
+   
         <div class="grad">
 
         <section class="container head">
 
                     <h3 class="text-center restName titolo">{{restaurant.name}}</h3>
 
-                    <div class="cuisine">
-                        <span class="mostra-cucine">Cucina:  </span>
+                    <div class="cuisine text-center">
                         <span class="mostra-cucine" v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
                     </div>
 
@@ -110,14 +110,12 @@ export default {
         background-size: cover;
         background-position: center; 
         box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);
-        font-style:italic;
     }
     .titolo,
     .mostra-cucine
     {
-        filter: drop-shadow(16px 16px 20px red) invert(75%);
-        color:red;
-         font-style:italic;
+
+        color:white
     }
 
 
@@ -191,7 +189,6 @@ export default {
     
     .cuisine {
         font-size: 0.7rem;
-        font-style: italic;
     }
   
     
@@ -208,7 +205,7 @@ export default {
     .mostra-cucine{
         
         padding:7px;
-        font-size:18px;
+        font-size:1rem;
         padding-top:10px;
         margin-bottom:15px;
     }
