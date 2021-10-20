@@ -16,7 +16,7 @@
         <div class="sidebar">
             <div class="sidebar-menu">
                <center class="profile pt-3">
-                  <img src="./img/garagol.jpg" alt="">
+                  <img src="./img/default.jpg" alt="">
                   <h5 class="card-title scritta "> {{ $restaurant->name }}</h5>
                 </center>
 
@@ -27,7 +27,7 @@
                </li>
 
                <li class="item" id="profile">
-                   <a href="#profile" class="menu-btn">
+                   <a href="#profile" class="menu-btn" href="#" role="button" id="dropdownMenuLink">
                       <i class="fas fa-utensils"></i><span>Piatti  <i class="fas fa-chevron-down drop-down"></i></span>
                     </a>
                         <div class="sub-menu">
@@ -58,15 +58,16 @@
 
 
      <!-- main container start -->
-     <div class="main-container">
+     <div style="background-image: url('{{$restaurant->img}}')" class="main-container">
+
 
         <!-- inizio card -->
         <div class="card-dash">
-            <div class="card-image"></div>
             <div class="card-text">
-                <span class="date">Ristorante: {{ $restaurant->name }}</span>
-                <p> <b>Indirizzo:</b>{{ $restaurant->address}}</p>
-                <p>Numero di telefono:</b> {{ $restaurant->phone}}</p>
+                <span class="date">{{ $restaurant->name }}</span>
+                <p>{{ $restaurant->address}}</p>
+                <p>{{ $restaurant->phone}}</p>
+                <p>P. Iva: {{ $restaurant->p_iva}}</p>
             </div>
             <div class="card-stats">
                 <div class="stat">
@@ -100,3 +101,8 @@
 </div>
 @endsection
 
+<style scoped>
+body {
+    overflow: hidden;
+}
+</style>

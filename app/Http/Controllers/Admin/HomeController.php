@@ -19,6 +19,7 @@ class HomeController extends Controller
     {   
 
         $restaurant = Restaurant::where('user_id', Auth::user()->id)->first();
+        $restaurant->img = '/storage/' . $restaurant->img;
         return view('admin.home', compact('restaurant'));
     }
 

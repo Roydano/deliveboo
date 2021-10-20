@@ -64,7 +64,7 @@
                         no
                     @endif
                 </td>
-                <td>
+                <td class="image-plate">
                     @if($plate->img)
                         <img class="img-plate figure-img img-fluid rounded" src="{{ asset('storage/' . $plate->img) }}" alt="{{ $plate->name }}">
                     @endif
@@ -75,7 +75,7 @@
                     <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post" class="d-inline-block del-plate">
                         @csrf
                         @method('DELETE')
-                        <input  type="submit" class="btn bg-psy" value="del"></a>
+                        <input  type="submit" class="btn bg-psy trash" value=""></a>
                     </form>
                     
                 </td>
@@ -98,3 +98,21 @@
 @endsection
 
 
+<style scoped> 
+.plate {
+    padding-top: 20px;
+}
+
+.image-plate {
+    height: 200px;
+    width: 200px;
+    position: relative;
+    top: 20px;
+    min-width: 100px;
+}
+.image-plate img {
+    object-fit: cover;
+    object-position: center;
+}
+
+</style>

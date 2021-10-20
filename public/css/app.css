@@ -15936,7 +15936,12 @@ a.no-style:hover {
 }
 
 .main-container {
-  margin-left: 35%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: calc(100vh - 80px);
 }
 
 /* tendina */
@@ -15990,38 +15995,18 @@ label #sidebar_btn:hover {
   margin-left: 5px;
 }
 
-.main-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
 .card-dash {
-  margin-right: 150px;
-  margin-top: 150px;
-  display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
+  background-color: rgba(0, 0, 0, 0.966);
+  width: calc(100vw - 250px);
+  height: calc(100vh - 200px);
+  position: relative;
+  margin-left: 22%;
+  margin-right: 8%;
   font-family: roboto;
   border-radius: 18px;
-  background: #22242A;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  transition: 0.5s ease;
-}
-
-.card-dash .date {
-  font-size: 35px;
-  color: red;
-}
-
-.card-image {
-  grid-area: image;
-  background: url(/images/garagol.jpg?f99bfd3c79443f3108a1e1a33379ee8a);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+  border: 3px solid white;
 }
 
 .card-text {
@@ -16031,19 +16016,15 @@ label #sidebar_btn:hover {
 
 .card-text p {
   color: white;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 600;
   margin-top: 10px;
-}
-
-.card-text h2 {
-  margin-top: 0px;
-  font-size: 28px;
 }
 
 .card-text .date {
   color: #3498DB;
-  font-size: 21px;
+  font-size: 40px;
+  width: 100%;
 }
 
 .card-stats {
@@ -16051,9 +16032,14 @@ label #sidebar_btn:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #3498DB;
+  border-radius: 18px;
+  background: #00000011;
+  position: relative;
+  top: 1%;
+  height: 150px;
+  position: relative;
+  top: 41%;
+  border: 1px solid white;
 }
 
 .card-stats .stat {
@@ -16066,14 +16052,22 @@ label #sidebar_btn:hover {
 }
 
 .card-stats .type {
-  font-size: 11px;
+  font-size: 30px;
   font-weight: 300;
   text-transform: uppercase;
 }
 
 .card-stats .value {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 500;
+  color: white;
+}
+
+.card-stats .value:hover {
+  scale: 1.5;
+  position: relative;
+  bottom: 10px;
+  font-weight: 900;
 }
 
 .card-stats a {
@@ -16120,10 +16114,6 @@ label #sidebar_btn:hover {
   background: rgba(255, 255, 255, 0.356);
 }
 
-.btn-plates i:hover {
-  color: #fffb02;
-}
-
 .plates-restaurant .table {
   background-color: rgba(0, 0, 0, 0.911);
   color: white;
@@ -16137,14 +16127,16 @@ label #sidebar_btn:hover {
   font-size: 25px;
 }
 
-.btn-plates i:hover {
-  scale: 1.2;
-  position: relative;
-  top: 10px;
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .img-plate {
-  height: 200px;
+  height: 150px;
   margin: auto;
   width: 600px;
 }
@@ -27391,7 +27383,12 @@ a.no-style:hover {
 }
 
 .main-container {
-  margin-left: 35%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: calc(100vh - 80px);
 }
 
 /* tendina */
@@ -27445,38 +27442,18 @@ label #sidebar_btn:hover {
   margin-left: 5px;
 }
 
-.main-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
 .card-dash {
-  margin-right: 150px;
-  margin-top: 150px;
-  display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
+  background-color: rgba(0, 0, 0, 0.966);
+  width: calc(100vw - 250px);
+  height: calc(100vh - 200px);
+  position: relative;
+  margin-left: 22%;
+  margin-right: 8%;
   font-family: roboto;
   border-radius: 18px;
-  background: #22242A;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  transition: 0.5s ease;
-}
-
-.card-dash .date {
-  font-size: 35px;
-  color: red;
-}
-
-.card-image {
-  grid-area: image;
-  background: url(/images/garagol.jpg?f99bfd3c79443f3108a1e1a33379ee8a);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+  border: 3px solid white;
 }
 
 .card-text {
@@ -27486,19 +27463,15 @@ label #sidebar_btn:hover {
 
 .card-text p {
   color: white;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 600;
   margin-top: 10px;
-}
-
-.card-text h2 {
-  margin-top: 0px;
-  font-size: 28px;
 }
 
 .card-text .date {
   color: #3498DB;
-  font-size: 21px;
+  font-size: 40px;
+  width: 100%;
 }
 
 .card-stats {
@@ -27506,9 +27479,14 @@ label #sidebar_btn:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #3498DB;
+  border-radius: 18px;
+  background: #00000011;
+  position: relative;
+  top: 1%;
+  height: 150px;
+  position: relative;
+  top: 41%;
+  border: 1px solid white;
 }
 
 .card-stats .stat {
@@ -27521,14 +27499,22 @@ label #sidebar_btn:hover {
 }
 
 .card-stats .type {
-  font-size: 11px;
+  font-size: 30px;
   font-weight: 300;
   text-transform: uppercase;
 }
 
 .card-stats .value {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 500;
+  color: white;
+}
+
+.card-stats .value:hover {
+  scale: 1.5;
+  position: relative;
+  bottom: 10px;
+  font-weight: 900;
 }
 
 .card-stats a {
@@ -27575,10 +27561,6 @@ label #sidebar_btn:hover {
   background: rgba(255, 255, 255, 0.356);
 }
 
-.btn-plates i:hover {
-  color: #fffb02;
-}
-
 .plates-restaurant .table {
   background-color: rgba(0, 0, 0, 0.911);
   color: white;
@@ -27592,14 +27574,16 @@ label #sidebar_btn:hover {
   font-size: 25px;
 }
 
-.btn-plates i:hover {
-  scale: 1.2;
-  position: relative;
-  top: 10px;
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .img-plate {
-  height: 200px;
+  height: 150px;
   margin: auto;
   width: 600px;
 }
