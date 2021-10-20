@@ -186,7 +186,12 @@ export default {
         .descr {
             font-style: italic;
             font-size: 0.8rem;
-            text-align: center
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow:hidden;
+
         }
         .price {
             width: 100%;

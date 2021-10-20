@@ -2,10 +2,13 @@
 
 
     <div id="back" :style="{'background-image': 'url(' + restaurant.img + ')' }">
+         
    
         <div class="grad">
+           
 
         <section class="container head">
+           
 
                     <h3 class="text-center restName titolo">{{restaurant.name}}</h3>
 
@@ -17,7 +20,10 @@
 
         <div class="row main-cont justify-content-between">
 
+               
             <div class="my-4 text-center courses col-2 d-flex flex-column justify-content-center">
+
+                    
              
                     <router-link v-for="course in courses" :key="course.id" class="courseName"
                     :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>

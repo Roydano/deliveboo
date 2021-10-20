@@ -1,62 +1,109 @@
 <template>
     <div class="cont">
 
+        
+
         <div class="alert alert-secondary fade show msgAdd" role="alert">
                 Piatto aggiunto al carrello
         </div>
 
-        <main class="w-100 d-flex justify-content-around align-items-center">
+        <!-- image -->
+        <section class="w-100 d-flex justify-content-around align-items-center">
 
             <router-link :to="{name: showPlate, params:{slugCourse: prevCourse, slugPlate: prevPlateSlug}}"><img src="/storage/img/chevron-l.svg" alt="chevron left" class="chevron"></router-link>
 
             
-            <div v-click-outside="onClickOutside" class="plate-cont mb-5" v-bind:style="{backgroundImage: 'url(' + plate.img + ')'}">
 
-                <div  class="box d-flex align-items-center justify-content-center text-center text-white">
+            <div v-if="!loading">
 
-                    <div class="info-cont">
-                        <div class="name">{{plate.name}}</div>
+                <div v-click-outside="onClickOutside" class="plate-cont mb-5" v-bind:style="{backgroundImage: 'url(' + plate.img + ')'}">
 
-                        <div class="descr text-center my-3">
-                            {{plate.description}}
+                    <div  class="box d-flex align-items-center justify-content-center text-center text-white">
+
+                        <div class="info-cont">
+                            <div class="name">{{plate.name}}</div>
+
+                            <div class="descr text-center my-3">
+                                {{plate.description}}
+                            </div>
+
+                            <div class="info text-center">
+                                <h6 class="infotitle">Ingredienti</h6>
+                                {{plate.ingredients}}
+                                <h6 class="infotitle mt-2">Prezzo</h6>
+                                {{plate.price}}€
+                            </div>
                         </div>
 
-                        <div class="info text-center">
-                            <h6 class="infotitle">Ingredienti</h6>
-                            {{plate.ingredients}}
-                            <h6 class="infotitle mt-2">Prezzo</h6>
-                            {{plate.price}}€
+                    </div>
+
+                    <div class="actions d-flex">
+
+                        <div v-popover:links.left class="icon-bg">
+                            <img class="icon" src="/storage/img/share.svg" alt="share icon">
                         </div>
-                    </div>
 
+                        <div @click="addStay" class="icon-bg">
+                            <img class="icon" src="/storage/img/add-to-cart.png" alt="cart icon" >
+                        </div>
+
+                        <popover name="links">
+                            <Facebook :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                            <Telegram :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                            <WhatsApp :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                        </popover>
+                
+                    </div>
+                
                 </div>
 
-                <div class="actions d-flex">
-
-                    <div v-popover:links.left class="icon-bg">
-                        <img class="icon" src="/storage/img/share.svg" alt="share icon">
-                    </div>
-
-                    <div @click="addStay" class="icon-bg">
-                        <img class="icon" src="/storage/img/add-to-cart.png" alt="cart icon" >
-                    </div>
-
-
-                    <popover name="links">
-                        <Facebook :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
-                        <Telegram :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
-                        <WhatsApp :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
-                    </popover>
-            
-                </div>
-            
             </div>
+
+            <!-- loading -->
+            <div v-else>
+                <div v-click-outside="onClickOutside" class="plate-cont mb-5">
+
+                    <div  class="box d-flex align-items-center justify-content-center text-center text-white">
+
+                        <div class="info-cont">
+                            <div class="loader">
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                    <path d="M18 13 L26 2 8 13 14 19 6 30 24 19 Z" />
+                                </svg> -->
+                                <img src="/storage/img/welogo.svg" alt="">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="actions d-flex">
+
+                        <div v-popover:links.left class="icon-bg">
+                            <img class="icon" src="/storage/img/share.svg" alt="share icon">
+                        </div>
+
+                        <div @click="addStay" class="icon-bg">
+                            <img class="icon" src="/storage/img/add-to-cart.png" alt="cart icon" >
+                        </div>
+
+                        <popover name="links">
+                            <Facebook :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                            <Telegram :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                            <WhatsApp :url="'www.wannaeat.com' + $route.fullPath" scale="2"/>
+                        </popover>
+                
+                    </div>
+                
+                </div>
+            </div>
+            <!-- end loading -->
 
             <router-link :to="{name: showPlate, params:{slugCourse: nextCourse, slugPlate: nextPlateSlug}}">
                 <img src="/storage/img/chevron-r.svg" alt="chevron right" class="chevron">
             </router-link>
 
-        </main>
+        </section>
         
     </div>
   
@@ -80,7 +127,8 @@ export default {
       nextPlateSlug: [],
       prevCourse: [],
       nextCourse: [],
-      open: false
+      open: false,
+      loading: true,
     };
   },
   mounted() {
@@ -120,10 +168,12 @@ export default {
             axios.get('http://localhost:8000/api/plates/' + this.$route.params.slugPlate)
                 .then( response => {
                     this.plate = response.data.results;
+                    this.loading = false;
                 } )
                 .catch(error => {
                     console.log(error);
                 });
+
         },
         getPrev() {
             axios.get('http://localhost:8000/api/prevPlate/' + this.$route.params.slugPlate)
@@ -152,10 +202,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    * {
-        font-family: Montserrat;
-    }
-
     .cont {
         background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
         width: 100vw;
@@ -200,6 +246,22 @@ export default {
 
     .info-cont {
         height: fit-content;
+
+        img {
+            width: 40%;
+            animation: pulse 1s infinite;
+            filter: invert(1);
+            
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+            transform: scale(1.5);
+            }
+        }
     }
 
     .actions {

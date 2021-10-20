@@ -6,7 +6,7 @@
     list-style:none;
     text-decoration:none;
     box-sizing:border-box;
-    font-family: "Roboto", sans-serif; 
+    
     .fa, .fas {
         font-family: 'Font Awesome 5 Free';
     }
@@ -323,7 +323,7 @@
     grid-template-rows: 210px 210px 80px;
     grid-template-areas: "image" "text" "stats";
 
-    font-family: roboto;
+   
     border-radius: 18px;
      background:#22242A;
     box-shadow: 5px 5px 15px rgba(0,0,0,.9);

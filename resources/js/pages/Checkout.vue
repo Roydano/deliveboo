@@ -1,11 +1,11 @@
 <template>
-  <section class="pb-3">
+  <section class="pb-3 contenitore">
     <div class="container mt-5 bg-color">
       <div class="row">
         <div class="col-12 col-md-12 col-lg-8">
           <form>
 
-          <div class="row pt-5">
+          <div class="row completamenti pt-5">
             <div class="col-12 col-md-6 col-lg-6 mb-3">
               <input type="name" class="form-control" id="nome" name="nome" v-model="user.nome"  placeholder="Nome" required>
              </div>
@@ -26,18 +26,18 @@
           </div>
 
           <div class="mb-3 col-12 col-md-9 position-relative">
-            <label for="pac-input" class="form-label">Seleziona l'indirizzo di consegna</label>
-            <input class="form-control" type="text" id="address" name="address" v-model="user.address" placeholder="Inserisci la tua via" required>
+            <label for="pac-input" class="form-label ">Seleziona l'indirizzo di consegna</label>
+            <input class="form-control " type="text" id="address" name="address" v-model="user.address" placeholder="Inserisci la tua via" required>
             <div id="map" class="w-100"></div>
           </div>
 
           <div>
-              <button type="submit" class="btn bottone text-decoration-none" v-if=" $store.state.cartTotal === 0 ">Pagamento</button>
+              <button type="submit" class=" pay mt-3 btn   bottone text-decoration-none" v-if=" $store.state.cartTotal === 0 ">Completa Ordine</button>
 
-              <button  v-else type="submit" class="btn bottone text-decoration-none" @click="payment()">
+              <button  v-else type="submit" class="btn  mt-5 bottone text-decoration-none" @click="payment()">
                
 
-                  <a href="/payment">Payment</a> 
+                   <a class="" href="/payment">Pagamento</a>  
                
               </button>
 
@@ -50,8 +50,8 @@
         </form>
         </div>
 
-        <div class="col-12 col-md-12 col-lg-4 my-3">
-          <div class="mb-2">Riepilogo ordine</div>
+        <div class="  col-12 col-md-12 col-lg-4 my-3">
+          <div class=" text-white carr mb-2">Riepilogo ordine</div>
           
           <div class="card">
             <table class="tableFull text-center" >
@@ -84,7 +84,7 @@
                 <tr class="bord">
                   <th></th>
                   <th>Totale</th>
-                  <th>{{ $store.state.cartTotal.toFixed(2) }}</th>
+                  <th>{{ $store.state.cartTotal.toFixed(2) }} €</th>
                 </tr>
               </tfoot>
                                     
@@ -152,4 +152,36 @@ export default {
 .padding20{
   padding: 20px;
 }
+
+
+.contenitore{
+  height:100vh;
+ 
+}
+.completamenti{
+  margin-top:10%;
+}
+.carr{
+  margin-top:20%;
+}
+a:hover{
+  color:black;
+  text-decoration:none;
+}
+
+.bottone{
+  background-color: white;
+  opacity:0.6;
+  transition:1s;
+
+}
+
+.bottone:hover{
+  opacity:1;
+}
+.pay{
+  margin-left:200px;
+}
+
+
 </style>>
