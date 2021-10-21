@@ -7955,6 +7955,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Restaurant',
   linkExactActiveClass: 'is-active',
@@ -47050,39 +47063,71 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row main-cont justify-content-between" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "my-4 text-center courses col d-flex flex-column justify-content-center ",
-              class: [!_vm.$route.params.slugCourse ? "align-items-center" : ""]
-            },
-            _vm._l(_vm.courses, function(course) {
-              return _c(
-                "router-link",
+          _vm.$route.params.slugCourse
+            ? _c(
+                "div",
                 {
-                  key: course.id,
-                  staticClass: "courseName",
-                  attrs: {
-                    to: {
-                      name: "showMenu",
-                      params: {
-                        slug: _vm.restaurant.slug,
-                        slugCourse: course.slug
+                  staticClass:
+                    "my-4 text-center courses col-2 d-flex flex-column justify-content-center "
+                },
+                _vm._l(_vm.courses, function(course) {
+                  return _c(
+                    "router-link",
+                    {
+                      key: course.id,
+                      staticClass: "courseName",
+                      attrs: {
+                        to: {
+                          name: "showMenu",
+                          params: {
+                            slug: _vm.restaurant.slug,
+                            slugCourse: course.slug
+                          }
+                        },
+                        exact: ""
                       }
                     },
-                    exact: ""
-                  }
-                },
-                [
-                  _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
-                    _vm._v(_vm._s(course.name))
-                  ])
-                ]
+                    [
+                      _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                        _vm._v(_vm._s(course.name))
+                      ])
+                    ]
+                  )
+                }),
+                1
               )
-            }),
-            1
-          ),
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "my-4 text-center courses col-12 d-flex flex-column justify-content-center align-items-center "
+                },
+                _vm._l(_vm.courses, function(course) {
+                  return _c(
+                    "router-link",
+                    {
+                      key: course.id,
+                      staticClass: "courseName",
+                      attrs: {
+                        to: {
+                          name: "showMenu",
+                          params: {
+                            slug: _vm.restaurant.slug,
+                            slugCourse: course.slug
+                          }
+                        },
+                        exact: ""
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "black my-2 p-3 ps-0" }, [
+                        _vm._v(_vm._s(course.name))
+                      ])
+                    ]
+                  )
+                }),
+                1
+              ),
           _vm._v(" "),
           _c(
             "div",

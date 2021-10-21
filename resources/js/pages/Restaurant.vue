@@ -21,7 +21,7 @@
         <div class="row main-cont justify-content-between">
 
                
-            <div class="my-4 text-center courses col d-flex flex-column justify-content-center " :class="[!$route.params.slugCourse ? 'align-items-center' : '']" >
+            <div v-if="$route.params.slugCourse" class="my-4 text-center courses col-2 d-flex flex-column justify-content-center " >
 
                     
              
@@ -31,6 +31,19 @@
                     </router-link>
                
             </div>
+
+
+              <div v-else class="my-4 text-center courses col-12 d-flex flex-column justify-content-center align-items-center " >
+
+                    
+             
+                    <router-link v-for="course in courses" :key="course.id" class="courseName"
+                    :to="{name: 'showMenu', params: { slug: restaurant.slug, slugCourse: course.slug}}" exact>
+                        <span class="black my-2 p-3 ps-0">{{course.name}}</span>
+                    </router-link>
+               
+            </div>
+
 
             <div class="col-10 cont-right" >
             
