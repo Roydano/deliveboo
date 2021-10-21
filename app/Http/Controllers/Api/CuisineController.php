@@ -29,6 +29,21 @@ class CuisineController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getName($slug)
+    {
+        $cuisine = Cuisine::where('slug', $slug)->first();
+        $cuisine->img = url('storage/' . $cuisine->img);
+        return response()->json([
+            'success' => true,
+            'results' => $cuisine
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -62,16 +77,24 @@ class CuisineController extends Controller
 
         $restaurants = $cuisine->restaurants;
 
+        foreach($restaurants as $restaurant) {
+            $restaurant->img = url('storage/' . $restaurant->img);
+        }
+
         // collection - count - per page - current page - 
+        /*
         $curr_page = 1;
         $per_page= 20;
         $paginate = new LengthAwarePaginator(
             $restaurants->forPage($curr_page, $per_page),
             $restaurants->count(),
             $per_page,
-            $curr_page,
+            $curr_page);
+        
+            */
 
-        );
+
+        
 
       
         
@@ -79,7 +102,7 @@ class CuisineController extends Controller
             
         return response()->json([
             'success' => true,
-            'results' => $paginate
+            'results' => $restaurants
         ]);
 
 

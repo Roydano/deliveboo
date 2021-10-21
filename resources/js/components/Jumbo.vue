@@ -5,7 +5,7 @@
          <div class="overlay">
 
             <video autoplay muted loop>    
-                <source src="/storage/img/jumbovid.mp4" type="video/mp4">
+                <source  src="/storage/img/jumbovid.mp4" type="video/mp4">
             </video>
 
         
@@ -44,8 +44,9 @@ export default {
 }
 
     video {
-        height: 100%;
+   
         object-position: center;
+        min-width:100%;
     }
 
     .jumbo {

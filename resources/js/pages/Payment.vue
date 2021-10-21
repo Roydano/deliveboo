@@ -1,12 +1,10 @@
 <template>
     
     <div class="pay-sfondo text-center"> 
-        <h1 class="pay-tit">Pagamento effettuato con successo</h1>
-        <div class="road">
-            <img class="pupo"  src="storage/img/deliver.png" alt="">
-        </div>
-        <h4 class="text-white">Grazie per aver ordinato da Wanna Eat, il tuo ordine verrà consegnato il prima possibile</h4>
-        <button class="btn"><a href="/">Torna alla home</a></button>
+        <h1 class="pay-tit mb-2">Ordine effettuato con successo <i class="far fa-thumbs-up"></i></h1>
+        <img class="pupo"  src="storage/img/deliver.png" alt="">
+        <h4 class="text-white">Grazie per aver ordinato da Wanna Eat, il tuo ordine verrà consegnato il prima possibile!</h4>
+        <button class="btn back-to-home"><a href="/">Torna alla home</a></button>
     </div>
 </template>
 
@@ -27,9 +25,8 @@ export default {
 .pay-sfondo{
     width:100vw;
     height:100vh;
-    background-color: black;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    background-color:rgb(0, 183, 255);
+    overflow: hidden;
 }
 
 .pay-tit{
@@ -50,7 +47,10 @@ button{
 
 button:hover a{
     text-decoration:none;
-    color:#66b1f2;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding:10px;
+    border-radius:12px;
     
    
      
@@ -59,8 +59,6 @@ a{
     text-decoration:none;
     color:white;
 }
-
-.road {}
 
 .pupo {
     animation: pupo 6s ease-out infinite ;
@@ -77,9 +75,16 @@ a{
        top: 220px;
    }
    100% {
-      left: 77%;
+      left: 71%;
       top: 220px;
    }
+}
+
+
+.back-to-home a{
+    font-size:23px;
+    transition:0.5s;
+
 }
 
 </style>

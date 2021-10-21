@@ -16,7 +16,9 @@
         <div class="sidebar">
             <div class="sidebar-menu">
                <center class="profile pt-3">
-                  <img src="./img/default.jpg" alt="">
+
+                  <img src="storage/{{$restaurant->img}}" alt="">
+                  
                   <h5 class="card-title scritta "> {{ $restaurant->name }}</h5>
                 </center>
 
@@ -58,7 +60,7 @@
 
 
      <!-- main container start -->
-     <div style="background-image: url('{{$restaurant->img}}')" class="main-container">
+     <div style="background-image: url('storage/{{$restaurant->img}}')" class="main-container">
 
 
         <!-- inizio card -->
@@ -104,5 +106,6 @@
 <style scoped>
 body {
     overflow: hidden;
-} 
+    font-family:montserrat !important;
+}
 </style>

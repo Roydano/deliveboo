@@ -15992,9 +15992,8 @@ label #sidebar_btn:hover {
 }
 
 .card-dash {
-  background-color: rgba(0, 0, 0, 0.966);
-  width: calc(100vw - 950px);
-  height: calc(100vh - 500px);
+  background-color: rgba(0, 0, 0, 0.8);
+  width: calc(100vw - 550px);
   position: relative;
   margin-left: 22%;
   margin-right: 8%;
@@ -16005,6 +16004,7 @@ label #sidebar_btn:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-family: montserrat;
 }
 
 .card-text {
@@ -16113,14 +16113,6 @@ label #sidebar_btn:hover {
   font-size: 25px;
 }
 
-.trash {
-  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
-}
-
 .img-plate {
   height: 150px;
   margin: auto;
@@ -16171,6 +16163,14 @@ label #sidebar_btn:hover {
   margin-top: 20px;
   -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
   box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .edit-plate {
@@ -27429,9 +27429,8 @@ label #sidebar_btn:hover {
 }
 
 .card-dash {
-  background-color: rgba(0, 0, 0, 0.966);
-  width: calc(100vw - 950px);
-  height: calc(100vh - 500px);
+  background-color: rgba(0, 0, 0, 0.8);
+  width: calc(100vw - 550px);
   position: relative;
   margin-left: 22%;
   margin-right: 8%;
@@ -27442,6 +27441,7 @@ label #sidebar_btn:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-family: montserrat;
 }
 
 .card-text {
@@ -27550,14 +27550,6 @@ label #sidebar_btn:hover {
   font-size: 25px;
 }
 
-.trash {
-  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
-}
-
 .img-plate {
   height: 150px;
   margin: auto;
@@ -27608,6 +27600,14 @@ label #sidebar_btn:hover {
   margin-top: 20px;
   -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
   box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .edit-plate {
