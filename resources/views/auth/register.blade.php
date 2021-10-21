@@ -277,8 +277,8 @@ button:hover {
 }
 
 h2{
-    color:#bcbcbc;
-    /* margin-right:50px; */
+    color:black;
+    
     font-size:3vw;
 }
 

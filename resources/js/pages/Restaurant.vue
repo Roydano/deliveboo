@@ -10,7 +10,7 @@
         <section class="container head">
            
 
-                    <h3 class="text-center restName titolo">{{restaurant.name}}</h3>
+                    <h3  class="text-center restName titolo">{{restaurant.name}}</h3>
 
                     <div class="cuisine text-center">
                         <span class="mostra-cucine" v-for="cuisine in cuisines" :key="cuisine.id">{{cuisine.name}}</span>
@@ -21,7 +21,7 @@
         <div class="row main-cont justify-content-between">
 
                
-            <div class="my-4 text-center courses col-2 d-flex flex-column justify-content-center">
+            <div class="my-4 text-center courses col d-flex flex-column justify-content-center " :class="[!$route.params.slugCourse ? 'align-items-center' : '']" >
 
                     
              
@@ -32,7 +32,7 @@
                
             </div>
 
-            <div class="col-10 cont-right">
+            <div class="col-10 cont-right" >
             
                 <router-view v-slot="{MenuCourse}" :key="$route.params.slugCourse" class="showPlates">
                         <component :is="MenuCourse"/>
@@ -72,6 +72,9 @@ export default {
         
     },
     watch: {
+        $route(){
+            console.log($route.params.slugCourse + 'blablabla');
+        }
 
       
     },
@@ -105,6 +108,8 @@ export default {
         }
     }
 }
+
+
 </script>
 
 <style lang="scss" scoped>

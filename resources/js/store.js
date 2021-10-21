@@ -116,8 +116,10 @@ let store = {
 
         delete(state){
             state.cart = [];
-            this.addByCart(state.plateDiff);
-            state.diffRest = false;
+            state.num = 0;
+            state.cartTotal = 0;
+             state.currentRest = -1;
+             this.commit('saveToLocalStorage');
         },
         reset(state){
             state.cart= [];

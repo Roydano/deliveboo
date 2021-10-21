@@ -6819,6 +6819,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Cart',
   data: function data() {
@@ -6832,9 +6851,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {
+    // rest: function(){
+    //     if(this.rest) {
+    //         $('#modal').modal('show');
+    //     }
+    // }
     rest: function rest() {
       if (this.rest) {
-        $('#modal').modal('show');
+        // $('#modal').modal('show');
+        var el = document.getElementById('card');
+        el.classList.remove('d-none');
       }
     }
   },
@@ -6854,10 +6880,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     emptyAdd: function emptyAdd() {
-      this.$store["delete"]();
+      this.$store.commit('delete');
+      var el = document.getElementById('card');
+      el.classList.add('d-none');
     },
     onClickOutside: function onClickOutside() {
       this.showCart = false;
+    },
+    disappear: function disappear() {
+      var el = document.getElementById('card');
+      el.classList.add('d-none');
     }
   }
 });
@@ -7940,7 +7972,21 @@ __webpack_require__.r(__webpack_exports__);
     this.getCuisines();
     this.getCourses();
   },
-  watch: {},
+  watch: {
+    $route: function (_$route) {
+      function $route() {
+        return _$route.apply(this, arguments);
+      }
+
+      $route.toString = function () {
+        return _$route.toString();
+      };
+
+      return $route;
+    }(function () {
+      console.log($route.params.slugCourse + 'blablabla');
+    })
+  },
   methods: {
     getRestaurant: function getRestaurant() {
       var _this = this;
@@ -7984,6 +8030,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -12609,7 +12656,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-b7f93bea] {\n  position: relative;\n  transform: translateY(20px);\n}\n.tableFull[data-v-b7f93bea] {\n  width: 100%;\n}\n.tableFull tbody[data-v-b7f93bea] {\n  padding-top: 0.8rem;\n}\n.tableFull th[data-v-b7f93bea] {\n  padding: 0 20px;\n}\n#cart[data-v-b7f93bea] {\n  position: fixed;\n  right: 10px;\n  width: auto;\n  height: auto;\n  transition: all 0.2s linear;\n  color: black;\n}\n#cart .numb[data-v-b7f93bea] {\n  padding: 3px 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-size: 0.9rem;\n  color: white;\n  border-radius: 20px;\n}\n#cart .bg-btn[data-v-b7f93bea] {\n  background-color: whitesmoke;\n  opacity: 0.6;\n  border-radius: 20px;\n  display: inline;\n  cursor: pointer;\n  padding: 10px 15px;\n}\n#cart .bg-btn[data-v-b7f93bea]:hover {\n  opacity: 1;\n}\n#cart #showMenu .container[data-v-b7f93bea] {\n  border-radius: 20px;\n  background-color: whitesmoke;\n  padding: 15px;\n  position: absolute;\n  right: 10px;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\n#cart .pointer[data-v-b7f93bea] {\n  cursor: pointer;\n}\n#cart .imgCont[data-v-b7f93bea] {\n  width: 3.5rem;\n  height: 3.5rem;\n  border-radius: 50%;\n  overflow: hidden;\n  margin-bottom: 0.5rem;\n}\n#cart .imgPlate[data-v-b7f93bea] {\n  max-height: 100%;\n}", ""]);
+exports.push([module.i, "#card[data-v-b7f93bea] {\n  height: 100vh;\n  width: 100vw;\n  background-color: rgba(0, 0, 0, 0.9);\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#card .c-body[data-v-b7f93bea] {\n  border: 1px solid white;\n  max-width: 50%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.container[data-v-b7f93bea] {\n  position: relative;\n  transform: translateY(20px);\n}\n.tableFull[data-v-b7f93bea] {\n  width: 100%;\n}\n.tableFull tbody[data-v-b7f93bea] {\n  padding-top: 0.8rem;\n}\n.tableFull th[data-v-b7f93bea] {\n  padding: 0 20px;\n}\n#cart[data-v-b7f93bea] {\n  position: fixed;\n  right: 10px;\n  width: auto;\n  height: auto;\n  transition: all 0.2s linear;\n  color: black;\n}\n#cart .numb[data-v-b7f93bea] {\n  padding: 3px 10px;\n  background-color: rgba(0, 0, 0, 0.8);\n  font-size: 0.9rem;\n  color: white;\n  border-radius: 20px;\n}\n#cart .bg-btn[data-v-b7f93bea] {\n  background-color: whitesmoke;\n  opacity: 0.6;\n  border-radius: 20px;\n  display: inline;\n  cursor: pointer;\n  padding: 10px 15px;\n}\n#cart .bg-btn[data-v-b7f93bea]:hover {\n  opacity: 1;\n}\n#cart #showMenu .container[data-v-b7f93bea] {\n  border-radius: 20px;\n  background-color: whitesmoke;\n  padding: 15px;\n  position: absolute;\n  right: 10px;\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n}\n#cart .pointer[data-v-b7f93bea] {\n  cursor: pointer;\n}\n#cart .imgCont[data-v-b7f93bea] {\n  width: 3.5rem;\n  height: 3.5rem;\n  border-radius: 50%;\n  overflow: hidden;\n  margin-bottom: 0.5rem;\n}\n#cart .imgPlate[data-v-b7f93bea] {\n  max-height: 100%;\n}", ""]);
 
 // exports
 
@@ -12857,7 +12904,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#back[data-v-ccd76a46] {\n  padding-top: 80px;\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n  font-style: italic;\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  background-color: white;\n  position: fixed;\n  top: 80px;\n  z-index: 9;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\n.card[data-v-ccd76a46] {\n  background-color: rgba(0, 0, 0, 0.5);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n  font-style: italic;\n}\n.card[data-v-ccd76a46]:hover {\n  transform: translateY(5px);\n  background-color: #007bff;\n  opacity: 0.6;\n  transition: 0.5s ease-in-out;\n  color: white;\n}\nh2[data-v-ccd76a46] {\n  padding-bottom: 10px;\n  color: white;\n  font-style: italic;\n}\n.row[data-v-ccd76a46] {\n  justify-content: center;\n}\na[data-v-ccd76a46] {\n  text-decoration: none;\n}\nnav a[data-v-ccd76a46] {\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.freccia[data-v-ccd76a46] {\n  background-color: white;\n}\n.pag[data-v-ccd76a46] {\n  color: white;\n}\n.cover[data-v-ccd76a46] {\n  width: 80%;\n  padding-top: 10px;\n  font-size: 22px;\n  height: 150px;\n}\nh5[data-v-ccd76a46] {\n  font-size: 10px;\n}", ""]);
+exports.push([module.i, "#back[data-v-ccd76a46] {\n  padding-top: 80px;\n  min-height: calc(100vh - 80px);\n  background: url(\"https://source.unsplash.com/GXXYkSwndP4/1600x900\");\n  background-attachment: fixed;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 50vw rgba(0, 0, 0, 0.5);\n  font-style: italic;\n}\n.container[data-v-ccd76a46] {\n  overflow-y: hidden;\n}\nh1[data-v-ccd76a46] {\n  background-color: white;\n  position: fixed;\n  top: 80px;\n  z-index: 9;\n}\n.rests[data-v-ccd76a46] {\n  margin-top: 50px;\n  overflow-y: auto;\n  max-height: calc(100vh - 70px);\n}\nh2[data-v-ccd76a46] {\n  padding-bottom: 10px;\n  color: white;\n  font-style: italic;\n}\n.row[data-v-ccd76a46] {\n  justify-content: center;\n}\na[data-v-ccd76a46] {\n  text-decoration: none;\n}\nnav a[data-v-ccd76a46] {\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.freccia[data-v-ccd76a46] {\n  background-color: white;\n}\n.pag[data-v-ccd76a46] {\n  color: white;\n}\n.cover[data-v-ccd76a46] {\n  width: 80%;\n  padding-top: 10px;\n  font-size: 22px;\n  height: 150px;\n}\nh5[data-v-ccd76a46] {\n  font-size: 10px;\n}\n.card_restaurant[data-v-ccd76a46] {\n  padding: 0;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n  transition: all 0.3s ease-in-out;\n}\n.card_restaurant[data-v-ccd76a46]:hover {\n  transform: translateY(-5px);\n}\n.card_restaurant:hover .icons[data-v-ccd76a46] {\n  display: inline;\n}\n.card_restaurant:hover .restaurantImg[data-v-ccd76a46] {\n  filter: brightness(120%);\n}\n.restaurantImg[data-v-ccd76a46] {\n  width: 100%;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  transition: all 0.2s linear;\n}\n.cover_cont[data-v-ccd76a46] {\n  position: relative;\n}\n.cover_cont .icons[data-v-ccd76a46] {\n  display: none;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 4rem;\n  transition: all 0.3s ease-in-out;\n}\n.cover_cont .icons a[data-v-ccd76a46], .cover_cont .icons a[data-v-ccd76a46]:hover {\n  color: rgba(255, 255, 255, 0.8);\n}\n.name[data-v-ccd76a46] {\n  text-align: center;\n  position: absolute;\n  bottom: -5px;\n  padding: 5px 10px;\n  padding-top: 40px;\n  width: 100%;\n  background: black;\n  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 40%, black 100%);\n  font-size: 1rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.infos[data-v-ccd76a46] {\n  background: black;\n  background: linear-gradient(180deg, black 0%, rgba(0, 0, 0, 0.7) 50%, black 100%);\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  text-align: center;\n}\n.infos .descr[data-v-ccd76a46] {\n  font-style: italic;\n  font-size: 0.8rem;\n  text-align: center;\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}\n.showrestaurant[data-v-ccd76a46] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 99;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}", ""]);
 
 // exports
 
@@ -45303,54 +45350,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "cont" }, [
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "modal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "cambioRistorante",
-          "aria-hidden": "true",
-          "data-backdrop": "false"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("Cancella")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "button" },
-                    on: { click: _vm.emptyAdd }
-                  },
-                  [_vm._v("Prosegui")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    ),
+    _c("div", { staticClass: "card d-none", attrs: { id: "card" } }, [
+      _c("div", { staticClass: "text-center c-body" }, [
+        _c("div", { staticClass: "card-header text-white" }, [
+          _vm._v(
+            "\n                    Desideri cambiare ristorante?\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("p", { staticClass: "card-text text-white" }, [
+            _vm._v(
+              "Per aggiungere questo prodotto devi prima svuotare il carrello! Vuoi procedere?"
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.disappear()
+                }
+              }
+            },
+            [_vm._v("Annulla")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.emptyAdd()
+                }
+              }
+            },
+            [_vm._v("Svuota il Carrello")]
+          )
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -45415,7 +45459,7 @@ var render = function() {
               _c("div", { staticClass: "total-header-section w-100" }, [
                 _c("div", { staticClass: "cart-list text-center w-100" }, [
                   _c("table", { staticClass: "tableFull text-center" }, [
-                    _vm._m(2),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -45435,7 +45479,7 @@ var render = function() {
                                 })
                               ]),
                               _vm._v(
-                                "\n                                            \n                                            " +
+                                "\n\n                                            " +
                                   _vm._s(plate.name) +
                                   "\n                                        "
                               )
@@ -45533,39 +45577,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title" }, [
-        _vm._v("Desideri cambiare ristorante?")
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-body" }, [
-      _c("div", [
-        _vm._v("Aggiungendo questo prodotto, il cartello verrà svuotato.")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -47043,7 +47054,8 @@ var render = function() {
             "div",
             {
               staticClass:
-                "my-4 text-center courses col-2 d-flex flex-column justify-content-center"
+                "my-4 text-center courses col d-flex flex-column justify-content-center ",
+              class: [!_vm.$route.params.slugCourse ? "align-items-center" : ""]
             },
             _vm._l(_vm.courses, function(course) {
               return _c(
@@ -47122,61 +47134,76 @@ var render = function() {
   return _c("div", { attrs: { id: "back" } }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "container text-white" }, [
       _c(
         "div",
-        { staticClass: "row" },
+        { staticClass: "row row-cols-1 row-cols-md-3 row-cols-lg-4" },
         _vm._l(_vm.restaurants, function(restaurant) {
           return _c(
             "div",
-            {
-              key: restaurant.id,
-              staticClass: "col-12 col-md-5 col-lg-3 rest m-1 p-2",
-              attrs: { "data-sr": "" }
-            },
+            { key: restaurant.id, staticClass: "p-3 restaurant " },
             [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "restaurant",
-                      params: { slug: restaurant.slug }
-                    }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "card" }, [
-                    _c("img", {
-                      staticClass: "cover",
-                      attrs: { src: restaurant.img, alt: restaurant.name }
-                    }),
+              _c("div", { staticClass: "card_restaurant text-white" }, [
+                _c(
+                  "div",
+                  { staticClass: "cover_cont" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "restaurant",
+                            params: { slug: restaurant.slug }
+                          }
+                        }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "restaurantImg",
+                          attrs: { src: restaurant.img, alt: restaurant.id }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "card-body" }, [
-                      _c("h3", { staticClass: "card-title text-center" }, [
-                        _vm._v(_vm._s(restaurant.name))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-title text-center" }, [
-                        _vm._v(" " + _vm._s(restaurant.address))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "card-text" },
-                        _vm._l(_vm.cuisines, function(cuisine) {
-                          return _c("span", { key: cuisine.id }, [
-                            _vm._v(_vm._s(cuisine.name))
-                          ])
-                        }),
-                        0
-                      )
+                    _c(
+                      "div",
+                      { staticClass: "icons" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "restaurant",
+                                params: { slug: restaurant.slug }
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fas fa-eye show" })]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-uppercase name" }, [
+                      _c("span", [_vm._v(_vm._s(restaurant.name))])
                     ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "infos" }, [
+                  _c("div", { staticClass: "descr mt-2 mb-3 px-4" }, [
+                    _vm._v(_vm._s(restaurant.address))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "descr mt-2 mb-3 px-4" }, [
+                    _vm._v(_vm._s(restaurant.phone))
                   ])
-                ]
-              )
-            ],
-            1
+                ])
+              ])
+            ]
           )
         }),
         0
@@ -68266,8 +68293,10 @@ var store = {
     },
     "delete": function _delete(state) {
       state.cart = [];
-      this.addByCart(state.plateDiff);
-      state.diffRest = false;
+      state.num = 0;
+      state.cartTotal = 0;
+      state.currentRest = -1;
+      this.commit('saveToLocalStorage');
     },
     reset: function reset(state) {
       state.cart = [];

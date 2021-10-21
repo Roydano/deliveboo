@@ -288,9 +288,9 @@
 
 
 .card-dash{
-    background-color: rgba(0, 0, 0, 0.966);
+    background-color: rgba(0, 0, 0, 0.8);
     width: calc(100vw - 550px);
-    height: calc(100vh - 400px);
+    
     position: relative;
     margin-left: 22%;
     margin-right: 8%;
@@ -301,6 +301,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-family:montserrat;
 }
 
 .card-text{

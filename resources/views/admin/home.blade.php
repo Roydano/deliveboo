@@ -106,5 +106,6 @@
 <style scoped>
 body {
     overflow: hidden;
+    font-family:montserrat !important;
 }
 </style>
