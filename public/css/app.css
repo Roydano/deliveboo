@@ -18882,13 +18882,11 @@ a.no-style:hover {
 }
 
 .wrapper .sidebar {
-  background: #2F323A;
+  background: #000000;
   position: fixed;
   width: 250px;
-  height: 91%;
-  /* transition: 0.3s;
-  transition-property: width; */
   overflow-y: auto;
+  height: 100%;
 }
 
 .sidebar {
@@ -18976,8 +18974,13 @@ a.no-style:hover {
 }
 
 .main-container {
-  margin-left: 35%;
-  margin-top: 4%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: calc(100vh - 80px);
+  justify-content: space-around;
 }
 
 /* tendina */
@@ -19031,36 +19034,20 @@ label #sidebar_btn:hover {
   margin-left: 5px;
 }
 
-.main-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
 .card-dash {
-  margin-right: 150px;
-  display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
+  background-color: rgba(0, 0, 0, 0.966);
+  width: calc(100vw - 550px);
+  height: calc(100vh - 400px);
+  position: relative;
+  margin-left: 22%;
+  margin-right: 8%;
+  font-family: roboto;
   border-radius: 18px;
-  background: #22242A;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  transition: 0.5s ease;
-}
-
-.card-dash .date {
-  font-size: 35px;
-  color: red;
-}
-
-.card-image {
-  grid-area: image;
-  background: url(/images/frutta.jpg?4b7027234baa6253c0855775327620fa);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card-text {
@@ -19070,19 +19057,15 @@ label #sidebar_btn:hover {
 
 .card-text p {
   color: white;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 600;
   margin-top: 10px;
-}
-
-.card-text h2 {
-  margin-top: 0px;
-  font-size: 28px;
 }
 
 .card-text .date {
   color: #3498DB;
-  font-size: 21px;
+  font-size: 40px;
+  width: 100%;
 }
 
 .card-stats {
@@ -19090,9 +19073,9 @@ label #sidebar_btn:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #3498DB;
+  border-radius: 18px;
+  background: #00000011;
+  height: 150px;
 }
 
 .card-stats .stat {
@@ -19105,14 +19088,20 @@ label #sidebar_btn:hover {
 }
 
 .card-stats .type {
-  font-size: 11px;
+  font-size: 30px;
   font-weight: 300;
   text-transform: uppercase;
 }
 
 .card-stats .value {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 500;
+  color: white;
+  transition: 0.5s;
+}
+
+.card-stats .value:hover {
+  scale: 1.1;
 }
 
 .card-stats a {
@@ -19123,11 +19112,6 @@ label #sidebar_btn:hover {
 
 .card-stats a:hover {
   color: #22242A;
-}
-
-.card-stats .border {
-  border-left: 1px solid #3498DB;
-  border-right: 1px solid #3498DB;
 }
 
 .cars-stats .value sup {
@@ -19155,10 +19139,6 @@ label #sidebar_btn:hover {
   background: rgba(255, 255, 255, 0.356);
 }
 
-.btn-plates i:hover {
-  color: #fffb02;
-}
-
 .plates-restaurant .table {
   background-color: rgba(0, 0, 0, 0.911);
   color: white;
@@ -19170,12 +19150,6 @@ label #sidebar_btn:hover {
   position: relative;
   top: 10px;
   font-size: 25px;
-}
-
-.btn-plates i:hover {
-  scale: 1.2;
-  position: relative;
-  top: 10px;
 }
 
 .img-plate {
@@ -19228,6 +19202,14 @@ label #sidebar_btn:hover {
   margin-top: 20px;
   -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
   box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .edit-plate {
@@ -30333,13 +30315,11 @@ a.no-style:hover {
 }
 
 .wrapper .sidebar {
-  background: #2F323A;
+  background: #000000;
   position: fixed;
   width: 250px;
-  height: 91%;
-  /* transition: 0.3s;
-  transition-property: width; */
   overflow-y: auto;
+  height: 100%;
 }
 
 .sidebar {
@@ -30427,8 +30407,13 @@ a.no-style:hover {
 }
 
 .main-container {
-  margin-left: 35%;
-  margin-top: 4%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: calc(100vh - 80px);
+  justify-content: space-around;
 }
 
 /* tendina */
@@ -30482,36 +30467,20 @@ label #sidebar_btn:hover {
   margin-left: 5px;
 }
 
-.main-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
 .card-dash {
-  margin-right: 150px;
-  display: grid;
-  grid-template-columns: 500px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats";
+  background-color: rgba(0, 0, 0, 0.966);
+  width: calc(100vw - 550px);
+  height: calc(100vh - 400px);
+  position: relative;
+  margin-left: 22%;
+  margin-right: 8%;
+  font-family: roboto;
   border-radius: 18px;
-  background: #22242A;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  transition: 0.5s ease;
-}
-
-.card-dash .date {
-  font-size: 35px;
-  color: red;
-}
-
-.card-image {
-  grid-area: image;
-  background: url(/images/frutta.jpg?4b7027234baa6253c0855775327620fa);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card-text {
@@ -30521,19 +30490,15 @@ label #sidebar_btn:hover {
 
 .card-text p {
   color: white;
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 600;
   margin-top: 10px;
-}
-
-.card-text h2 {
-  margin-top: 0px;
-  font-size: 28px;
 }
 
 .card-text .date {
   color: #3498DB;
-  font-size: 21px;
+  font-size: 40px;
+  width: 100%;
 }
 
 .card-stats {
@@ -30541,9 +30506,9 @@ label #sidebar_btn:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background: #3498DB;
+  border-radius: 18px;
+  background: #00000011;
+  height: 150px;
 }
 
 .card-stats .stat {
@@ -30556,14 +30521,20 @@ label #sidebar_btn:hover {
 }
 
 .card-stats .type {
-  font-size: 11px;
+  font-size: 30px;
   font-weight: 300;
   text-transform: uppercase;
 }
 
 .card-stats .value {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 500;
+  color: white;
+  transition: 0.5s;
+}
+
+.card-stats .value:hover {
+  scale: 1.1;
 }
 
 .card-stats a {
@@ -30574,11 +30545,6 @@ label #sidebar_btn:hover {
 
 .card-stats a:hover {
   color: #22242A;
-}
-
-.card-stats .border {
-  border-left: 1px solid #3498DB;
-  border-right: 1px solid #3498DB;
 }
 
 .cars-stats .value sup {
@@ -30606,10 +30572,6 @@ label #sidebar_btn:hover {
   background: rgba(255, 255, 255, 0.356);
 }
 
-.btn-plates i:hover {
-  color: #fffb02;
-}
-
 .plates-restaurant .table {
   background-color: rgba(0, 0, 0, 0.911);
   color: white;
@@ -30621,12 +30583,6 @@ label #sidebar_btn:hover {
   position: relative;
   top: 10px;
   font-size: 25px;
-}
-
-.btn-plates i:hover {
-  scale: 1.2;
-  position: relative;
-  top: 10px;
 }
 
 .img-plate {
@@ -30679,6 +30635,14 @@ label #sidebar_btn:hover {
   margin-top: 20px;
   -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
   box-shadow: inset 5px 5px 10px 0px #FFFFFF, 5px 5px 10px 0px #000000;
+}
+
+.trash {
+  background-image: url(/images/trash.png?4ba4ed46d1a3616ec56ed3ecb863ba27);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
 }
 
 .edit-plate {

@@ -15,9 +15,7 @@
     background: rgba(255, 255, 255, 0.356);
 }
 
-.btn-plates i:hover {
-    color: rgb(255,251, 2);
-}
+
 
 .plates-restaurant .table {
     background-color: rgba(0, 0, 0, 0.911);
@@ -32,11 +30,7 @@
     font-size: 25px;
 }
 
-.btn-plates i:hover {
-    scale: 1.2;
-    position: relative;
-    top: 10px;
-}
+
 
 // grandezza  img pLATE RESTAURANT
 .img-plate {
@@ -99,6 +93,15 @@
     -o-box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
     box-shadow: inset 5px 5px 10px 0px #FFFFFF,5px 5px 10px 0px #000000;
 }
+.trash {
+    background-image: url(img/trash.png);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+
 
 .edit-plate {
     background: black;

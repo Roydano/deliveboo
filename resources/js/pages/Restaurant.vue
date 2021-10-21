@@ -126,7 +126,7 @@ export default {
 
 
     .grad {
-        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.7) 100%);
+        background:rgba(0,0,0,0.7);
         height: 100%;
     }
 

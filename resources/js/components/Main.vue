@@ -1,8 +1,7 @@
 <template>
     <div>
         
-                <router-view >
-                        
+                <router-view  :key="$route.params.slug" >
                 </router-view>
     </div>
 </template>

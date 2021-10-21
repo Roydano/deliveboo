@@ -24,18 +24,23 @@ const router = new VueRouter({
             component: Home,
             meta: {
                 footer: 1
-            }
+            },
+            children: [
+                {
+                path: '/cuisines',
+                name: 'cuisines', 
+                component: Cuisines,
+                children: [
+                    {
+                        path: ':slug',
+                        name: 'cuisine',
+                        component: Cuisine,
+                    },
+                ]
+                },
+            ]
         },
-        {
-            path: '/cuisines',
-            name: 'cuisines', 
-            component: Cuisines
-        },
-        {
-            path: '/cuisines/:slug',
-            name: 'cuisine', 
-            component: Cuisine
-        },
+        
         {
             path: '/restaurants',
             name: 'restaurants', 

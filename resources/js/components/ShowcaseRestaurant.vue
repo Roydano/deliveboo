@@ -1,7 +1,8 @@
 <template>
+<div>
 <div id="cuisines" class="sfondo position-absolute">
 
-    <div class="container h-100 d-flex align-content-center justify-content-center">
+    <div class="container h-100 d-flex align-content-center justify-content-center over">
 
     <div class="row justify-content-center align-items-center">
 
@@ -10,8 +11,8 @@
           <span class="link ">Le nostre cucine</span>
 
           <ul>
-            <li v-for="cuisine in cuisines" :key="cuisine.id">
-              <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}" class="betw">
+            <li v-for="cuisine in cuisines" :key="cuisine.id" class="betw">
+              <router-link :to="{name: 'cuisine', params: { slug: cuisine.slug}}" >
                 
                 <span class="link cucina">{{cuisine.name}}</span>
               </router-link>
@@ -23,10 +24,16 @@
     </div>
 
     </div>
+
   
 
 </div>
 
+    <div>
+    <router-view></router-view>
+    </div>
+
+</div>
 </template>
 
 <script>
@@ -102,7 +109,7 @@ export default {
 }
 
 .betw {
-    padding: 1.3vw;
+    margin: 0.3vw;
 }
 
 .link {
@@ -121,19 +128,35 @@ export default {
         font-size: 1.7rem;
         font-weight: 100;
         padding: .8vw;
+        transition: all .2s linear;
+        .router-link-active {
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.219);
+            text-decoration: none;
+        }
 
-        &:hover {
-            font-size: 2rem;
+        &:hover, .router-link-active {
+            font-size: 1.8rem;
             background: rgba(255, 255, 255, 0.219);
             text-decoration: none;
         }
         
     }
+.router-link-active{
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.219);
+            text-decoration: none;
+}
+.router-link-active:hover {
+            font-size: 1.8rem;
+            text-decoration: none;
+}
+
 .sfondo {
     width: 100%;
     top: 0;
     position: absolute;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.7) 100%);
+    background:rgba(0,0,0,0.7);
     height: 100%;
     z-index: 3;
     }
@@ -180,6 +203,10 @@ p{
 
 .container-fluid{
     padding-top:6rem;
+}
+
+.over {
+    overflow-y: auto;
 }
 
 .cartella{
