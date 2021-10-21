@@ -15937,6 +15937,7 @@ a.no-style:hover {
   align-items: center;
   overflow: hidden;
   height: calc(100vh - 80px);
+  justify-content: space-around;
 }
 
 /* tendina */
@@ -15992,8 +15993,8 @@ label #sidebar_btn:hover {
 
 .card-dash {
   background-color: rgba(0, 0, 0, 0.966);
-  width: calc(100vw - 250px);
-  height: calc(100vh - 200px);
+  width: calc(100vw - 950px);
+  height: calc(100vh - 500px);
   position: relative;
   margin-left: 22%;
   margin-right: 8%;
@@ -16001,7 +16002,9 @@ label #sidebar_btn:hover {
   border-radius: 18px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card-text {
@@ -16029,12 +16032,7 @@ label #sidebar_btn:hover {
   grid-template-rows: 1fr;
   border-radius: 18px;
   background: #00000011;
-  position: relative;
-  top: 1%;
   height: 150px;
-  position: relative;
-  top: 41%;
-  border: 1px solid white;
 }
 
 .card-stats .stat {
@@ -16056,13 +16054,11 @@ label #sidebar_btn:hover {
   font-size: 30px;
   font-weight: 500;
   color: white;
+  transition: 0.5s;
 }
 
 .card-stats .value:hover {
-  scale: 1.5;
-  position: relative;
-  bottom: 10px;
-  font-weight: 900;
+  scale: 1.1;
 }
 
 .card-stats a {
@@ -16073,11 +16069,6 @@ label #sidebar_btn:hover {
 
 .card-stats a:hover {
   color: #22242A;
-}
-
-.card-stats .border {
-  border-left: 1px solid #3498DB;
-  border-right: 1px solid #3498DB;
 }
 
 .cars-stats .value sup {
@@ -27383,6 +27374,7 @@ a.no-style:hover {
   align-items: center;
   overflow: hidden;
   height: calc(100vh - 80px);
+  justify-content: space-around;
 }
 
 /* tendina */
@@ -27438,8 +27430,8 @@ label #sidebar_btn:hover {
 
 .card-dash {
   background-color: rgba(0, 0, 0, 0.966);
-  width: calc(100vw - 250px);
-  height: calc(100vh - 200px);
+  width: calc(100vw - 950px);
+  height: calc(100vh - 500px);
   position: relative;
   margin-left: 22%;
   margin-right: 8%;
@@ -27447,7 +27439,9 @@ label #sidebar_btn:hover {
   border-radius: 18px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
-  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card-text {
@@ -27475,12 +27469,7 @@ label #sidebar_btn:hover {
   grid-template-rows: 1fr;
   border-radius: 18px;
   background: #00000011;
-  position: relative;
-  top: 1%;
   height: 150px;
-  position: relative;
-  top: 41%;
-  border: 1px solid white;
 }
 
 .card-stats .stat {
@@ -27502,13 +27491,11 @@ label #sidebar_btn:hover {
   font-size: 30px;
   font-weight: 500;
   color: white;
+  transition: 0.5s;
 }
 
 .card-stats .value:hover {
-  scale: 1.5;
-  position: relative;
-  bottom: 10px;
-  font-weight: 900;
+  scale: 1.1;
 }
 
 .card-stats a {
@@ -27519,11 +27506,6 @@ label #sidebar_btn:hover {
 
 .card-stats a:hover {
   color: #22242A;
-}
-
-.card-stats .border {
-  border-left: 1px solid #3498DB;
-  border-right: 1px solid #3498DB;
 }
 
 .cars-stats .value sup {

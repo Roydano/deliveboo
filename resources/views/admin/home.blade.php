@@ -75,7 +75,7 @@
                     
                     <div class="type"><i class="fas fa-utensils"></i></div>
                 </div>
-                <div class="stat border">
+                <div class="stat">
                 <a href=""><div class="value">Ordini </div></a>
                     <div class="type"><i class="fas fa-envelope"></i></div>
                 </div>
@@ -104,5 +104,5 @@
 <style scoped>
 body {
     overflow: hidden;
-}
+} 
 </style>

@@ -7600,6 +7600,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Payment"
 });
@@ -12763,7 +12764,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-be3450e6] {\n  font-style: italic;\n}\n.pay-sfondo[data-v-be3450e6] {\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n}\n.pay-tit[data-v-be3450e6] {\n  margin-top: 8%;\n  color: white;\n}\nimg[data-v-be3450e6] {\n  height: 450px;\n}\nbutton[data-v-be3450e6] {\n  padding: 10px;\n  border-radius: 10%;\n  margin-top: 30px;\n}\nbutton:hover a[data-v-be3450e6] {\n  text-decoration: none;\n  color: #66b1f2;\n}\na[data-v-be3450e6] {\n  text-decoration: none;\n  color: white;\n}", ""]);
+exports.push([module.i, "*[data-v-be3450e6] {\n  font-style: italic;\n}\n.pay-sfondo[data-v-be3450e6] {\n  width: 100vw;\n  height: 100vh;\n  background-color: black;\n  overflow-x: hidden;\n  overflow-y: hidden;\n}\n.pay-tit[data-v-be3450e6] {\n  margin-top: 8%;\n  color: white;\n}\nimg[data-v-be3450e6] {\n  height: 450px;\n}\nbutton[data-v-be3450e6] {\n  padding: 10px;\n  border-radius: 10%;\n  margin-top: 400px;\n}\nbutton:hover a[data-v-be3450e6] {\n  text-decoration: none;\n  color: #66b1f2;\n}\na[data-v-be3450e6] {\n  text-decoration: none;\n  color: white;\n}\n.pupo[data-v-be3450e6] {\n  -webkit-animation: pupo-data-v-be3450e6 6s ease-out infinite;\n          animation: pupo-data-v-be3450e6 6s ease-out infinite;\n  position: absolute;\n  left: 0;\n  top: 220px;\n  height: 350px;\n  margin: 50px;\n}\n@-webkit-keyframes pupo-data-v-be3450e6 {\n0% {\n    left: o;\n    top: 220px;\n}\n100% {\n    left: 77%;\n    top: 220px;\n}\n}\n@keyframes pupo-data-v-be3450e6 {\n0% {\n    left: o;\n    top: 220px;\n}\n100% {\n    left: 77%;\n    top: 220px;\n}\n}", ""]);
 
 // exports
 
@@ -46528,7 +46529,12 @@ var staticRenderFns = [
         _vm._v("Pagamento effettuato con successo")
       ]),
       _vm._v(" "),
-      _c("img", { attrs: { src: "storage/img/deliver.png", alt: "" } }),
+      _c("div", { staticClass: "road" }, [
+        _c("img", {
+          staticClass: "pupo",
+          attrs: { src: "storage/img/deliver.png", alt: "" }
+        })
+      ]),
       _vm._v(" "),
       _c("h4", { staticClass: "text-white" }, [
         _vm._v(
